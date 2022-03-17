@@ -1,10 +1,9 @@
-// npmimport { useState, useEffect } from "react";
 import ProjectList from "./ProjectList";
 import useFetch from "./useFetch";
 
 const Home = () => {
 
-   const {data: projects, isLoading, error} = useFetch('http://localhost:8000/projects');
+   const {data: projects, isLoading, error} = useFetch('http://localhost:8000/projects'); /* data is projects because info is found in db within projects */
 
 
     // // While pressing Project Room button, redirects to that page

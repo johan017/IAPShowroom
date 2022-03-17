@@ -12,8 +12,12 @@ const useFetch = (url) => {
     // Fire a function that has to run in every re-render (can be used to fetch information)
 
     useEffect(() => {
+
+        const abortCtrl = new AbortController();
+
+
         setTimeout(() => { // setTimeout is for testing purposes, simulates functional loading time; delete for deployment
-          fetch(url) /*endpoint in fetch()*/
+          fetch(url, {signal: abortCtrl.signal}) /*endpoint in fetch()*/
               .then(res =>{
                   console.log(res);
                   if(!res.ok){ //response coming from page is false - there is an error
@@ -29,11 +33,16 @@ const useFetch = (url) => {
               }) 
               //catch any kind of networks errors (e.g. not being able to conect to server)
               .catch(error =>{
-                  console.log(error.message);
-                  setError(error.message);
-                  setIsLoading(false);
+                  if(error.name === 'AbortError'){
+                      console.log('fetch aborted');
+                  }else{
+                    setError(error.message);
+                    setIsLoading(false);
+                  }
               })
         }, 1000);
+
+        return () => abortCtrl.abort();
       }, [url]);   // Dependency array [dependency] in this case only runs with 1st render, information inside runs if dependency changes
 
     return {data, isLoading, error}

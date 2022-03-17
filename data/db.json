@@ -1,29 +1,51 @@
 {
-    "projects":[
-        {
-            "title": "Project Name 1",
-            "body": "Project Abstract 1",
-            "author": "Project Members 1",
-            "id": 1
-        },
-        {
-            "title": "Project Name 2",
-            "body": "Project Abstract 2",
-            "author": "Project Members 2",
-            "id": 2
-        }, 
-        {
-            "title": "Project Name 3",
-            "body": "Project Abstract 3",
-            "author": "Project Members 3",
-            "id": 3
-        },
-        {
-            "title": "Project Name 4",
-            "body": "Project Abstract 4",
-            "author": "Project Members 4",
-            "id": 4
-        }
-        
-    ]
+  "projects": [
+    {
+      "title": "Project Name 1",
+      "body": "Project Abstract 1",
+      "author": "Project Members 1",
+      "id": 1
+    },
+    {
+      "title": "Project Name 2",
+      "body": "Project Abstract 2",
+      "author": "Project Members 2",
+      "id": 2
+    },
+    {
+      "title": "Project Name 3",
+      "body": "Project Abstract 3",
+      "author": "Project Members 3",
+      "id": 3
+    },
+    {
+      "title": "Project Name 4",
+      "body": "Project Abstract 4",
+      "author": "Project Members 4",
+      "id": 4
+    }
+  ],
+  "events": [
+    {
+      "title": "Event1",
+      "startTime": "9:00AM",
+      "endTime": "9:30AM",
+      "presenters": "mario",
+      "id": 1
+    },
+    {
+      "title": "Event 2",
+      "startTime": "10:00AM",
+      "endTime": "10:30AM",
+      "presenters": "yoshi",
+      "id": 2
+    },
+    {
+      "title": "Event 3",
+      "startTime": "10:30AM",
+      "endTime": "11:00AM",
+      "presenters": "yoshi",
+      "id": 3
+    }
+  ]
 }

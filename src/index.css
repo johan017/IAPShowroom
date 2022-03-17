@@ -6,6 +6,8 @@
   font-family: "Quicksand";
   color: #333;
 }
+
+/*--------------HOME PAGE - NAVIGATION BAR--------------*/
 .navbar {
   padding: 20px;
   display: flex;
@@ -14,20 +16,25 @@
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
 }
+/*color for IAPShowroom title - must be change with logo*/
 .navbar h1 {
   color: #f1356d;
 }
 .navbar .links {
   margin-left: auto;
 }
+/*how close the navigation buttons are from each other*/
 .navbar a {
   margin-left: 16px;
   text-decoration: none;
   padding: 6px;
 }
+/*Changes color to the navigation buttons when hovering*/
 .navbar a:hover {
   color: #f1356d;
 }
+
+/*--------------HOME PAGE - Box of content for Project listed--------------*/
 .content {
   max-width: 600px;
   margin: 40px auto;
@@ -35,7 +42,7 @@
   
 }
 
-/* blog previews / list */
+/*--------------HOME PAGE - project list--------------*/
 .project-preview {
   padding: 10px 100px;
   margin: 20px 0;
@@ -52,7 +59,7 @@
   margin-bottom: 8px;
 }
 
-/*Project button*/
+/*--------------HOME PAGE - Project button--------------*/
 .project-preview button {
   font-size: 10px;
   color: #14a932;
@@ -63,4 +70,109 @@
 .home {
   border-bottom: 1px solid #cc1d1d;
 
+}
+
+/*--------------HOME PAGE - eliminates the underline of the link for each project--------------*/
+.project-preview a{
+  text-decoration: none; 
+}
+
+/*--------------PROJECT ROOM PAGE--------------*/
+.project-room h2{
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 10px;
+}
+
+.project-room div{
+
+  margin: 20px 0;
+}
+/* 
+.project-room button{
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+} */
+
+/*--------------SCHEDULE PAGE--------------*/
+.event-list-preview {
+  padding: 10px 100px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+
+}
+.event-list-preview a{
+  text-decoration: none; 
+}
+
+
+/*--------------ADD a New EVENT  BUTTON IN SCHEDULE--------------*/
+
+.schedule button{
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+/*--------------ADD EVENT FORM IN SCHEDULE--------------*/
+.addNewEvent {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.addNewEvent label{
+  text-align: left;
+  display: block;
+}
+
+.addNewEvent h2{
+  font-size: 20px;
+  color:#f1356d;
+  margin-bottom: 30px;
+}
+
+.addNewEvent input, .addNewEvent textarea, .addNewEvent select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+
+.addNewEvent button{
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/*--------------EVENT DETAIL PAGE--------------*/
+.event-details h2{
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 10px;
+}
+
+.event-details div{
+  margin: 20px 0;
+}
+
+.event-details button{
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }
