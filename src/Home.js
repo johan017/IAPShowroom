@@ -18,7 +18,11 @@ const Home = () => {
             {/* conditionally output parts of template ; if left is true then it outputs the right */}
           {error && <div> {error} </div>}
           {isLoading && <div> Loading...</div>}
-          {projects && <ProjectList projects={projects} title="Schedule"></ProjectList>}
+          <h1>Announcements</h1>
+          <div className="home-date-sched">
+            <h2> Schedule March23,2022</h2>
+          </div>
+          {projects && <ProjectList projects={projects} ></ProjectList>}
         </div>   
     );
 }

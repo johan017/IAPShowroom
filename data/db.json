@@ -46,6 +46,146 @@
       "endTime": "11:00AM",
       "presenters": "yoshi",
       "id": 3
+    },
+    {
+      "title": "asgrq",
+      "startTime": "ferfqwa",
+      "endTime": "wfeca",
+      "presenters": "mario",
+      "id": 4
+    },
+    {
+      "title": "vssssssssssssssssss",
+      "startTime": "vds",
+      "endTime": "avac",
+      "presenters": "Do not Disclose",
+      "id": 5
     }
+  ],
+  "usersLoggedIn": [
+    {
+      "email": "ashley.ortiz14@upr.edu",
+      "password": "FEwa",
+      "id": 1
+    },
+    {
+      "email": "uaIECKJ@oor.com",
+      "password": "acdsacvwsd",
+      "id": 2
+    },
+    {
+      "email": "aCDc@jad.com",
+      "password": "adevwA",
+      "id": 3
+    },
+    {
+      "email": "ashley.ortiz14@upr.edu",
+      "password": "2rt43",
+      "id": 4
+    },
+    {
+      "email": "ashley.ortiz14@upr.edu",
+      "password": "r3c2",
+      "id": 5
+    },
+    {
+      "email": "ashley.ortiz14@upr.edu",
+      "password": "iydkhg",
+      "id": 6
+    },
+    {
+      "email": "ashleyjohan17@gmail.com",
+      "password": "acdSDVSV",
+      "id": 7
+    }
+  ],
+  "usersSignUp": [
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "password": "",
+      "gender": "",
+      "role": "",
+      "gradDate": "",
+      "researchP": "Advisor.checkedItems",
+      "department": "",
+      "company": "",
+      "id": 1
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "password": "",
+      "gender": "",
+      "role": "",
+      "gradDate": "",
+      "researchP": "",
+      "department": "",
+      "company": "",
+      "id": 2
+    }
+  ],
+  "logos": [
+    {
+      "company": "Raytheon",
+      "url": "https://prd-sc101-cdn.rtx.com/-/media/themes/raytheon-technologies/rtx-shared/rtx-theme/images/rtx_logo.svg?rev=24a009be7bdc4533acce753c1fcd97a2&w=354&hash=21393B9572D57DEE7D128DB3ACE1FE4B",
+      "id": 1
+    },
+    {
+      "company": "L3Harris",
+      "url": "https://www.logo.wine/a/logo/L3Harris_Technologies/L3Harris_Technologies-Logo.wine.svg",
+      "id": 2
+    },
+    {
+      "company": "Lincoln Laboratory",
+      "url": "https://federallabs.org/sites/default/files/field/image/lincoln_lab_logo.png",
+      "id": 3
+    },
+    {
+      "company": "Texas Instrument",
+      "url": "https://www.ti.com/etc/designs/ti/images/ui/ic-logo.svg",
+      "id": 4
+    },
+    {
+      "company": "Lockheed Martin",
+      "url": "https://assets.weforum.org/organization/image/responsive_small_webp_XN44VMyvdqSvieG1igti5W-x_6Wva6yg-Up3tZCEjRg.webp",
+      "id": 5
+    },
+    {
+      "company": "General Motors",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/General_Motors_logo.svg/200px-General_Motors_logo.svg.png",
+      "id": 6
+    },
+    {
+      "company": "Capital One",
+      "url": "https://d1.awsstatic.com/Customer%20References%20Directory%20Logos/Capital-One_Logo_%401x.0aef0b700254d3f618484ff03747100753de3d64.png",
+      "id": 7
+    },
+    {
+      "company": "Verizon",
+      "url": "https://cdn-fsly.yottaa.net/555a305b2bb0ac71b9002d22/10ec148069090139fdee0ead9ecbf798.yottaa.net/v~4b.29d.0.0/tenantlogos/6461.png?yocs=D_NA_",
+      "id": 8
+    }
+  ], 
+  "departments":[
+    {
+      "name": "ICOM",
+      "id": 1
+    },
+    {
+      "name": "INEL",
+      "id": 2
+    },
+    {
+      "name": "INSO",
+      "id": 3
+    },
+    {
+      "name": "CIIC",
+      "id": 4
+    }
+
   ]
 }

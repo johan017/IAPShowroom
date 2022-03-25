@@ -17,7 +17,7 @@ const ProjectList = ({projects, title}) => {
             <div className="project-preview" key ={project.id}>
                 <Link to ={`/project_room/${project.id}`}> 
                     <h2>{project.title}</h2>
-                    <p>Written by {project.author} </p>
+                    {/* <p>Written by {project.author} </p> */}
                 </Link>
                
             {/* Button to enter that specific project room  */}

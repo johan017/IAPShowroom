@@ -8,6 +8,11 @@ import NewEvent from './NewEvent';
 import Schedule from './Schedule';
 import EventDetails from './EventDetails';
 import NotFound from './NotFound';
+import Login from './Login';
+import UserSignUpForm from './UserSignUpForm';
+import Stats from './Stats';
+import Sponsors from './Sponsors';
+
 
 
 function App() {
@@ -17,12 +22,20 @@ function App() {
 
 
   return (
+    
     <Router>
       <div className="App"> 
         <Navbar></Navbar> {/*Navigation bar*/}
+
         <div className="content">
           <Switch>
-            <Route exact path="/">
+            <Route exact path="/"> 
+              <Login/> {/*Login component*/}
+            </Route>
+            <Route path="/signUp"> 
+              <UserSignUpForm/> {/*Sign Up component*/}
+            </Route>
+            <Route path="/home">
               <Home></Home> {/*Home component*/}
             </Route>
             <Route path="/stage">
@@ -43,6 +56,13 @@ function App() {
             <Route exact path="/schedule"> 
               <Schedule/> {/*NewEvent component*/}
             </Route>
+            <Route path="/stats">
+              <Stats/> {/*Stage component*/}
+            </Route>
+            <Route path="/sponsors">
+              <Sponsors/> {/*Rooms component*/}
+            </Route>
+            
             <Route path="*"> 
               <NotFound/> {/*NotFound component*/}
             </Route>

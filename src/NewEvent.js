@@ -7,7 +7,7 @@ const NewEvent = () => {
     const [title, setTitle] = useState('');
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
-    const [presenters, setPresenters] = useState('mario');
+    const [presenters, setPresenters] = useState('');
     const [isLoading, setIsLoading] = useState(false); // when first loading the page the POST request is not being made; only after sumbitting form is when request is made
     const history = useHistory();
 
@@ -61,6 +61,8 @@ const NewEvent = () => {
                     onChange = {(e) => setPresenters(e.target.value)}
 
                 > 
+                    <option value="" placeholder="Select Presenter">Select Presenter</option> {/* Verify how to make this entry invalid if left when submitting*/}
+                    <option value="Do not Disclose" placeholder="Select Gender">Don't Disclose</option>
                     <option value="mario">mario</option>
                     <option value="yoshi">yoshi</option>
                 </select> 
