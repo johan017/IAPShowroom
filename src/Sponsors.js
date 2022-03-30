@@ -1,10 +1,9 @@
 import useFetch from "./useFetch";
-import LogoList from "./LogoList";
 
 
 const Sponsors = () => {
 
-    const {data: logos, error, isLoading} = useFetch('http://localhost:8000/logos'); /* data is project because we want the id of a singular project */
+    const {data: uploads, error, isLoading} = useFetch('http://localhost:8000/uploads'); /* data is project because we want the id of a singular project */
 
     return ( 
         <div className="sponsors">
@@ -13,7 +12,16 @@ const Sponsors = () => {
             {/* <h2> SPONSORS </h2> */}
             <h1>Thank You to Our Sponsors</h1>
 
-            {logos && <LogoList logos={logos} ></LogoList>}
+            {uploads && uploads.map((upload) =>(
+            // Project list for schedule view in Lobby 
+            <div className="logo-preview" key ={upload.upload_id}>
+               <img
+                src = {upload.upload_location}
+                alt="display image"
+                />
+            </div>
+            
+        ))}
 
         </div>
 

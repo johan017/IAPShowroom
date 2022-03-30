@@ -1,17 +1,34 @@
+import Login from './Login';
+import GeneralSignUp from './UserSignUp/GeneralSignUp';
 import Navbar from './Navbar';
 import Home from './Home';
+import Stage from './Stage';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Rooms from './Rooms';
-import Stage from './Stage';
 import ProjectRoom from './ProjectRoom';
-import NewEvent from './NewEvent';
-import Schedule from './Schedule';
-import EventDetails from './EventDetails';
+
 import NotFound from './NotFound';
-import Login from './Login';
-import UserSignUpForm from './UserSignUpForm';
+
 import Stats from './Stats';
 import Sponsors from './Sponsors';
+import Schedule from './Schedule';
+import ScheduleDay from './ScheduleDay';
+import ScheduleCreate from './ScheduleCreate';
+import ConferenceDetails from './ConferenceDetails';
+import ScheduleNewEvent from './ScheduleNewEvent';
+import EventDetails from './EventDetails';
+import ScheduleReview from './ScheduleReview';
+import ScheduleUpdateEvent from './ScheduleUpdateEvent';
+
+// import StudentResearcher from './UserSignUp/StudentResearcher';
+// import CompanyRepresentative from './UserSignUp/CompanyRepresentative';
+// import Advisor from './UserSignUp/Advisor';
+// import VerifyInformation from './UserSignUp/VerifyInformation';
+import AccountCreated from './UserSignUp/AccountCreated';
+import SignUpPage from './UserSignUp/SignUpPage';
+
+import Calendar from './Calendar';
+
 
 
 
@@ -22,56 +39,115 @@ function App() {
 
 
   return (
+    <div className="App"> 
     
-    <Router>
-      <div className="App"> 
-        <Navbar></Navbar> {/*Navigation bar*/}
+     
+      <Router>
+        <Switch>
+          <Route exact path="/"> 
+            <Login/> {/*Login component*/}
+          </Route>
+          <Route path="/signUp"> 
+           <SignUpPage/> {/*Sign Up component*/}
+          </Route>
+                 
+          {/* Schedule Review  component - view schedule before submitting* */}
+          <Route path="/accountCreated"> 
+            <AccountCreated/> 
+          </Route>
 
-        <div className="content">
-          <Switch>
-            <Route exact path="/"> 
-              <Login/> {/*Login component*/}
-            </Route>
-            <Route path="/signUp"> 
-              <UserSignUpForm/> {/*Sign Up component*/}
-            </Route>
-            <Route path="/home">
-              <Home></Home> {/*Home component*/}
-            </Route>
-            <Route path="/stage">
-              <Stage/> {/*Stage component*/}
-            </Route>
-            <Route path="/rooms">
-              <Rooms/> {/*Rooms component*/}
-            </Route>
-            <Route path="/project_room/:id"> 
-              <ProjectRoom/> {/*Project Room component*/}
-            </Route>
-            <Route path="/schedule/new_event"> 
-              <NewEvent/> {/*NewEvent component*/}
-            </Route>
-            <Route path="/events_details/:id"> 
-              <EventDetails/> {/*Event Details component*/}
-            </Route>
-            <Route exact path="/schedule"> 
-              <Schedule/> {/*NewEvent component*/}
-            </Route>
-            <Route path="/stats">
-              <Stats/> {/*Stage component*/}
-            </Route>
-            <Route path="/sponsors">
-              <Sponsors/> {/*Rooms component*/}
-            </Route>
-            
-            <Route path="*"> 
-              <NotFound/> {/*NotFound component*/}
-            </Route>
+
+            <div className="content">
+              <Navbar></Navbar> {/*Navigation bar*/}
+      
+                {/*Home component*/}
+                <Route path="/home">
+                  <Home/>
+                </Route>
+
+                {/*Stage component*/}
+                <Route path="/stage">
+                  <Stage/> 
+                </Route>
+
+                {/*Rooms component*/}
+                <Route path="/rooms">
+                  <Rooms/> 
+                </Route>
+
+                {/*Project Room component*/}
+                <Route path="/project_room/:id"> 
+                  <ProjectRoom/> 
+                </Route>
+
+                {/*Stats component*/}
+                <Route path="/stats">
+                  <Stats/> 
+                </Route>
+
+                {/*Sponsors component*/}
+                <Route path="/sponsors">
+                  <Sponsors/> 
+                </Route>           
+
+                {/*Schedule component - schedule of conferencia*/}
+                <Route exact path="/schedule">
+                  <Schedule/>
+                </Route>
+                            
+                {/* Create Schedule component - organize events and projects (calendar component)*/}
+                <Route exact path="/create_day"> 
+                  <ScheduleDay/> 
+                </Route>
+                
+                <Route exact path="/conference_details/:id"> 
+                  <ConferenceDetails/> {/*Event Details component*/}
+                </Route>
+                
+                {/*Create Schedule component - organize events and projects (calendar component)*/}
+                <Route exact path="/create_schedule"> 
+                  <ScheduleCreate/> 
+                </Route>
+                
+                {/*NewEvent component - events created manually*/}
+                <Route exact path="/new_event"> 
+                  <ScheduleNewEvent/> 
+                </Route>
+
+                {/*NewEvent component - events created manually*/}
+                <Route exact path="/update_event/:id"> 
+                  <ScheduleUpdateEvent/> 
+                </Route>
+
+                <Route exact path="/event_details/:id"> 
+                  <EventDetails/> {/*Event Details component*/}
+                </Route>
+
+                {/* Schedule Review  component - view schedule before submitting* */}
+                <Route exact path="/schedule/review"> 
+                  <ScheduleReview/> 
+                </Route>
+                
+                {/* Calendar  component - view schedule before submitting* */}
+                <Route path="/calendar"> 
+                  <Calendar/> 
+                </Route>
+
+                
+                
+               
+              </div> 
+              <Route path="*"> 
+                <NotFound/> {/*NotFound component*/}
+              </Route> 
           </Switch>     
           {/* <p> Liked {likes} times </p> </div>  {/* to create a clickable link (like in documents) */}
-        </div>
+       
           {/*<a href={FEAV}>FRONT END ADMIN VIEW</a>  */}
-       </div>
-    </Router>   
+        </Router> 
+        
+      </div>
+    
   );
 }
 

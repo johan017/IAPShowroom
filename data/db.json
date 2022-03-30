@@ -2,25 +2,25 @@
   "projects": [
     {
       "title": "Project Name 1",
-      "body": "Project Abstract 1",
+      "abstract": "Project Abstract 1",
       "author": "Project Members 1",
       "id": 1
     },
     {
       "title": "Project Name 2",
-      "body": "Project Abstract 2",
+      "abstract": "Project Abstract 2",
       "author": "Project Members 2",
       "id": 2
     },
     {
       "title": "Project Name 3",
-      "body": "Project Abstract 3",
+      "abstract": "Project Abstract 3",
       "author": "Project Members 3",
       "id": 3
     },
     {
       "title": "Project Name 4",
-      "body": "Project Abstract 4",
+      "abstract": "Project Abstract 4",
       "author": "Project Members 4",
       "id": 4
     }
@@ -48,18 +48,149 @@
       "id": 3
     },
     {
-      "title": "asgrq",
+      "title": "Event 4",
       "startTime": "ferfqwa",
       "endTime": "wfeca",
       "presenters": "mario",
       "id": 4
     },
     {
-      "title": "vssssssssssssssssss",
+      "title": "Event 5",
       "startTime": "vds",
       "endTime": "avac",
       "presenters": "Do not Disclose",
       "id": 5
+    },
+    {
+      "title": "Event 6",
+      "startTime": "z",
+      "endTime": "dad",
+      "presenters": "",
+      "id": 6
+    },
+    {
+      "title": "Event 7",
+      "date": "",
+      "startTime": "",
+      "timeLimit": "",
+      "academicSession": "",
+      "id": 7
+    },
+    {
+      "title": "Event 8",
+      "date": "",
+      "startTime": "",
+      "timeLimit": "",
+      "academicSession": "",
+      "id": 8
+    },
+    {
+      "title": "Event 9",
+      "date": "",
+      "startTime": "",
+      "timeLimit": "",
+      "academicSession": "",
+      "id": 9
+    },
+    {
+      "title": "Event 10",
+      "date": "",
+      "startTime": "",
+      "timeLimit": "",
+      "academicSession": "",
+      "id": 10
+    },
+    {
+      "title": "Event 11",
+      "date": "",
+      "startTime": "",
+      "timeLimit": "",
+      "academicSession": "",
+      "id": 11
+    },
+    {
+      "title": "Event 12",
+      "date": "2022-03-16T13:23",
+      "startTime": "2022-03-10T13:23",
+      "endTime": "2022-05-10T15:23",
+      "presenters": "yoshi",
+      "id": 12
+    },
+    {
+      "title": "Event 13",
+      "date": "2022-03-16",
+      "startTime": "15:26",
+      "timeLimit": "2022-03-10T13:23",
+      "academicSession": "2021 - 2022",
+      "id": 13
+    },
+    {
+      "date": "2022-03-16",
+      "startTime": "19:40",
+      "timeLimit": "2022-03-10T07:40",
+      "academicSession": "2021 - 2022",
+      "id": 14
+    },
+    {
+      "day": 1,
+      "date": "2022-03-02",
+      "startTime": "07:44",
+      "timeLimit": "2022-03-14T07:41",
+      "academicSession": "",
+      "id": 15
+    },
+    {
+      "day": 2,
+      "date": "2022-03-02",
+      "startTime": "07:44",
+      "timeLimit": "2022-03-14T07:41",
+      "academicSession": "",
+      "id": 16
+    },
+    {
+      "day": 1,
+      "date": "2022-03-09",
+      "startTime": "07:49",
+      "timeLimit": "2022-03-16T07:47",
+      "academicSession": "2021 - 2022",
+      "id": 17
+    },
+    {
+      "day": 2,
+      "date": "2022-03-31",
+      "startTime": "07:52",
+      "timeLimit": "2022-04-08T10:49",
+      "academicSession": "2020 - 2021",
+      "id": 18
+    },
+    {
+      "day": 1,
+      "date": "2022-03-03",
+      "startTime": "07:53",
+      "timeLimit": "2022-03-23T07:50",
+      "academicSession": "2021 - 2022",
+      "id": 19
+    },
+    {
+      "title": "dfd",
+      "startTime": "dsc",
+      "endTime": "cs",
+      "presenters": "",
+      "id": 20
+    },
+    {
+      "title": "cce",
+      "startTime": "ce",
+      "endTime": "ce",
+      "presenters": "",
+      "id": 21
+    },
+    {
+      "title": "ce",
+      "startTime": "rc",
+      "endTime": "ccr",
+      "presenters": "",
+      "id": 22
     }
   ],
   "usersLoggedIn": [
@@ -97,6 +228,16 @@
       "email": "ashleyjohan17@gmail.com",
       "password": "acdSDVSV",
       "id": 7
+    },
+    {
+      "email": "ashley.ortiz14@upr.edu",
+      "password": "fsgt",
+      "id": 8
+    },
+    {
+      "email": "ashleyjohan17@gmail.com",
+      "password": "fwe4fw",
+      "id": 9
     }
   ],
   "usersSignUp": [
@@ -125,51 +266,218 @@
       "department": "",
       "company": "",
       "id": 2
-    }
-  ],
-  "logos": [
-    {
-      "company": "Raytheon",
-      "url": "https://prd-sc101-cdn.rtx.com/-/media/themes/raytheon-technologies/rtx-shared/rtx-theme/images/rtx_logo.svg?rev=24a009be7bdc4533acce753c1fcd97a2&w=354&hash=21393B9572D57DEE7D128DB3ACE1FE4B",
-      "id": 1
     },
     {
-      "company": "L3Harris",
-      "url": "https://www.logo.wine/a/logo/L3Harris_Technologies/L3Harris_Technologies-Logo.wine.svg",
-      "id": 2
-    },
-    {
-      "company": "Lincoln Laboratory",
-      "url": "https://federallabs.org/sites/default/files/field/image/lincoln_lab_logo.png",
+      "firstName": "d",
+      "lastName": "",
+      "email": "",
+      "password": "",
+      "gender": "",
+      "role": "",
+      "gradDate": "",
+      "researchP": "Select your research project",
+      "department": "Select the department you belong to",
+      "company": "Select the company you represent",
       "id": 3
     },
     {
-      "company": "Texas Instrument",
-      "url": "https://www.ti.com/etc/designs/ti/images/ui/ic-logo.svg",
+      "firstName": "Ashley",
+      "lastName": "Ortiz",
+      "email": "ashleyjohan17@gmail.com",
+      "password": "ash",
+      "gender": "",
+      "role": "",
+      "gradDate": "2022-03-31",
+      "researchP": "Select your research project",
+      "department": "Select the department you belong to",
+      "company": "Select the company you represent",
       "id": 4
     },
     {
-      "company": "Lockheed Martin",
-      "url": "https://assets.weforum.org/organization/image/responsive_small_webp_XN44VMyvdqSvieG1igti5W-x_6Wva6yg-Up3tZCEjRg.webp",
+      "firstName": "Ashley",
+      "lastName": "Ortiz",
+      "email": "ashleyjohan17@gmail.com",
+      "password": "dee",
+      "gender": "",
+      "role": "",
+      "gradDate": "2022-05-11",
+      "researchP": "Project Name 2",
+      "department": "INEL",
+      "company": "L3Harris",
       "id": 5
     },
     {
-      "company": "General Motors",
-      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/General_Motors_logo.svg/200px-General_Motors_logo.svg.png",
+      "firstName": "Ashley",
+      "lastName": "Ortiz",
+      "email": "ashleyjohan17@gmail.com",
+      "password": "dgg",
+      "gender": "",
+      "role": "Company Representative",
+      "company": "",
       "id": 6
     },
     {
-      "company": "Capital One",
-      "url": "https://d1.awsstatic.com/Customer%20References%20Directory%20Logos/Capital-One_Logo_%401x.0aef0b700254d3f618484ff03747100753de3d64.png",
+      "firstName": "s",
+      "lastName": "f",
+      "email": "ashleyjohan17@gmail.com",
+      "password": "g",
+      "gender": "",
+      "role": "Company Representative",
+      "company": "General Motors",
       "id": 7
     },
     {
-      "company": "Verizon",
-      "url": "https://cdn-fsly.yottaa.net/555a305b2bb0ac71b9002d22/10ec148069090139fdee0ead9ecbf798.yottaa.net/v~4b.29d.0.0/tenantlogos/6461.png?yocs=D_NA_",
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "password": "",
+      "gender": "",
+      "role": "Company Representative",
+      "company": "Raytheon",
+      "id": 8
+    },
+    {
+      "id": 9
+    },
+    {
+      "firstName": "",
+      "lastName": "",
+      "email": "",
+      "password": "",
+      "gender": "",
+      "role": "Student Researcher",
+      "gradDate": "2022-03-23",
+      "researchP": "Project Name 2",
+      "department": "INSO",
+      "id": 10
+    },
+    {
+      "firstName": "Ashley",
+      "lastName": "Ortiz",
+      "email": "ashley.ortiz14@upr.edu",
+      "password": "dddd",
+      "gender": "Male",
+      "role": "Student Researcher",
+      "gradDate": "2022-05-31",
+      "researchP": "Project Name 4",
+      "department": "ICOM",
+      "id": 11
+    },
+    {
+      "firstName": "Ashley",
+      "lastName": "Ortiz",
+      "email": "ashley.ortiz14@upr.edu",
+      "password": "asdl",
+      "gender": "Female",
+      "role": "Company Representative",
+      "company": "Capital One",
+      "id": 12
+    },
+    {
+      "firstName": "Edgar",
+      "lastName": "Cintron",
+      "email": "ashley.ortiz14@upr.edu",
+      "password": "Eloyj",
+      "gender": "Do Not Disclose",
+      "role": "Student Researcher",
+      "gradDate": "2022-03-01",
+      "researchP": "Project Name 4",
+      "department": "INSO",
+      "id": 13
+    },
+    {
+      "firstName": "Ashley",
+      "lastName": "Ortiz",
+      "email": "ashleyjohan17@gmail.com",
+      "password": "acc",
+      "gender": "Female",
+      "role": "Student Researcher",
+      "gradDate": "2022-06-10",
+      "researchP": "Project Name 1",
+      "department": "ICOM",
+      "id": 14
+    },
+    {
+      "id": 15
+    }
+  ],
+  "sponsors": [
+    {
+      "id": 1,
+      "company_name": "Raytheon",
+      "company_logo": 1
+    },
+    {
+      "id": 2,
+      "company_name": "L3Harris",
+      "company_logo": 2
+    },
+    {
+      "id": 3,
+      "company_name": "Lincoln Laboratory",
+      "company_logo": 3
+    },
+    {
+      "id": 4,
+      "company_name": "Texas Instrument",
+      "company_logo": 4
+    },
+    {
+      "id": 5,
+      "company_name": "Lockheed Martin",
+      "company_logo": 5
+    },
+    {
+      "id": 6,
+      "company_name": "General Motors",
+      "company_logo": 6
+    },
+    {
+      "id": 7,
+      "company_name": "Capital One",
+      "company_logo": 7
+    },
+    {
+      "id": 8,
+      "company_name": "Verizon",
+      "company_logo": 8
+    }
+  ],
+  "uploads": [
+    {
+      "upload_location": "https://prd-sc101-cdn.rtx.com/-/media/themes/raytheon-technologies/rtx-shared/rtx-theme/images/rtx_logo.svg?rev=24a009be7bdc4533acce753c1fcd97a2&w=354&hash=21393B9572D57DEE7D128DB3ACE1FE4B",
+      "id": 1
+    },
+    {
+      "upload_location": "https://www.logo.wine/a/logo/L3Harris_Technologies/L3Harris_Technologies-Logo.wine.svg",
+      "id": 2
+    },
+    {
+      "upload_location": "https://federallabs.org/sites/default/files/field/image/lincoln_lab_logo.png",
+      "id": 3
+    },
+    {
+      "upload_location": "https://www.ti.com/etc/designs/ti/images/ui/ic-logo.svg",
+      "id": 4
+    },
+    {
+      "upload_location": "https://assets.weforum.org/organization/image/responsive_small_webp_XN44VMyvdqSvieG1igti5W-x_6Wva6yg-Up3tZCEjRg.webp",
+      "id": 5
+    },
+    {
+      "upload_location": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/General_Motors_logo.svg/200px-General_Motors_logo.svg.png",
+      "id": 6
+    },
+    {
+      "upload_location": "https://d1.awsstatic.com/Customer%20References%20Directory%20Logos/Capital-One_Logo_%401x.0aef0b700254d3f618484ff03747100753de3d64.png",
+      "id": 7
+    },
+    {
+      "upload_location": "https://cdn-fsly.yottaa.net/555a305b2bb0ac71b9002d22/10ec148069090139fdee0ead9ecbf798.yottaa.net/v~4b.29d.0.0/tenantlogos/6461.png?yocs=D_NA_",
       "id": 8
     }
-  ], 
-  "departments":[
+  ],
+  "departments": [
     {
       "name": "ICOM",
       "id": 1
@@ -186,6 +494,141 @@
       "name": "CIIC",
       "id": 4
     }
-
+  ],
+  "roles": [
+    {
+      "role": "Student Researcher",
+      "id": 1
+    },
+    {
+      "role": "Advisor",
+      "id": 2
+    },
+    {
+      "role": "Company Representative",
+      "id": 3
+    },
+    {
+      "role": "None of the Above",
+      "id": 4
+    }
+  ],
+  "genders": [
+    {
+      "gender": "Female",
+      "id": 1
+    },
+    {
+      "gender": "Male",
+      "id": 2
+    },
+    {
+      "gender": "Do Not Disclose",
+      "id": 3
+    }
+  ],
+  "conference-info": [
+    {
+      "day": 1,
+      "date": "2022-03-09",
+      "startTime": "08:22",
+      "timeLimit": "2022-03-07T10:24",
+      "academicSession": "2021 - 2022",
+      "id": 1
+    },
+    {
+      "day": 1,
+      "date": "",
+      "startTime": "",
+      "timeLimit": "",
+      "academicSession": "",
+      "id": 2
+    },
+    {
+      "day": 1,
+      "date": "",
+      "startTime": "",
+      "timeLimit": "",
+      "academicSession": "",
+      "id": 3
+    },
+    {
+      "day": 1,
+      "date": "",
+      "startTime": "",
+      "timeLimit": "",
+      "academicSession": "",
+      "id": 4
+    },
+    {
+      "day": 1,
+      "date": "2022-03-17",
+      "startTime": "2022-03-17T15:17",
+      "timeLimit": "2022-03-17T20:16",
+      "academicSession": "2021 - 2022",
+      "id": 5
+    },
+    {
+      "day": 2,
+      "date": "2022-03-24",
+      "startTime": "2022-03-24T14:17",
+      "timeLimit": "2022-03-24T14:17",
+      "academicSession": "2021 - 2022",
+      "id": 6
+    },
+    {
+      "day": 1,
+      "date": "2022-03-04",
+      "startTime": "2022-03-11T00:24",
+      "timeLimit": "2022-03-17T12:27",
+      "academicSession": "2021 - 2022",
+      "id": 7
+    },
+    {
+      "day": 2,
+      "date": "",
+      "startTime": "",
+      "timeLimit": "",
+      "academicSession": "",
+      "id": 8
+    },
+    {
+      "day": 1,
+      "date": "",
+      "startTime": "",
+      "timeLimit": "",
+      "academicSession": "",
+      "id": 9
+    }
+  ],
+  "academicSessions": [
+    {
+      "session": "2020 - 2021",
+      "id": 1
+    },
+    {
+      "session": "2021 - 2022",
+      "id": 2
+    }
+  ],
+  "stats": [
+    {
+      "maxParticipants": 200,
+      "activeParticipants": 180,
+      "generalParticipants": 15,
+      "researchStudParticipants": 100,
+      "companyRepParticipants": 15,
+      "professorParticipants": 50,
+      "totalWomen": 100,
+      "totalMen": 80,
+      "totalNotDisclosed": 0,
+      "resStudICOM": 60,
+      "resStudINEL": 40,
+      "resStudGRAD": 75,
+      "totalResStudWomen": 50,
+      "totalResStudMen": 50,
+      "totalResStudNotDisclosed": 0,
+      "id": 1
+    }
   ]
 }

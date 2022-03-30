@@ -1,9 +1,13 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import useFetch from "./useFetch";
 
 
-const NewEvent = () => {
 
+const ScheduleNewEvent = ({conference}) => {
+    const {id} = useParams();
+    // const {data: conference, error}= useFetch('http://localhost:8000/conference-info/' + id); /* data is project because we want the id of a singular project */
+  
     const [title, setTitle] = useState('');
     const [startTime, setStartTime] = useState('');
     const [endTime, setEndTime] = useState('');
@@ -26,7 +30,8 @@ const NewEvent = () => {
             console.log('new event added');
             setIsLoading(false); //when form is submitted; completed
         })
-        history.push('/schedule');
+        //need to go back to a specific id of conference details(not working)
+        history.push('/create_schedule');
 
     }
 
@@ -42,15 +47,16 @@ const NewEvent = () => {
                     onChange = {(e) => setTitle(e.target.value)}
                 />
                 <label>Start Time: </label>
-                <textarea
+                <input
+                    type="datetime-local"
                     required
                     value = {startTime}
                     onChange = {(e) => setStartTime(e.target.value)}
 
-                ></textarea>
+                ></input>
                 <label>End Time: </label>
                 <input 
-                    type="text" 
+                    type="datetime-local" 
                     required 
                     value = {endTime}
                     onChange = {(e) => setEndTime(e.target.value)}
@@ -77,4 +83,4 @@ const NewEvent = () => {
      );
 }
  
-export default NewEvent;
+export default ScheduleNewEvent;
