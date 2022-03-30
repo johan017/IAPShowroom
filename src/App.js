@@ -20,15 +20,13 @@ import EventDetails from './EventDetails';
 import ScheduleReview from './ScheduleReview';
 import ScheduleUpdateEvent from './ScheduleUpdateEvent';
 
-// import StudentResearcher from './UserSignUp/StudentResearcher';
-// import CompanyRepresentative from './UserSignUp/CompanyRepresentative';
-// import Advisor from './UserSignUp/Advisor';
-// import VerifyInformation from './UserSignUp/VerifyInformation';
+
 import AccountCreated from './UserSignUp/AccountCreated';
 import SignUpPage from './UserSignUp/SignUpPage';
 
 import Calendar from './Calendar';
 
+import Logout from './Logout';
 
 
 
@@ -131,6 +129,10 @@ function App() {
                 {/* Calendar  component - view schedule before submitting* */}
                 <Route path="/calendar"> 
                   <Calendar/> 
+                </Route>
+
+                <Route path="/logout"> 
+                  <Logout/> 
                 </Route>
 
                 
