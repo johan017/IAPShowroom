@@ -7,6 +7,7 @@ const Login = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     //used to verify captcha
     const [isVerified, setIsVerified] = useState(false);
     // when first loading the page the POST request is not being made; only after sumbitting form is when request is made
@@ -17,6 +18,7 @@ const Login = () => {
     const handleCaptcha = () =>{
         console.log("captcha has loaded");
         setIsVerified(true);
+        setIsLoggedIn(true);
     }
 
     const handleSubmit = async(e) =>{
@@ -38,6 +40,7 @@ const Login = () => {
                 setIsLoading(false); //when form is submitted; completed
             })
             history.push('/home');
+
         }
 
     }
