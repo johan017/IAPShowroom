@@ -19,19 +19,17 @@ const Login = () => {
         setIsVerified(true);
     }
 
-    const handleSubmit = (e) =>{
+    const handleSubmit = async(e) =>{
         //if captcha not successfull, do captcha
         if(!isVerified){
             alert("Please verify that you are a Human");
         }else{
             //else let login 
-            alert("You Have Successfully Log In!");
-
             e.preventDefault();
             const login = {email, password};
             setIsLoading(true); //before submitting
-
-            fetch('http://localhost:8000/usersLoggedIn', {
+ 
+            await fetch('http://localhost:8080/api/auth/login', {
                 method: 'POST',
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(login)
@@ -52,7 +50,7 @@ const Login = () => {
             />
 
             <h2>Welcome to IAP ShowRoom</h2>
-            <form onSubmit = {handleSubmit}>
+            <form onSubmit = {async (e) => handleSubmit(e)}>
                 {/* <label>Email: </label> */}
                 <input 
                     type="email" 
