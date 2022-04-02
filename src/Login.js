@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import {Link} from 'react-router-dom';
+import AuthContext from "./context/AuthProvider";
+import axios from "./context/axios";
+
+const LOGIN_URL = 'api/auth/login'
 
 const Login = () => {
 
+    const { setAuth } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     //used to verify captcha
@@ -26,17 +31,42 @@ const Login = () => {
         }else{
             //else let login 
             e.preventDefault();
-            const login = {email, password};
-            setIsLoading(true); //before submitting
+            try{
+                setIsLoading(true); //before submitting
+                const login = {email, password};
+                const response = await axios.post(LOGIN_URL, 
+                    JSON.stringify(login),
+                    {
+                        headers: {"Content-Type": "application/json"},
+                       //  withCredentials: true
+                    });
+                    console.log(JSON.stringify(response?.data));
+                    // const token = response?.data?.token;
+                    // const roles = response?.data?.roles;
+                    // setAuth({id,role});
+                    const id = response?.data?.userID;
+                    const admin = response?.data?.admin;
+                    setAuth({id,admin});
+            }catch(err){
+                if(!err?.response) {
+                    console.log('No Server Response');
+                } else if((err.response?.status === 400)){
+                    console.log('Missing Username or Password');
+                } else if((err.response?.status === 400)){
+                    console.log('Unauthorized');
+                } else {
+                    console.log('Login Failed');
+                }
+            }
  
-            await fetch('http://localhost:8080/api/auth/login', {
-                method: 'POST',
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(login)
-            }).then (() => {
-                console.log('user Signed In');
-                setIsLoading(false); //when form is submitted; completed
-            })
+            // await fetch('http://localhost:8080/api/auth/login', {
+            //     method: 'POST',
+            //     headers: {"Content-Type": "application/json"},
+            //     body: JSON.stringify(login)
+            // }).then (() => {
+            //     console.log('user Signed In');
+            //     setIsLoading(false); //when form is submitted; completed
+            // })
             history.push('/home');
         }
 
