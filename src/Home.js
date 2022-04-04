@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 const Home = () => {
 
-  const {data: projects, isLoading, error} = useFetch('http://localhost:8000/projects'); /* data is projects because info is found in db within projects */
+  const {data: projects, isLoading, error} = useFetch('http://localhost:8080/projects'); /* data is projects because info is found in db within projects */
 
   return ( 
     <div className="home">
