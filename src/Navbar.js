@@ -12,6 +12,7 @@ const Navbar = () => {
             />
             {/* <h1>IAP Showroom</h1> */}
             <div className="links">
+                
                 <Link to ="/home">HOME</Link>
                 <Link to="/stage" >STAGE</Link>
                 <Link to="/rooms" >ROOMS</Link>

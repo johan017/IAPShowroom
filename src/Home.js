@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 const Home = () => {
 
-  const {data: projects, isLoading, error} = useFetch('http://localhost:8080/projects'); /* data is projects because info is found in db within projects */
+  const {data: projects, isLoading, error} = useFetch('http://localhost:8080/api/showroom/schedule/events'); /* data is projects because info is found in db within projects */
 
   return ( 
     <div className="home">
@@ -11,6 +11,7 @@ const Home = () => {
             {/* conditionally output parts of template ; if left is true then it outputs the right */}
       {error && <div> {error} </div>}
       {isLoading && <div> Loading...</div>}
+      {/* <h3></h3> */}
       <h1>Announcements</h1>
       <div className="home-date-sched" style={{ borderBottom: '1px solid #8e8a8a' }} >
         <h2> Schedule </h2> 

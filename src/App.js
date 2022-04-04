@@ -1,3 +1,4 @@
+import '@progress/kendo-theme-default/dist/all.css';
 import Login from './Login';
 import GeneralSignUp from './UserSignUp/GeneralSignUp';
 import Navbar from './Navbar';
@@ -19,6 +20,7 @@ import ScheduleNewEvent from './ScheduleNewEvent';
 import EventDetails from './EventDetails';
 import ScheduleReview from './ScheduleReview';
 import ScheduleUpdateEvent from './ScheduleUpdateEvent';
+import ProtectedRoute from './ProtectedRoute';
 
 
 import AccountCreated from './UserSignUp/AccountCreated';
@@ -27,8 +29,12 @@ import SignUpPage from './UserSignUp/SignUpPage';
 import Calendar from './Calendar';
 import ProtectedRoute from './ProtectedRoute';
 
+import C2 from './C2';
 import Logout from './Logout';
+import Roles from './Roles';
+import { QueryClient, QueryClientProvider, useQuery  } from 'react-query';
 
+const queryClient = new QueryClient();
 
 
 function App() {
@@ -61,9 +67,9 @@ function App() {
                {/*Navigation bar*/}
       
                 {/*Home component*/}
-                <ProtectedRoute path="/home" component={Home}>
-               
-                  </ProtectedRoute>
+                <ProtectedRoute component={Home}>
+        
+                </ProtectedRoute>
 
                 {/*Stage component*/}
                 <Route path="/stage">
@@ -128,16 +134,24 @@ function App() {
                   <ScheduleReview/> 
                 </Route>
                 
-                {/* Calendar  component - view schedule before submitting* */}
-                <Route path="/calendar"> 
-                  <Calendar/> 
-                </Route>
+                <QueryClientProvider client={queryClient}>
+                  {/* Calendar  component - view schedule before submitting* */}
+                  <Route path="/calendar"> 
+                    <Calendar/> 
+                  </Route>
+                </QueryClientProvider>
 
                 <Route path="/logout"> 
                   <Logout/> 
                 </Route>
 
-                
+                <Route path="/roles"> 
+                  <Roles/> 
+                </Route>
+
+                <Route exact path="/cal"> 
+                  <C2/> 
+                </Route>
                 
                
               </div> 
