@@ -8,6 +8,11 @@ const Schedule = () => {
             <Link to="/create_day">
                 <button>Next</button>
             </Link>
+
+            {/* TODO ADD QUERY TO GET A LIST OF EVENTS FROM DB  */}
+
+
+            
         </div>
     );
 }

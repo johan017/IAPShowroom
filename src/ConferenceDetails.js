@@ -2,7 +2,7 @@ import { useHistory, useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 import EventList from "./EventList";
 import { Link } from "react-router-dom";
-
+import C2 from './C2';
 
 const ConferenceDeatils = () => {
 
@@ -32,18 +32,20 @@ const ConferenceDeatils = () => {
             {error && <div> {error} </div>}
             {conference && (
                 <div>
-                     <h2>Calendar</h2>
+                     {/* <h2>Calendar</h2> */}
+                     
                     <h2>Conference Day {conference.day}</h2>
                     <h2>Academic Session {conference.academicSession}</h2>
                     <h2>Date:{conference.date}</h2>
                     {/* <p> Start Time {event.startTime}</p>
                     <p> End Time {event.endTime}</p>
                     <div>Presented By: {event.presenters}</div> */}
-                    {events && <EventList events={events} title="Events List"></EventList>}
+                    {/* {events && <EventList events={events} title="Events List"></EventList>} */}
                     <Link to="/new_event">
                         {!isLoading && <button>Add Event</button>} {/** adds the new event  */}
                         {/* {isLoading && <button disabled>Adding Event...</button>} * add event button disabled while loading  */}
                     </Link>
+                    {/* <C2/> */}
                     <button onClick = {handleClick}>Delete</button>
                     <button style={{ background: '#3B8D25' }} onClick = {handleSchedule}>Next</button>
 

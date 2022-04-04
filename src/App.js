@@ -1,3 +1,4 @@
+import '@progress/kendo-theme-default/dist/all.css';
 import Login from './Login';
 import GeneralSignUp from './UserSignUp/GeneralSignUp';
 import Navbar from './Navbar';
@@ -28,8 +29,12 @@ import SignUpPage from './UserSignUp/SignUpPage';
 
 import Calendar from './Calendar';
 
+import C2 from './C2';
 import Logout from './Logout';
+import Roles from './Roles';
+import { QueryClient, QueryClientProvider, useQuery  } from 'react-query';
 
+const queryClient = new QueryClient();
 
 
 function App() {
@@ -128,18 +133,24 @@ function App() {
                   <ScheduleReview/> 
                 </Route>
                 
-                {/* Calendar  component - view schedule before submitting* */}
-                <Route path="/calendar"> 
-                  <Calendar/> 
-                </Route>
+                <QueryClientProvider client={queryClient}>
+                  {/* Calendar  component - view schedule before submitting* */}
+                  <Route path="/calendar"> 
+                    <Calendar/> 
+                  </Route>
+                </QueryClientProvider>
 
                 <Route path="/logout"> 
                   <Logout/> 
                 </Route>
-                <Route path="/cal"> 
+
+                <Route path="/roles"> 
+                  <Roles/> 
+                </Route>
+
+                <Route exact path="/cal"> 
                   <C2/> 
                 </Route>
-                
                 
                
               </div> 

@@ -11,6 +11,7 @@ const Home = () => {
             {/* conditionally output parts of template ; if left is true then it outputs the right */}
       {error && <div> {error} </div>}
       {isLoading && <div> Loading...</div>}
+      {/* <h3></h3> */}
       <h1>Announcements</h1>
       <div className="home-date-sched" style={{ borderBottom: '1px solid #8e8a8a' }} >
         <h2> Schedule </h2> 
