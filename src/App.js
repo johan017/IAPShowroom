@@ -19,6 +19,8 @@ import ScheduleNewEvent from './ScheduleNewEvent';
 import EventDetails from './EventDetails';
 import ScheduleReview from './ScheduleReview';
 import ScheduleUpdateEvent from './ScheduleUpdateEvent';
+// import ProtectedRoute from './ProtectedRoute';
+import C2 from './C2';
 
 
 import AccountCreated from './UserSignUp/AccountCreated';
@@ -59,9 +61,9 @@ function App() {
               <Navbar></Navbar> {/*Navigation bar*/}
       
                 {/*Home component*/}
-                <Route path="/home">
-                  <Home/>
-                </Route>
+                {/* <ProtectedRoute component={Home}>
+        
+                </ProtectedRoute> */}
 
                 {/*Stage component*/}
                 <Route path="/stage">
@@ -134,7 +136,9 @@ function App() {
                 <Route path="/logout"> 
                   <Logout/> 
                 </Route>
-
+                <Route path="/cal"> 
+                  <C2/> 
+                </Route>
                 
                 
                
