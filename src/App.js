@@ -28,6 +28,7 @@ import AccountCreated from './UserSignUp/AccountCreated';
 import SignUpPage from './UserSignUp/SignUpPage';
 
 import Calendar from './Calendar';
+import ProtectedRoute from './ProtectedRoute';
 
 
 
@@ -58,12 +59,13 @@ function App() {
 
 
             <div className="content">
-              <Navbar></Navbar> {/*Navigation bar*/}
+              <ProtectedRoute component={Navbar}/>
+               {/*Navigation bar*/}
       
                 {/*Home component*/}
-                <Route path="/home">
-                  <Home/>
-                </Route>
+                <ProtectedRoute path="/home" component={Home}>
+               
+                  </ProtectedRoute>
 
                 {/*Stage component*/}
                 <Route path="/stage">

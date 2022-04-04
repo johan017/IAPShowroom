@@ -38,15 +38,9 @@ const Login = () => {
                     JSON.stringify(login),
                     {
                         headers: {"Content-Type": "application/json"},
-                       //  withCredentials: true
+                        withCredentials: true
                     });
-                    console.log(JSON.stringify(response?.data));
-                    // const token = response?.data?.token;
-                    // const roles = response?.data?.roles;
-                    // setAuth({id,role});
-                    const id = response?.data?.userID;
-                    const admin = response?.data?.admin;
-                    setAuth({id,admin});
+                    setAuth(response.data.payload);
             }catch(err){
                 if(!err?.response) {
                     console.log('No Server Response');
