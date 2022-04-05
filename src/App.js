@@ -68,14 +68,14 @@ function App() {
                   </ProtectedRoute>
 
                 {/*Stage component*/}
-                <Route path="/stage">
-                  <Stage/> 
-                </Route>
+                <ProtectedRoute path="/stage" component={Stage}>
+                  
+                </ProtectedRoute>
 
                 {/*Rooms component*/}
-                <Route path="/rooms">
-                  <Rooms/> 
-                </Route>
+                <ProtectedRoute path="/rooms" component={Rooms}>
+                 
+                </ProtectedRoute>
 
                 {/*Project Room component*/}
                 <Route path="/project_room/:id"> 

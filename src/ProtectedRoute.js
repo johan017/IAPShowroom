@@ -14,9 +14,9 @@ const ProtectedRoute = ({fakeauth ,component: Component, ...rest}) => {
      // more secure way to authenticate users on front end is needed
      
     return(
-        <Component {...rest} render={
+        <Route {...rest} render={
             (props) => {
-                if(!isEmpty(auth))
+                if(cookie)
                 {
                     return <Component {...rest} {...props} />
                 }
