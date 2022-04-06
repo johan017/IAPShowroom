@@ -1,44 +1,52 @@
-import useFetch from "./useFetch";
 import {Link} from "react-router-dom";
+import useFetchProjects from "./hooks/use-fetch-projects";
 
-const Home = () => {
+export default function Home() {  
+  const {
+    projects,
+    loading,
+  } = useFetchProjects();
 
-  const {data: projects, isLoading, error} = useFetch('http://localhost:8000/projects'); /* data is projects because info is found in db within projects */
+  const displayEvents = (props) => {
+    const p = props;
+    if(p.length>0){
+      return(
+        p.map((project) => {
+          return (
+          // Project list for schedule view in Lobby 
+          <div className="project-preview" key ={project.projectid}>
+          <h2>{project.title}</h2>
+          <Link to={`/project_room/${project.projectid}`}>
+            <button>Speakers</button>  
+          </Link> 
+          <Link to ={`/project_room/${project.projectid}`}>           
+            <button>Room</button>
+                  {/* <p>Written by {project.author} </p> */}
+          </Link>
+          </div>
+          )
+        })
+      )
+    } else {
+      <h3>No events currently available</h3>
+    }
+  }
+  
 
   return ( 
     <div className="home">
             {/* helps to render only when project data is available */}
             {/* conditionally output parts of template ; if left is true then it outputs the right */}
-      {error && <div> {error} </div>}
-      {isLoading && <div> Loading...</div>}
-      {/* <h3></h3> */}
+      {loading && <div> Loading...</div>}
       <h1>Announcements</h1>
       <div className="home-date-sched" style={{ borderBottom: '1px solid #8e8a8a' }} >
         <h2> Schedule </h2> 
         <h3>March 23, 2022</h3>
       </div>
-          {/* {projects && <ProjectList projects={projects} ></ProjectList>} */}
-        {projects && projects.map((project) =>(
-            // Project list for schedule view in Lobby 
-        <div className="project-preview" key ={project.id}>
-          <h2>{project.title}</h2>
-           <Link to={`/project_room/${project.id}`}>
-              <button>Speakers</button>  
-            </Link> 
-            
-            <Link to ={`/project_room/${project.id}`}>           
-              <button>Room</button>
-
-                      {/* <p>Written by {project.author} </p> */}
-            </Link>
-
-            
-                
-          </div>
-        ))}
-        {/* <button sytle={{background: 'red'}}> Project Room</button> */}
-      </div>   
+      <>
+      {displayEvents(projects)}
+      </>
+    </div>   
   );
 }
  
-export default Home;
