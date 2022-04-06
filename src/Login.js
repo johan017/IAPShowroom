@@ -4,7 +4,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import {Link} from 'react-router-dom';
 import AuthContext from "./context/AuthProvider";
 import axios from "./context/axios";
-
+import useLocalStorage from "./hooks/use-storage";
 const LOGIN_URL = 'api/auth/login'
 
 const Login = () => {
@@ -17,6 +17,7 @@ const Login = () => {
     // when first loading the page the POST request is not being made; only after sumbitting form is when request is made
     const [isLoading, setIsLoading] = useState(false); 
     const history = useHistory();
+    const [role,setRole] = useLocalStorage();
 
     //verifies if captcha was successfull (checked)
     const handleCaptcha = () =>{
@@ -40,7 +41,12 @@ const Login = () => {
                         headers: {"Content-Type": "application/json"},
                         withCredentials: true
                     });
+                    console.log(response.data.payload)
                     setAuth(response.data.payload);
+                    localStorage.setItem("role",response.data.payload.user_role);
+                    // role = "role";
+                    // setRole = response.data.payload.admin;
+                    
             }catch(err){
                 if(!err?.response) {
                     console.log('No Server Response');

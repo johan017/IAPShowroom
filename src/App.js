@@ -28,6 +28,7 @@ import AccountCreated from './UserSignUp/AccountCreated';
 import SignUpPage from './UserSignUp/SignUpPage';
 
 import Calendar from './Calendar';
+import Logout from './Logout'
 import ProtectedRoute from './ProtectedRoute';
 
 
@@ -63,9 +64,9 @@ function App() {
                {/*Navigation bar*/}
       
                 {/*Home component*/}
-                <ProtectedRoute path="/home" component={Home}>
-               
-                  </ProtectedRoute>
+                <ProtectedRoute path="/home" component={Home}/>
+                <ProtectedRoute path="/logout" component={Logout}/>
+                
 
                 {/*Stage component*/}
                 <ProtectedRoute path="/stage" component={Stage}>

@@ -7,16 +7,13 @@ function isEmpty(obj) {
 
 const ProtectedRoute = ({fakeauth ,component: Component, ...rest}) => {
     const { auth } = useAuth();
-   
-    const cookie = document.cookie;
     //.find(row => row.startsWith('connect.id=')).split('=')[1];
-    console.log(cookie);
      // more secure way to authenticate users on front end is needed
      
     return(
         <Route {...rest} render={
             (props) => {
-                if(cookie)
+                if(!isEmpty(auth) || localStorage.getItem("role"))
                 {
                     return <Component {...rest} {...props} />
                 }
