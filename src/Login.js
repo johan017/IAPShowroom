@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import {Link} from 'react-router-dom';
+import AuthContext from "./context/AuthProvider";
+import axios from "./context/axios";
+
+const LOGIN_URL = 'api/auth/login'
 
 const Login = () => {
 
+    const { setAuth } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     //used to verify captcha
     const [isVerified, setIsVerified] = useState(false);
     // when first loading the page the POST request is not being made; only after sumbitting form is when request is made
@@ -17,6 +23,7 @@ const Login = () => {
     const handleCaptcha = () =>{
         console.log("captcha has loaded");
         setIsVerified(true);
+        setIsLoggedIn(true);
     }
 
     const handleSubmit = async(e) =>{
@@ -26,18 +33,38 @@ const Login = () => {
         }else{
             //else let login 
             e.preventDefault();
-            const login = {email, password};
-            setIsLoading(true); //before submitting
+            try{
+                setIsLoading(true); //before submitting
+                const login = {email, password};
+                const response = await axios.post(LOGIN_URL, 
+                    JSON.stringify(login),
+                    {
+                        headers: {"Content-Type": "application/json"},
+                        withCredentials: true
+                    });
+                    setAuth(response.data.payload);
+            }catch(err){
+                if(!err?.response) {
+                    console.log('No Server Response');
+                } else if((err.response?.status === 400)){
+                    console.log('Missing Username or Password');
+                } else if((err.response?.status === 400)){
+                    console.log('Unauthorized');
+                } else {
+                    console.log('Login Failed');
+                }
+            }
  
-            await fetch('http://localhost:8080/api/auth/login', {
-                method: 'POST',
-                headers: {"Content-Type": "application/json"},
-                body: JSON.stringify(login)
-            }).then (() => {
-                console.log('user Signed In');
-                setIsLoading(false); //when form is submitted; completed
-            })
+            // await fetch('http://localhost:8080/api/auth/login', {
+            //     method: 'POST',
+            //     headers: {"Content-Type": "application/json"},
+            //     body: JSON.stringify(login)
+            // }).then (() => {
+            //     console.log('user Signed In');
+            //     setIsLoading(false); //when form is submitted; completed
+            // })
             history.push('/home');
+
         }
 
     }

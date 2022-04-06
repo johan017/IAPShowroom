@@ -19,34 +19,34 @@ const ScheduleDay = () => {
     const [startTime, setStartTime] = useState('');
     const [timeLimit, setTimeLimit] = useState('');
     const [academicSession, setAcademicSession] = useState('');
-    const [day, setDay] = useState(1);
+    // const [day, setDay] = useState(1);
 
 
-    const handleAddDay = (e) =>{
-        e.preventDefault();
-        const event = {day,date, startTime, timeLimit, academicSession};
-        setIsLoading(true); //before submitting
+    // const handleAddDay = (e) =>{
+    //     e.preventDefault();
+    //     const event = {day,date, startTime, timeLimit, academicSession};
+    //     setIsLoading(true); //before submitting
 
-        fetch('http://localhost:8000/conference-info', {
-            method: 'POST',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(event)
-        }).then (() => {
-            console.log('new event added');
-            setIsLoading(false); //when form is submitted; completed
-        })
-        //returns value to initial state after submitting and a new day can be posted
-        setStartTime('');
-        setTimeLimit('');
-        setAcademicSession('');
-        setDate('');
-        setDay(day=>day+1);
-        history.push('/create_day');
-    }
+    //     fetch('http://localhost:8000/conference-info', {
+    //         method: 'POST',
+    //         headers: {"Content-Type": "application/json"},
+    //         body: JSON.stringify(event)
+    //     }).then (() => {
+    //         console.log('new event added');
+    //         setIsLoading(false); //when form is submitted; completed
+    //     })
+    //     //returns value to initial state after submitting and a new day can be posted
+    //     setStartTime('');
+    //     setTimeLimit('');
+    //     setAcademicSession('');
+    //     setDate('');
+    //     setDay(day=>day+1);
+    //     history.push('/create_day');
+    // }
 
     const handleSchedule = (e) =>{
         e.preventDefault();
-        const event = {day,date, startTime, timeLimit, academicSession};
+        const event = {date, startTime, timeLimit, academicSession};
         setIsLoading(true); //before submitting
 
         fetch('http://localhost:8000/conference-info', {
@@ -57,7 +57,7 @@ const ScheduleDay = () => {
             console.log('new event added');
             setIsLoading(false); //when form is submitted; completed
         })
-        history.push('/create_schedule');
+        history.push('/cal');
     }
 
     return ( 
@@ -68,7 +68,7 @@ const ScheduleDay = () => {
       {error && <div> {error} </div>}
       {isLoading && <div> Loading...</div>}
       
-      <h2>Conference Information for Day {day} </h2>
+      <h2>Conference Information </h2>
       <form>
         <label>Date of Conference: </label>
         <input 
@@ -84,9 +84,9 @@ const ScheduleDay = () => {
             value = {startTime}
             onChange = {(e) => setStartTime(e.target.value)}
         />
-        <label>Time Limit for Slots: </label>
+        <label>Time Limit for Presentations: </label>
         <input 
-            type="datetime-local" 
+            type= "number"
             required 
             value = {timeLimit}
             onChange = {(e) => setTimeLimit(e.target.value)}
@@ -103,7 +103,7 @@ const ScheduleDay = () => {
         </select>
 
       </form>
-      <button style={{ background: '#008DED' }} onClick = {handleAddDay}>Add another Day</button>
+      {/* <button style={{ background: '#008DED' }} onClick = {handleAddDay}>Add another Day</button> */}
       <button style={{ background: '#3B8D25' }} onClick = {handleSchedule}>Next</button>
 
 

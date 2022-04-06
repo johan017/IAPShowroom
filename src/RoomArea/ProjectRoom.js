@@ -1,5 +1,5 @@
 import { useParams } from "react-router";
-import useFetch from "./useFetch";
+import useFetch from "../useFetch";
 import {Link} from  "react-router-dom";
 
 

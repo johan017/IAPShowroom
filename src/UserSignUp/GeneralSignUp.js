@@ -87,7 +87,7 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
 
                         > 
                             {genders && genders.map((gender) =>(
-                                <option key={gender.id} value={gender.gender}>{gender.gender}</option>             
+                                <option key={gender.g_id} value={gender.gender}>{gender.gender}</option>             
                             ))}
                         </select> 
                         <label>Role: </label>
