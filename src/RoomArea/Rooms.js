@@ -1,5 +1,5 @@
 // import ProjectRoom from "./ProjectRoom";
-import useFetch from "./useFetch";
+import useFetch from "../useFetch";
 import {Link} from "react-router-dom";
 
 
@@ -22,7 +22,7 @@ const Rooms = () => {
 
           {projects && projects.map((project) =>(
             // Project list for schedule view in Lobby 
-            <div className="project-preview" key ={project.id}>
+          <div className="project-preview" key ={project.id}>
             <Link to ={`/project_room/${project.id}`}> 
               <h2>{project.title}</h2>
                       {/* <p>Written by {project.author} </p> */}

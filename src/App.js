@@ -1,11 +1,12 @@
+import '@progress/kendo-theme-default/dist/all.css';
 import Login from './Login';
 import GeneralSignUp from './UserSignUp/GeneralSignUp';
 import Navbar from './Navbar';
 import Home from './Home';
-import Stage from './Stage';
+import Stage from './StageArea/Stage';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Rooms from './Rooms';
-import ProjectRoom from './ProjectRoom';
+import Rooms from './RoomArea/Rooms';
+import ProjectRoom from './RoomArea/ProjectRoom';
 
 import NotFound from './NotFound';
 
@@ -19,11 +20,9 @@ import ScheduleNewEvent from './ScheduleNewEvent';
 import EventDetails from './EventDetails';
 import ScheduleReview from './ScheduleReview';
 import ScheduleUpdateEvent from './ScheduleUpdateEvent';
+import ProtectedRoute from './ProtectedRoute';
 
-// import StudentResearcher from './UserSignUp/StudentResearcher';
-// import CompanyRepresentative from './UserSignUp/CompanyRepresentative';
-// import Advisor from './UserSignUp/Advisor';
-// import VerifyInformation from './UserSignUp/VerifyInformation';
+
 import AccountCreated from './UserSignUp/AccountCreated';
 import SignUpPage from './UserSignUp/SignUpPage';
 
@@ -31,7 +30,12 @@ import Calendar from './Calendar';
 import Logout from './Logout'
 import ProtectedRoute from './ProtectedRoute';
 
+import C2 from './C2';
+import Logout from './Logout';
+import Roles from './Roles';
+import { QueryClient, QueryClientProvider, useQuery  } from 'react-query';
 
+const queryClient = new QueryClient();
 
 
 function App() {
@@ -60,8 +64,9 @@ function App() {
 
 
             <div className="content">
-              <ProtectedRoute component={Navbar}/>
+              {/* <ProtectedRoute component={Navbar}/> */}
                {/*Navigation bar*/}
+               <Navbar></Navbar>
       
                 {/*Home component*/}
                 <ProtectedRoute path="/home" component={Home}/>
@@ -131,12 +136,24 @@ function App() {
                   <ScheduleReview/> 
                 </Route>
                 
-                {/* Calendar  component - view schedule before submitting* */}
-                <Route path="/calendar"> 
-                  <Calendar/> 
+                {/* <QueryClientProvider client={queryClient}>
+                  {/* Calendar  component - view schedule before submitting* *
+                  <Route path="/calendar"> 
+                    <Calendar/> 
+                  </Route>
+                </QueryClientProvider> */}
+
+                <Route path="/logout"> 
+                  <Logout/> 
                 </Route>
 
-                
+                <Route path="/roles"> 
+                  <Roles/> 
+                </Route>
+
+                <Route exact path="/cal"> 
+                  <C2/> 
+                </Route>
                 
                
               </div> 
