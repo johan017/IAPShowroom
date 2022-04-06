@@ -53,46 +53,45 @@ const C2 = () => {
         end: "end",
     };
 
-    const handleDataChange = React.useCallback(
-        ({ updated }) => {
-            setInfo((old) =>
-              old.map(
-                (item) => updated.find((current) => current.id === item.id) || item
-              )
-            );
-          },
-          [setInfo]
+    // const handleDataChange = React.useCallback(
+    //     ({ updated }) => {
+    //         setInfo((old) =>
+    //           old.map(
+    //             (item) => updated.find((current) => current.id === item.id) || item
+    //           )
+    //         );
+    //       },
+    //       [setInfo]
     
-    );
+    // );
     console.log("informacion", info);
     console.log("eventos", events);
     
     return (
     <div className="cal2">
-         {error && <div> {error} </div>}
+      {error && <div> {error} </div>}
       {isLoading && <div> Loading...</div>}
-        {/* <Calendar/> */}
-        <div className="cal22">
+      <div className="cal22">
 
           {events && <EventList events={events} title="Events List"></EventList>}
-        </div>
+      </div>
 
-        <div className="scheduler">
-            <Scheduler data={sampleData} defaultDate={displayDate} onDataChange={handleDataChange} modelFields={modelFields}>
-            <DayView 
-                title="" 
-                numberOfDays={1} 
-                slotDuration={60} 
-                slotDivisions={2} 
-                startTime={"01:00"} 
-                endTime={"23:00"} 
-                workDayStart={"08:00"} 
-                workDayEnd={"18:00"} 
-                />
-            </Scheduler>
-        </div>
-        
-    </div>);
+      <div className="scheduler">
+        <Scheduler data={sampleData} defaultDate={displayDate} modelFields={modelFields}>
+          <DayView 
+            title="" 
+            numberOfDays={1} 
+            slotDuration={60} 
+            slotDivisions={2} 
+            startTime={"01:00"} 
+            endTime={"23:00"} 
+            workDayStart={"08:00"} 
+            workDayEnd={"18:00"} 
+          />
+        </Scheduler>
+      </div>
+    </div>
+  );
 };
   
 // ReactDOM.render(<C2 />, document.querySelector('my-app'));

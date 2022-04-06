@@ -3,10 +3,10 @@ import Login from './Login';
 import GeneralSignUp from './UserSignUp/GeneralSignUp';
 import Navbar from './Navbar';
 import Home from './Home';
-import Stage from './Stage';
+import Stage from './StageArea/Stage';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Rooms from './Rooms';
-import ProjectRoom from './ProjectRoom';
+import Rooms from './RoomArea/Rooms';
+import ProjectRoom from './RoomArea/ProjectRoom';
 
 import NotFound from './NotFound';
 
@@ -137,12 +137,12 @@ function App() {
                   <ScheduleReview/> 
                 </Route>
                 
-                <QueryClientProvider client={queryClient}>
-                  {/* Calendar  component - view schedule before submitting* */}
+                {/* <QueryClientProvider client={queryClient}>
+                  {/* Calendar  component - view schedule before submitting* *
                   <Route path="/calendar"> 
                     <Calendar/> 
                   </Route>
-                </QueryClientProvider>
+                </QueryClientProvider> */}
 
                 <Route path="/logout"> 
                   <Logout/> 

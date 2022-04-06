@@ -19,7 +19,7 @@ const Navbar = () => {
                 <Link to="/stats" >STATS</Link>
                 <Link to="/sponsors" >SPONSORS</Link>
                 <Link to="/schedule" >SCHEDULE</Link>
-                <Link to="/calendar">CALENDAR</Link>
+                {/* <Link to="/calendar">CALENDAR</Link> */}
                 <Link to ="/logout"> LOGOUT</Link>
 
 
