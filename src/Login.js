@@ -4,11 +4,10 @@ import ReCAPTCHA from "react-google-recaptcha";
 import {Link} from 'react-router-dom';
 import AuthContext from "./context/AuthProvider";
 import axios from "./context/axios";
-import useLocalStorage from "./hooks/use-storage";
 const LOGIN_URL = 'api/auth/login'
 
 const Login = () => {
-
+    const history = useHistory();
     const { setAuth } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -17,8 +16,6 @@ const Login = () => {
     const [isVerified, setIsVerified] = useState(false);
     // when first loading the page the POST request is not being made; only after sumbitting form is when request is made
     const [isLoading, setIsLoading] = useState(false); 
-    const history = useHistory();
-    const [role,setRole] = useLocalStorage();
 
     //verifies if captcha was successfull (checked)
     const handleCaptcha = () =>{

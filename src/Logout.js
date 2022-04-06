@@ -1,21 +1,31 @@
-import {Link} from 'react-router-dom';
+import AuthContext from "./context/AuthProvider";
+import { useContext, useState } from "react";
+import axios from "./context/axios";
+import { useHistory } from "react-router-dom";
+import { Redirect } from 'react-router';
 
-
+const LOGOUT_URL = "api/auth/logout";
 
 const Logout = () => {
-
-    return ( 
-        
-        <div>
-            <h2>YOU HAVE SUCCESSFULLY LOGGED OUT OF THE CONFERENCE</h2>
-            <Link to ={"/"}>
-                <button>OK</button>
-            </Link>
-        </div>
-        
-    );
-
-
+    const { setAuth } = useContext(AuthContext);
+    const history = useHistory();
+    // const { auth } = useContext(AuthContext);
+    // console.log(auth);
+    try {
+        axios.post(LOGOUT_URL, 
+            {data: "Request Logout"},
+            {   
+            headers: {"Content-Type": "application/json"},
+            withCredentials: true,
+            data: "Request Logout"
+            },)
+        localStorage.clear();
+        return(
+        <Redirect to="/" /> 
+        )
+    } catch (error) {
+        console.log(error);
+    }
 }
- 
+
 export default Logout;

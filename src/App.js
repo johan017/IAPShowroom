@@ -20,14 +20,10 @@ import ScheduleNewEvent from './ScheduleNewEvent';
 import EventDetails from './EventDetails';
 import ScheduleReview from './ScheduleReview';
 import ScheduleUpdateEvent from './ScheduleUpdateEvent';
-import ProtectedRoute from './ProtectedRoute';
-
-
 import AccountCreated from './UserSignUp/AccountCreated';
 import SignUpPage from './UserSignUp/SignUpPage';
 
 import Calendar from './Calendar';
-import Logout from './Logout'
 import ProtectedRoute from './ProtectedRoute';
 
 import C2 from './C2';
