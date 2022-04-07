@@ -6,8 +6,20 @@ import useFetch from "../useFetch";
 
 const UserSignUpForm = ({ nextStep, handleChange, values }) => {
 
-    const {data: genders} = useFetch('http://localhost:8000/genders'); /* data is projects because info is found in db within projects */
-    const {data: roles} = useFetch('http://localhost:8000/roles'); /* data is projects because info is found in db within projects */
+    /* data validation needed in backend */
+    const genders = [
+        { g_id : 1, gender: "Do not disclose"},
+        { g_id : 2, gender: "female"},
+        { g_id : 3, gender: "male"}
+      ];
+      const roles = [
+        { id : 1, role: "guest"},
+        { id : 2, role: "student researcher"},
+        { id : 3, role: "company representative"},
+        { id : 4, role: "advisor"}
+      ];
+    // const {data: genders} = useFetch('http://localhost:8000/genders'); /* data is projects because info is found in db within projects */
+    // const {data: roles} = useFetch('http://localhost:8000/roles'); /* data is projects because info is found in db within projects */
    
     //used to verify captcha
     const [isVerified, setIsVerified] = useState(false);
