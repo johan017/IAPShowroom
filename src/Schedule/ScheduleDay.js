@@ -1,5 +1,5 @@
 // import EventList from "./EventList";
-import useFetch from "./useFetch";
+import useFetch from "../useFetch";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 
@@ -21,29 +21,6 @@ const ScheduleDay = () => {
     const [academicSession, setAcademicSession] = useState('');
     // const [day, setDay] = useState(1);
 
-
-    // const handleAddDay = (e) =>{
-    //     e.preventDefault();
-    //     const event = {day,date, startTime, timeLimit, academicSession};
-    //     setIsLoading(true); //before submitting
-
-    //     fetch('http://localhost:8000/conference-info', {
-    //         method: 'POST',
-    //         headers: {"Content-Type": "application/json"},
-    //         body: JSON.stringify(event)
-    //     }).then (() => {
-    //         console.log('new event added');
-    //         setIsLoading(false); //when form is submitted; completed
-    //     })
-    //     //returns value to initial state after submitting and a new day can be posted
-    //     setStartTime('');
-    //     setTimeLimit('');
-    //     setAcademicSession('');
-    //     setDate('');
-    //     setDay(day=>day+1);
-    //     history.push('/create_day');
-    // }
-
     const handleSchedule = (e) =>{
         e.preventDefault();
         const event = {date, startTime, timeLimit, academicSession};
@@ -58,6 +35,9 @@ const ScheduleDay = () => {
             setIsLoading(false); //when form is submitted; completed
         })
         history.push('/cal');
+    }
+    const handleCancel =(e) =>{
+        history.push('/schedule');
     }
 
     return ( 
@@ -103,7 +83,7 @@ const ScheduleDay = () => {
         </select>
 
       </form>
-      {/* <button style={{ background: '#008DED' }} onClick = {handleAddDay}>Add another Day</button> */}
+      <button style={{ background: '#008DED' }} onClick = {handleCancel}>Cancel</button>
       <button style={{ background: '#3B8D25' }} onClick = {handleSchedule}>Next</button>
 
 

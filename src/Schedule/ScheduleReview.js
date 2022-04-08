@@ -1,4 +1,4 @@
-
+import useFetch from "../useFetch";
 
 import { useHistory } from "react-router-dom";
 
@@ -7,6 +7,9 @@ import { useHistory } from "react-router-dom";
 const ScheduleReview = () => {
     
     const history = useHistory();
+
+        const {data: schedule} = useFetch('http://localhost:8000/events'); /* data is project because we want the id of a singular project */
+
 
     const handleSubmit = (e) =>{
         e.preventDefault();
@@ -28,6 +31,8 @@ const ScheduleReview = () => {
     return ( 
         <div>
             <h2>REVIEW PAGE</h2>
+
+
             <button onClick = {handleSubmit}>Submit</button>
         </div>
     );

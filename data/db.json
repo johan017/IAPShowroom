@@ -27,16 +27,16 @@
   ],
   "events": [
     {
-      "id": 1,
       "title": "Bowling tournament",
       "start": "2022-03-31T12:00",
-      "end": "2022-03-31T19:00"
+      "end": "2022-03-31T19:00",
+      "id": 1
     },
     {
-      "id": 2,
       "title": "bye",
       "start": "2022-03-17T15:15",
-      "end": "2022-03-17T15:30"
+      "end": "2022-03-17T15:30",
+      "id": 2
     },
     {
       "id": 3,
@@ -56,90 +56,6 @@
       "email": "ashley.ortiz14@upr.edu",
       "password": "FEwa",
       "id": 1
-    },
-    {
-      "email": "uaIECKJ@oor.com",
-      "password": "acdsacvwsd",
-      "id": 2
-    },
-    {
-      "email": "aCDc@jad.com",
-      "password": "adevwA",
-      "id": 3
-    },
-    {
-      "email": "ashley.ortiz14@upr.edu",
-      "password": "2rt43",
-      "id": 4
-    },
-    {
-      "email": "ashley.ortiz14@upr.edu",
-      "password": "r3c2",
-      "id": 5
-    },
-    {
-      "email": "ashley.ortiz14@upr.edu",
-      "password": "iydkhg",
-      "id": 6
-    },
-    {
-      "email": "ashleyjohan17@gmail.com",
-      "password": "acdSDVSV",
-      "id": 7
-    },
-    {
-      "email": "ashley.ortiz14@upr.edu",
-      "password": "fsgt",
-      "id": 8
-    },
-    {
-      "email": "ashleyjohan17@gmail.com",
-      "password": "fwe4fw",
-      "id": 9
-    },
-    {
-      "email": "ashleyjohan17@gmail.com",
-      "password": "3dcc",
-      "id": 10
-    },
-    {
-      "email": "ashleyjohan17@gmail.com",
-      "password": "CCC",
-      "id": 11
-    },
-    {
-      "email": "ashleyjohan17@gmail.com",
-      "password": "deef",
-      "id": 12
-    },
-    {
-      "email": "ashleyjohan17@gmail.com",
-      "password": "ashley",
-      "loggedIn": false,
-      "id": 13
-    },
-    {
-      "email": "ashleyjohan17@gmail.com",
-      "password": "eloy",
-      "loggedIn": false,
-      "id": 14
-    },
-    {
-      "email": "ashleyjohan17@gmail.com",
-      "password": "nnnnnnnnnnnnnnnn",
-      "id": 15
-    },
-    {
-      "email": "ashleyjohan17@gmail.com",
-      "password": "llllll",
-      "isLoggedIn": true,
-      "id": 16
-    },
-    {
-      "email": "edgar.cintron@upr.edu",
-      "password": "edgarcintron",
-      "isLoggedIn": true,
-      "id": 17
     }
   ],
   "usersSignUp": [
@@ -471,6 +387,13 @@
       "timeLimit": "15",
       "academicSession": "2021 - 2022",
       "id": 1
+    },
+    {
+      "date": "",
+      "startTime": "",
+      "timeLimit": "",
+      "academicSession": "",
+      "id": 2
     }
   ],
   "academicSessions": [

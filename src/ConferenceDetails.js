@@ -2,7 +2,7 @@ import { useHistory, useParams } from "react-router-dom";
 import useFetch from "./useFetch";
 import EventList from "./EventList";
 import { Link } from "react-router-dom";
-import C2 from './C2';
+import C2 from './Schedule/C2';
 
 const ConferenceDeatils = () => {
 

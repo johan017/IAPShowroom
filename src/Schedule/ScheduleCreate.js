@@ -1,6 +1,6 @@
 import { useHistory, useParams } from "react-router-dom";
-import useFetch from "./useFetch";
-import ConferenceList from "./ConferenceList";
+import useFetch from "../useFetch";
+import ConferenceList from "../ConferenceList";
 
 
 
@@ -18,6 +18,9 @@ const ScheduleCreate = () => {
     //     e.preventDefault();
     //     history.push('/new_event');
     // }
+    const handleCancel =(e) =>{
+        history.push('/schedule');
+    }
     const handleNext = (e) =>{
         e.preventDefault();
         history.push('/schedule/review');
@@ -30,6 +33,7 @@ const ScheduleCreate = () => {
             {conferences && <ConferenceList conferences={conferences} title="Conference List"></ConferenceList>}
             {/* <button onClick = {handleSchedule}>Add Event</button> */}
             <button onClick = {handleNext}>Next</button>
+            <button onClick={handleCancel} style={{color:'red'}}>Cancel</button>
 
         </div>
 

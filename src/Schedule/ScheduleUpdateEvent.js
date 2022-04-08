@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useHistory, useParams, withRouter, Link } from "react-router-dom";
-import useFetch from "./useFetch";
+import useFetch from "../useFetch";
 
 
 
@@ -22,13 +22,17 @@ function ScheduleUpdateEvent (props) {
 
     const handleClick = (e) =>{
         e.preventDefault();
-        // const event = {data.title, data.start, data.end};
+        var title = data.title;
+        var start = data.start;
+        var end = data.end;
+        var id = props.match.params.id;
+        let event = {title, start, end, id};
     //     setIsLoading(true); //before submitting
 
-        fetch('http://localhost:8000/events'+ props.match.params.id, {
-            method: 'POST',
+        fetch(`http://localhost:8000/events/${props.match.params.id}`, {
+            method: 'PUT',
             headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(data)
+            body: JSON.stringify(event)
         }).then (() => {
             console.log('new event added');
             history.push("/cal");
@@ -38,7 +42,7 @@ function ScheduleUpdateEvent (props) {
     }
 
     useEffect(async ()=> {
-        let result = await fetch('http://localhost:8000/events/'+ props.match.params.id);
+        let result = await fetch(`http://localhost:8000/events/${props.match.params.id}`);
         result = await result.json();
         setData(result);
     })

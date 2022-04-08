@@ -38,11 +38,20 @@ const EventDetails = () => {
 
                 <div  key={event.id}>
            
-                        <h2>Event Details</h2>
-                        <h2>Title: {event.title}</h2>
+                        <h1>Event Details</h1>
+                        <h2>Title: </h2>{event.title}
                     
-                        <h2>Start: {event.start}</h2>
-                        <h2>End: {event.end}</h2>
+                        <h2>Start: </h2>
+                        <input type="datetime-local"                 
+                               defaultValue={event.start}
+                               disabled = {true}
+                        />
+                        <h2>End: </h2>
+                        <input type="datetime-local"                 
+                               defaultValue={event.end}
+                               disabled = {true}
+                        />
+                        <br/>
                        
                         <button style={{ background: '#3B8D25' }} onClick={handleClick}>Back</button>
                        

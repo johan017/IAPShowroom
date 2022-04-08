@@ -4,6 +4,7 @@ import { experimentalStyled as styled } from '@mui/material/styles';
 // import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import { useParams } from "react-router-dom";
+import { upload } from "@testing-library/user-event/dist/upload";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -24,9 +25,9 @@ const Sponsors = () => {
             {error && <div> {error} </div>}
             {/* <h2> SPONSORS </h2> */}
             {/* <h1>Thank You to Our Sponsors</h1> */}
-            <Grid container item spacing={5} >
+            {/* <Grid container item spacing={3} >*/}
                 {uploads && uploads.map((upload) =>(
-                    <Grid item xs="auto" key= {upload.id}>
+                    <Grid item xs="auto" key ={upload.id}>
                         <Item> <img
                             height={100}
                             width={200}
@@ -34,21 +35,23 @@ const Sponsors = () => {
                             alt="display image"
                         />
                         </Item>
+                    </Grid>
+                ))}
                         {/* <Grid item xs={10}>
                             <Item><h1>Thank You to Our Sponsors</h1></Item>
                         </Grid> */}
                         {/* <Grid item xs>
                             <Item>xs</Item>
-                        </Grid>   */}
+                        </Grid>   *
                     </Grid>
                    
                 ))}
                  <Grid item xs={10}>
-                    <Item style={{fontSize:"64px", fontFamily:"Montserrat", color:"#000000",marginLeft:"150px"}}>Thank You to Our Sponsors</Item>
+                    <Item style={{fontSize:"60px", fontFamily:"Montserrat", color:"#000000"}}>Thank You to Our Sponsors</Item>
                  </Grid>
             </Grid>
                            
-          
+           */}
 
         </div>
 

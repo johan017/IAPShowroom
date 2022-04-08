@@ -7,14 +7,16 @@
   color: #333;
 }
 
-/* .content {
+.content {
   /* max-width: 600px; */
   /* margin: 30px; */
-  /* margin-left: 275px; */
+  margin-left: 225px;
   /* padding: 20px; */
-  /* display:flexbox; *
+  /* display:flexbox; */
+  align-items: center;
+
   
-}  */
+}  
 /*--------------HOME PAGE - NAVIGATION BAR--------------*/
 .navbar {
   padding: 20px;
@@ -255,6 +257,8 @@
   font-size: 20px;
   color:#f1356d;
   margin-bottom: 30px;
+  margin-top: 30px;
+
 }
 
 .addNewEvent input, .addNewEvent textarea, .addNewEvent select {
@@ -280,6 +284,14 @@
   font-size: 20px;
   color: #f1356d;
   margin-bottom: 10px;
+  margin-top: 20px;
+  /* display: inline-block; */
+}
+.event-details input{
+  /* font-size: 20px;
+  color: #f1356d; */
+  margin-bottom: 10px;
+  display: inline-block;
 }
 
 .event-details div{
@@ -484,7 +496,7 @@
   /* font-family: 'Montserrat'; */
   font-style: normal;
   font-weight: 600;
-  font-size: 64px;
+  font-size: 60px;
   line-height: 78px;
   display: flex;
   align-items: center;
@@ -495,6 +507,8 @@
   
 
 }
+
+
 
 .logo-preview img{
   width: 200px;

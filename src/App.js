@@ -12,21 +12,21 @@ import NotFound from './NotFound';
 
 import Stats from './Stats';
 import Sponsors from './Sponsors';
-import Schedule from './Schedule';
-import ScheduleDay from './ScheduleDay';
-import ScheduleCreate from './ScheduleCreate';
+import Schedule from './Schedule/Schedule';
+import ScheduleDay from './Schedule/ScheduleDay';
+import ScheduleCreate from './Schedule/ScheduleCreate';
 import ConferenceDetails from './ConferenceDetails';
-import ScheduleNewEvent from './ScheduleNewEvent';
+import ScheduleNewEvent from './Schedule/ScheduleNewEvent';
 import EventDetails from './EventDetails';
-import ScheduleReview from './ScheduleReview';
-import ScheduleUpdateEvent from './ScheduleUpdateEvent';
+import ScheduleReview from './Schedule/ScheduleReview';
+import ScheduleUpdateEvent from './Schedule/ScheduleUpdateEvent';
 import AccountCreated from './UserSignUp/AccountCreated';
 import SignUpPage from './UserSignUp/SignUpPage';
 
-import Calendar from './Calendar';
+import Calendar from './Schedule/Calendar';
 import ProtectedRoute from './ProtectedRoute';
 
-import C2 from './C2';
+import C2 from './Schedule/C2';
 import Logout from './Logout';
 import Roles from './Roles';
 import { QueryClient, QueryClientProvider, useQuery  } from 'react-query';
@@ -66,6 +66,9 @@ function App() {
       
                 {/*Home component*/}
                 <ProtectedRoute path="/home" component={Home}/>
+                {/* <Route path="/home" > 
+                  <Home/>
+                </Route> */}
                 <ProtectedRoute path="/logout" component={Logout}/>
                 
 

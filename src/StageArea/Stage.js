@@ -11,7 +11,7 @@ const Stage = () => {
 
     // const {data: conf} = useFetch('http://localhost:8000/conference-info/'+ id); /* data is projects because info is found in db within projects */
 
-
+    //TODO: PULL DURATION FROM SCHEDULE DAY TIME LIMIT 
 
     return ( 
         <div>
