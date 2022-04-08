@@ -1,34 +1,49 @@
 import { Link } from "react-router-dom";
-// import { useParams } from "react-router-dom";
+import useFetchProjects from "./hooks/use-fetch-projects";
 import useFetch from "./useFetch";
 
 
 //List of events inside the conference day 
-const EventList = ({events, title}) => {
+const EventList = () => {
+    const {projects, loading,} = useFetchProjects();
     // const {id} = useParams();
 
-    // const {data: conference} = useFetch('http://localhost:8000/conference-info/' + id); /* data is project because we want the id of a singular project */
+    const displayEvents = (props) =>{
+        const p = props;
+        if(p.length>0){
+        // <h2>{title}</h2>
+            return( 
+            
+                p.map((project) =>{
+                    return(
+                        <div className="c2" key ={project.projectid}>
+                           
+                        <Link to ={`/event_details/${project.projectid}`}>
+                            {project.title}
+                            {/* <h2>Date {event.date}</h2> */}
+                        </Link>
+                        <Link to ={`/update_event/${project.projectid}`}>
+                            <button style={{ background: 'blue' }}>Modify</button>
+                        </Link>                
+                    </div>     
+                    )
+
+                })
+            )
+        }else{
+            <h3>No events currently available</h3>
+
+        }
+
+    }
+    
 
     return ( 
 
         <div className="event-list">
-            <h2>{title}</h2>
-            {events.map((event) =>(
-                // Project list for schedule view in Lobby 
-                <div className="c2" key ={event.id}>
-                    <Link to ={`/event_details/${event.id}`}>
-                        <h2>Title:  {event.title}</h2>
-                        {/* <h2>Date {event.date}</h2> */}
-                    </Link>
-                    <Link to ={`/update_event/${event.id}`}>
-                        <button style={{ background: 'blue' }}>Modify</button>
-                    </Link>
-                
-                    {/* Button to enter that specific project room  */}
-                    {/* <button onClick={() => handleRedirect(project.id)}> Project Room </button> */}
-                
-                </div>     
-            ))}
+            {loading && <div> Loading...</div>}
+
+           {displayEvents(projects)}
         </div>
     );
 }

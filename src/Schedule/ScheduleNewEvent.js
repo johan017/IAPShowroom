@@ -38,7 +38,7 @@ const ScheduleNewEvent = () => {
         <div className = "addNewEvent">
             <h2>Add a New Event</h2>
             <form onSubmit = {handleSubmit}>
-                <label>Even Title: </label>
+                <label>Event Title: </label>
                 <input 
                     type="text" 
                     required 

@@ -100,25 +100,70 @@
 
 /*--------------HOME PAGE - project list--------------*/
 .project-preview {
+  max-width: 30%;
   padding: 10px 20px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 
 }
-/* .project-preview:hover {
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-} */
-.project-preview h2 {
-  font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 8px;
+.project-preview label{
+  display: block;
+
 }
+.project-preview a {
+  font-size: 25px;
+  margin-left: 10px;
+  text-decoration: none;
+  padding: 6px;
+  /* display:inline; */
+  width: 50px;
+  color: black;
+
+}
+.project-preview a:link{
+  color: #c9330e;
+}
+.project-preview a:visited{
+  color: #3535f1;
+  background-color: #c9330e;
+}
+.project-preview a:hover{
+  color: #10a015;
+}
+
+
+.cal22 a {
+  font-size: 25px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  text-decoration: none;
+  padding: 6px;
+  /* display:inline-block; */
+  width: 50px;
+  color: black;
+
+}
+.cal22 a:link{
+  color: #c9330e;
+}
+.cal22 a:visited{
+  color: #3535f1;
+}
+.cal22 a:hover{
+  color: #10a015;
+}
+
+/* .project-preview h2 {
+  font-size: 20px;
+  /* color: #f1356d; *
+  margin-bottom: 8px;
+} */
 .project-preview img {
   width: 25px;
   height: 25px;
-  margin-left: 400px;
-  margin-right: -190px;
+  margin-left: 210px;
+  margin-right: -40px;
   /* font-size: 20px;
   color: #f1356d;
   margin-bottom: 8px; */
@@ -126,8 +171,8 @@
 .project-preview text {
   font-size: 20px;
   text-align: right;
-  margin-left: 200px;
-  margin-right: -380px;
+  margin-left: 50px;
+  margin-right: -180px;
 }
 
 /*--------------HOME PAGE - Project button--------------*/
@@ -156,10 +201,7 @@
 
 } */
 
-/*--------------HOME PAGE - eliminates the underline of the link for each project--------------*/
-.project-preview a{
-  text-decoration: none; 
-}
+
 
 /*--------------PROJECT ROOM PAGE--------------*/
 .project-room h2{

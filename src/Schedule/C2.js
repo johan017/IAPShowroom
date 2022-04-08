@@ -7,7 +7,7 @@ import useFetch from '../useFetch';
 
 const C2 = () => {
 
-  const {data: events, error, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
+  // const {data: events, error, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
   const history = useHistory();
 
     const handleCancel =(e) =>{
@@ -19,11 +19,11 @@ const C2 = () => {
     }
   return (
     <div className="cal2">
-      {error && <div> {error} </div>}
-      {isLoading && <div> Loading...</div>}
+      {/* {error && <div> {error} </div>}
+      {isLoading && <div> Loading...</div>} */}
       
       <div className="cal22">
-        {events && <EventList events={events} title="Events List"></EventList>}
+        {<EventList></EventList>}
       </div>
 
       <div className="scheduler">

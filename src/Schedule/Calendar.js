@@ -3,7 +3,7 @@ import { Scheduler, DayView } from '@progress/kendo-react-scheduler';
 import * as React from 'react';
 import { useState } from "react";
 
-import useFetch from '../useFetch';
+import useFetchProjects from "../hooks/use-fetch-projects";
 
 const currentYear = new Date().getFullYear();
 const currentMonth =new Date().getMonth();
@@ -17,14 +17,15 @@ const parseAdjust = eventDate => {
 var sampleData = "";
 
 const C2 = () => {
-    const {data: events, error, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
-    const [info, setInfo] = useState(events);
+    // const {data: events, error, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
+    // const [info, setInfo] = useState(events);
+    const {projects, loading, } = useFetchProjects();
   
     const displayDate = new Date(currentYear, currentMonth, currentDay);
 
     //Assigning the events to the Calendar
-    {events && (
-        sampleData =  events.map((dataItem) => ({
+    {projects && (
+        sampleData =  projects.map((dataItem) => ({
                 id: dataItem.project_id,
                 start: parseAdjust(dataItem.start),
             //     startTimezone: dataItem.StartTimezone,
@@ -42,13 +43,13 @@ const C2 = () => {
         end: "end",
     };
 
-    console.log("informacion", info);
-    console.log("eventos", events);
+    // console.log("informacion", info);
+    // console.log("eventos", events);
     
     return (
     <div className="cal2">
-      {error && <div> {error} </div>}
-      {isLoading && <div> Loading...</div>}
+      {/* {error && <div> {error} </div>} */}
+      {loading && <div> Loading...</div>}
   
       <div className="scheduler">
         <Scheduler data={sampleData} defaultDate={displayDate} modelFields={modelFields}>
