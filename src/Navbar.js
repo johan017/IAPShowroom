@@ -1,5 +1,6 @@
 import {Link} from 'react-router-dom';
-
+import ProtectedRoute from './ProtectedRoute';
+import Home from './Home';
 
 const Navbar = () => {
     return (  
@@ -13,7 +14,7 @@ const Navbar = () => {
             {/* <h1>IAP Showroom</h1> */}
             <div className="links">
                 
-                <Link to ="/home">HOME</Link>
+                <Link to="/home" >HOME</Link>
                 <Link to="/stage" >STAGE</Link>
                 <Link to="/rooms" >ROOMS</Link>
                 <Link to="/stats" >STATS</Link>
@@ -21,6 +22,7 @@ const Navbar = () => {
                 <Link to="/schedule" >SCHEDULE</Link>
                 {/* <Link to="/calendar">CALENDAR</Link> */}
                 <Link to ="/logout"> LOGOUT</Link>
+    
             </div>
         </nav>
     );

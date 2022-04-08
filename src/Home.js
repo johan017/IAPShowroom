@@ -1,10 +1,12 @@
-import {Link} from "react-router-dom";
+
+import {Link, Redirect} from "react-router-dom";
 import useFetchProjects from "./hooks/use-fetch-projects";
 
 export default function Home() {  
   const {
     projects,
-    loading,
+    redirect,
+    loading
   } = useFetchProjects();
 
   const displayEvents = (props) => {
@@ -32,7 +34,12 @@ export default function Home() {
     }
 
   }
-  
+
+  if(redirect){
+    return (
+      <Redirect from="*" to ="/"/>
+    )
+  }
 
   return ( 
     <div className="home">
