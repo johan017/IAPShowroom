@@ -6,6 +6,7 @@ const EVENTS_URL = "api/showroom/schedule/events"
 const useFetchProjects = () => {
 
     const [projects, setProjects] = useState([]);
+    const [redirect, setRedirect] = useState(false);
     const [isLoading, setLoading] = useState(false);
 
     const getProjects = async() =>{
@@ -18,7 +19,10 @@ const useFetchProjects = () => {
         setProjects(result.data.payload);
         console.log(result.data.payload)
         } catch(error) {
-            console.error(error)
+            console.error(error.response.status);
+            if(error.response.status = '401'){
+                setRedirect(true);
+            }
         }
         setLoading(false);
     };
@@ -29,6 +33,7 @@ const useFetchProjects = () => {
 
     return {
         projects,
+        redirect,
         isLoading
       };
 };
