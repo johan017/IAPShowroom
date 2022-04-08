@@ -1,12 +1,12 @@
 import { useEffect, useState} from 'react';
 import axios from "../context/axios";
 
-const EVENTS_URL = "/api/showroom/schedule/events"
+const EVENTS_URL = "api/showroom/schedule/events"
 
 const useFetchProjects = () => {
 
     const [projects, setProjects] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [isLoading, setLoading] = useState(false);
 
     const getProjects = async() =>{
         try{
@@ -29,7 +29,7 @@ const useFetchProjects = () => {
 
     return {
         projects,
-        loading
+        isLoading
       };
 };
 

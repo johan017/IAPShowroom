@@ -57,15 +57,6 @@ const Login = () => {
                     console.log('Login Failed');
                 }
             }
- 
-            // await fetch('http://localhost:8080/api/auth/login', {
-            //     method: 'POST',
-            //     headers: {"Content-Type": "application/json"},
-            //     body: JSON.stringify(login)
-            // }).then (() => {
-            //     console.log('user Signed In');
-            //     setIsLoading(false); //when form is submitted; completed
-            // })
             history.push('/home');
 
         }
@@ -116,8 +107,6 @@ const Login = () => {
             <Link to="/signUp" >Don't have an account? Create</Link>
         </div>
                        /**select & option is a dropdown */
-
-
      );
 }
  

@@ -21,9 +21,6 @@ const Navbar = () => {
                 <Link to="/schedule" >SCHEDULE</Link>
                 {/* <Link to="/calendar">CALENDAR</Link> */}
                 <Link to ="/logout"> LOGOUT</Link>
-
-
-
             </div>
         </nav>
     );

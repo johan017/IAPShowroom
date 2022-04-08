@@ -1,25 +1,28 @@
 import { Route, Redirect } from "react-router-dom";
 import useAuth from "./hooks/use-auth";
+import useGetRole from "./hooks/use-get-role";
 
 function isEmpty(obj) {
     return Object.keys(obj).length === 0;
 }
-
-const ProtectedRoute = ({fakeauth ,component: Component, ...rest}) => {
+const ProtectedRoute = ({component: Component, ...rest})  => {
     const { auth } = useAuth();
-    //.find(row => row.startsWith('connect.id=')).split('=')[1];
-     // more secure way to authenticate users on front end is needed
-     
+    const {role}  = useGetRole();
+    console.log(role);
+    
     return(
         <Route {...rest} render={
             (props) => {
-                if(!isEmpty(auth) || localStorage.getItem("role"))
-                {
-                    return <Component {...rest} {...props} />
+                if (role === null) {
+                    return (
+                         <Redirect from="*" to ="/"/>
+                     )
                 }
-                if(isEmpty(auth))
-                {
-                    return <Redirect to ={{path:"/",state: {from:props.location}}}/>
+                else if(!isEmpty(role)) {
+                    return <Component {...rest} {...props} /> 
+                }
+                else {
+                    return <div>loading...</div>
                 }
             }
         }
