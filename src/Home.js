@@ -26,10 +26,11 @@ export default function Home() {
           </div>
           )
         })
-      )
+        )
     } else {
       <h3>No events currently available</h3>
     }
+
   }
   
 

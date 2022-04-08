@@ -1,10 +1,9 @@
-import { SliderTrack } from '@mui/material';
-import { useEffect, useState} from 'react';
+import { useEffect ,useLayoutEffect, useState} from 'react';
 import axios from "../context/axios";
-
+import { Route, Redirect } from "react-router-dom";
 const ROLE_URL = "api/auth/user-info"
 
-const useGetRole = () => {
+const useGetRole = (callback) => {
     const [isLoading, setLoading] = useState(true);
     const [role, setRole] = useState([]);
 
@@ -15,16 +14,15 @@ const useGetRole = () => {
                     headers: {"Content-Type": "application/json"},
                     withCredentials: true
                 });
-                console.log(result.data.payload.user_role);
-                setRole(result);
+                setRole(result.data.payload.user_role);
+                setLoading(false);
                // setLoading(false);
         }catch(err){
-            console.log(err);
-            console.log("Unauthorized")
+            setRole(null); 
         }
     };
 
-    useEffect(()=>{
+    useLayoutEffect(()=>{
         getRole();
     }, []);
 

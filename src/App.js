@@ -62,7 +62,7 @@ function App() {
             <div className="content">
               {/* <ProtectedRoute component={Navbar}/> */}
                {/*Navigation bar*/}
-               <Navbar></Navbar>
+               <ProtectedRoute component={Navbar}/>
       
                 {/*Home component*/}
                 <ProtectedRoute path="/home" component={Home}/>
@@ -70,14 +70,12 @@ function App() {
                 
 
                 {/*Stage component*/}
-                <ProtectedRoute path="/stage" component={Stage}>
+                <ProtectedRoute path="/stage" component={Stage}/>
                   
-                </ProtectedRoute>
 
                 {/*Rooms component*/}
-                <ProtectedRoute path="/rooms" component={Rooms}>
+                <ProtectedRoute path="/rooms" component={Rooms}/>
                  
-                </ProtectedRoute>
 
                 {/*Project Room component*/}
                 <Route path="/project_room/:id"> 
@@ -93,7 +91,7 @@ function App() {
                 <Route path="/sponsors">
                   <Sponsors/> 
                 </Route>           
-
+                
                 {/*Schedule component - schedule of conferencia*/}
                 <Route exact path="/schedule">
                   <Schedule/>
@@ -138,10 +136,6 @@ function App() {
                     <Calendar/> 
                   </Route>
                 </QueryClientProvider> */}
-
-                <Route path="/logout"> 
-                  <Logout/> 
-                </Route>
 
                 <Route path="/roles"> 
                   <Roles/> 
