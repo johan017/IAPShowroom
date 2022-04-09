@@ -4,7 +4,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import {Link} from 'react-router-dom';
 import AuthContext from "./context/AuthProvider";
 import axios from "./context/axios";
-const LOGIN_URL = 'api/auth/login'
+const LOGIN_URL = 'api/auth/login';
 
 const Login = () => {
     const history = useHistory();
@@ -42,7 +42,6 @@ const Login = () => {
                     });
                     console.log(response.data.payload)
                     setAuth(response.data.payload);
-                    localStorage.setItem("role",response.data.payload.user_role);
                     // role = "role";
                     // setRole = response.data.payload.admin;
                     

@@ -3,7 +3,7 @@ import { Scheduler, DayView } from '@progress/kendo-react-scheduler';
 import * as React from 'react';
 import { useState } from "react";
 
-import useFetchProjects from "../hooks/use-fetch-projects";
+import useFetchEvents from "../hooks/use-fetch-events";
 
 const currentYear = new Date().getFullYear();
 const currentMonth =new Date().getMonth();
@@ -19,13 +19,13 @@ var sampleData = "";
 const C2 = () => {
     // const {data: events, error, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
     // const [info, setInfo] = useState(events);
-    const {projects, loading, } = useFetchProjects();
+    const {events, loading, } = useFetchEvents();
   
     const displayDate = new Date(currentYear, currentMonth, currentDay);
 
     //Assigning the events to the Calendar
-    {projects && (
-        sampleData =  projects.map((dataItem) => ({
+    {events && (
+        sampleData =  events.map((dataItem) => ({
                 id: dataItem.project_id,
                 start: parseAdjust(dataItem.start),
             //     startTimezone: dataItem.StartTimezone,

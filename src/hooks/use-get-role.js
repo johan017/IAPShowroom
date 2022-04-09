@@ -1,9 +1,8 @@
-import { useEffect ,useLayoutEffect, useState} from 'react';
+import {useLayoutEffect, useState} from 'react';
 import axios from "../context/axios";
-import { Route, Redirect } from "react-router-dom";
 const ROLE_URL = "api/auth/user-info"
 
-const useGetRole = (callback) => {
+const useGetRole = () => {
     const [isLoading, setLoading] = useState(true);
     const [role, setRole] = useState([]);
 

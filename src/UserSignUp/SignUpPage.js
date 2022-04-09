@@ -9,12 +9,12 @@ export default class SignUpPage extends Component{
 
     state ={
         step: 1,
-        firstName: '',
-        lastName:'',
+        first_name: '',
+        last_name:'',
         email: '',
         password:'',
         gender:'',
-        role:'', 
+        user_role:'', 
         gradDate:'', 
         researchP:'', 
         department:'', 
@@ -24,34 +24,11 @@ export default class SignUpPage extends Component{
 
     nextStep = () =>{
         const {step} = this.state;
-        // const {firstName, lastName, email, password, gender, role, gradDate, researchP, department, company, researchAdv} =this.state;
-        // const values = {firstName, lastName, email, password, gender, role, gradDate, researchP, department, company, researchAdv}
-        this.setState({step: step+ 1});
-
-        // if({role} === "Student Researcher"){
-        //     this.setState({step: 2});
-        // } else if({role} === "Advisor"){
-        //     this.setState({step: 3});
-        // }else if({role} === "Company Representative"){
-        //     this.setState({step: 4});
-        // }else{
-        //     this.setState({step:5});
-        // }
+        this.setState({step: step+1});
     }
     prevStep = () =>{
         const {step} = this.state;
-        // const {firstName, lastName, email, password, gender, role, gradDate, researchP, department, company, researchAdv} =this.state;
-            this.setState({step: step -1});
-
-        // if({role} === "Student Researcher"){
-        //     this.setState({step: 2});
-        // } else if({role} === "Advisor"){
-        //     this.setState({step: 3});
-        // }else if({role} === "Company Representative"){
-        //     this.setState({step: 4});
-        // }else{
-        //     this.setState({step:1});
-        // }
+        this.setState({step: step-1});
     }
     
     handleChange = input => e => {
@@ -60,11 +37,9 @@ export default class SignUpPage extends Component{
 
     render(){
         const {step} = this.state;
-        const {firstName, lastName, email, password, gender, role, gradDate, researchP, department, company, researchAdv} =this.state;
-        const values = {firstName, lastName, email, password, gender, role, gradDate, researchP, department, company, researchAdv}
-        
-        switch(step){
-            case 1:
+        const {first_name, last_name, email, password, gender, user_role, gradDate, researchP, department, company, researchAdv} = this.state;
+        const values = {first_name, last_name, email, password, gender, user_role, gradDate, researchP, department, company, researchAdv};
+            if(step === 1){
                 return(
                     <GeneralSignUp
                        nextStep={this.nextStep}
@@ -73,7 +48,8 @@ export default class SignUpPage extends Component{
                             
                     />
                 )
-            case 2:
+            }
+            if(step === 2 && user_role === "Student Researcher") {
                 return(
                     <StudentResearcher
                        nextStep={this.nextStep}
@@ -83,7 +59,8 @@ export default class SignUpPage extends Component{
                               
                     />
                 )
-            case 3:
+            }
+            else if(step === 2 && user_role === "Advisor") {
                 return(
                     <Advisor
                        nextStep={this.nextStep}
@@ -93,8 +70,8 @@ export default class SignUpPage extends Component{
                                   
                     />
                 )
-
-            case 4:
+            }
+            else if(step === 2 && user_role === "Company Representative" ) {
                 return(
                     <CompanyRepresentative
                        nextStep={this.nextStep}
@@ -104,7 +81,8 @@ export default class SignUpPage extends Component{
                                       
                     />
                 )
-            case 5:
+            }
+            else {
                 return(
                     <VerifyInformation
                        prevStep={this.prevStep}
@@ -112,6 +90,6 @@ export default class SignUpPage extends Component{
                                       
                     />
                 )
-        }
+            }
     }
 }

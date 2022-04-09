@@ -3,20 +3,20 @@ import axios from "../context/axios";
 
 const EVENTS_URL = "api/showroom/schedule/events"
 
-const useFetchProjects = () => {
+const useFetchEvents = () => {
 
-    const [projects, setProjects] = useState([]);
+    const [events, setEvents] = useState([]);
     const [redirect, setRedirect] = useState(false);
     const [isLoading, setLoading] = useState(false);
 
-    const getProjects = async() =>{
+    const getEvents = async() =>{
         try{
         const result = await axios.get(EVENTS_URL, 
         {
             headers: {"Content-Type": "application/json"},
             withCredentials: true
         }) 
-        setProjects(result.data.payload);
+        setEvents(result.data.payload);
         console.log(result.data.payload)
         } catch(error) {
             console.error(error.response.status);
@@ -28,14 +28,14 @@ const useFetchProjects = () => {
     };
 
     useEffect(()=>{
-        getProjects();
+        getEvents();
     }, []);
 
     return {
-        projects,
+        events,
         redirect,
         isLoading
       };
 };
 
-export default useFetchProjects;
+export default useFetchEvents;

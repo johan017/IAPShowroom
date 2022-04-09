@@ -1,27 +1,28 @@
 
 import {Link, Redirect} from "react-router-dom";
-import useFetchProjects from "./hooks/use-fetch-projects";
+import useFetchEvents from "./hooks/use-fetch-events";
+
 
 export default function Home() {  
   const {
-    projects,
+    events,
     redirect,
     loading
-  } = useFetchProjects();
+  } = useFetchEvents();
 
   const displayEvents = (props) => {
-    const p = props;
-    if(p.length>0){
+    const e = props;
+    if(e.length>0){
       return(
-        p.map((project) => {
+        e.map((event) => {
           return (
-          // Project list for schedule view in Lobby 
-          <div className="project-preview" key ={project.projectid}>
-          <h2>{project.title}</h2>
-          <Link to={`/project_room/${project.projectid}`}>
+          // event list for schedule view in Lobby 
+          <div className="project-preview" key ={event.projectid}>
+          <h2>{event.title}</h2>
+          <Link to={`/project_room/${event.projectid}`}>
             <button>Speakers</button>  
           </Link> 
-          <Link to ={`/project_room/${project.projectid}`}>           
+          <Link to ={`/project_room/${event.projectid}`}>           
             <button>Room</button>
                   {/* <p>Written by {project.author} </p> */}
           </Link>
@@ -52,7 +53,7 @@ export default function Home() {
         <h3>March 23, 2022</h3>
       </div>
       <>
-      {displayEvents(projects)}
+      {displayEvents(events)}
       </>
     </div>   
   );

@@ -1,14 +1,14 @@
 // import ProjectRoom from "./ProjectRoom";
 import useFetch from "../useFetch";
 import {Link} from "react-router-dom";
-import useFetchProjects from "../hooks/use-fetch-projects";
+import useFetchEvents from "../hooks/use-fetch-events";
 
 
 
 const Rooms = () => {
 
     // const {data: projects, isLoading, error} = useFetch('http://localhost:8000/projects'); /* data is projects because info is found in db within projects */
-    const {projects, loading,} = useFetchProjects();
+    const {events, loading,} = useFetchEvents();
 
 
     return ( 
@@ -19,11 +19,11 @@ const Rooms = () => {
             {loading && <div> Loading...</div>}
             
 
-          {projects && projects.map((project) =>(
+          {events && events.map((event) =>(
             // Project list for schedule view in Lobby 
-          <div className="project-preview" key ={project.id}>
-            <label><Link to ={`/project_room/${project.id}`}> 
-              {project.title}
+          <div className="project-preview" key ={event.id}>
+            <label><Link to ={`/project_room/${event.id}`}> 
+              {event.title}
             </Link></label><label>
             <img
                 src = "company_rep.png"
