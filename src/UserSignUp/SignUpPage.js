@@ -15,11 +15,13 @@ export default class SignUpPage extends Component{
         password:'',
         gender:'',
         user_role:'', 
-        gradDate:'', 
-        researchP:'', 
-        department:'', 
+        grad_date:'', 
+        projectids: new Array(),
+        department: '', 
+       // department: new Array(), 
         company:'', 
-        researchAdv:''
+        researchAdv:'',
+        ispm:'false'
     }
 
     nextStep = () =>{
@@ -35,17 +37,34 @@ export default class SignUpPage extends Component{
         this.setState({[input]: e.target.value});
     } 
 
+    handleProjectChange = e => {
+        console.log(e);
+        var inputArr = new Array();
+        e.forEach(function (choice){
+            inputArr.push(choice.project_id);
+        });
+        this.setState({"projectids": inputArr});
+    }
+
+    // Included for students who are in more than one department (unused)
+    handleDepartmentChange = e => {
+        var inputArr = new Array();
+        e.forEach(function (choice){
+            inputArr.push(choice.value);
+        });
+        this.setState({"department": inputArr});
+    } 
+
     render(){
         const {step} = this.state;
-        const {first_name, last_name, email, password, gender, user_role, gradDate, researchP, department, company, researchAdv} = this.state;
-        const values = {first_name, last_name, email, password, gender, user_role, gradDate, researchP, department, company, researchAdv};
+        const {first_name, last_name, email, password, gender, user_role, grad_date, projectids, department, company, researchAdv, ispm} = this.state;
+        const values = {first_name, last_name, email, password, gender, user_role, grad_date, projectids, department, company, researchAdv, ispm};
             if(step === 1){
                 return(
                     <GeneralSignUp
                        nextStep={this.nextStep}
                        handleChange={this.handleChange}
                        values={values}     
-                            
                     />
                 )
             }
@@ -55,6 +74,8 @@ export default class SignUpPage extends Component{
                        nextStep={this.nextStep}
                        prevStep={this.prevStep}
                         handleChange={this.handleChange}
+                        handleProjectChange = {this.handleProjectChange}
+                        handleDepartmentChange= {this.handleDepartmentChange}
                         values={values}     
                               
                     />
@@ -76,9 +97,8 @@ export default class SignUpPage extends Component{
                     <CompanyRepresentative
                        nextStep={this.nextStep}
                        prevStep={this.prevStep}
-                        handleChange={this.handleChange}
-                        values={values}     
-                                      
+                       handleChange={this.handleChange}
+                       values={values}                   
                     />
                 )
             }

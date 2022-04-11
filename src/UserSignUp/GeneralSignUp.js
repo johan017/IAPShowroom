@@ -9,9 +9,9 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
 
     /* data validation needed in backend */
     const genders = [
-        { g_id : 1, gender: "undisclosed"},
+        { g_id : 1, gender: "male"},
         { g_id : 2, gender: "female"},
-        { g_id : 3, gender: "male"}
+        { g_id : 3, gender: "other"}
       ];
       const roles = [
         { id : 1, user_role: "Guest"},
