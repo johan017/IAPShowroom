@@ -11,8 +11,9 @@ const VerifyInformation = ({ prevStep, values }) =>{
     const { setAuth } = useContext(AuthContext);
     const history = useHistory();
     const page = 3
-    const {first_name, last_name, email, password, gender, user_role, gradDate, researchP,
-        department, company, researchAdv } = values;
+    const {first_name, last_name, email, password, gender, user_role, grad_date, projectids,
+        department, company, researchAdv, ispm } = values;
+
     var signup = values;
     const [isLoading, setIsLoading] = useState(false); // when first loading the page the POST request is not being made; only after sumbitting form is when request is made
 
@@ -20,15 +21,16 @@ const VerifyInformation = ({ prevStep, values }) =>{
         e.preventDefault();
 
             if(user_role === "Student Researcher"){
-                signup = {first_name, last_name, email, password, gender, user_role, gradDate, 
-                          researchP, department};
+                delete signup.company;  delete signup.researchAdv;
+                signup = {first_name, last_name, email, password, gender, user_role, grad_date, 
+                          projectids, department, ispm};
             }else if(user_role === "Advisor"){
                 signup = {first_name, last_name, email, password, gender, user_role, researchAdv};
             }else if(user_role === "Company Representative"){
                 signup = {first_name, last_name, email, password, gender, user_role, company};
             }else if(user_role === "Guest"){ //general guest
                 delete signup.company;  delete signup.researchAdv;
-                delete signup.gradDate; delete signup.researchP;
+                delete signup.grad_date; delete signup.projectids;
                 delete signup.department;
                 signup = {email, password, first_name, last_name, gender, user_role};
             }
@@ -38,12 +40,15 @@ const VerifyInformation = ({ prevStep, values }) =>{
             
             //  Registration
             try{
-                await axios.post(SIGNUP_URL, 
+                const response = await axios.post(SIGNUP_URL, 
                     JSON.stringify(signup),
                     {
                         headers: {"Content-Type": "application/json"},
                         withCredentials: true
                     });
+                    // if(user_role === "Student Researcher"){
+                    //     response
+                    // }
                     
             }catch(err){
                 if(!err?.response) {
@@ -55,6 +60,7 @@ const VerifyInformation = ({ prevStep, values }) =>{
                 } else {
                     console.log('Login Failed');
                 }
+                history.push("/signUp");
             }
             //  Login
             // try{
@@ -116,9 +122,10 @@ const VerifyInformation = ({ prevStep, values }) =>{
 
                     {user_role === "Student Researcher" && (
                         <div>
-                        <label>Research Project: </label> <label>{researchP}</label>
+                        <label>Research Project: </label> <label>{projectids}</label>
                         <label>Department: </label> <label>{department}</label>
-                        <label>Graduation Date: </label> <label>{gradDate}</label>
+                        <label>Graduation Date: </label> <label>{grad_date}</label>
+                        <label>Project Manager: </label> <label>{ispm}</label>
                         </div>
                     )}
 
