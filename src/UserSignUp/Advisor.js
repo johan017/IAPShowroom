@@ -1,16 +1,24 @@
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
+import Select from "react-select"
+import useFetchProjects from "../hooks/use-fetch-projects";
 import useFetch from "../useFetch";
 
 
 
-const Advisor = ({  nextStep, prevStep, values }) => {
+const Advisor = ({  nextStep, prevStep, handleChange, handleProjectChange, values }) => {
 
     const history = useHistory();
+    const [localProjects, setProjects] = useState();
     const [isChecked, setIsChecked] = useState(false);
     const page = 2;
 
-    const {data: projects} = useFetch('http://localhost:8000/projects'); /* data is projects because info is found in db within projects */
+    const {projects} = useFetchProjects();
+  
+    for(var i = 0; i < projects.length; i++) {
+        projects[i].value = projects[i].title;
+        projects[i].label = projects[i].title;
+    }
 
     const nextPage = e =>{
         e.preventDefault();
@@ -39,14 +47,14 @@ const Advisor = ({  nextStep, prevStep, values }) => {
                 <div className ="checklist">
                     <h1>Advisor Info</h1>
                     {/* <form> */}
-                        {projects && projects.map((project) =>(
-                        // Project list for schedule view in Lobby 
-                            <div className="checklist" key ={project.id}>
-                                <input value={values.researchAdv} type="checkbox" onChange={() => {setIsChecked(!isChecked)}} /> 
-                                {project.title}
-
-                            </div>
-                        ))}
+                    <label>Research Project: </label>
+                        <Select 
+                            isMulti
+                            value = {localProjects}
+                            onChange = { e => {handleProjectChange(e); setProjects(e);}}
+                            options = {projects}
+                            // {(e) => setResearchP(e.target.value)}
+                        />
                     
                     <button style={{ background: 'red' }} onClick={prevPage} > Back </button>
                     <button style={{ background: '#3B8D25' }} onClick={nextPage} > Submit </button>
