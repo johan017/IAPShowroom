@@ -70,7 +70,7 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
                             // {(e) => setResearchP(e.target.value)}
                         />
                                        
-                        <label>Department: </label>
+                        <label>Major: </label>
                         <select
                             defaultValue = "default"
                             onChange = {handleChange('department')} 
