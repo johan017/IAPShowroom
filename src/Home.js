@@ -15,9 +15,11 @@ export default function Home() {
     if(e.length>0){
       return(
         e.map((event) => {
+          // if projectid == null, it s
+
           return (
           // event list for schedule view in Lobby 
-          <div className="project-preview" key ={event.projectid}>
+          <div className="project-preview" key ={event.eventid}>
           <h2>{event.title}</h2>
           <Link to={`/project_room/${event.projectid}`}>
             <button>Speakers</button>  
