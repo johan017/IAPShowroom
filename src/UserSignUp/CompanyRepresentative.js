@@ -1,24 +1,23 @@
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 import useFetch from "../useFetch";
+import useFetchSponsors from "../hooks/use-fetch-sponsors";
 // import VerifyInformation from "./VerifyInformation";
 
 
 const CompanyRepresentative = ({ nextStep, prevStep, handleChange, values }) =>{
 
-    const history = useHistory();
     const page = 2;
-     const [company, setCompany] = useState('');
-    const {data: sponsors} = useFetch('http://localhost:8000/sponsors'); /* data is projects because info is found in db within projects */
+    const {sponsors} = useFetchSponsors();
+    const mockSponsors = [
+        { sponsor_id : 1, company_name : "Verizon" },
+        { sponsor_id : 2, company_name : "L3Harris" },
+        { sponsor_id : 3, company_name : "Sikorski" },
+        { sponsor_id : 4, company_name : "Raytheon" }
+    ];
 
-
-    // const handleVerify = (e) =>{
-    //     e.preventDefault();
-    //     history.push('/verifyInformation');
-    // }
     const nextPage = e =>{
         e.preventDefault();
-        // history.push('/verifyInformation');
         nextStep();
     }
 
@@ -50,14 +49,17 @@ const CompanyRepresentative = ({ nextStep, prevStep, handleChange, values }) =>{
                         <label>Company you Represent: </label>
                         <select 
                             required
-                            value = {values.company}
-                            onChange = {handleChange('company')}
+                            value = {values.company_name}
+                            onChange = {handleChange('company_name')}
                             // = {(e) => setCompany(e.target.value)}
 
                         > 
-                            {sponsors && sponsors.map((sponsor) =>(
-                                <option key={sponsor.id} value={sponsor.company_name} >{sponsor.company_name}</option>             
+                            {mockSponsors && mockSponsors.map((sponsor) =>(
+                                <option key={sponsor.sponsor_id} value={sponsor.company_name} >{sponsor.company_name}</option>             
                             ))}
+                            {/* {sponsors && sponsors.map((sponsor) =>(
+                                <option key={sponsor.sponsor_id} value={sponsor.company_name} >{sponsor.company_name}</option>             
+                            ))} */}
                         
                         </select> 
                     {/* </form> */}

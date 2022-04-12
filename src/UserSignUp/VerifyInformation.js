@@ -12,7 +12,7 @@ const VerifyInformation = ({ prevStep, values }) =>{
     const history = useHistory();
     const page = 3
     const {first_name, last_name, email, password, gender, user_role, grad_date, projectids,
-        department, company, ispm } = values;
+        department, company_name, ispm } = values;
 
     var signup = values;
     const [isLoading, setIsLoading] = useState(false); // when first loading the page the POST request is not being made; only after sumbitting form is when request is made
@@ -21,17 +21,17 @@ const VerifyInformation = ({ prevStep, values }) =>{
         e.preventDefault();
 
             if(user_role === "Student Researcher"){
-                delete signup.company; 
+                // delete signup.company; 
                 signup = {first_name, last_name, email, password, gender, user_role, grad_date, 
                           projectids, department, ispm};
             }else if(user_role === "Advisor"){
                 signup = {first_name, last_name, email, password, gender, user_role, projectids};
             }else if(user_role === "Company Representative"){
-                signup = {first_name, last_name, email, password, gender, user_role, company};
+                signup = {first_name, last_name, email, password, gender, user_role, company_name};
             }else if(user_role === "Guest"){ //general guest
-                delete signup.company;  
-                delete signup.grad_date; delete signup.projectids;
-                delete signup.department;
+                // delete signup.company;  
+                // delete signup.grad_date; delete signup.projectids;
+                // delete signup.department;
                 signup = {email, password, first_name, last_name, gender, user_role};
             }
             console.log(user_role);
@@ -137,7 +137,7 @@ const VerifyInformation = ({ prevStep, values }) =>{
 
                     {user_role === "Company Representative" && (  
                         <div> 
-                            <label>Company you Represent: </label> <label>{company}</label> 
+                            <label>Company you Represent: </label> <label>{company_name}</label> 
                         </div>
                     )}
 

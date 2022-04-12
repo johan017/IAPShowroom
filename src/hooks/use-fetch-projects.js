@@ -6,7 +6,6 @@ const PROJECTS_URL = "api/showroom/schedule/projects"
 const useFetchProjects = () => {
 
     const [projects, setProjects] = useState([]);
-    const [redirect, setRedirect] = useState(false);
     const [isLoading, setLoading] = useState(false);
     const params = new URLSearchParams([['session_id', 14]]);
 
@@ -34,7 +33,6 @@ const useFetchProjects = () => {
 
     return {
         projects,
-        redirect,
         isLoading
       };
 };

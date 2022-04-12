@@ -8,7 +8,6 @@ function isEmpty(obj) {
 const ProtectedRoute = ({component: Component, ...rest})  => {
     const { auth } = useAuth();
     const {role}  = useGetRole();
-    console.log(role);
     
     return(
         <Route {...rest} render={
