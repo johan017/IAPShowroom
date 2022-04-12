@@ -19,8 +19,7 @@ export default class SignUpPage extends Component{
         projectids: new Array(),
         department: '', 
        // department: new Array(), 
-        company:'', 
-        researchAdv:'',
+        company_name:'', 
         ispm:'false'
     }
 
@@ -57,8 +56,9 @@ export default class SignUpPage extends Component{
 
     render(){
         const {step} = this.state;
-        const {first_name, last_name, email, password, gender, user_role, grad_date, projectids, department, company, researchAdv, ispm} = this.state;
-        const values = {first_name, last_name, email, password, gender, user_role, grad_date, projectids, department, company, researchAdv, ispm};
+        const {first_name, last_name, email, password, gender, user_role, grad_date, projectids, department, company_name, ispm} = this.state;
+        const values = {first_name, last_name, email, password, gender, user_role, grad_date, projectids, department, company_name, ispm};
+
             if(step === 1){
                 return(
                     <GeneralSignUp
@@ -87,6 +87,7 @@ export default class SignUpPage extends Component{
                        nextStep={this.nextStep}
                        prevStep={this.prevStep}
                         handleChange={this.handleChange}
+                        handleProjectChange = {this.handleProjectChange}
                         values={values}     
                                   
                     />

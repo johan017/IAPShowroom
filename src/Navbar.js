@@ -3,7 +3,8 @@ import ProtectedRoute from './ProtectedRoute';
 import Home from './Home';
 import useGetRole from './hooks/use-get-role';
 
-const Navbar = () => {
+const Navbar = ({user_Role}) => {
+    console.log(user_Role);
 
     // const {role, isLoading} = useGetRole();
 
