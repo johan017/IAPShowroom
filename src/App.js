@@ -46,12 +46,12 @@ function App() {
      
       <Router>
         <Switch>
-          <Route exact path="/"> 
-            <Login/> {/*Login component*/}
+          {/* <Route exact path="/"> 
+            <Login/> {/*Login component*
           </Route>
           <Route path="/signUp"> 
-           <SignUpPage/> {/*Sign Up component*/}
-          </Route>
+           <SignUpPage/> {/*Sign Up component*
+          </Route> */}
                  
           {/* Schedule Review  component - view schedule before submitting* */}
           <Route path="/accountCreated"> 
@@ -66,18 +66,20 @@ function App() {
       
                 {/*Home component*/}
                 <ProtectedRoute path="/home" component={Home}/>
+                {/* <Home path="/home"></Home> */}
                 <ProtectedRoute path="/logout" component={Logout}/>
+                {/* <Logout path="/logout" ></Logout> */}
                 
 
                 {/*Stage component*/}
                 <ProtectedRoute path="/stage" component={Stage}>
-                  
-                </ProtectedRoute>
+                  {/* <Stage path="/stage"></Stage> */}
+                {/* </ProtectedRoute> */}
 
                 {/*Rooms component*/}
                 <ProtectedRoute path="/rooms" component={Rooms}>
                  
-                </ProtectedRoute>
+                {/* </ProtectedRoute> */}
 
                 {/*Project Room component*/}
                 <Route path="/project_room/:id"> 
