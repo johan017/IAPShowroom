@@ -30,6 +30,7 @@ import C2 from './Schedule/C2';
 import Logout from './Logout';
 import Roles from './Roles';
 import { QueryClient, QueryClientProvider, useQuery  } from 'react-query';
+import useGetRole from "./hooks/use-get-role";
 
 const queryClient = new QueryClient();
 
@@ -38,7 +39,6 @@ function App() {
 
   // const likes = 100;
   // const FEAV = "https://drive.google.com/file/d/1Oa8CutI95VZUt05YpeYBVMcgKLhpjGsx/view?usp=sharing";
-
 
   return (
     <div className="App"> 
@@ -60,13 +60,13 @@ function App() {
 
 
             <div className="content">
-              <ProtectedRoute component={Navbar}/>
+              <ProtectedRoute user_role="all" component={Navbar}/>
                {/*Navigation bar*/}
                {/* <Navbar></Navbar> */}
       
                 {/*Home component*/}
-                <ProtectedRoute path="/home" component={Home}/>
-                <ProtectedRoute path="/logout" component={Logout}/>
+                <ProtectedRoute path="/home" user_role="all" component={Home}/>
+                <ProtectedRoute path="/logout" user_role="all" component={Logout}/>
                 
 
                 {/*Stage component*/}
@@ -95,9 +95,7 @@ function App() {
                 </Route>           
 
                 {/*Schedule component - schedule of conferencia*/}
-                <Route exact path="/schedule">
-                  <Schedule/>
-                </Route>
+                <ProtectedRoute exact path="/schedule" user_role="admin" component={Schedule}/>
                             
                 {/* Create Schedule component - organize events and projects (calendar component)*/}
                 <Route exact path="/create_day"> 

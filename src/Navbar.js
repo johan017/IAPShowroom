@@ -2,7 +2,8 @@ import {Link} from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
 import Home from './Home';
 
-const Navbar = () => {
+const Navbar = ({user_Role}) => {
+    console.log(user_Role);
     return (  
 
         <nav className = "navbar">
