@@ -22,6 +22,7 @@ import ScheduleReview from './Schedule/ScheduleReview';
 import ScheduleUpdateEvent from './Schedule/ScheduleUpdateEvent';
 import AccountCreated from './UserSignUp/AccountCreated';
 import SignUpPage from './UserSignUp/SignUpPage';
+import Announcements from './client/Announcements';
 
 import Calendar from './Schedule/Calendar';
 import ProtectedRoute from './ProtectedRoute';
@@ -68,6 +69,8 @@ function App() {
                 {/* <Home path="/home"></Home> */}
                 {/* <Logout path="/logout" ></Logout> */}
                 <ProtectedRoute path="/home" user_role="all" component={Home}/>
+                {/* <ProtectedRoute exact path="/announce" user_role="all" component={Announcements}/> */}
+
                 <ProtectedRoute path="/logout" user_role="all" component={Logout}/>
                 
 
@@ -151,6 +154,11 @@ function App() {
                   <C2/> 
                 </Route>
                 
+                {/* <ProtectedRoute exact path="/announce" user_role="all" component={Announcements}/> */}
+
+                {/* <Route path="/announce">
+                  <Announcements user_role="all"/>
+                </Route> */}
                
             </div> 
               <Route path="*"> 

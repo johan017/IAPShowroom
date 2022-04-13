@@ -425,5 +425,57 @@
       "totalResStudNotDisclosed": 0,
       "id": 1
     }
+  ],
+  "announcements": [
+    {
+      "message": "hello",
+      "time": "16:23",
+      "id": 1
+    },
+    {
+      "message": "hi",
+      "time": "16:53",
+      "id": 2
+    },
+    {
+      "message": "hello",
+      "time": "16:56",
+      "id": 3
+    },
+    {
+      "message": "mi nombre es ",
+      "time": "17:4",
+      "id": 4
+    },
+    {
+      "message": "hola",
+      "time": "17:6",
+      "id": 5
+    },
+    {
+      "message": "now",
+      "time": "17:11",
+      "id": 6
+    },
+    {
+      "message": "bye",
+      "time": "17:22",
+      "id": 7
+    },
+    {
+      "message": "no",
+      "time": "17:29",
+      "id": 8
+    },
+    {
+      "message": "conference closed",
+      "time": "17:30",
+      "id": 9
+    },
+    {
+      "message": "cierra",
+      "time": "17:35",
+      "id": 10
+    }
   ]
 }

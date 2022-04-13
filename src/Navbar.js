@@ -9,34 +9,6 @@ const Navbar = ({user_Role}) => {
     // const {role, isLoading} = useGetRole();
 
 
-    const displayView = () =>{
-
-        if(user_Role === "Admin"){
-            <div>
-                <Link to="/home" >HOME</Link>
-                <Link to="/stage" >STAGE</Link>
-                <Link to="/rooms" >ROOMS</Link>
-                <Link to="/stats" >STATS</Link>
-                <Link to="/sponsors" >SPONSORS</Link>
-                <Link to="/schedule" >SCHEDULE</Link>
-                <Link to ="/logout"> LOGOUT</Link>
-            </div>
-
-        }else{
-            <div>
-                <Link to="/home" >HOME</Link>
-                <Link to="/stage" >STAGE</Link>
-                <Link to="/rooms" >ROOMS</Link>
-                <Link to="/stats" >STATS</Link>
-                <Link to="/sponsors" >SPONSORS</Link>
-                {/* <Link to="/schedule" >SCHEDULE</Link> */}
-                <Link to ="/logout"> LOGOUT</Link>
-            </div>
-        }
-
-    }
-
-
     return (  
         //Need to use the getUserInfo from showroom proxy to identify user_role
         //n
@@ -50,7 +22,33 @@ const Navbar = ({user_Role}) => {
             
             <div className="links">
 
-                {displayView(user_Role)}
+                {user_Role === "admin" && (
+                      <div >
+                      <Link to="/home" >HOME</Link>
+                      <Link to="/stage" >STAGE</Link>
+                      <Link to="/rooms" >ROOMS</Link>
+                      <Link to="/stats" >STATS</Link>
+                      <Link to="/sponsors" >SPONSORS</Link>
+                      <Link to="/schedule" >SCHEDULE</Link>
+                      <Link to="/announce" >Announce</Link>
+
+                      <Link to ="/logout"> LOGOUT</Link>
+                  </div>
+                )}
+
+                {user_Role !== "admin" && (
+                      <div >
+                      <Link to="/home" >HOME</Link>
+                      <Link to="/stage" >STAGE</Link>
+                      <Link to="/rooms" >ROOMS</Link>
+                      <Link to="/stats" >STATS</Link>
+                      <Link to="/sponsors" >SPONSORS</Link>
+                      <Link to="/announce" >Announce</Link>
+
+                      {/* <Link to="/schedule" >SCHEDULE</Link> */}
+                      <Link to ="/logout"> LOGOUT</Link>
+                  </div>
+                )}
                    
             </div>
         </nav>

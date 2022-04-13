@@ -19,13 +19,10 @@
 }  
 /*--------------HOME PAGE - NAVIGATION BAR--------------*/
 .navbar {
-  padding: 20px;
+  padding: 5px;
   display:inline-flex;
   align-items: center;
   margin-left: 275px;
-  /* margin: 30px; */
-
-  /* max-width: 1000px; */
   margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
 }
@@ -47,36 +44,31 @@
 .navbar img{
   width: 250px;
   height: 100px;
-  top: 66px;
+  top: 50px;
   left: 26px;
 
 }
 
 
 /*--------------HOME PAGE - Box of content for Project listed--------------*/
-/* .home {
-  max-width: 600px;
-  margin: 30px;
-  margin-left: 275px;
-  /* padding: 20px; /
-  
-} */
 
-.home-date-sched h2{
-  /* word-spacing: 325px; */
-  /* border-bottom: 1px solid #8e8a8a; */
-  display: inline-block;
-  padding-left: 10px;
-  padding-right: 16px;
-}
-.home-date-sched h3{
-  display: inline-block;
-  padding-left: 350px;
+.home-date-sched label{
+  /* display: inline-block; */
+  width: 45%;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 4px 10px;
+  /* margin: 6px 10px; */
+  border: 2px #ddd solid;
+
+  border:hidden;
+  box-sizing:content-box;
+  /* display: block; */
+  display:inline-block; 
+  /* padding-left: 10px; */
   /* padding-right: 16px; */
-  /* word-spacing: 325px; */
-  /* border-bottom: 1px solid #8e8a8a; */
-
 }
+
 .statsdate h2{
   /* word-spacing: 325px; */
   /* border-bottom: 1px solid #8e8a8a; */
@@ -92,20 +84,40 @@
   /* border-bottom: 1px solid #8e8a8a; */
 
 }
-.home h1{
-  margin-left: 700px;
-  /* border-bottom: 1px solid #8e8a8a; */
 
-}
 
 /*--------------HOME PAGE - project list--------------*/
 .project-preview {
-  max-width: 30%;
+  /* max-width: 60%; */
   padding: 10px 20px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 
+}
+.project-prev p {
+  font-size: 20px;
+  /* color: #f1356d; */
+  /* margin-bottom: 8px; */
+  margin-top: 5px;
+  margin-left: 85%;
+  display:inline-block;
+}
+
+.events-home{
+  /* position: absolute; */
+  /* width: 372px; */
+  height: 668px;
+  /* left: 947px; */
+  /* top: 222px;  */
+  max-width: 65%;
+
+  /* background: #B6B9BB; */
+  /* border: 1px solid #979797; */
+  box-sizing: border-box;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  border-radius: 5px;
+  overflow-y: scroll;
 }
 .project-preview label{
   display: block;
@@ -154,11 +166,14 @@
   color: #10a015;
 }
 
-/* .project-preview h2 {
-  font-size: 20px;
-  /* color: #f1356d; *
-  margin-bottom: 8px;
-} */
+.project-preview h2 {
+  /* font-size: 20px; */
+  /* color: #f1356d; */
+  /* margin-bottom: 8px; */
+  margin-right: 199px;
+  margin-left: 0px;
+  display:inline-block;
+}
 .project-preview img {
   width: 25px;
   height: 25px;
@@ -186,20 +201,14 @@
   padding: 8px 20px;
   border-radius: 8px;
   cursor: pointer;
-  /* margin-top: 30px; */
-  /* margin-right: 30px; */
-  /* margin-left: 300px; */
-  margin-right: -300px;
-  margin-left: 350px;
+  margin-right: -250px;
+  margin-left: 300px;
   /* display:inline-block; */
   display:inline-block;
   /* margin: 150px; */
 }
 
-/* .home {
-  border-bottom: 2px solid #444444;
 
-} */
 
 
 
@@ -853,3 +862,58 @@ body {
   margin-bottom: 10px;
 }
 
+.admin-ann {
+  position: absolute;
+  width: 372px;
+  height: 668px;
+  left: 947px;
+  top: 222px;
+
+  background: #B6B9BB;
+  border: 1px solid #979797;
+  box-sizing: border-box;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  overflow-y: scroll;
+}
+
+.announce-footer input{
+  max-width: max-content;
+}
+
+
+.home h1 {
+  margin-top: 15px;
+  margin-left: 750px;
+}
+
+.home{
+  display: inline-block;
+}
+
+.announce-body{
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+
+  padding: 10px 20px;
+  margin: 10px 10px;
+  border-bottom: 1px solid #fafafa;
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+.announce-footer{
+  position: absolute;
+  width: 372px;
+  height: 668px;
+  left: 947px;
+  top: 222px;
+ 
+  height: 100%;
+  flex: 85%;
+  border: 0;
+  padding: 0 0.7em;
+  font-size: 1em;
+  border-right: 1px dotted #607d8b;
+
+  outline: none;
+}
