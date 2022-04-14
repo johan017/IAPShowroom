@@ -75,12 +75,13 @@ function App() {
                 
 
                 {/*Stage component*/}
-                <ProtectedRoute path="/stage" component={Stage}/>
+                <ProtectedRoute path="/stage" user_role="all" component={Stage}/>
                   {/* <Stage path="/stage"></Stage> */}
                 {/* </ProtectedRoute> */}
 
                 {/*Rooms component*/}
-                <ProtectedRoute path="/rooms" component={Rooms}/>
+                <ProtectedRoute path="/rooms" user_role="all" component={Rooms}/>
+                
                  
                 {/* </ProtectedRoute> */}
 

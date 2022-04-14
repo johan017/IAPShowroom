@@ -8,7 +8,7 @@
 }
 
 .content {
-  /* max-width: 600px; */
+  max-width: 1200px;
   /* margin: 30px; */
   margin-left: 225px;
   /* padding: 20px; */
@@ -19,7 +19,8 @@
 }  
 /*--------------HOME PAGE - NAVIGATION BAR--------------*/
 .navbar {
-  padding: 5px;
+  /* MAX-width:fit-content; */
+  padding: 8px;
   display:inline-flex;
   align-items: center;
   margin-left: 275px;
@@ -46,20 +47,30 @@
   height: 100px;
   top: 50px;
   left: 26px;
+  margin-right: 300px;
 
 }
 
 
 /*--------------HOME PAGE - Box of content for Project listed--------------*/
+.home-date-sched {
+  /* display: inline-block; */
+  width: 150%;
+  /* border:hidden; */
+  box-sizing:content-box;
+  /* display: block; */
+  display:inline-block; 
 
+}
 .home-date-sched label{
   /* display: inline-block; */
-  width: 45%;
+  /* width: 25%; */
   font-size: 25px;
   font-weight: bold;
-  padding: 4px 10px;
+  /* padding: 4px 10px; */
   /* margin: 6px 10px; */
   border: 2px #ddd solid;
+  margin-top: 20px;
 
   border:hidden;
   box-sizing:content-box;
@@ -68,6 +79,32 @@
   /* padding-left: 10px; */
   /* padding-right: 16px; */
 }
+
+.home-date-sched text{
+  font-size: 30px;
+  font-weight: bold;
+  border: 2px #ddd solid;
+  margin-left: 120%;
+  margin-top: -100px;
+
+  /* border:hidden; */
+  /* box-sizing:content-box; */
+  display:inline-block; 
+
+}
+.home-date-sched p{
+  font-size: 25px;
+  font-weight: bold;
+  border: 2px #ddd solid;
+  margin-left: 50%;
+
+  border:hidden;
+  box-sizing:content-box;
+  display:inline-block; 
+  
+}
+
+
 
 .statsdate h2{
   /* word-spacing: 325px; */
@@ -87,14 +124,75 @@
 
 
 /*--------------HOME PAGE - project list--------------*/
-.project-preview {
+.project-preview{
   /* max-width: 60%; */
   padding: 10px 20px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  /* background-color: #008DED; */
 
 }
+/* .projects-room {
+  width: 40%;
+  font-size: 20px;
+  align-content: center;
+  /* padding: 10px 20px; *
+  margin-right: 50px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  /* margin: 20px 0; *
+  /* : 10px bold #008DED; *
+  background: rgba(229, 229, 229, 0.5);
+  border: 1px solid #E5E5E5;
+  /* box-sizing: border-box; *
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px; 
+  display: inline-block;
+ 
+  /* border-bottom: 1px solid #fafafa; *
+  /* box-shadow: 1px 3px 5px rgba(0,0,0,0.1); *
+  /* background-color: #eff3f7; *
+
+} */
+
+.pr-list{
+  width: 40%;
+  font-size: 20px;
+  align-content: center;
+  /* padding: 10px 20px; */
+  margin-right: 50px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  /* margin: 20px 0; */
+  /* : 10px bold #008DED; */
+  background: rgba(229, 229, 229, 0.5);
+  border: 1px solid #E5E5E5;
+  /* box-sizing: border-box; */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px; 
+  display: inline-block;
+ 
+  /* border-bottom: 1px solid #fafafa; */
+  /* box-shadow: 1px 3px 5px rgba(0,0,0,0.1); */
+  /* background-color: #eff3f7; */
+}
+
+.projects-room :hover{
+  background: rgba(95, 102, 228, 0.5);
+  border: 1px solid #008DED;
+  border-radius: 5px;
+}
+
+.projects-room a{
+  display: inline-block;
+  width: 475px;
+  height: 100px;
+  margin-top: 10px;
+  margin-left:5px; 
+  text-decoration: none;
+}
+
 .project-prev p {
   font-size: 20px;
   /* color: #f1356d; */
@@ -107,10 +205,10 @@
 .events-home{
   /* position: absolute; */
   /* width: 372px; */
-  height: 668px;
+  height: 500px;
   /* left: 947px; */
   /* top: 222px;  */
-  max-width: 65%;
+  width: 150%;
 
   /* background: #B6B9BB; */
   /* border: 1px solid #979797; */
@@ -119,10 +217,11 @@
   border-radius: 5px;
   overflow-y: scroll;
 }
-.project-preview label{
+
+/* .project-preview label{
   display: block;
 
-}
+} */
 .project-preview a {
   font-size: 25px;
   margin-left: 10px;
@@ -133,7 +232,7 @@
   color: black;
 
 }
-.project-preview a:link{
+/* .project-preview a:link{
   color: #c9330e;
 }
 .project-preview a:visited{
@@ -142,7 +241,7 @@
 }
 .project-preview a:hover{
   color: #10a015;
-}
+} */
 
 
 .cal22 a {
@@ -174,21 +273,25 @@
   margin-left: 0px;
   display:inline-block;
 }
-.project-preview img {
+.projects-room img {
   width: 25px;
   height: 25px;
-  margin-left: 210px;
-  margin-right: -40px;
+  /* margin-left: 40px;
+  margin-right: 2px; */
+  margin-right: -190px;
+  margin-left: 280px;
   /* font-size: 20px;
   color: #f1356d;
   margin-bottom: 8px; */
 }
-.project-preview text {
+.projects-room text {
   font-size: 20px;
   text-align: right;
-  margin-left: 50px;
-  margin-right: -180px;
-}
+  /* margin-left: 5px;
+  margin-right: 1px; */
+
+  margin-right: -250px;
+  margin-left: 200px;}
 
 /*--------------HOME PAGE - Project button--------------*/
 .project-preview button {
@@ -865,14 +968,14 @@ body {
 .admin-ann {
   position: absolute;
   width: 372px;
-  height: 668px;
+  height: 490px;
   left: 947px;
   top: 222px;
 
   background: #B6B9BB;
   border: 1px solid #979797;
   box-sizing: border-box;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
   border-radius: 5px;
   overflow-y: scroll;
 }
@@ -881,11 +984,6 @@ body {
   max-width: max-content;
 }
 
-
-.home h1 {
-  margin-top: 15px;
-  margin-left: 750px;
-}
 
 .home{
   display: inline-block;

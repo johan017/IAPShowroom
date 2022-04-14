@@ -30,7 +30,7 @@ const Navbar = ({user_Role}) => {
                       <Link to="/stats" >STATS</Link>
                       <Link to="/sponsors" >SPONSORS</Link>
                       <Link to="/schedule" >SCHEDULE</Link>
-                      <Link to="/announce" >Announce</Link>
+                      {/* <Link to="/announce" >Announce</Link> */}
 
                       <Link to ="/logout"> LOGOUT</Link>
                   </div>
@@ -43,7 +43,7 @@ const Navbar = ({user_Role}) => {
                       <Link to="/rooms" >ROOMS</Link>
                       <Link to="/stats" >STATS</Link>
                       <Link to="/sponsors" >SPONSORS</Link>
-                      <Link to="/announce" >Announce</Link>
+                      {/* <Link to="/announce" >Announce</Link> */}
 
                       {/* <Link to="/schedule" >SCHEDULE</Link> */}
                       <Link to ="/logout"> LOGOUT</Link>

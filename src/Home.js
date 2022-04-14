@@ -52,13 +52,18 @@ export default function Home({user_Role}) {
   return ( 
     <div className="home">
       {loading && <div> Loading...</div>}
-      <h1>Announcements</h1>
+     
+      <div className="home-date-sched" >
+        <div style={{ borderBottom: '1px solid #8e8a8a', maxWidth: '100%',marginLeft:'15px' }} >
+
+          <label> Schedule </label> <p>March 23, 2022</p>   
+        </div>
+      <text>Announcements</text>
+      </div> 
+     
       <div >
         
         <Announcements user_Role={user_Role}/>
-      </div>
-      <div className="home-date-sched" style={{ borderBottom: '1px solid #8e8a8a', maxWidth: '60%',marginLeft:'15px' }} >
-        <label> Schedule </label> <label>March 23, 2022</label>
       </div>
       <div className="events-home">
         {displayEvents(events)}
