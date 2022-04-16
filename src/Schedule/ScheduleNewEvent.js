@@ -47,7 +47,7 @@ const ScheduleNewEvent = () => {
                 />
                 <label>Start Time: </label>
                 <input
-                    type="datetime-local"
+                    type="time"
                     required
                     value = {start}
                     onChange = {(e) => setStart(e.target.value)}
@@ -55,7 +55,7 @@ const ScheduleNewEvent = () => {
                 ></input>
                 <label>End Time: </label>
                 <input 
-                    type="datetime-local" 
+                    type="time" 
                     required 
                     value = {end}
                     onChange = {(e) => setEnd(e.target.value)}

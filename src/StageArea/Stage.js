@@ -17,6 +17,7 @@ const Stage = () => {
         <div>
             <br></br>
             <h2> STAGE </h2> 
+            
             {/* {conf && ( 
                < div key={conf.id}> */}
                 <ProgressBar

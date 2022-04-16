@@ -59,7 +59,7 @@ const ScheduleDay = () => {
         />
         <label>Conference Start Time: </label>
         <input 
-            type="datetime-local" 
+            type="time" 
             required 
             value = {startTime}
             onChange = {(e) => setStartTime(e.target.value)}

@@ -32,8 +32,7 @@ const ScheduleReview = () => {
         <div>
             <h2>REVIEW PAGE</h2>
 
-
-            <button onClick = {handleSubmit}>Submit</button>
+      <button onClick = {handleSubmit}>Submit</button>
         </div>
     );
 }
