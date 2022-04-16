@@ -29,7 +29,6 @@ import ProtectedRoute from './ProtectedRoute';
 
 import C2 from './Schedule/C2';
 import Logout from './Logout';
-import Roles from './Roles';
 import { QueryClient, QueryClientProvider, useQuery  } from 'react-query';
 import useGetRole from "./hooks/use-get-role";
 
@@ -101,7 +100,10 @@ function App() {
                 </Route>           
 
                 {/*Schedule component - schedule of conferencia*/}
-                <ProtectedRoute exact path="/schedule" user_role="admin" component={Schedule}/>
+                {/* <ProtectedRoute exact path="/schedule" user_role="admin" component={Schedule}/> */}
+                <Route path="/schedule">
+                  <Schedule/>
+                </Route>
                             
                 {/* Create Schedule component - organize events and projects (calendar component)*/}
                 <Route exact path="/create_day"> 
@@ -147,10 +149,7 @@ function App() {
                   <Logout/> 
                 </Route>
 
-                <Route path="/roles"> 
-                  <Roles/> 
-                </Route>
-
+            
                 <Route exact path="/cal"> 
                   <C2/> 
                 </Route>
