@@ -54,14 +54,15 @@ export default function Home({user_Role}) {
       {loading && <div> Loading...</div>}
      
       <div className="home-date-sched" >
-        <div style={{ borderBottom: '1px solid #8e8a8a', maxWidth: '100%',marginLeft:'15px' }} >
+        <button>STAGE LIVE</button>
+        <div style={{ borderBottom: '1px solid #8e8a8a', width: '100%',marginLeft:'15px' }} >
 
           <label> Schedule </label> <p>March 23, 2022</p>   
         </div>
-      <text>Announcements</text>
+        <text>Announcements</text>
       </div> 
      
-      <div >
+      <div className="home-announcements">
         
         <Announcements user_Role={user_Role}/>
       </div>
