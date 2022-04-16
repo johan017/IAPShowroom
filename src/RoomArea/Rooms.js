@@ -9,7 +9,7 @@ import useFetchRoomStats from"../hooks/use-fetch-room-stats";
 const Rooms = () => {
 
   // const {data: projects, isLoading, error} = useFetch('http://localhost:8000/projects'); /* data is projects because info is found in db within projects */
-  const {events, loading,} = useFetchEvents();
+  const {events, loading} = useFetchEvents();
   const {roomStats} = useFetchRoomStats();
 
 
@@ -41,7 +41,7 @@ const Rooms = () => {
                     <img
                       src = "users.png"
                       alt="display image"
-                    /><text>{roomS.company_representatives + roomS.general_users}</text>   
+                    /><text>{roomS.general_users}</text>   
                   </Link>
                 </div>
               )}
