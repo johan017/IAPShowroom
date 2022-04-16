@@ -325,15 +325,16 @@
 .project-room div{
   margin: 20px 0;
 }
-/* 
+
 .project-room button{
-  background: #f1356d;
+  /* background: #f1356d;
   color: #fff;
   border: 0;
   padding: 8px;
   border-radius: 8px;
-  cursor: pointer;
-} */
+  cursor: pointer; */
+  margin-bottom: 20px;
+}
 
 /*--------------SCHEDULE PAGE--------------*/
 .event-list-preview {
@@ -970,7 +971,7 @@ body {
   width: 372px;
   height: 490px;
   left: 947px;
-  top: 222px;
+  top: 280px;
 
   background: #B6B9BB;
   border: 1px solid #979797;
@@ -980,12 +981,8 @@ body {
   overflow-y: scroll;
 }
 
-.announce-footer input{
-  max-width: max-content;
-}
-
-
 .home{
+  width: 35%;
   display: inline-block;
 }
 
@@ -1001,17 +998,44 @@ body {
 }
 .announce-footer{
   position: absolute;
-  width: 372px;
-  height: 668px;
-  left: 947px;
-  top: 222px;
+  width: 100%;
+  /* height: 668px; */
+  left: 948px;
+  top: 770px;
+  /* margin-bottom: 30px; */
  
-  height: 100%;
-  flex: 85%;
-  border: 0;
-  padding: 0 0.7em;
-  font-size: 1em;
-  border-right: 1px dotted #607d8b;
+  /* height: 100%; */
+  /* flex: 85%; */
+  /* border: 0; */
+  border-radius: 8px;
+  /* font-size: 20px; */
+  /* border-right: 1px dotted #607d8b; */
 
-  outline: none;
+  /* outline: none; */
+}
+.announce-footer input{
+  width: 22%;
+  height: 25px;
+  /* margin-bottom: 30px; */
+}
+.announce-footer button{
+  /* width: 90%; */
+  /* position: absolute; */
+  height: 30px;
+
+  margin-bottom: 30px;
+}
+
+.home-date-sched button, .project-room button{
+  background: #424240;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  width: 100px;
+  height: 38px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-left: 1100px;
+  display: inline-block;
+  cursor: pointer;
 }
