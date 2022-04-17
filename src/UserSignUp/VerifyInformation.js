@@ -8,7 +8,7 @@ const LOGIN_URL = 'api/auth/login';
 
 
 const VerifyInformation = ({ prevStep, values }) =>{
-    const { setAuth } = useContext(AuthContext);
+
     const history = useHistory();
     const page = 3
     const {first_name, last_name, email, password, gender, user_role, grad_date, projectids,
@@ -54,13 +54,11 @@ const VerifyInformation = ({ prevStep, values }) =>{
                 if(!err?.response) {
                     console.log('No Server Response');
                 } else if((err.response?.status === 400)){
-                    console.log('Missing Username or Password');
-                } else if((err.response?.status === 400)){
-                    console.log('Unauthorized');
+                    alert('An error occured. Please check your information.');
+                    history.push("/signUp");
                 } else {
-                    console.log('Login Failed');
+                    console.log('Registratio  Failed');
                 }
-                history.push("/signUp");
             }
             //  Login
             // try{

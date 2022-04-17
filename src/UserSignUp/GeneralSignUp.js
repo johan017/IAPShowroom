@@ -1,13 +1,13 @@
 import { useState } from "react";
-//import { useHistory} from "react-router-dom";
-import Select from 'react-select';
 import ReCAPTCHA from "react-google-recaptcha";
+import PasswordStrengthBar from 'react-password-strength-bar';
 
-import useFetch from "../useFetch";
+const EMAILREGEX = "^.+@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z])$";
 
 const UserSignUpForm = ({ nextStep, handleChange, values }) => {
-
-    /* data validation needed in backend */
+    
+    const page = 1;
+    /* Selection values */
     const genders = [
         { g_id : 1, gender: "male"},
         { g_id : 2, gender: "female"},
@@ -19,11 +19,11 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
         { id : 3, user_role: "Company Representative"},
         { id : 4, user_role: "Advisor"}
       ];
-    // const {data: genders} = useFetch('http://localhost:8000/genders'); /* data is projects because info is found in db within projects */
-    // const {data: roles} = useFetch('http://localhost:8000/roles'); /* data is projects because info is found in db within projects */
-   
+  
     //used to verify captcha
     const [isVerified, setIsVerified] = useState(false);
+    const [matchPass,setMatchPass] = useState();
+    const [isMatched, setisMatched] = useState(false);
 
     //verifies if captcha was successfull (checked)
     const handleCaptcha = () =>{
@@ -31,13 +31,41 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
         setIsVerified(true);
     }
 
-    const page = 1;
 
-    const nextPage = e =>{
-        e.preventDefault();
-        nextStep();
-    }
+    /* Required input validation */
+    //const formValues = ["first_name", "last_name", "email", "password"]
+    const name = document.getElementById("first_name");
+    const lastName = document.getElementById("last_name");
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const vpassword = document.getElementById("confirm-password");
+    const gender = document.getElementById("gender");
+    const role = document.getElementById("role");
+
+    const validateForm = e =>{
+        // formValues.forEach(v => {
+        //     document.getElementById(v).checkValidity();
+        // })
+        if(!isMatched) alert("Passwords must match");
+        if(name.checkValidity() && lastName.checkValidity() && email.checkValidity() && password.checkValidity() 
+         && role.checkValidity() && gender.checkValidity() && isMatched){
+           // && vpassword.checkValidity()
+            e.preventDefault()
+            nextStep();
+        }
+      }
     
+    const matchPassword = e =>{
+        if(e.target.value === values.password){
+            setisMatched(true);
+            document.getElementById("match").innerHTML = "Passwords matched";
+        } else{ 
+            setisMatched(false);
+            document.getElementById("match").innerHTML = "Passwords does not match";
+        }
+        
+    }
+
     return(
 
         <div>
@@ -47,6 +75,7 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
                 src = "IAP_Showroom_Logo_HD_Big.png"
                 alt="display image"
             />
+        <form onSubmit={validateForm} >
             <div className="generalInfoSignUp">
                 
             
@@ -55,67 +84,85 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
                     {page !== 4 && <progress max="4" value={page}/>}
                     {page === 4 && <progress style={{background: 'green'}} max="4" value={page}/>}
                 </div>
+               
                 <div>
                     
                     <h1>General Info</h1>
-                    {/* <form > */}
+                   
                         <label>First Name: </label>
                         <input 
-                            type="text" 
-                            required 
+                            type="text"
+                            id="first_name"  
                             value = {values.first_name}
-                            onChange = {handleChange('first_name')} 
-                            // = {(e) => setFirstName(e.target.value)}
+                            onChange = {handleChange('first_name')}
+                            required  
                         />
+
                         <label>Last Name: </label>
                         <input 
                             type="text" 
-                            required 
+                            id="last_name"  
                             value = {values.last_name}
-                            onChange = {handleChange('last_name')} 
-                            // = {(e) => setLastName(e.target.value)}
+                            onChange = {handleChange('last_name')}
+                            required  
                         />
+
                         <label>Email: </label>
                         <input 
-                            type="email" 
-                            required 
+                            type="email"
+                            id="email" 
                             value = {values.email}
                             onChange = {handleChange('email')} 
-                            //  = {(e) => setEmail(e.target.value)}
+                            pattern= {EMAILREGEX} 
+                            required 
                         />
+
                         <label>Password: </label>
                         <input
-                        type = "password"
-                        required
-                        value = {values.password}
-                        onChange= {handleChange('password')} 
-                        //  = {(e) => setPassword(e.target.value)}
-
+                            type="password"
+                            id="password"
+                            value = {values.password}
+                            onChange= {handleChange('password')}
+                            required 
                         ></input> 
+                        <PasswordStrengthBar password={values.password} />
+
+                        <label>Confirm Password: </label>
+                        <input
+                            type="password"
+                            id="confirm-password"
+                            value = {matchPass}
+                            onChange= { e => {matchPassword(e);}}
+                            required 
+                        ></input> 
+                        <p id="match"/>
+
                         <label>Gender: </label>
                         <select 
-                    
+                            id="gender" 
                             onChange = {handleChange('gender')} 
-                            defaultValue = "default"
-                            // = {(e) => setGender(e.target.value)}
+                            defaultValue = ""
+                            required
                         > 
-                            <option value={"default"} disabled> Choose an option</option>
+                            <option value="" disabled > Choose an option</option>
                             {genders && genders.map((gender) =>(
                                 <option key={gender.g_id} value={gender.gender}>{gender.gender}</option>             
                             ))}
                         </select> 
+
                         <label>Role: </label>
                         <select 
-                           
+                            id="role" 
                             onChange= {handleChange('user_role')} 
-                            //  = {(e) => setRole(e.target.value)}
-                            defaultValue = "default"
+                            defaultValue = ""
+                            required 
                         > 
-                        <option value={"default"} disabled> Choose an option</option>
+                            <option value="" disabled> Choose an option</option>
                             {roles && roles.map((role) =>(
                                 <option key={role.id} value={role.user_role}>{role.user_role}</option>             
                             ))}
-                        </select> 
+                        </select>
+
                         <div className="recaptcha">                
                             <ReCAPTCHA
                                 sitekey="6Lfnv_geAAAAABsSPS0UKVKIFkeZWly0yiA_-Wxi"
@@ -123,17 +170,10 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
                                 
                             ></ReCAPTCHA> 
                         </div>       
-                
-
+                        <button style={{ background: '#3B8D25'}} type="submit" value="Next"> Next </button>
                 </div>
-                {/* <div className="signupButtons">  */}
-                    {/* <div style= "color:#E54242"> */}
-                    {/* {page !== 1 && <button style={{ background: '#E54242' }} onClick={prevPage} > Back </button>} */}
-                
-                    <button style={{ background: '#3B8D25' }} onClick={nextPage} > Next </button>
-
-                {/* </div> */}
             </div>
+        </form>
         </div>
    );
  
