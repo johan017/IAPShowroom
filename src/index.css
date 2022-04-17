@@ -1015,3 +1015,10 @@ body {
 
   outline: none;
 }
+
+#email:valid {
+  color: green;
+}
+#email:invalid {
+  color: red;
+}
