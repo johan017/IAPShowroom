@@ -5,6 +5,7 @@ import VerifyInformation from './VerifyInformation';
 import Advisor from './Advisor';
 import GeneralSignUp from './GeneralSignUp';
 
+const inputSet = new Set();
 export default class SignUpPage extends Component{
 
     state ={
@@ -36,8 +37,8 @@ export default class SignUpPage extends Component{
         this.setState({[input]: e.target.value});
     } 
 
+    
     handleProjectChange = e => {
-        console.log(e);
         var inputArr = new Array();
         e.forEach(function (choice){
             inputArr.push(choice.project_id);
@@ -53,6 +54,7 @@ export default class SignUpPage extends Component{
         });
         this.setState({"department": inputArr});
     } 
+
 
     render(){
         const {step} = this.state;

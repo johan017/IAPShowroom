@@ -26,6 +26,14 @@ const CompanyRepresentative = ({ nextStep, prevStep, handleChange, values }) =>{
         prevStep();
     }
 
+    const company = document.getElementById("company");
+    const validateForm = e =>{
+        if(company.checkValidity()){
+            e.preventDefault()
+            nextStep();
+        }
+    }
+
     return (
 
         <div>
@@ -45,15 +53,15 @@ const CompanyRepresentative = ({ nextStep, prevStep, handleChange, values }) =>{
                 <div>
                     <h1>CompanyRepresentative Info</h1>
 
-                    {/* <form> */}
+                    <form onSubmit={validateForm}> 
                         <label>Company you Represent: </label>
                         <select 
-                            required
-                            value = {values.company_name}
+                            id = "company"
+                            defaultValue = ""
                             onChange = {handleChange('company_name')}
-                            // = {(e) => setCompany(e.target.value)}
-
+                            required
                         > 
+                            <option value="" disabled> Choose an option</option>
                             {mockSponsors && mockSponsors.map((sponsor) =>(
                                 <option key={sponsor.sponsor_id} value={sponsor.company_name} >{sponsor.company_name}</option>             
                             ))}
@@ -62,10 +70,10 @@ const CompanyRepresentative = ({ nextStep, prevStep, handleChange, values }) =>{
                             ))} */}
                         
                         </select> 
-                    {/* </form> */}
 
                     <button style={{ background: 'red' }} onClick={prevPage} > Back </button>
-                    <button style={{ background: '#3B8D25' }} onClick={nextPage} > Verify </button>
+                    <button style={{ background: '#3B8D25' }} type="submit" value="Next" > Next </button>
+                    </form>
 
 
                 </div>

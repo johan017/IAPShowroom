@@ -1,25 +1,21 @@
-// import { useHistory } from "react-router-dom";
-import  Select from "react-select";
-import useFetch from "../useFetch";
+import  Select  from "react-select";
 import useFetchProjects from "../hooks/use-fetch-projects";
 import { useState } from "react";
-// import VerifyInformation from "./VerifyInformation";
 
 
 const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChange, handleDepartmentChange, values }) => {
-    const [departments, setDepartments] = useState();
+    
+    // const [departments, setDepartments] = useState();
     const [localProjects, setProjects] = useState();
     const page = 2;
     const {projects} = useFetchProjects();
+
   
     for(var i = 0; i < projects.length; i++) {
         projects[i].value = projects[i].title;
         projects[i].label = projects[i].title;
     }
-    // {projects && projects.map((project) =>(
-    //     <option key={project.id} value={project.title}>{project.title}</option>             
-    // ))}
-    // TODO: Validation required
+
     const departmentsOptions = [
         { key : 1, value : "Computer Engineering", label: "Computer Engineering"},
         { key : 2, value : "Software Engineering", label: "Software Engineering"},
@@ -30,15 +26,27 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
     ];
     
 
-    const nextPage = (e) =>{
-        e.preventDefault();
-        // history.push('/verifyInformation');
-        nextStep();
-    }
-
     const prevPage = (e) =>{
         e.preventDefault();
         prevStep();
+    }
+
+    /* Input validation */
+    const major = document.getElementById("major");
+    const gradDate = document.getElementById("date");
+
+    const validateForm = e =>{
+
+        if(values.projectids.length === 0)
+        {
+            document.getElementById("error").style.visibility = "visible";
+            e.preventDefault();
+        }
+
+        else if(major.checkValidity() && gradDate.checkValidity()){
+            e.preventDefault()
+            nextStep();
+        }
     }
 
     return (
@@ -60,23 +68,42 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
                 <div >
                     <h1>StudentResearcher Info</h1>
                 
-                    {/* <form> */}
+                    <form onSubmit={validateForm}> 
                         <label>Research Project: </label>
+                        <div style={{visibility:'hidden' }} id="error"> Please select at least one option. </div>
                         <Select 
+                            id="research" 
                             isMulti
                             value = {localProjects}
                             onChange = { e => {handleProjectChange(e); setProjects(e);}}
                             options = {projects}
-                            // {(e) => setResearchP(e.target.value)}
+                            required
                         />
+                        {/* <div>
+                        {projects && projects.map((project) => ( 
+                         
+                             <label style={{float: 'relative'}}>
+                                {project.label} 
+                                <input 
+                                    id="research" 
+                                    type="checkbox"  
+                                    value={project.project_id}  
+                                    onChange={ e => {handleProjectChange(e); setProjects(e);}}
+                                    required
+                                />  
+                             </label>
+                          
+                        ))} 
+                        </div>  */}
                                        
                         <label>Major: </label>
                         <select
-                            defaultValue = "default"
+                            id="major" 
+                            defaultValue = ""
                             onChange = {handleChange('department')} 
-                            // = {(e) => setGradDate(e.target.value)}
+                            required
                         >
-                            <option value={"default"} disabled> Choose an option</option>
+                            <option value="" disabled> Choose an option</option>
                             {departmentsOptions && departmentsOptions.map((department) =>(
                                 <option key={department.key} value={department.value}>{department.label}</option>             
                             ))}
@@ -92,28 +119,28 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
 
                         <label>Graduation Date: </label>
                         <input 
+                            id="date" 
                             type="date" 
-                            required 
                             value = {values.grad_date}
                             onChange = {handleChange('grad_date')} 
-                            // = {(e) => setGradDate(e.target.value)}
+                            required 
                         >
 
                         </input>
                         <label> Are you the project manager? </label>
                         <select 
-                    
                             onChange = {handleChange('ispm')} 
-                            defaultValue = "default"
+                            defaultValue = "false"
+                            required
                         > 
                             <option value={"false"}> No </option>
                             <option value={"true"}> Yes </option>
 
                         </select>
                         <button style={{ background: 'red' }} onClick={prevPage} > Back </button>
-                        <button style={{ background: '#3B8D25' }} onClick={nextPage} > Verify </button>
+                        <button style={{ background: '#3B8D25' }} type="submit" value="Next" > Next </button>
 
-                    {/* </form> */}
+                    </form> 
                 </div>
             </div>
         </div>

@@ -30,6 +30,18 @@ const Advisor = ({  nextStep, prevStep, handleChange, handleProjectChange, value
         prevStep();
     }
 
+    const validateForm = e =>{
+
+        if(values.projectids.length === 0)
+        {
+            document.getElementById("error").style.visibility = "visible";
+            e.preventDefault();
+        } else {
+            e.preventDefault()
+            nextStep();
+        }
+    }
+
     return (
         <div>
             <img 
@@ -46,9 +58,11 @@ const Advisor = ({  nextStep, prevStep, handleChange, handleProjectChange, value
                 </div>
                 <div className ="checklist">
                     <h1>Advisor Info</h1>
-                    {/* <form> */}
+                <form onSubmit={validateForm}>
                     <label>Research Project: </label>
+                    <div style={{visibility:'hidden', color: "red" }} id="error"> Please select at least one option. </div>
                         <Select 
+                            id = "research"
                             isMulti
                             value = {localProjects}
                             onChange = { e => {handleProjectChange(e); setProjects(e);}}
@@ -57,9 +71,9 @@ const Advisor = ({  nextStep, prevStep, handleChange, handleProjectChange, value
                         />
                     
                     <button style={{ background: 'red' }} onClick={prevPage} > Back </button>
-                    <button style={{ background: '#3B8D25' }} onClick={nextPage} > Submit </button>
+                    <button style={{ background: '#3B8D25' }} type="submit" value="Next" > Next </button>
 
-                {/* </form>  */}
+                </form> 
                 </div>
             </div>
         </div>
