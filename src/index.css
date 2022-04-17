@@ -789,6 +789,14 @@
   overflow-y: scroll;
 }
 
+.BarContainer {
+  height: 20;
+  width: 100%;
+  background-color: rgb(197, 231, 209);
+  border-radius: 50;
+  margin: 50;
+}
+
 body .temp {
   display: none;
   height: 0;
