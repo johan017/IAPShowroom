@@ -101,7 +101,7 @@ function App() {
 
                 {/*Schedule component - schedule of conferencia*/}
                 {/* <ProtectedRoute exact path="/schedule" user_role="admin" component={Schedule}/> */}
-                <Route path="/schedule">
+                <Route exact path="/schedule">
                   <Schedule/>
                 </Route>
                             
