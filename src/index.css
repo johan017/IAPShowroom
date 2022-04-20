@@ -59,6 +59,7 @@
   /* border:hidden; */
   box-sizing:content-box;
   /* display: block; */
+  /* margin-bottom: 30px; */
   display:inline-block; 
 
 }
@@ -87,7 +88,7 @@
   margin-left: 120%;
   margin-top: -100px;
 
-  /* border:hidden; */
+  border:hidden;
   /* box-sizing:content-box; */
   display:inline-block; 
 
@@ -209,6 +210,8 @@
   /* left: 947px; */
   /* top: 222px;  */
   width: 150%;
+  margin-bottom: 30px;
+
 
   /* background: #B6B9BB; */
   /* border: 1px solid #979797; */
@@ -739,28 +742,28 @@
 }
 
 
-.stats text {
+/* .stats text {
   /* font-size: 20px;
   text-align: left;
-  margin-bottom: 20px; */
+  margin-bottom: 20px; *
 
   width: 100%;
   padding: 6px 10px;
   margin: 8px 0;
   border:hidden;
   box-sizing: border-box;
-  /* display: block; */
+  /* display: block; *
   display:inline-block; 
-}
+} */
 
-.stats h2, .stats h3 {
+/* .stats h2, .stats h3 {
   /* font-size: 20px;
   text-align: left;
-  margin-bottom: 20px; */
+  margin-bottom: 20px; *
   margin-top: 30px;
   margin-bottom: 30px;
  
-}
+} */
 
 .verifying label{
   width: 35%;
@@ -996,6 +999,14 @@ body {
   border-bottom: 1px solid #fafafa;
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 }
+.announce-body text{
+  margin-left: 75%;
+
+}
+.announce-body p{
+  width: 300px;
+}
+
 .announce-footer{
   position: absolute;
   width: 100%;
@@ -1026,16 +1037,356 @@ body {
   margin-bottom: 30px;
 }
 
-.home-date-sched button, .project-room button{
+.home-button button{
   background: #424240;
   color: #fff;
   border: 0;
   padding: 8px;
   width: 100px;
-  height: 38px;
+  height: 30px;
   border-radius: 8px;
   margin-top: 10px;
-  margin-left: 1100px;
+  margin-left: 1000px;
   display: inline-block;
   cursor: pointer;
+}
+
+/* .home-date-sched button{
+  background: #424240;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  width: 100px;
+  height: 30px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-left: 1000px;
+  display: inline-block;
+  cursor: pointer;
+} */
+
+.project-room button{
+  background: #424240;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  width: 100px;
+  height: 30px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-left: 1000px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.rooms button{
+  background: #424240;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  width: 100px;
+  height: 30px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-left: 900px;
+  display: inline-block;
+  cursor: pointer;
+}
+.rooms h2{
+  display: inline-block;
+}
+
+
+:root {
+  --primary-light: #39ddfa;
+  --primary: #00abdf;
+  --primary-dark: #008ada;
+  
+  --white: #FFFFFF;
+  --greyLight-1: #ebf5fc;
+  --greyLight-2: #d5e0f3;
+  --greyLight-3: #c1d9f0;
+  --greyDark: #646b8c;
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+/* html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  /* overflow-y: scroll; 
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: .5px;
+  line-height: 1.4;
+} */
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--greyLight-2);
+  padding: 2rem;
+}
+
+.card {
+  width: 34rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  background: var(--greyLight-1);
+  box-shadow: 0px 20px 30px rgba(100, 131, 177, 0.2);
+  padding: 5rem;
+  border: 1px solid white;
+}
+.card__percent {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 6rem;
+  }
+
+.card__number {
+      position: absolute;
+      color: var(--greyDark);
+      font-size: 3.6rem;
+      font-family: 'DM Sans', sans-serif;
+  }
+
+.card__description {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+}
+.card__description h2 {
+          font-size: 1.8rem;
+          font-family: 'DM Sans', sans-serif;
+          letter-spacing: 1.2px;
+          margin-bottom: 1rem;
+          color: var(--primary);
+  }
+ .card__description p {font-size: 1.4rem;
+          color: var(--greyDark);
+  }
+  
+
+
+svg {
+  position: relative;
+  width: 24rem;
+  height: 24rem;
+  z-index: 1000;
+  transform: rotate(-90deg);
+}
+
+svg circle {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-linecap: round;
+  transform: translate(3rem, 3rem);
+  stroke-dasharray: 565.49; 
+  stroke-dashoffset: 282.75;
+  transition: all 1s ease;
+  stroke-width: 24;
+}
+.circle {
+  position: absolute;
+  width: 23rem;
+  height: 23rem;
+  border-radius: 50%;
+  box-shadow: 6px 6px 8px var(--greyLight-2),
+              -6px -6px 8px var(--white);
+  background: var(--greyLight-1);
+}
+.circle_medium {
+      width: 20.5rem;
+      height: 20.5rem;
+      box-shadow: inset 8px 8px 10px var(--greyLight-2),
+                  inset -4px -4px 8px var(--white);
+  }
+  .circle_small {
+      width: 15.5rem;
+      height: 15.5rem;
+      box-shadow: 6px 6px 8px var(--greyLight-2),
+                  -2px -2px 8px var(--white);
+  }
+
+
+.form {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  justify-items: center;
+  padding: 4rem;
+  margin-left: 4rem;
+  border-radius: 2rem;
+  background: var(--greyLight-1);
+  text-align: center;
+  box-shadow: 0px 20px 30px rgba(100, 131, 177, 0.2);
+  border: 1px solid var(--white);
+  position: relative;
+}
+  .form_text {
+      grid-column: 1 / 3;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      color: var(--greyDark);
+  }
+
+.form input {
+      border: none;
+      outline: none;
+      background: none;
+      font-family: inherit;
+      width: 5rem;
+      font-size: 1.6rem;
+      text-align: center;
+      padding: .8rem;
+      border-radius: 1rem;
+      margin-right: 1rem;
+      color: var(--primary);
+
+      box-shadow: inset .2rem .2rem .4rem var(--greyLight-2),
+                  inset -.3rem -.3rem .4rem var(--white);
+      /* &::placeholder { color: var(--greyLight-3); } */
+      /* &:focus { color: var(--primary);
+          box-shadow: .3rem .3rem .6rem var(--greyLight-3), 
+                          -.2rem -.2rem .5rem var(--white); } */
+  }
+
+.form_btn {
+      border: none;
+      outline: none;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: .8px;
+      background: var(--greyLight-1);
+      padding: .8rem 2rem;
+      border-radius: 2rem;
+      color: var(--white);
+      cursor: pointer;
+      background: linear-gradient(-25deg, var(--primary) 0%, var(--primary-light) 100%);
+      
+      /* &:hover {
+          background: linear-gradient(-25deg, var(--primary-dark) 0%, var(--primary) 100%);
+      } */
+  }
+
+
+
+.tooltip {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: -6rem;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  background: var(--greyLight-1);
+  font-size: 1.2rem;
+  color: var(--primary-dark);
+  opacity: 0;
+  transition: all .3s ease;
+
+  /* &__text { margin-left: .6rem;}
+
+  &.fade-in { animation: fadeIn .8s ease;}
+  
+  &::after {
+      content: '';
+      position: absolute;
+      left: 45%;
+      bottom: 74%;
+      width: 2rem;
+      height: 2rem;
+      background: var(--greyLight-1);
+      clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
+      transform: rotate(135deg);
+      border-radius: 0 0 0 0.4em;
+      
+  } */
+}
+
+.dribbble {
+position: fixed;
+font-size: 3.6rem;
+right: 2rem;
+top: 2rem;
+color: #EA4C89;
+}
+
+@keyframes fadeIn {
+  0% {
+    transform: translateY(-40px) scale(.5);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.stat-prog {
+  transform: rotate(90deg);
+  /* height: 100px;
+  width: 100px; */
+  resize: both;
+}
+.stat-prog p{
+  transform: rotate(-90deg);
+  /* height: 100px;
+  width: 100px; */
+  /* resize: both; */
+}
+
+
+
+/* #app {
+  margin-top: 40px;
+} */
+
+/* #progressInput {
+  margin: 20px auto;
+  width: 30%;
+} */
+
+.circle-background,
+.circle-progress {
+  fill: none;
+  /* position: absolute;
+  width: 300px;
+  height: 300px; */
+
+}
+
+.circle-background {
+  stroke: #ddd;
+  /* position:fixed;
+  width: 300px;
+  height: 300px; */
+}
+
+.circle-progress {
+  stroke: red;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  /* position: absolute;
+  width: 300px;
+  height: 300px; */
+}
+
+.circle-text {
+  font-size: 3em;
+  font-weight: bold;
+  fill: red;
+  /* position: absolute;
+  width: 300px;
+  height: 300px; */
 }
