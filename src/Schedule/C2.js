@@ -10,6 +10,9 @@ const C2 = () => {
   // const {data: events, error, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
   const history = useHistory();
 
+    const handleNewEvent =(e)=>{
+      history.push('/new_event');
+    }
     const handleCancel =(e) =>{
         history.push('/create_day');
     }
@@ -21,11 +24,11 @@ const C2 = () => {
     <div className="cal2">
       {/* {error && <div> {error} </div>}
       {isLoading && <div> Loading...</div>} */}
-      
+            <div><button onClick={handleNewEvent}>ADD NEW EVENT</button></div>
+
       <div className="cal22">
         {<EventList></EventList>}
       </div>
-
       <div className="scheduler">
         <Calendar/>
       </div>
