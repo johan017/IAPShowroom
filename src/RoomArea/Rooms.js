@@ -1,24 +1,32 @@
 // import ProjectRoom from "./ProjectRoom";
 import useFetch from "../useFetch";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import useFetchEvents from "../hooks/use-fetch-events";
 import useFetchRoomStats from"../hooks/use-fetch-room-stats";
 
 
 
-const Rooms = () => {
+const Rooms = ({checked}) => {
 
   // const {data: projects, isLoading, error} = useFetch('http://localhost:8000/projects'); /* data is projects because info is found in db within projects */
   const {events, loading} = useFetchEvents();
   const {roomStats} = useFetchRoomStats();
+  const history = useHistory();
 
+  const handleStage = () =>{
+    history.push('/stage');
+}
 
   return ( 
-    <div >
+    <div className="rooms" >
       <h2> ROOMS </h2>
+      <h2>{checked && (<button onClick={handleStage} style={{backgroundColor: 'red'}}>STAGE LIVE</button>)}
+      {!checked && (<button onClick={handleStage}>STAGE LIVE</button>)} </h2>
 
       {loading && <div> Loading...</div>}
             
+
+     
 
       {events && events.map((event) =>(
          // Project list for schedule view in Lobby 
