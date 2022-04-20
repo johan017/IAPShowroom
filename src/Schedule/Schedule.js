@@ -2,11 +2,19 @@ import {Link, useParams} from 'react-router-dom';
 import { useState } from "react";
 import Calendar from './Calendar';
 import useFetch from "../useFetch";
+import { useHistory } from 'react-router-dom';
+
 
 const Schedule = () => {
     const {id} = useParams();
-    const {data: schedule} = useFetch('http://localhost:8000/events/'+id); /* data is project because we want the id of a singular project */
+    const {data: schedule} = useFetch('http://localhost:8000/events/'); /* data is project because we want the id of a singular project */
     const scheduleDone =0;
+
+    const history = useHistory();
+
+    const handleEdit =() =>{
+        history.push('/cal');
+    }
 
     return ( 
         <div>   
@@ -20,9 +28,10 @@ const Schedule = () => {
 
             {schedule && (
                 <div> 
-                    <h2>Schedule Main</h2> <button>Edit Schedule</button>
+                    <h2>Schedule Main</h2> 
 
                     <Calendar/>
+                    <button onClick={handleEdit} >Edit Schedule</button>
                 </div>
 
             )}
