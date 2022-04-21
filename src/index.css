@@ -796,6 +796,14 @@
   overflow-y: scroll;
 }
 
+.BarContainer {
+  height: 20;
+  width: 100%;
+  background-color: rgb(197, 231, 209);
+  border-radius: 50;
+  margin: 50;
+}
+
 body .temp {
   display: none;
   height: 0;
@@ -1369,42 +1377,13 @@ color: #EA4C89;
 /* #app {
   margin-top: 40px;
 } */
-
-/* #progressInput {
-  margin: 20px auto;
-  width: 30%;
+/* 
+  outline: none;
 } */
 
-.circle-background,
-.circle-progress {
-  fill: none;
-  /* position: absolute;
-  width: 300px;
-  height: 300px; */
-
+#email:valid {
+  color: green;
 }
-
-.circle-background {
-  stroke: #ddd;
-  /* position:fixed;
-  width: 300px;
-  height: 300px; */
-}
-
-.circle-progress {
-  stroke: red;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  /* position: absolute;
-  width: 300px;
-  height: 300px; */
-}
-
-.circle-text {
-  font-size: 3em;
-  font-weight: bold;
-  fill: red;
-  /* position: absolute;
-  width: 300px;
-  height: 300px; */
+#email:invalid {
+  color: red;
 }

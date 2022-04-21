@@ -2,7 +2,7 @@
 import useFetch from "../useFetch";
 import {Link, useHistory} from "react-router-dom";
 import useFetchEvents from "../hooks/use-fetch-events";
-import useFetchRoomStats from"../hooks/use-fetch-room-stats";
+import useFetchRoomStats from "../hooks/use-fetch-room-stats";
 
 
 
