@@ -1,31 +1,16 @@
 import useFetch from "./useFetch";
-// // import {Tooltip, Title, ArcElement, Legend} from "chart.js";
-// // import {Doughnut } from "react-chartjs-2";
-// import { useState } from "react";
-import CircularProgressBar from "./Percentage";
 import React, { useState } from "react";
-// import { render } from "react-dom";
-// import {  CircularProgressbar } from "react-circular-progressbar";
-import ProgressBar from 'react-bootstrap/ProgressBar'
-  import "react-circular-progressbar/dist/styles.css";
-  import 'bootstrap/dist/css/bootstrap.min.css';
+import Progress from "./Progress";
+import { blue } from "@material-ui/core/colors";
+// import ProgressBar from 'react-bootstrap/ProgressBar'
+// import 'bootstrap/dist/css/bootstrap.css';
 
 
 const Stats = () => {
-//     
+    
     const {data:stats, isLoading, error} = useFetch('http://localhost:8000/stats');
    
-    const [percentage, setPercentage] = useState(0);
-    const now = 60;
-
-    // const percentage = 19;
-
-  
-    // handleChangeEvent(event) {
-    //   this.setState({
-    //     percentage: event.target.value
-    //   });
-    // }
+   
     return ( 
         <div >
             {/* {error && <div> {error} </div>}
@@ -44,42 +29,46 @@ const Stats = () => {
 
                     <p>Total Participants</p>
                     <div className="stat-prog-bar">
-                        <ProgressBar now={stat.activeParticipants} label={`${stat.activeParticipants}`} /> 
+                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.activeParticipants}`} /> 
                     </div> <br/>
+                    {/* <p>Total Participants</p>
+                    <div className="stat-prog-bar">
+                        <ProgressBar now={stat.activeParticipants} label={`${stat.activeParticipants}`} /> 
+                    </div> <br/> */}
 
                     <p>General Participants</p>
                     <div className="stat-prog-bar">
-                        <ProgressBar now={stat.generalParticipants} label={`${stat.generalParticipants}`} /> 
+                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.generalParticipants}`} /> 
                     </div> <br/>                                        
                     
                     <p>Research Student Participants</p>
                     <div className="stat-prog-bar">
-                        <ProgressBar now={stat.researchStudParticipants} label={`${stat.researchStudParticipants}%`} /> 
+                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.researchStudParticipants}`} /> 
                     </div> <br/>
 
                     <p>Company Representatives Participants</p>
                     <div className="stat-prog-bar">
-                        <ProgressBar now={stat.companyRepParticipants} label={`${stat.companyRepParticipants}`} /> 
+                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.companyRepParticipants}`} /> 
                     </div> <br/>
 
                         <p>Advisor Participants</p>
                     <div className="stat-prog-bar">
-                        <ProgressBar now={stat.professorParticipantss} label={`${stat.professorParticipants}`} /> 
+                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.professorParticipants}`} /> 
                     </div> <br/>
 
                     <p>Women</p>
                     <div className="stat-prog-bar">
-                        <ProgressBar now={stat.totalWomen} label={`${stat.totalWomen}`} /> 
+                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.totalWomen}`} /> 
                     </div> <br/>
 
                     <p>Men</p>
                     <div className="stat-prog-bar">
-                        <ProgressBar now={stat.totalMen} label={`${stat.totalMen}`} /> 
+                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.totalMen}`} /> 
                     </div> <br/>
 
                     <p>Other</p>
                     <div className="stat-prog-bar">
-                        <ProgressBar now={stat.totalNotDisclosed} label={`${stat.totalNotDisclosed}`} /> 
+                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.totalNotDisclosed}`} /> 
                     </div> <br/>
 
 
@@ -87,37 +76,37 @@ const Stats = () => {
 
                     <p>Research Student Participants</p>
                     <div className="stat-prog-bar">
-                        <ProgressBar now={stat.researchStudParticipants} label={`${stat.researchStudParticipants}`} /> 
+                        <Progress totalp={`${stat.researchStudParticipants}`} totalItem={`${stat.researchStudParticipants}`} /> 
                     </div> <br/>
 
                     <p>Research Students from ICOM</p>
                     <div className="stat-prog-bar">
-                        <ProgressBar now={stat.resStudICOM} label={`${stat.resStudICOM}`} /> 
+                        <Progress totalp={`${stat.researchStudParticipants}`} totalItem={`${stat.resStudICOM}`} /> 
                     </div> <br/>
 
                     <p>Research Students from INEL</p>
                     <div className="stat-prog-bar">
-                        <ProgressBar now={stat.resStudINEL} label={`${stat.resStudINEL}`} /> 
+                        <Progress totalp={`${stat.researchStudParticipants}`} totalItem={`${stat.resStudINEL}`} /> 
                     </div> <br/>
 
                     <p>Current Grad Students</p>
                     <div className="stat-prog-bar">
-                        <ProgressBar now={stat.resStudGRAD} label={`${stat.resStudGRAD}`} /> 
+                        <Progress totalp={`${stat.researchStudParticipants}`} totalItem={`${stat.resStudGRAD}`} /> 
                     </div> <br/>
 
                     <p>Women</p>
                     <div className="stat-prog-bar">
-                        <ProgressBar now={stat.totalResStudWomen} label={`${stat.totalResStudWomen}`} /> 
+                        <Progress totalp={`${stat.researchStudParticipants}`} totalItem={`${stat.totalResStudWomen}`} /> 
                     </div> <br/>
 
                     <p>Men</p>
                     <div className="stat-prog-bar">
-                        <ProgressBar now={stat.totalResStudMen} label={`${stat.totalResStudMen}`} /> 
+                        <Progress totalp={`${stat.researchStudParticipants}`} totalItem={`${stat.totalResStudMen}`} /> 
                     </div> <br/>
 
                     <p>Other</p>
                     <div className="stat-prog-bar">
-                        <ProgressBar now={stat.totalResStudNotDisclosed} label={`${stat.totalResStudNotDisclosed}`} /> 
+                        <Progress totalp={`${stat.researchStudParticipants}`} totalItem={`${stat.totalResStudNotDisclosed}`} /> 
                     </div> <br/>
 
                 </div>

@@ -1387,3 +1387,23 @@ color: #EA4C89;
 #email:invalid {
   color: red;
 }
+
+
+
+.progress-container{
+  height: 20px;
+  width: 75%;
+  background-color: gray;
+  border-radius: 10px;
+  margin: 50px;
+}
+.progress-filler{
+  height: 100%;
+  border-radius: inherit;
+  text-align: center;
+}
+.progress-label{
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+}
