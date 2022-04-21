@@ -2,7 +2,7 @@ import '@progress/kendo-theme-default/dist/all.css';
 import Login from './Login';
 import GeneralSignUp from './UserSignUp/GeneralSignUp';
 import Navbar from './Navbar';
-import Home from './Home';
+import Home from './HomeArea/Home';
 import Stage from './StageArea/Stage';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Rooms from './RoomArea/Rooms';
@@ -10,7 +10,7 @@ import ProjectRoom from './RoomArea/ProjectRoom';
 
 import NotFound from './NotFound';
 
-import Stats from './Stats';
+import Stats from './StatsArea/Stats';
 import Sponsors from './Sponsors';
 import Schedule from './Schedule/Schedule';
 import ScheduleDay from './Schedule/ScheduleDay';
@@ -22,7 +22,7 @@ import ScheduleReview from './Schedule/ScheduleReview';
 import ScheduleUpdateEvent from './Schedule/ScheduleUpdateEvent';
 import AccountCreated from './UserSignUp/AccountCreated';
 import SignUpPage from './UserSignUp/SignUpPage';
-import Announcements from './client/Announcements';
+import Announcements from './HomeArea/Announcements';
 
 import Calendar from './Schedule/Calendar';
 import ProtectedRoute from './ProtectedRoute';

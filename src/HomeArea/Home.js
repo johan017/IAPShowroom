@@ -1,7 +1,7 @@
 
 import {Link, Redirect} from "react-router-dom";
-import Announcements from "./client/Announcements";
-import useFetchEvents from "./hooks/use-fetch-events";
+import Announcements from "./Announcements";
+import useFetchEvents from "../hooks/use-fetch-events";
 import React from "react";
 import { useHistory } from "react-router-dom";
 

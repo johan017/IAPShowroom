@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import { FormGroup, FormControlLabel, Switch } from "@mui/material";
 import { useState } from "react";
 import UpcomingEvents from "./UpcomingEvents";
+import Announcements from "../HomeArea/Announcements";
 
 
 
 
-const Stage = () => {
+const Stage = ({user_Role}) => {
 
     const [checked, setChecked] = useState(false);
     
@@ -23,9 +24,13 @@ const Stage = () => {
     //TODO: PULL DURATION FROM SCHEDULE DAY TIME LIMIT 
 
     return ( 
-        <div>
+        <div className="stage">
             <br></br>
             <h2> STAGE </h2> 
+            <div className="stage-announcements">
+                <h3>Announcements</h3>
+                <Announcements user_Role={user_Role}></Announcements>
+            </div>
             <FormGroup>
                 <FormControlLabel control={
                     <Switch 

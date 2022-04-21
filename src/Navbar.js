@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
-import Home from './Home';
+// import Home from './HomeArea/Home';
 import useGetRole from './hooks/use-get-role';
 
 const Navbar = ({user_Role}) => {
