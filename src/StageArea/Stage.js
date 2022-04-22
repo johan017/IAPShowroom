@@ -25,13 +25,25 @@ const Stage = ({user_Role}) => {
 
     return ( 
         <div className="stage">
-            <br></br>
-            <h2> STAGE </h2> 
+            
+            <h2> STAGE </h2>  <h3>Schedule</h3> <h3>Announcements</h3> 
+
             <div className="stage-announcements">
-                <h3>Announcements</h3>
+               
                 <Announcements user_Role={user_Role}></Announcements>
+                <div className="stage-upcoming">
+                <UpcomingEvents></UpcomingEvents>
+                </div>
             </div>
-            <FormGroup>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            
+            {/* <FormGroup>
                 <FormControlLabel control={
                     <Switch 
                         checked={checked}
@@ -41,7 +53,7 @@ const Stage = ({user_Role}) => {
                     </FormControlLabel>
             </FormGroup> 
                     {checked && (<button style={{backgroundColor: 'red'}}>TURNED ON</button>)}
-                    {!checked && (<button style={{backgroundColor: 'green'}}>TURNED ON</button>)}
+                    {!checked && (<button style={{backgroundColor: 'green'}}>TURNED ON</button>)} */}
 
             {/* {conf && ( 
                < div key={conf.id}> */}
@@ -60,7 +72,7 @@ const Stage = ({user_Role}) => {
             <div>
                 {/* <div>{useFetchServerSentEvents()}</div> */}
                 <br></br>
-                <UpcomingEvents></UpcomingEvents>
+                {/* <UpcomingEvents></UpcomingEvents> */}
             </div>
         </div>
 

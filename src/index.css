@@ -137,7 +137,7 @@
   /* background-color: #008DED; */
 
 }
-/* .projects-room {
+/* .project-rooms {
   width: 40%;
   font-size: 20px;
   align-content: center;
@@ -182,7 +182,7 @@
   /* background-color: #eff3f7; */
 }
 
-.projects-room a{
+.project-rooms a{
   display: inline-block;
   width: 475px;
   height: 100px;
@@ -190,12 +190,12 @@
   margin-left:5px; 
   text-decoration: none;
 }
-.projects-room a:visited{
+.project-rooms a:visited{
   background: rgb(61, 206, 247);
   border: 1px solid #008DED;
   border-radius: 5px;
 }
-/* .projects-room a:hover{
+/* .project-rooms a:hover{
   background: rgba(95, 102, 228, 0.5);
   border: 1px solid #008DED;
   border-radius: 5px;
@@ -283,7 +283,7 @@
   margin-left: 0px;
   display:inline-block;
 }
-.projects-room img {
+.project-rooms img {
   width: 25px;
   height: 25px;
   /* margin-left: 40px;
@@ -294,7 +294,7 @@
   color: #f1356d;
   margin-bottom: 8px; */
 }
-.projects-room text {
+.project-rooms text {
   font-size: 20px;
   text-align: right;
   /* margin-left: 5px;
@@ -335,16 +335,55 @@
 .project-room div{
   margin: 20px 0;
 }
-
 .project-room button{
-  /* background: #f1356d;
+  /* font-size: 25px; */
+  background: #424240;
+  color: #fff;
+  /* border: 0; */
+  padding: 8px;
+  height: 30px;
+  border-radius: 8px;
+  /* margin-top: 10px; */
+  /* margin-left: 1000px; */
+  cursor: pointer;
+  font-weight: bold;
+  border: 2px #ddd solid;
+  /* margin-right: 200px;
+  margin-left: 200px; */
+ /* margin-bottom: 20px; */
+  /* border:hidden; */
+  box-sizing:content-box;
+  /* display:inline-block;  */
+   display: inline-block;
+
+}
+
+/* .project-room-popup-button button{
+  /* font-size: 25px; */
+  /* font-weight: bold; */
+  /* margin-left: auto; */
+  /* padding: 4px 10px; */
+  /* margin: 6px 10px; *
+  background: #424240;
   color: #fff;
   border: 0;
   padding: 8px;
+  width: 100px;
+  height: 30px;
   border-radius: 8px;
-  cursor: pointer; */
-  margin-bottom: 20px;
-}
+  margin-top: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  /* border: 2px #ddd solid; */
+  /* margin-top: 20px; */
+
+  /* border:hidden; *
+  box-sizing:content-box;
+  /* display: block; * display: inline-block;
+
+} */
+
+
 
 /*--------------SCHEDULE PAGE--------------*/
 .event-list-preview {
@@ -1018,24 +1057,44 @@ body {
   display: inline-block;
 } */
 .stage h2{
-  width: 10%;
+  font-size: 25px;
+  font-weight: bold;
+  /* padding: 4px 10px; */
+  /* margin: 6px 10px; */
+  border: 2px #ddd solid;
+  margin-top: 10px;
+
+  border:hidden;
+  box-sizing:content-box;
+  /* display: block; */
+  display:inline-block; 
+  /* width: 10%;
   padding: 6px 10px;
   margin: 10px 0;
-  display: inline-block;
+  display: inline-block; */
 }
 .stage h3{
-  width: 10%;
+  font-size: 25px;
+  font-weight: bold;
+  border: 2px #ddd solid;
+  margin-left: 27%;
+
+  border:hidden;
+  box-sizing:content-box;
+  display:inline-block; 
+  /* width: 10%;
   padding: 6px 10px;
   margin: 10px 0;
-  display: inline-block;
+  display: inline-block; */
 }
+
 
 .stage-announcements .admin-ann{
   position: absolute;
   width: 372px;
-  height: 490px;
-  left: 947px;
-  top: 180px;
+  height: 125px;
+  left: 1000px;
+  top: 200px;
 
   background: #B6B9BB;
   border: 1px solid #979797;
@@ -1045,6 +1104,15 @@ body {
   display: inline-block;
   overflow-y: scroll;
 }
+
+.stage-upcoming{
+  position: absolute;
+  /* width: 372px; */
+  height: 125px;
+  left: 500px;
+  top: 200px;
+}
+
 .announce-body text{
   margin-left: 75%;
 
@@ -1110,8 +1178,21 @@ body {
   display: inline-block;
   cursor: pointer;
 } */
+.overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
 
-.project-room button{
+/* .project-room button{
   background: #424240;
   color: #fff;
   border: 0;
@@ -1123,7 +1204,7 @@ body {
   margin-left: 1000px;
   display: inline-block;
   cursor: pointer;
-}
+} */
 
 .rooms button{
   background: #424240;

@@ -34,7 +34,7 @@ const Rooms = ({checked}) => {
           {roomStats && roomStats.map((roomS) => (
             <div key = {roomS.title}>
               {event.title === roomS.title && (
-                <div className="projects-room">
+                <div className="project-rooms">
                   {/* <Link to ={`/project_room/${event.projectid}`} style={{display: 'inline-block', width:'475px', height:'100px',marginTop: '10px', marginLeft:'5px'}}>  */}
 
                   <Link to ={`/project_room/${event.projectid}`} > 
