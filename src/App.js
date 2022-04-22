@@ -31,7 +31,7 @@ import C2 from './Schedule/C2';
 import Logout from './Logout';
 import Roles from './Roles';
 import { QueryClient, QueryClientProvider, useQuery  } from 'react-query';
-import useGetRole from "./hooks/use-get-role";
+import MemberValidation from './MemberValidation';
 
 const queryClient = new QueryClient();
 
@@ -102,6 +102,8 @@ function App() {
 
                 {/*Schedule component - schedule of conferencia*/}
                 <ProtectedRoute exact path="/schedule" user_role="admin" component={Schedule}/>
+
+                <ProtectedRoute exact path="/membervalidation" user_role="admin" component={MemberValidation}/>
                             
                 {/* Create Schedule component - organize events and projects (calendar component)*/}
                 <Route exact path="/create_day"> 

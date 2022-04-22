@@ -35,6 +35,11 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
     const major = document.getElementById("major");
     const gradDate = document.getElementById("date");
 
+    const customControlStyles = base => ({
+        height: 20,
+        minHeight: 20
+    });
+
     const validateForm = e =>{
 
         if(values.projectids.length === 0)
@@ -74,6 +79,7 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
                         <Select 
                             id="research" 
                             isMulti
+                            styles={{control: customControlStyles}}
                             value = {localProjects}
                             onChange = { e => {handleProjectChange(e); setProjects(e);}}
                             options = {projects}
