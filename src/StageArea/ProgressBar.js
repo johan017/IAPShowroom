@@ -3,6 +3,10 @@ import React, {Component} from 'react';
 
 const EVENTS_URL = "/api/showroom/schedule/events";
 
+const HIGH = "green";
+const MEDIUM = "yellow";
+const LOW = "red";
+
 function getbarstyle(completed, bgcolor) {
     return {
         height: '100%',
@@ -72,16 +76,21 @@ export default class ProgressBar extends Component{
     getEvents = async() => {
         console.log("getEvents: got here");
         try{
+            const upcoming = true;
+            const date = new Date().toLocaleDateString("en-US");
+            const time = new Date().toLocaleString("en-US");
+
             const result = await axios.get(EVENTS_URL, 
             {
                 headers: {"Content-Type": "application/json"},
                 withCredentials: true,
                 params: {
-                    upcoming: true,
-                    date: new Date().toLocaleDateString("en-US"),
-                    time: new Date().toLocaleTimeString("en-US")
+                    upcoming: upcoming,
+                    date: date,
+                    time: time
                 }
             });
+            console.log("params:",upcoming, date, time);
             return result.data.payload;
             } 
             catch(error) {
@@ -92,15 +101,12 @@ export default class ProgressBar extends Component{
 
     updateTimestamp(response){
         if(response[0]){
-            console.log("response[0]: is a thing");
-            console.log(response);
-            let d = new Date(response[0]['e_date']).toDateString();
-            let st = new Date('1 ' + response[0]['starttime']);
-            let eh = st.getHours() + Math.floor(response[0]['duration']/60);
-            let em = st.getMinutes() + response[0]['duration'] % 60;
-
-            const endtime = d + ' ' + eh +':'+ em;
-            const starttime = d + ' ' + st.getHours() +':'+ st.getMinutes();
+            // console.log("response[0]: is a thing");
+            // console.log(response);
+            const MINUTESTOMILLISECONDS = 60000;
+            let st = new Date(response[0]['starttime']);
+            const starttime = st.toLocaleString("en-US");
+            const endtime = new Date(+st +  response[0]['duration'] * MINUTESTOMILLISECONDS).toLocaleString("en-US");
 
             this.setState({ timeUp: false, starttime: starttime, endtime: endtime });
         }
@@ -124,8 +130,8 @@ export default class ProgressBar extends Component{
         let duration = end-start;
         
         let completed = Math.floor((end-new Date())/duration * 100);
-        console.log("diff/duration = ", (end-new Date())/duration);
-        const barstyle = getbarstyle(completed, "green");
+        let color = completed < 5 ? LOW : completed < 20 ? MEDIUM : HIGH;
+        const barstyle = getbarstyle(completed, color);
         
             
 
@@ -135,11 +141,11 @@ export default class ProgressBar extends Component{
 
             if(hours == '0' && minutes == '0' && seconds == '0') return (<p></p>);
 
-            else if(hours == '0' && minutes == '0') return (<div className="BarContainer"><div className="progressBar" style={barstyle}><span>{ ` ${seconds} seconds` }</span></div></div>);
+            else if(hours == '0' && minutes == '0') return (<div className="BarContainer"><div className="progressBar" style={barstyle}><span>{ `.` }</span></div></div>);
 
-            else if(hours == '0') return (<div className="BarContainer"><div className="progressBar" style={barstyle}><span>{ `${minutes}  minutes ${seconds} seconds` }</span></div></div>);
+            else if(hours == '0') return (<div className="BarContainer"><div className="progressBar" style={barstyle}><span>{ `${minutes} m` }</span></div></div>);
 
-            else return (<div className="BarContainer"><div className="progressBar" style={barstyle}><span>{ `${hours} hours ${minutes}  minutes ${seconds} seconds` }</span></div></div>);
+            else return (<div className="BarContainer"><div className="progressBar" style={barstyle}><span>{ `${hours} h ${minutes} m` }</span></div></div>);
             
         }
     }

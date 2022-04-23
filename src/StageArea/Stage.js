@@ -27,11 +27,11 @@ const Stage = ({user_Role}) => {
         <div className="stage">
             <br></br>
             <h2> STAGE </h2> 
-            <div className="stage-announcements">
+            {/* <div className="stage-announcements">
                 <h3>Announcements</h3>
                 <Announcements user_Role={user_Role}></Announcements>
-            </div>
-            <FormGroup>
+            </div> */}
+            {/* <FormGroup>
                 <FormControlLabel control={
                     <Switch 
                         checked={checked}
@@ -39,9 +39,9 @@ const Stage = ({user_Role}) => {
                     
                     />} label="Stage is Live">   
                     </FormControlLabel>
-            </FormGroup> 
-                    {checked && (<button style={{backgroundColor: 'red'}}>TURNED ON</button>)}
-                    {!checked && (<button style={{backgroundColor: 'green'}}>TURNED ON</button>)}
+            </FormGroup>  */}
+                    {/* {checked && (<button style={{backgroundColor: 'red'}}>TURNED ON</button>)}
+                    {!checked && (<button style={{backgroundColor: 'green'}}>TURNED ON</button>)} */}
 
             {/* {conf && ( 
                < div key={conf.id}> */}

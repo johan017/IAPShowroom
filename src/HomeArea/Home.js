@@ -12,17 +12,7 @@ export default function Home({user_Role, checked}) {
 
   const getTime = (props) =>{
     const time = props;
-
-    const eventDate = new Date(time);
-    var eventHours = eventDate.getHours();
-    const ampm = eventHours >=12? 'PM' : 'AM';
-    eventHours = (eventHours%12) || 12;
-    const eventMinutes = String(eventDate.getMinutes()).padStart(2, '0');
-    const eventTime = eventHours+":"+eventMinutes+" "+ampm;
-
-    // var eventMinute =new Date(time).getMinutes;
-    console.log("hours", eventTime);
-    return(eventTime);
+    return(new Date(time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}));
   }
 
   const {
