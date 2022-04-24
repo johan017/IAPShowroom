@@ -79,7 +79,6 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
                         <Select 
                             id="research" 
                             isMulti
-                            styles={{control: customControlStyles}}
                             value = {localProjects}
                             onChange = { e => {handleProjectChange(e); setProjects(e);}}
                             options = {projects}
