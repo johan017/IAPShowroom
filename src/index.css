@@ -1523,3 +1523,7 @@ color: #EA4C89;
   color: white;
   font-weight: bold;
 }
+svg{
+  height: 20px;
+  width: 20px;
+  }

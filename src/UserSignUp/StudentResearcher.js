@@ -44,7 +44,7 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
         }
 
         else if(major.checkValidity() && gradDate.checkValidity()){
-            e.preventDefault()
+            e.preventDefault();
             nextStep();
         }
     }
