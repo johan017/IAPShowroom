@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import ProtectedRoute from './ProtectedRoute';
-import Home from './Home';
+// import Home from './HomeArea/Home';
 import useGetRole from './hooks/use-get-role';
 
 const Navbar = ({user_Role}) => {
@@ -30,7 +30,7 @@ const Navbar = ({user_Role}) => {
                       <Link to="/stats" >STATS</Link>
                       <Link to="/sponsors" >SPONSORS</Link>
                       <Link to="/schedule" >SCHEDULE</Link>
-                      <Link to="/announce" >Announce</Link>
+                      {/* <Link to="/announce" >Announce</Link> */}
 
                       <Link to ="/logout"> LOGOUT</Link>
                   </div>
@@ -43,7 +43,7 @@ const Navbar = ({user_Role}) => {
                       <Link to="/rooms" >ROOMS</Link>
                       <Link to="/stats" >STATS</Link>
                       <Link to="/sponsors" >SPONSORS</Link>
-                      <Link to="/announce" >Announce</Link>
+                      {/* <Link to="/announce" >Announce</Link> */}
 
                       {/* <Link to="/schedule" >SCHEDULE</Link> */}
                       <Link to ="/logout"> LOGOUT</Link>

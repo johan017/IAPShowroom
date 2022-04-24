@@ -2,6 +2,7 @@
 import { Scheduler, DayView } from '@progress/kendo-react-scheduler';
 import * as React from 'react';
 import { useState } from "react";
+import useFetch from '../useFetch';
 
 import useFetchEvents from "../hooks/use-fetch-events";
 
@@ -17,16 +18,16 @@ const parseAdjust = eventDate => {
 var sampleData = "";
 
 const C2 = () => {
-    // const {data: events, error, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
+    const {data: events, error, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
     // const [info, setInfo] = useState(events);
-    const {events, loading, } = useFetchEvents();
-  
+    // const {events, loading } = useFetchEvents();
+    // const conferenceDate = new Date(2022, 4, 14);
     const displayDate = new Date(currentYear, currentMonth, currentDay);
 
     //Assigning the events to the Calendar
     {events && (
         sampleData =  events.map((dataItem) => ({
-                id: dataItem.project_id,
+                id: dataItem.id,
                 start: parseAdjust(dataItem.start),
             //     startTimezone: dataItem.StartTimezone,
                 end: parseAdjust(dataItem.end),
@@ -37,7 +38,7 @@ const C2 = () => {
     )}
   
     const modelFields ={
-        id: "project_id",
+        id: "id",
         title: "title",
         start: "start",
         end: "end",
@@ -49,7 +50,7 @@ const C2 = () => {
     return (
     <div className="cal2">
       {/* {error && <div> {error} </div>} */}
-      {loading && <div> Loading...</div>}
+      {isLoading && <div> Loading...</div>}
   
       <div className="scheduler">
         <Scheduler data={sampleData} defaultDate={displayDate} modelFields={modelFields}>
@@ -58,10 +59,10 @@ const C2 = () => {
             numberOfDays={1} 
             slotDuration={60} 
             slotDivisions={2} 
-            startTime={"01:00"} 
-            endTime={"23:00"} 
-            workDayStart={"08:00"} 
-            workDayEnd={"18:00"} 
+            startTime={"00:00"} 
+            endTime={"23:59"} 
+            workDayStart={"00:00"} 
+            workDayEnd={"23:59"} 
           />
         </Scheduler>
       </div>
