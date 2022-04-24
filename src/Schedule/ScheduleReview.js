@@ -1,6 +1,8 @@
-import useFetch from "../useFetch";
+// import useFetch from "../useFetch";
+import Calendar from './Calendar';
 
 import { useHistory } from "react-router-dom";
+// import { Calendar } from "@progress/kendo-react-dateinputs";
 
 
 
@@ -8,7 +10,7 @@ const ScheduleReview = () => {
     
     const history = useHistory();
 
-        const {data: schedule} = useFetch('http://localhost:8000/events'); /* data is project because we want the id of a singular project */
+        // const {data: schedule} = useFetch('http://localhost:8000/events'); /* data is project because we want the id of a singular project */
 
 
     const handleSubmit = (e) =>{
@@ -31,8 +33,7 @@ const ScheduleReview = () => {
     return ( 
         <div>
             <h2>REVIEW PAGE</h2>
-
-
+            <Calendar/>
             <button onClick = {handleSubmit}>Submit</button>
         </div>
     );

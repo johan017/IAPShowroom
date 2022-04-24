@@ -1,11 +1,22 @@
 import ProgressBar from "./ProgressBar";
 import { useParams } from "react-router-dom";
+import { FormGroup, FormControlLabel, Switch } from "@mui/material";
+import { useState } from "react";
 import UpcomingEvents from "./UpcomingEvents";
+import Announcements from "../HomeArea/Announcements";
 
 
 
 
-const Stage = () => {
+const Stage = ({user_Role}) => {
+
+    const [checked, setChecked] = useState(false);
+    
+    const handleCheck = (e) =>{
+        e.preventDefault();
+        setChecked(e.target.checked);
+        console.log("value of check", checked);
+    }
     // const {id} = 1; //useParams();
 
     // const {data: conf} = useFetch('http://localhost:8000/conference-info/'+ id); /* data is projects because info is found in db within projects */
@@ -13,9 +24,37 @@ const Stage = () => {
     //TODO: PULL DURATION FROM SCHEDULE DAY TIME LIMIT 
 
     return ( 
-        <div>
+        <div className="stage">
+            
+            <h2> STAGE </h2>  <h3>Schedule</h3> <h3>Announcements</h3> 
+
+            <div className="stage-announcements">
+               
+                <Announcements user_Role={user_Role}></Announcements>
+                <div className="stage-upcoming">
+                <UpcomingEvents></UpcomingEvents>
+                </div>
+            </div>
             <br></br>
-            <h2> STAGE </h2> 
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            <br></br>
+            
+            {/* <FormGroup>
+                <FormControlLabel control={
+                    <Switch 
+                        checked={checked}
+                        onClick={handleCheck}
+                    
+                    />} label="Stage is Live">   
+                    </FormControlLabel>
+            </FormGroup> 
+                    {checked && (<button style={{backgroundColor: 'red'}}>TURNED ON</button>)}
+                    {!checked && (<button style={{backgroundColor: 'green'}}>TURNED ON</button>)} */}
+
             {/* {conf && ( 
                < div key={conf.id}> */}
                
@@ -33,7 +72,7 @@ const Stage = () => {
             <div>
                 {/* <div>{useFetchServerSentEvents()}</div> */}
                 <br></br>
-                <UpcomingEvents></UpcomingEvents>
+                {/* <UpcomingEvents></UpcomingEvents> */}
             </div>
         </div>
 

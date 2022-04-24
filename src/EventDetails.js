@@ -36,7 +36,7 @@ const EventDetails = () => {
             {/* {events && (events.map((event) =>( */}
             {event && (
 
-                <div  key={event.id}>
+                <div  key={id}>
            
                         <h1>Event Details</h1>
                         <h2>Title: </h2>{event.title}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetch from '../useFetch';
-
+import ScrollToBottom from "react-scroll-to-bottom";
 
 
 
@@ -19,12 +19,17 @@ const Announcements = ({user_Role}) => {
         event.preventDefault();
 
         var messageData = {};
-
+        const currentDate = new Date(Date.now());
+        var currentHours = currentDate.getHours();
+        const ampm = currentHours >=12? 'PM' : 'AM';
+        currentHours = (currentHours%12) || 12;
+        const currentMinutes = String(currentDate.getMinutes()).padStart(2, '0');
+        const currentTime = currentHours+":"+currentMinutes+" "+ampm;
 
         if(currentMess !== ""){
             messageData ={
                 message: currentMess,
-                time: new Date(Date.now()).getHours() + ":" + new Date(Date.now()).getMinutes(),
+                time: currentTime,
             };
             console.log("announcement", messageData);
 
@@ -35,13 +40,16 @@ const Announcements = ({user_Role}) => {
             body: JSON.stringify(messageData)
         }).then (() => {
             console.log('new announcement added');
-           
+            // receiveAnnouncement();
             // setIsLoading(false); //when form is submitted; completed
         })
-     
+        setCurrentMess('');
     }
 
-    // const receiveAnnouncement = async () =>{
+
+
+
+    // const receiveAnnouncement = () =>{
     //     // fetch('http://localhost:8000/announcements/'+ id, {
     //     //     method: 'GET',
            
@@ -49,7 +57,7 @@ const Announcements = ({user_Role}) => {
     //     //     // setIsLoading(false); //when form is submitted; completed
     //     // })
     //     return(
-    //         <div>
+    //         <div  className="admin-ann">
     //         {announcement && announcement.map((announce) => (
     //             <div  key={announce.id}>
     //                 <p>Message: {announce.message}</p>
@@ -66,16 +74,16 @@ const Announcements = ({user_Role}) => {
     return ( 
         <div className="announcements" >
             <div className="admin-ann"> 
-            
-                {announcement && announcement.map((announce) => (
-                    <div className="announce-body" key={announce.id}>
-                        <h2>{announce.message}</h2>
+                <ScrollToBottom>
+                    {announcement && announcement.map((announce) => (
+                        <div className="announce-body" key={announce.id}>
+                            <p>{announce.message}</p><br/>
 
-                        <p>{announce.time}</p>
-                                    {/* {receiveAnnouncement()}*/}
-                    </div>
-                ))}
-               
+                            <text>{announce.time}</text>
+                                        {/* {receiveAnnouncement()} */}
+                        </div>
+                    ))}
+               </ScrollToBottom>
                 
             </div>
 
@@ -84,6 +92,7 @@ const Announcements = ({user_Role}) => {
                         <input 
                             type="text" 
                             placeholder="Enter Announcement" 
+                            value={currentMess}
                             onChange={(event)=>{setCurrentMess(event.target.value)}}></input>
                         <button onClick={sendAnnouncement}>&#9658;</button>
                     </div>

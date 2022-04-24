@@ -1,12 +1,29 @@
 
 import {Link, Redirect} from "react-router-dom";
-import Announcements from "./client/Announcements";
-import useFetchEvents from "./hooks/use-fetch-events";
+import Announcements from "./Announcements";
+import useFetchEvents from "../hooks/use-fetch-events";
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 
-export default function Home({user_Role}) {  
+export default function Home({user_Role, checked}) {  
   // chatContainer = React.createRef();
+  const history = useHistory();
+
+  const getTime = (props) =>{
+    const time = props;
+
+    const eventDate = new Date(time);
+    var eventHours = eventDate.getHours();
+    const ampm = eventHours >=12? 'PM' : 'AM';
+    eventHours = (eventHours%12) || 12;
+    const eventMinutes = String(eventDate.getMinutes()).padStart(2, '0');
+    const eventTime = eventHours+":"+eventMinutes+" "+ampm;
+
+    // var eventMinute =new Date(time).getMinutes;
+    console.log("hours", eventTime);
+    return(eventTime);
+  }
 
   const {
     events,
@@ -21,8 +38,8 @@ export default function Home({user_Role}) {
         e.map((event) => {
           return (
           // event list for schedule view in Lobby 
-          <div className="project-prev" key ={event.eventid}>
-                <p>{event.starttime}</p>
+          <div className="project-prev" key ={event.projectid}>
+                <p>{getTime(event.starttime)}</p>
             <div className="project-preview">
               <h2>{event.title}</h2>  <br/>
               <Link to={`/project_room/${event.projectid}`}>
@@ -48,20 +65,30 @@ export default function Home({user_Role}) {
       <Redirect from="*" to ="/"/>
     )
   }
+  const handleStage = () =>{
+    history.push('/stage');
+}
 
   return ( 
     <div className="home">
       {loading && <div> Loading...</div>}
-     
+      <div className="home-button">
+      {checked && (<button onClick={handleStage} style={{backgroundColor: 'red'}}>STAGE LIVE</button>)}
+      {!checked && (<button onClick={handleStage}>STAGE LIVE</button>)}
+      </div>
       <div className="home-date-sched" >
-        <div style={{ borderBottom: '1px solid #8e8a8a', maxWidth: '100%',marginLeft:'15px' }} >
+        {/* TODO: CHANGE TO A METHOD AND ACCESPT CHECKED AS PARAMETER */}
+       
+
+
+        <div style={{ borderBottom: '1px solid #8e8a8a', width: '100%',marginLeft:'15px' }} >
 
           <label> Schedule </label> <p>March 23, 2022</p>   
         </div>
-      <text>Announcements</text>
+        <text>Announcements</text>
       </div> 
      
-      <div >
+      <div className="home-announcements">
         
         <Announcements user_Role={user_Role}/>
       </div>
