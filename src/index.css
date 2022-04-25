@@ -51,7 +51,10 @@
 
 }
 
-
+.home{
+  width: 35%;
+  display: inline-block;
+}
 /*--------------HOME PAGE - Box of content for Project listed--------------*/
 .home-date-sched {
   /* display: inline-block; */
@@ -446,9 +449,20 @@
  
 }
 /*--------------ADD EVENT FORM IN SCHEDULE--------------*/
+.Event-information{
+  display: flex;
+}
+.Event-information-calendar{
+  width:50%;
+  display: inline-block;
+}
 .addNewEvent {
-  max-width: 400px;
-  margin: 0 auto;
+  width: 30%;
+  /* margin: 0 auto; */
+  margin-right: 5%;
+  margin-left: 5%;
+
+  display: inline-block;
   text-align: center;
 }
 
@@ -469,20 +483,42 @@
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
+  /* margin-bottom: 10px; */
   border: 1px solid #ddd;
   box-sizing: border-box;
-  display: block;
+  display: inline-block;
 }
 
+
 .addNewEvent button{
+  margin-bottom: 8px;
   background: #f1356d;
   color: #fff;
   border: 0;
-  padding: 8px;
+  padding: 8px 20px;
   border-radius: 8px;
   cursor: pointer;
+  margin-left: 10px;
+  margin-top: 30px;
+  display:inline-block;
+}
+.schedule-buttons button{
+  /* margin-bottom: 8px; */
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-top: 10px;
+  /* display:inline-block; */
 }
 
+.schedule-container{
+  display: flex;
+  flex-direction: column;
+}
 /*--------------EVENT DETAIL PAGE--------------*/
 .event-details h2{
   font-size: 20px;
@@ -590,10 +626,11 @@
 .generalInfoSignUp {
   /* max-width: 400px; */
   margin: 0 auto;
-  margin-top: 0px;
+  /* margin-bottom: 20px; */
+  /* margin-top: 0px; */
   text-align: center;
   width:500px;
-  height: 750px;/* 400px; /* how wide will the border around the information will be*/
+  height: 720px;/* 400px; /* how wide will the border around the information will be*/
   /* height: 750px; how long will the border around the information will be */
   left: 401px;
   top: 158px;
@@ -602,7 +639,23 @@
   box-sizing: border-box;
 }
 
-.generalInfoSignUp label{
+.generalInfoSignUp-student {
+  /* max-width: 400px; */
+  margin: 0 auto;
+  /* margin-bottom: 20px; */
+  /* margin-top: 0px; */
+  text-align: center;
+  width:500px;
+  height: 720px;/* 400px; /* how wide will the border around the information will be*/
+  /* height: 750px; how long will the border around the information will be */
+  left: 401px;
+  top: 158px;
+  
+  border: 1px solid #5353539a;
+  box-sizing: border-box;
+}
+
+.generalInfoSignUp label, .changePass label{
   text-align: left;
   margin: 0px 20px; /*under_label left*/
   display: block;
@@ -615,7 +668,9 @@
   margin-bottom: 30px;
 }
 
-
+.generalInfoSignUp .Select{
+  height: 20px;
+}
 
 .account-created h1{
   margin-top: 30px;
@@ -625,24 +680,25 @@
   margin-bottom: 30px;
 }
 
-.account-created p{
+.account-created p, .askChangePass p, .changePass p{
   /* margin-top: 30px; */
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 20px;
   text-align: justify;
   /* font-size: 20px; */
   /* color:#f1356d; */
   /* margin-bottom: 30px; */
 }
 
-.generalInfoSignUp h2{
+.generalInfoSignUp h2, .askChangePass h1, .changePass h1{
   /* font-size: 20px; */
   /* color:#f1356d; */
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-.generalInfoSignUp input, .generalInfoSignUp select{
+.generalInfoSignUp input, .generalInfoSignUp select, .askChangePass input, .changePass input{
   width: 90%; /*represents how log the box will be visually*/
   padding: 6px 10px; /* 10px = where it starts writting inside box; 6px = how thick the box is (size) downwards*/
   margin: 0px 20px 10px; /* 0px = how close the box is to label (above box); 20px = how close box is to left margin; 10px = how close the box is to the next box (below box) */
@@ -652,15 +708,16 @@
 
 }
 
-.generalInfoSignUp button{
+.generalInfoSignUp button, .askChangePass button, .changePass button{
   background: #f1356d;
   color: #fff;
   border: 0;
   padding: 8px;
-  width: 75px;
+  margin-bottom: 60px;
+  /* width: 75px; */
   height: 38px;
   border-radius: 8px;
-  margin-top: 30px;
+  margin-top: 20px;
   cursor: pointer;
 }
 
@@ -668,8 +725,37 @@
   margin-right: 50px;
   margin-left: 50px;
   display:inline-block;
- }
+}
 
+.askChangePass {
+  /* max-width: 400px; */
+  margin: 0 auto;
+  margin-top: 0px;
+  text-align: center;
+  width:500px;
+  height: 300px;/* 400px; /* how wide will the border around the information will be*/
+  /* height: 750px; how long will the border around the information will be */
+  left: 401px;
+  top: 158px;
+  
+  border: 1px solid #5353539a;
+  box-sizing: border-box;
+}
+
+.changePass {
+  /* max-width: 400px; */
+  margin: 0 auto;
+  margin-top: 0px;
+  text-align: center;
+  width:500px;
+  height: 450px;/* 400px; /* how wide will the border around the information will be*/
+  /* height: 750px; how long will the border around the information will be */
+  left: 401px;
+  top: 158px;
+  
+  border: 1px solid #5353539a;
+  box-sizing: border-box;
+}
 /* .dropdown-project select{
   /* width: 100%; *
   padding: 6px 10px;
@@ -976,8 +1062,8 @@ body {
   /* margin-left: 700px; */
   max-width: 600px; 
   /* margin-right: 100px; */
-  margin-top: 20px;
-  display: inline-flex;
+  /* margin-top: 20px; */
+  display: flex;
 
 }
 
@@ -1003,7 +1089,7 @@ body {
 .cal2{
   margin: 20px 20px;
 
-  display: inline-flex;
+  display: flex;
 }
 /* 
 .cal22{
@@ -1038,10 +1124,7 @@ body {
   overflow-y: scroll;
 }
 
-.home{
-  width: 35%;
-  display: inline-block;
-}
+
 
 .announce-body{
   background: #FFFFFF;
@@ -1104,6 +1187,37 @@ body {
   display: inline-block;
   overflow-y: scroll;
 }
+.stage-announcements .announce-footer{
+  position: absolute;
+  width: 85%;
+  /* height: 668px; */
+  left: 1000px;
+  top: 325px;
+  /* margin-bottom: 30px; */
+ 
+  /* height: 100%; */
+  /* flex: 85%; */
+  /* border: 0; */
+  border-radius: 8px;
+  /* font-size: 20px; */
+  /* border-right: 1px dotted #607d8b; */
+
+  /* outline: none; */
+}
+.stage-announcements .announce-footer input{
+  /* position: absolute; */
+
+  width: 22%;
+  height: 25px;
+  /* margin-bottom: 30px; */
+}
+.stage-announcements .announce-footer button{
+  /* width: 90%; */
+  /* position: absolute; */
+  height: 30px;
+
+  margin-bottom: 30px;
+}
 
 .stage-upcoming{
   position: absolute;
@@ -1123,7 +1237,7 @@ body {
 
 .announce-footer{
   position: absolute;
-  width: 100%;
+  width: 85%;
   /* height: 668px; */
   left: 948px;
   top: 770px;
@@ -1139,11 +1253,15 @@ body {
   /* outline: none; */
 }
 .announce-footer input{
+  /* position: absolute; */
+
   width: 22%;
   height: 25px;
   /* margin-bottom: 30px; */
 }
 .announce-footer button{
+  /* position: absolute; */
+
   /* width: 90%; */
   /* position: absolute; */
   height: 30px;
@@ -1522,4 +1640,56 @@ color: #EA4C89;
   padding: 5px;
   color: white;
   font-weight: bold;
+}
+
+.form-sr-rp{
+  height: 20px;
+}
+
+
+.schedule-prev h2{ 
+  width: 40%;
+  padding: 6px 10px;
+  /* margin: 10px 0; */
+  border:hidden;
+  box-sizing: border-box;
+  /* display: block; */
+  display:inline-block; 
+}
+.schedule-prev p {
+  width: 10%;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  margin-left: 20%;
+  /* margin: 10px 90px; */
+  /* border: 1px solid #ddd; */
+  /* box-sizing: border-box; */
+  /* display: block; */
+  display:inline-block; 
+ 
+}
+
+.schedule-button h2{
+  /* width: 10%; */
+  padding: 6px 10px;
+  margin: 10px 0;
+  /* border: 1px solid #ddd; */
+  /* box-sizing: border-box; */
+  /* display: block; */
+  display:inline-block; 
+}
+
+.schedule-button button{
+  margin-left: 75%;
+  font-size: 15px;
+  background: #25b12a;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  width: 100px;
+  height: 30px;
+  border-radius: 8px;
+  
+  /* display: inline-block; */
+  cursor: pointer;
 }
