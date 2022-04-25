@@ -38,14 +38,14 @@ export default function Home({user_Role, checked}) {
         e.map((event) => {
           return (
           // event list for schedule view in Lobby 
-          <div className="project-prev" key ={event.projectid}>
+          <div className="project-prev" key ={event.meetid}>
                 <p>{getTime(event.starttime)}</p>
             <div className="project-preview">
               <h2>{event.title}</h2>  <br/>
-              <Link to={`/project_room/${event.projectid}`}>
+              <Link to={`/project_room/${event.meetid}`}>
                 <button>Speakers</button>  
               </Link> 
-              <Link to ={`/project_room/${event.projectid}`}>           
+              <Link to ={`/project_room/${event.meetid}`}>           
                 <button>Room</button>
                       {/* <p>Written by {project.author} </p> */}
               </Link>
