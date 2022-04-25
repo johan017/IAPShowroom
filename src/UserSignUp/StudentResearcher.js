@@ -57,7 +57,7 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
             src = "IAP_Showroom_Logo_HD_Big.png"
             alt="display image"
             />
-            <div className="generalInfoSignUp">
+            <div className="generalInfoSignUp-student">
         
 
                 <div>

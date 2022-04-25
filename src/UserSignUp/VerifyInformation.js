@@ -140,7 +140,9 @@ const VerifyInformation = ({ prevStep, values }) =>{
                     )}
 
                     <button style={{ background: 'red' }} onClick={Previous} > Back </button>
-                    <button style={{ background: '#3B8D25' }} onClick={handleSubmit} > Submit </button>
+                    {!isLoading && <button style={{ background: '#3B8D25' }} onClick={handleSubmit} > Submit </button>}
+                    {isLoading && <button disabled>Submitting...</button>} {/** add event button disabled while loading  */}
+
 
                 </div>
             </div>        
