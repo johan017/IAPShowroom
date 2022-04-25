@@ -11,8 +11,9 @@ const VerifyInformation = ({ prevStep, values }) =>{
 
     const history = useHistory();
     const page = 3
-    const {first_name, last_name, email, password, gender, user_role, grad_date, projectids,
+    const {first_name, last_name, email, password, gender, user_role, grad_date, projectids, projectTitles,
         department, company_name, ispm } = values;
+    
 
     var signup = values;
     const [isLoading, setIsLoading] = useState(false); // when first loading the page the POST request is not being made; only after sumbitting form is when request is made
@@ -72,12 +73,12 @@ const VerifyInformation = ({ prevStep, values }) =>{
             src = "IAP_Showroom_Logo_HD_Big.png"
             alt="display image"
             />
-            <div className="generalInfoSignUp">
+            <div className="generalInfoSignUp-verify">
             
                 <div>
-                    {page !== 3 && <h2>Create Account</h2>}
-                    {page !== 3 && <progress max="5" value={page}/>}
-                    {page === 3 && <progress style={{background: 'green'}} max="5" value={page}/>}
+                    {page !== 4 && <h2>Create Account</h2>}
+                    {page !== 4 && <progress max="5" value={page}/>}
+                    {page === 4 && <progress style={{background: 'green'}} max="5" value={page}/>}
                 </div>
                 <div className="verifying">
                     <h1>Verification</h1>
@@ -91,7 +92,7 @@ const VerifyInformation = ({ prevStep, values }) =>{
 
                     {user_role === "Student Researcher" && (
                         <div>
-                        <label>Research Project: </label> <label>{projectids}</label>
+                        <label>Research Project: </label> <label>{projectTitles}</label>
                         <label>Department: </label> <label>{department}</label>
                         <label>Graduation Date: </label> <label>{grad_date}</label>
                         <label>Project Manager: </label> <label>{ispm}</label>
@@ -100,7 +101,7 @@ const VerifyInformation = ({ prevStep, values }) =>{
 
                     {user_role === "Advisor" && (  
                         <div>
-                        <label>Research Project: </label> <label>{projectids}</label>
+                        <label>Research Project: </label> <label>{projectTitles}</label>
                         </div>
                     )}
 

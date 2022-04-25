@@ -20,13 +20,13 @@ const AccountCreated = () => {
             />
         
 
-            <div className="generalInfoSignUp">
+            <div className="generalInfoSignUp-acreated">
                 
             
                 <div>
                     <h2>Account Created!</h2>
-                    {page !== 4 && <progress max="4" value={page}/>}
-                    {page === 4 && <progress style={{background: 'green'}} max="4" value={page}/>}
+                    {/* {page !== 4 && <progress max="4" value={page}/>} */}
+                    {page === 4 && <progress max="4" value={page}/>}
                 </div>
 
 

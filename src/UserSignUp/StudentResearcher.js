@@ -35,10 +35,10 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
     const major = document.getElementById("major");
     const gradDate = document.getElementById("date");
 
-    const customControlStyles = base => ({
-        height: 20,
-        minHeight: 20
-    });
+    // const customControlStyles = base => ({
+    //     height: 20,
+    //     minHeight: 20
+    // });
 
     const validateForm = e =>{
 
@@ -66,16 +66,16 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
         
 
                 <div>
-                    {page !== 2 && <h2>Create Account</h2>}
-                    {page !== 2 && <progress max="4" value={page}/>}
-                    {page === 2 && <progress style={{background: 'green'}} max="4" value={page}/>}
+                    {page !== 4 && <h2>Create Account</h2>}
+                    {page !== 4 && <progress max="4" value={page}/>}
+                    {page === 4 && <progress style={{background: 'green'}} max="4" value={page}/>}
                 </div>
                 <div >
                     <h1>StudentResearcher Info</h1>
                 
                     <form onSubmit={validateForm}> 
                         <label>Research Project: </label>
-                        <div className="form-sr-rp" style={{visibility:'hidden' }} id="error"> Please select at least one option. </div>
+                       <div style={{marginLeft: "20px", width: "450px"}}>
                         <Select 
                             id="research" 
                             isMulti
@@ -83,7 +83,10 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
                             onChange = { e => {handleProjectChange(e); setProjects(e);}}
                             options = {projects}
                             required
-                        />
+                        />      
+                         </div>                 
+                        <div className="form-sr-rp" style={{visibility:'hidden' }} id="error"> Please select at least one option. </div>
+
                         {/* <div>
                         {projects && projects.map((project) => ( 
                          
