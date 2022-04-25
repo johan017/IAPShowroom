@@ -1,13 +1,14 @@
 import { Link } from "react-router-dom";
 import useFetchEvents from "./hooks/use-fetch-events";
 import useFetch from "./useFetch";
+import useFetchProjects from "./hooks/use-fetch-projects";
 
 
 //List of events inside the conference day 
 const EventList = () => {
-    // const {events, loading,} = useFetchEvents();
+    const {projects, loading,} = useFetchProjects();
     // const {id} = useParams();
-      const {data: events, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
+    //   const {data: events, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
 
 
     // const displayEvents = (props) =>{
@@ -43,20 +44,20 @@ const EventList = () => {
     return ( 
 
         <div className="event-list">
-            {isLoading && <div> Loading...</div>}
+            {loading && <div> Loading...</div>}
 
            {/* {displayEvents(events)} */}
 
            {/* return(  */}
             
-           {events && events.map((event) =>(
-                <div className="c2" key ={event.id}>
-                       
-                    <Link to ={`/event_details/${event.id}`}>
-                        {event.title}
+           {projects && projects.map((project) =>(
+                <div className="c2" key ={project.project_id}>
+                       {/* {project.projectid} */}
+                    <Link to ={`/event_details/${project.project_id}`}>
+                        {project.title}
                         {/* <h2>Date {event.date}</h2> */}
                     </Link>
-                    <Link to ={`/update_event/${event.id}`}>
+                    <Link to ={`/update_event/${project.project_id}`}>
                         <button style={{ background: 'blue' }}>Modify</button>
                     </Link>                
                 </div>     
