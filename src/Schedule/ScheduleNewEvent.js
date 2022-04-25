@@ -30,7 +30,7 @@ const ScheduleNewEvent = () => {
             setIsLoading(false); //when form is submitted; completed
         })
         //need to go back to a specific id of conference details(not working)
-        history.push('/create_schedule');
+        history.push('/cal');
 
     }
 
@@ -47,7 +47,7 @@ const ScheduleNewEvent = () => {
                 />
                 <label>Start Time: </label>
                 <input
-                    type="time"
+                    type="datetime-local"
                     required
                     value = {start}
                     onChange = {(e) => setStart(e.target.value)}
@@ -55,7 +55,7 @@ const ScheduleNewEvent = () => {
                 ></input>
                 <label>End Time: </label>
                 <input 
-                    type="time" 
+                    type="datetime-local" 
                     required 
                     value = {end}
                     onChange = {(e) => setEnd(e.target.value)}

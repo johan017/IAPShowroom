@@ -70,7 +70,7 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
                 
                     <form onSubmit={validateForm}> 
                         <label>Research Project: </label>
-                        <div style={{visibility:'hidden' }} id="error"> Please select at least one option. </div>
+                        <div className="form-sr-rp" style={{visibility:'hidden' }} id="error"> Please select at least one option. </div>
                         <Select 
                             id="research" 
                             isMulti
