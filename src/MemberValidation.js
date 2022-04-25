@@ -1,13 +1,13 @@
 
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import useFetchAllResearchMembers from "./hooks/use-fetch-members";
-import React from "react";
-import { color } from "@mui/system";
+import React, {useState} from "react";
+import axios from "../src/context/axios";
 
+const VAL_URL = "api/showroom/validateResearchMember";
 
 export default function MemberValidation({user_Role}) {  
-  // chatContainer = React.createRef();
-
+  const [isValidated, setValidated] = useState();
   const {
     researchData,
     redirect,
@@ -15,9 +15,6 @@ export default function MemberValidation({user_Role}) {
   } = useFetchAllResearchMembers();
 
 
-//   {departmentsOptions && departmentsOptions.map((department) =>(
-//     <option key={department.key} value={department.value}>{department.label}</option>             
-// ))}
 
   const displayProjects = (props) => {
     const data = props;
@@ -25,7 +22,7 @@ export default function MemberValidation({user_Role}) {
           <div >
               {Object.keys(data) && Object.keys(data).map((project) =>( 
                 <>
-                <h2>{JSON.parse(JSON.stringify(project))}</h2>
+                <h2 key={project}>{JSON.parse(JSON.stringify(project))}</h2>
                  {displayMembers(data[project])}
                  <br></br>
                 </>
@@ -33,27 +30,41 @@ export default function MemberValidation({user_Role}) {
           </div>
         ) 
   }
+
+
   const displayMembers = (p) => {
+
 
       return(
         
         p.map((members) => (
          <>
-         
-         {members.validatedmember || members.validateradvisor ? (
-          <p style={{"color": "green"}}>{members.user_role}: {members.first_name} {members.last_name} {   }
-         </p> 
-         ):(<li>
+         {members.validatedmember === true || members.validatedadvisor === true ? (
+          <li id={members.userid} key={members.userid} style={{"color": "green"}}>{members.user_role}: {members.first_name} {members.last_name} {   }
+         </li> 
+         ):(<li id={members.userid} key={members.userid}>
            {members.user_role}: {members.first_name} {members.last_name} {   }
-           <button onClick={validateMember()}>Validate</button>
+           <button onClick={() => {handleValidation(members.userid,members.user_role); setValidated(members.userid);}} id={members.user_role} value={members.userid}>Validate</button>
          </li>)}
          </>
         ))
       )
   }
 
-  const validateMember = () => {
-
+  const handleValidation = async(uID, uRole) => {
+    try{
+        await axios.post(VAL_URL, {"userid":uID,"user_role":uRole},
+          {
+              
+              headers: {"Content-Type": "application/json"},
+              withCredentials: true
+          }).then(() =>{
+            window.location.reload(false);
+          });
+    }catch(err){
+       alert("User not found");
+    }
+  
   }
 
 
@@ -67,7 +78,7 @@ export default function MemberValidation({user_Role}) {
   return ( 
     <div className="">
       {loading && <div> Loading...</div>}
-
+    
       <div className="">
         {displayProjects(researchData)}
       </div>

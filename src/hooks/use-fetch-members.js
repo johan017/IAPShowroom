@@ -23,7 +23,7 @@ const useFetchAllResearchMembers = () => {
           };
         var groupedByTitle = groupBy(result.data.payload, 'iapproject_title');
         setResearchData(groupedByTitle);
-        console.log(groupedByTitle);
+
         } catch(error) {
             console.error(error.response.status);
         }
