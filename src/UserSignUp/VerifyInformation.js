@@ -34,58 +34,29 @@ const VerifyInformation = ({ prevStep, values }) =>{
                 // delete signup.department;
                 signup = {email, password, first_name, last_name, gender, user_role};
             }
-            console.log(user_role);
-            console.log(signup);
             setIsLoading(true); //before submitting
             
             //  Registration
             try{
-                const response = await axios.post(SIGNUP_URL, 
+                await axios.post(SIGNUP_URL, 
                     JSON.stringify(signup),
                     {
                         headers: {"Content-Type": "application/json"},
                         withCredentials: true
+                    }).then(() =>{
+                        history.push('/accountCreated');
                     });
-                    // if(user_role === "Student Researcher"){
-                    //     response
-                    // }
                     
             }catch(err){
                 if(!err?.response) {
                     console.log('No Server Response');
                 } else if((err.response?.status === 400)){
                     alert('An error occured. Please check your information.');
-                    history.push("/signUp");
                 } else {
                     console.log('Registratio  Failed');
                 }
+                history.push("/signUp");
             }
-            //  Login
-            // try{
-            //     const login = {email, password};
-            //     const response = await axios.post(LOGIN_URL, 
-            //         JSON.stringify(login),
-            //         {
-            //             headers: {"Content-Type": "application/json"},
-            //             withCredentials: true
-            //         });
-            //         console.log(response.data.payload)
-            //         setAuth(response.data.payload);
-            //         // user_role = "user_role";
-            //         // setuser_role = response.data.payload.admin;
-                    
-            // }catch(err){
-            //     if(!err?.response) {
-            //         console.log('No Server Response');
-            //     } else if((err.response?.status === 400)){
-            //         console.log('Missing Username or Password');
-            //     } else if((err.response?.status === 400)){
-            //         console.log('Unauthorized');
-            //     } else {
-            //         console.log('Login Failed');
-            //     }
-            // }
-        history.push('/accountCreated');
     }
 
     const Previous = e => {

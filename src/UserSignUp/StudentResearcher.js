@@ -35,6 +35,11 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
     const major = document.getElementById("major");
     const gradDate = document.getElementById("date");
 
+    const customControlStyles = base => ({
+        height: 20,
+        minHeight: 20
+    });
+
     const validateForm = e =>{
 
         if(values.projectids.length === 0)
@@ -44,7 +49,7 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
         }
 
         else if(major.checkValidity() && gradDate.checkValidity()){
-            e.preventDefault()
+            e.preventDefault();
             nextStep();
         }
     }

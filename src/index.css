@@ -1693,3 +1693,7 @@ color: #EA4C89;
   /* display: inline-block; */
   cursor: pointer;
 }
+svg{
+  height: 20px;
+  width: 20px;
+  }
