@@ -1,7 +1,7 @@
 import { useEffect, useState} from 'react';
 import axios from "../context/axios";
 
-const ROOM_STATS_URL = "api/showroom/rooms/status?date=04-30-22"
+const ROOM_STATS_URL = "api/showroom/rooms/status?date=04-20-22"
 
 //TODO - Date that it accepts or tracks is the start time date 
 
