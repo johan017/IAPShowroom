@@ -2,7 +2,7 @@ import * as React from 'react';
 import Calendar from './Calendar';
 import { useHistory} from "react-router-dom";
 
-import EventList from '../EventList';
+import EventList from './EventList';
 import useFetch from '../useFetch';
 
 const C2 = () => {
@@ -24,19 +24,25 @@ const C2 = () => {
     <div className="cal2">
       {/* {error && <div> {error} </div>}
       {isLoading && <div> Loading...</div>} */}
-            <div><button onClick={handleNewEvent}>ADD NEW EVENT</button></div>
 
       <div className="cal22">
         {<EventList></EventList>}
       </div>
-      <div className="scheduler">
-        <Calendar/>
+      
+      <div className="schedule-container">
+      
+        <div className="schedule-buttons">
+          <button onClick={handleNewEvent}>ADD NEW EVENT</button>
+          {/* <br/> */}
+          <button onClick={handleCancel} style={{ background: 'gray', marginLeft: '35%' }}>Cancel</button>
+          <button onClick = {handleNext} style={{ background: '#3B8D25' }}>Next</button>
+        </div>
+      
+        <div className="scheduler">
+          <Calendar/>
+        </div>
       </div>
-      <div>
-        
-        <button onClick={handleCancel} style={{color:'red'}}>Back</button>
-        <button onClick = {handleNext}>Next</button>
-      </div>
+      
       
     </div>
   );
