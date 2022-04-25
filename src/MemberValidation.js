@@ -2,6 +2,7 @@
 import {Link, Redirect} from "react-router-dom";
 import useFetchAllResearchMembers from "./hooks/use-fetch-members";
 import React from "react";
+import { color } from "@mui/system";
 
 
 export default function MemberValidation({user_Role}) {  
@@ -13,23 +14,49 @@ export default function MemberValidation({user_Role}) {
     loading
   } = useFetchAllResearchMembers();
 
-  const displayMembers = (props) => {
-    const d = props;
-    if(d.length>0){
-      return(
-        d.map((data) => {
-          return (
-          // event list for schedule view in Lobby 
+
+//   {departmentsOptions && departmentsOptions.map((department) =>(
+//     <option key={department.key} value={department.value}>{department.label}</option>             
+// ))}
+
+  const displayProjects = (props) => {
+    const data = props;
+        return (
           <div >
-               {data.first_name} {data.last_name} from: {data.iapproject_title}
+              {Object.keys(data) && Object.keys(data).map((project) =>( 
+                <>
+                <h2>{JSON.parse(JSON.stringify(project))}</h2>
+                 {displayMembers(data[project])}
+                 <br></br>
+                </>
+              ))}
           </div>
-          )
-        })
-        )
-    } else {
-      <h3>No events currently available</h3>
-    }
+        ) 
   }
+  const displayMembers = (p) => {
+
+      return(
+        
+        p.map((members) => (
+         <>
+         
+         {members.validatedmember || members.validateradvisor ? (
+          <p style={{"color": "green"}}>{members.user_role}: {members.first_name} {members.last_name} {   }
+         </p> 
+         ):(<li>
+           {members.user_role}: {members.first_name} {members.last_name} {   }
+           <button onClick={validateMember()}>Validate</button>
+         </li>)}
+         </>
+        ))
+      )
+  }
+
+  const validateMember = () => {
+
+  }
+
+
 
   if(redirect){
     return (
@@ -42,7 +69,7 @@ export default function MemberValidation({user_Role}) {
       {loading && <div> Loading...</div>}
 
       <div className="">
-        {displayMembers(researchData)}
+        {displayProjects(researchData)}
       </div>
     </div>   
   );

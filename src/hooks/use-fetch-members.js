@@ -1,7 +1,7 @@
 import { useEffect, useState} from 'react';
 import axios from "../context/axios";
 
-const MEMBERS_URL = "api/showroom/researchers_advisors"
+const MEMBERS_URL = "api/showroom/researchers-advisors"
 
 const useFetchAllResearchMembers = () => {
 
@@ -15,8 +15,15 @@ const useFetchAllResearchMembers = () => {
             headers: {"Content-Type": "application/json"},
             withCredentials: true
         }) 
-        setResearchData(result.data.payload);
-        console.log(result.data.payload)
+        var groupBy = function(xs, key) {
+            return xs.reduce(function(rv, x) {
+              (rv[x[key]] = rv[x[key]] || []).push(x);
+              return rv;
+            }, {});
+          };
+        var groupedByTitle = groupBy(result.data.payload, 'iapproject_title');
+        setResearchData(groupedByTitle);
+        console.log(groupedByTitle);
         } catch(error) {
             console.error(error.response.status);
         }
