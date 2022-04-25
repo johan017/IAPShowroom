@@ -1,11 +1,11 @@
 import { useHistory, useParams } from "react-router-dom";
-import useFetch from "./useFetch";
-import EventList from "./EventList";
-import {Link} from  "react-router-dom";
-import useFetchEvents from "./hooks/use-fetch-events";
-import axios from "./context/axios";
+// import useFetch from "./useFetch";
+// import EventList from "./EventList";
+// import {Link} from  "react-router-dom";
+// import useFetchEvents from "../hooks/use-fetch-events";
+// import axios from "./context/axios";
     import { useEffect, useState} from 'react';
-    import useFetchProjects from "./hooks/use-fetch-projects";
+    import useFetchProjects from "../hooks/use-fetch-projects";
 
 const EventDetails = () => {
    

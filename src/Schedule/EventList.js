@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import useFetchEvents from "./hooks/use-fetch-events";
-import useFetch from "./useFetch";
-import useFetchProjects from "./hooks/use-fetch-projects";
+// import useFetchEvents from "../hooks/use-fetch-events";
+// import useFetch from "./useFetch";
+import useFetchProjects from "../hooks/use-fetch-projects";
 
 
 //List of events inside the conference day 

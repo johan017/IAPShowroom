@@ -2,8 +2,8 @@ import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import {Link} from 'react-router-dom';
-import AuthContext from "./context/AuthProvider";
-import axios from "./context/axios";
+import AuthContext from "../context/AuthProvider";
+import axios from "../context/axios";
 const LOGIN_URL = 'api/auth/login';
 
 const Login = () => {
@@ -87,7 +87,7 @@ const Login = () => {
                    value = {password}
                    onChange = {(e) => setPassword(e.target.value)}
                 ></input>
-               
+                <Link to="/askChangePassword" style={{marginLeft: "70%", color:"#008DED", textDecoration: "none"}}> Forgot Password?</Link>
                
 
                 <div className="recaptcha">
@@ -104,6 +104,9 @@ const Login = () => {
             </form>
 
             <Link to="/signUp" >Don't have an account? Create</Link>
+
+           
+
         </div>
                        /**select & option is a dropdown */
      );
