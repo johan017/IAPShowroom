@@ -1,24 +1,22 @@
 import { useEffect, useState} from 'react';
 import axios from "../context/axios";
 
-const ROOM_STATS_URL = "api/showroom/rooms/status?date=04-30-22"
+const Announcement_URL = "api/showroom/announcement"
 
-//TODO - Date that it accepts or tracks is the start time date 
+const useFetchAnnouncements = () => {
 
-const useFetchRoomStats = () => {
-
-    const [roomStats, setRoomStats] = useState([]);
+    const [announcements, setAnnouncements] = useState([]);
     const [redirect, setRedirect] = useState(false);
     const [isLoading, setLoading] = useState(false);
 
-    const getRoomStats = async() =>{
+    const getAnnouncements = async() =>{
         try{
-        const result = await axios.get(ROOM_STATS_URL, 
+        const result = await axios.get(Announcement_URL, 
         {
             headers: {"Content-Type": "application/json"},
             withCredentials: true
         }) 
-        setRoomStats(result.data.payload);
+        setAnnouncements(result.data.payload);
         console.log(result.data.payload)
         } catch(error) {
             console.error(error.response.status);
@@ -30,14 +28,14 @@ const useFetchRoomStats = () => {
     };
 
     useEffect(()=>{
-        getRoomStats();
+        getAnnouncements();
     }, []);
 
     return {
-        roomStats,
+        announcements,
         redirect,
         isLoading
       };
 };
 
-export default useFetchRoomStats;
+export default useFetchAnnouncements;
