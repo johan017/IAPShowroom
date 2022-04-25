@@ -125,7 +125,10 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
                             onChange= {handleChange('password')}
                             required 
                         ></input> 
-                        <PasswordStrengthBar password={values.password} />
+                        
+                        {values.password !== "" && (
+                            <PasswordStrengthBar style={{width: "450px", marginLeft: "20px"}} password={values.password} />
+                        )}
 
                         <label>Confirm Password: </label>
                         <input
@@ -163,14 +166,8 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
                             ))}
                         </select>
 
-                        <div className="recaptcha">                
-                            <ReCAPTCHA
-                                sitekey="6Lfnv_geAAAAABsSPS0UKVKIFkeZWly0yiA_-Wxi"
-                                onChange={handleCaptcha}
-                                
-                            ></ReCAPTCHA> 
-                        </div>       
-                        <button style={{ background: '#3B8D25'}} type="submit" value="Next"> Next </button>
+                         
+                        <button style={{ background: '#3B8D25', width: "75px"}} type="submit" value="Next"> Next </button>
                 </div>
             </div>
         </form>
