@@ -10,6 +10,11 @@ export default function Home({user_Role, checked}) {
   // chatContainer = React.createRef();
   const history = useHistory();
 
+  const getDate = () =>{
+    const today = new Date();
+    return today.toLocaleDateString('default', {month: 'long', day: 'numeric', year: 'numeric'});
+  }
+
   const getTime = (props) =>{
     const time = props;
 
@@ -72,29 +77,32 @@ export default function Home({user_Role, checked}) {
   return ( 
     <div className="home">
       {loading && <div> Loading...</div>}
-      <div className="home-button">
-      {checked && (<button onClick={handleStage} style={{backgroundColor: 'red'}}>STAGE LIVE</button>)}
-      {!checked && (<button onClick={handleStage}>STAGE LIVE</button>)}
-      </div>
-      <div className="home-date-sched" >
-        {/* TODO: CHANGE TO A METHOD AND ACCESPT CHECKED AS PARAMETER */}
+
+      {/* <div className="schedule-container"> */}
        
-
-
-        <div style={{ borderBottom: '1px solid #8e8a8a', width: '100%',marginLeft:'15px' }} >
-
-          <label> Schedule </label> <p>March 23, 2022</p>   
-        </div>
-        <text>Announcements</text>
-      </div> 
-     
-      <div className="home-announcements">
+        {/* <div > */}
+          <div className="home-button">
+          {checked && (<button onClick={handleStage} style={{backgroundColor: 'red'}}>STAGE LIVE</button>)}
+          {!checked && (<button onClick={handleStage}>STAGE LIVE</button>)}
+          </div>
+        {/* TODO: CHANGE TO A METHOD AND ACCESPT CHECKED AS PARAMETER */}
+          <div className="home-date-sched" style={{ borderBottom: '1px solid #8e8a8a'}} >
+            <label> Schedule </label> <p>{getDate()}</p>   
+          </div>
+          
+          <h2>Announcements</h2>
+        {/* </div>   */}
         
-        <Announcements user_Role={user_Role}/>
-      </div>
-      <div className="events-home">
-        {displayEvents(events)}
-      </div>
+      {/* </div> */}
+
+      {/* <div className="schedule-container"> */}
+        <div >
+          <Announcements user_Role={user_Role}/>
+        </div>
+        <div className="events-home">
+          {displayEvents(events)}
+        </div>
+      {/* </div> */}
     </div>   
   );
 }

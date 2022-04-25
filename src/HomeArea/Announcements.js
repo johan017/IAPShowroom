@@ -113,7 +113,7 @@ const Announcements = ({user_Role}) => {
                             placeholder="Enter Announcement" 
                             value={currentMess}
                             onChange={(event)=>{setCurrentMess(event.target.value)}}></input>
-                        <button onClick={sendAnnouncement}>&#9658;</button>
+                        <button onClick={sendAnnouncement}>Send</button>
                     </div>
             )}
 
