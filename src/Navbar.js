@@ -31,14 +31,14 @@ const Navbar = ({user_Role}) => {
                       <Link to="/sponsors" >SPONSORS</Link>
                       {/* <Link to="/schedule" >SCHEDULE</Link>
                       <Link to="/membervalidation">VALIDATION</Link>  */}
-                      <Link to ="/logout"> LOGOUT</Link>
                       <Link to="/settings">SETTINGS
                           {/* <img 
                             style={{width:'40px', height:'40px'}}
                             src = "setting_img.png"
                             alt="display image"/> */}
                      </Link>
-                     
+                     <Link to ="/logout"> LOGOUT</Link>
+
                   </div>
                 )}
 
@@ -52,8 +52,9 @@ const Navbar = ({user_Role}) => {
                       {/* <Link to="/announce" >Announce</Link> */}
 
                       {/* <Link to="/schedule" >SCHEDULE</Link> */}
-                      <Link to ="/logout"> LOGOUT</Link>
                       <Link to="/settings">SETTINGS</Link>
+                      <Link to ="/logout"> LOGOUT</Link>
+                      
 
                   </div>
                 )}
