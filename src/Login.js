@@ -73,6 +73,7 @@ const Login = () => {
             <form onSubmit = {async (e) => handleSubmit(e)}>
                 {/* <label>Email: </label> */}
                 <input 
+                    name="email"
                     type="email" 
                     placeholder="Email"
                     required 
@@ -81,6 +82,7 @@ const Login = () => {
                 />
                 {/* <label>Password: </label> */}
                 <input
+                   name = "password"
                    type = "password"
                    placeholder="Password"
                    required
@@ -98,8 +100,8 @@ const Login = () => {
                     ></ReCAPTCHA>
                 </div> 
                 
-                {!isLoading && <button>Log In</button>} {/** adds the new event  */}
-                {isLoading && <button disabled>Loging In...</button>} {/** add event button disabled while loading  */}
+                {!isLoading && <button name="Log In">Log In</button>} {/** adds the new event  */}
+                {isLoading && <button disabled>Logging In...</button>} {/** add event button disabled while loading  */}
 
             </form>
 
