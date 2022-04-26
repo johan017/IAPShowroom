@@ -11,13 +11,10 @@ const ProjectRoom = ({checked}) => {
 
     const history = useHistory();
 
-    const {id} = useParams();
+    // const {id} = useParams();
     // const {data: event, error, isLoading} = useFetch('http://localhost:8000/projects/' + id); /* data is project because we want the id of a singular project */
     // const {projects, isLoading} = useFetchProjects();
-    const {events, loading} = useFetchEvents();
-
-
-    
+    const {events, loading} = useFetchEvents();   
     const [popup, setPopup] = useState(false);
 
     const changePopup = () =>{
@@ -30,36 +27,10 @@ const ProjectRoom = ({checked}) => {
         
     }
    
-    
-    // const [events, setEvents] = useState([]);
-    // const [redirect, setRedirect] = useState(false);
-    // const [isLoading, setLoading] = useState(false);
     var  pathArray = window.location.pathname.split('/');
 
     var eid = parseInt(pathArray[2]);
 
-    // const getEvents = async(props) =>{
-    //     console.log(props);
-    //     const eventID = props;
-    //     try{
-    //     const result = await axios.get('api/showroom/schedule/events/' + eventID , 
-    //     {
-    //         headers: {"Content-Type": "application/json"},
-    //         withCredentials: true
-    //     }) 
-    //     setEvents(result.data.payload);
-    //     console.log(result.data.payload)
-    //     } catch(error) {
-    //         console.error(error.response.status);
-    //         if(error.response.status = '401'){
-    //             setRedirect(true);
-    //         }
-    //     }
-    //     setLoading(false);
-    // };
-
-  
-    // const eventInfo = getEvents(eid);
     
     const handleStage = () =>{
         history.push('/stage');
@@ -67,18 +38,11 @@ const ProjectRoom = ({checked}) => {
     
     return (  
         <div className = "project-room">
-            {/* {isLoading && <div> Loading... </div>}
-            {error && <div> {error} </div>} */}
+            {loading && <div> Loading... </div>}
+            {/* {error && <div> {error} </div>} */}
             {events && events.map((event) =>(
                 <div key={event.meetid}>                 
 
-                    {/* {eid} */}
-                    {/* {event.projectid} */}
-                    {/* {project.meetid} */}
-
-                 {/* {event && ( */}
-                    {/* <div> */}
-                        {/* {eid} */}
                     {event.meetid === eid &&(
                         <div>
                             <div style={{marginLeft: "1000px"}}>
@@ -94,7 +58,7 @@ const ProjectRoom = ({checked}) => {
                             {popup == true && (
                                 <div>
                                     <h2>{event.title}</h2>
-                                    {/* <h3>{event.duration}</h3> <br/> */}
+                                    <h3>{event.abstract}</h3> <br/>
                                     {/* <h2>{project.iapproject_title}</h2>
                                     <h3>{project.iapproject_abstract}</h3> <br/> */}
                                     {/* <h4>{event.author}</h4>  */}
@@ -102,10 +66,6 @@ const ProjectRoom = ({checked}) => {
                             )}
 
 
-                                    {/* {roomInfo && roomInfo.map((roomI)=> (    
-                                    <div key={roomI.projectid}>
-                                        {event.title === roomI.title && (
-                                        <div> */}
                             <div className="bbb">
                                 {/* Update to get src url from the backend. Temporarily Hardcoded to get a view working  */}
                                 <iframe className="temp" src="https://iapstream.ece.uprm.edu/bigbluebutton/api/create?name=DemoMeeting&meetingID=DemoMeeting&attendeePW=ap&moderatorPW=mp&checksum=f5e85d6b55189f228cf06e4791736e44b63282f1"></iframe> {/*TODO Remove after changes to incorporate backend url*/}
@@ -114,7 +74,6 @@ const ProjectRoom = ({checked}) => {
                             </div>
                         </div>
                     )} 
-                    {/* <p> Wrritten by {roomI.author}</p> */}
 
 
                 </div>

@@ -30,6 +30,9 @@ import ProtectedRoute from './ProtectedRoute';
 import AskChangePassword from './LoginArea/AskChangePassword';
 
 import ChangePassword from './LoginArea/ChangePassword';
+import Validate from './Settings/Validate';
+import Account from './Settings/Account';
+import Settings from './Settings/Settings';
 import C2 from './Schedule/C2';
 import Logout from './Logout';
 import { QueryClient, QueryClientProvider, useQuery  } from 'react-query';
@@ -147,7 +150,19 @@ function App() {
                 <Route exact path="/schedule/review"> 
                   <ScheduleReview/> 
                 </Route>
+                <Route path="/validate">
+                  <Validate/> 
+                </Route> 
                 
+                <Route path="/account">
+                  <Account/> 
+                </Route> 
+                
+                <ProtectedRoute exact path="/settings" user_role="all" component={Settings}/>
+
+                {/* <Route path="/settings">
+                  <Settings/> 
+                </Route>  */}
                 {/* <QueryClientProvider client={queryClient}>
                   {/* Calendar  component - view schedule before submitting* *
                   <Route path="/calendar"> 
