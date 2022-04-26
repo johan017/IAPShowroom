@@ -17,7 +17,7 @@ export default function Home({user_Role, checked}) {
 
   const getTime = (props) =>{
     const time = props;
-    return(new Date(time).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}));
+    return(new Date(time).toLocaleTimeString([], {hour: 'numeric', minute:'2-digit'}));
   }
 
   const {

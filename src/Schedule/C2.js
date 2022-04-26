@@ -14,7 +14,7 @@ const C2 = () => {
       history.push('/new_event');
     }
     const handleCancel =(e) =>{
-        history.push('/create_day');
+        history.push('/schedule');
     }
     const handleNext = (e) =>{
         e.preventDefault();
@@ -33,9 +33,8 @@ const C2 = () => {
       
         <div className="schedule-buttons">
           <button onClick={handleNewEvent}>ADD NEW EVENT</button>
-          {/* <br/> */}
-          <button onClick={handleCancel} style={{ background: 'gray', marginLeft: '35%' }}>Cancel</button>
-          <button onClick = {handleNext} style={{ background: '#3B8D25' }}>Next</button>
+          <button onClick={handleCancel} style={{ background: 'gray', marginLeft: '280px' }}>Cancel</button>
+          <button onClick={handleNext} style={{ background: '#3B8D25', marginLeft: '30px' }}>Next</button>
         </div>
       
         <div className="scheduler">
