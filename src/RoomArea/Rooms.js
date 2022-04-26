@@ -40,18 +40,22 @@ const Rooms = ({checked}) => {
                   {/* <Link to ={`/project_room/${event.projectid}`} style={{display: 'inline-block', width:'475px', height:'100px',marginTop: '10px', marginLeft:'5px'}}>  */}
 
                   <Link to ={`/project_room/${event.meetid}`} > 
-                    {event.title}
+                   
+                    <p style={{marginLeft: "10px", marginTop: "10px"}} >{event.title}</p>
                 
-                    <br/> <br/>
+                    <br/> 
               
                     <img 
                       src = "company_rep.png"
                       alt="display image"
+                     
                     /><text>{roomS.company_representatives}</text>
                     <img
                       src = "users.png"
                       alt="display image"
+                     
                     /><text>{roomS.general_users}</text>   
+                  
                   </Link>
                 </div>
               )}
