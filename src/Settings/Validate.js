@@ -3,6 +3,7 @@ const Validate = () => {
         <div>
             <div>
                 Validate
+                {/* add api email */}
             </div>
         </div>
     );
