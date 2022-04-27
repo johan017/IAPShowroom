@@ -41,7 +41,7 @@ const EventList = () => {
     // }
     
 
-    return ( 
+    return (
 
         <div className="event-list">
             {loading && <div> Loading...</div>}
@@ -56,9 +56,9 @@ const EventList = () => {
                     <Link to ={`/event_details/${project.project_id}`}>
                         {project.title}
                         {/* <h2>Date {event.date}</h2> */}
-                    </Link>
+                    </Link> <br/>
                     <Link to ={`/update_event/${project.project_id}`}>
-                        <button style={{ background: 'blue' }}>Modify</button>
+                        <button>Modify</button>
                     </Link>                
                 </div>     
                 

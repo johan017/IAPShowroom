@@ -13,9 +13,9 @@ import NotFound from './NotFound';
 import Stats from './StatsArea/Stats';
 import Sponsors from './Sponsors';
 import Schedule from './Schedule/Schedule';
-import ScheduleDay from './Schedule/ScheduleDay';
-import ScheduleCreate from './Schedule/ScheduleCreate';
-import ConferenceDetails from './ConferenceDetails';
+// import ScheduleDay from './Schedule/ScheduleDay';
+// import ScheduleCreate from './Schedule/ScheduleCreate';
+// import ConferenceDetails from './ConferenceDetails';
 import ScheduleNewEvent from './Schedule/ScheduleNewEvent';
 import EventDetails from './Schedule/EventDetails';
 import ScheduleReview from './Schedule/ScheduleReview';
@@ -36,7 +36,7 @@ import Settings from './Settings/Settings';
 import C2 from './Schedule/C2';
 import Logout from './Logout';
 import { QueryClient, QueryClientProvider, useQuery  } from 'react-query';
-import MemberValidation from './MemberValidation';
+import MemberValidation from './Settings/MemberValidation';
 
 const queryClient = new QueryClient();
 
@@ -121,14 +121,19 @@ function App() {
                 {/* Create Schedule component - organize events and projects (calendar component)*/}
                 <ProtectedRoute exact path="/create_day" user_role="admin" component={ScheduleDay}/> 
                 
+                {/* Create Schedule component - organize events and projects (calendar component)
+                <Route exact path="/create_day"> 
+                  <ScheduleDay/> 
+                </Route> */}
+{/*                 
                 <Route exact path="/conference_details/:id"> 
-                  <ConferenceDetails/> {/*Event Details component*/}
-                </Route>
+                  <ConferenceDetails/> {/*Event Details component*
+                </Route> */}
                 
-                {/*Create Schedule component - organize events and projects (calendar component)*/}
+                {/* Create Schedule component - organize events and projects (calendar component)
                 <Route exact path="/create_schedule"> 
                   <ScheduleCreate/> 
-                </Route>
+                </Route> */}
                 
                 {/*NewEvent component - events created manually*/}
                 <ProtectedRoute  exact path="/new_event" user_role="admin" component={ScheduleNewEvent}/> 
@@ -149,10 +154,11 @@ function App() {
                 <Route path="/validate">
                   <Validate/> 
                 </Route> 
-                
-                <Route path="/account">
+                <ProtectedRoute exact path="/account" user_role="all" component={Account}/>
+
+                {/* <Route path="/account">
                   <Account/> 
-                </Route> 
+                </Route>  */}
                 
                 <ProtectedRoute exact path="/settings" user_role="all" component={Settings}/>
 

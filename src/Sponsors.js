@@ -5,6 +5,7 @@ import { experimentalStyled as styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import { useParams } from "react-router-dom";
 import { upload } from "@testing-library/user-event/dist/upload";
+import useFetchSponsors from "./hooks/use-fetch-sponsors";
 
 const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -18,11 +19,11 @@ const Item = styled(Paper)(({ theme }) => ({
 const Sponsors = () => {
     const {id}=useParams();
     const {data: uploads, error, isLoading} = useFetch('http://localhost:8000/uploads'); /* data is project because we want the id of a singular project */
-
+    const {sponsors} = useFetchSponsors();
     return ( 
         <div className="sponsors">
-            {isLoading && <div> Loading... </div>}
-            {error && <div> {error} </div>}
+            {/* {isLoading && <div> Loading... </div>}
+            {error && <div> {error} </div>} */}
             {/* <h2> SPONSORS </h2> */}
             {/* <h1>Thank You to Our Sponsors</h1> */}
             {/* <Grid container item spacing={3} >*/}

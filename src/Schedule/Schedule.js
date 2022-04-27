@@ -5,6 +5,7 @@ import useFetch from "../useFetch";
 import { useHistory } from 'react-router-dom';
 import EventList from './EventList';
 import useFetchEvents from "../hooks/use-fetch-events";
+import { getDate } from '@progress/kendo-date-math';
 
 
 
@@ -30,7 +31,10 @@ const Schedule = () => {
               return (
               // event list for schedule view in Lobby 
               <div className="schedule-prev" key ={event.projectid}>
-                    <p>{getTime(event.starttime)}</p>
+                  
+
+                    <p>{getDate(event.starttime)}</p>
+                    <text>{getTime(event.starttime)}</text>
                   <h2>{event.title}</h2> 
                   
               </div>
@@ -43,33 +47,32 @@ const Schedule = () => {
         }
     }
 
+    const getDate = (props) =>{
+        const today = props;
+        return new Date(today).toLocaleDateString('default', {month: 'long', day: 'numeric', year: 'numeric'});
+      }
     const getTime = (props) =>{
         const time = props;
-    
-        const eventDate = new Date(time);
-        var eventHours = eventDate.getHours();
-        const ampm = eventHours >=12? 'PM' : 'AM';
-        eventHours = (eventHours%12) || 12;
-        const eventMinutes = String(eventDate.getMinutes()).padStart(2, '0');
-        const eventTime = eventHours+":"+eventMinutes+" "+ampm;
-    
-        // var eventMinute =new Date(time).getMinutes;
-        console.log("hours", eventTime);
-        return(eventTime);
+        return(new Date(time).toLocaleTimeString([], {hour: 'numeric', minute:'2-digit'}));
     }
+    
 
     return ( 
         <div>   
             
             {!events &&(
                 // <Link to="/create_day">
+                <div className="schedule-button"> 
+                    <h2>No Schedule Available</h2>
                     <button onClick={handelSchedule}>Create Schedule</button>
+                  
+                </div>
                 // </Link>
             )}
             {/* TODO ADD QUERY TO GET A LIST OF EVENTS FROM DB  */}
 
             {events && (
-                <div className="schedule-button"> 
+                <div className="schedule-done"> 
                     <h2>Schedule Main</h2>  <button onClick={handleEdit} >Edit Schedule</button>
                     {displayEvents(events)}
 

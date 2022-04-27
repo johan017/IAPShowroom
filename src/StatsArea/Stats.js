@@ -9,15 +9,15 @@ import useFetchConferenceStats from "../hooks/use-fetch-Conference-stats";
 
 const Stats = () => {
     
-    const {data:stats, isLoading, error} = useFetch('http://localhost:8000/stats');
+    // const {data:stats, isLoading, error} = useFetch('http://localhost:8000/stats');
 
-    // const {conferenceStats} = useFetchConferenceStats();
-   
+    const {conferenceStats, isLoading} = useFetchConferenceStats();
+   console.log(conferenceStats);
    
     return ( 
         <div >
-            {/* {error && <div> {error} </div>}
-            {isLoading && <div> Loading...</div>} */}
+            {/* {error && <div> {error} </div>} */}
+            {isLoading && <div> Loading...</div>}
             <div className="statsdate" style={{ borderBottom: '1px solid #8e8a8a' }} >
                 <h2> Conference Stats </h2>  <h3>March 23, 2022</h3>
                {/* {conferenceStats} */}
@@ -28,15 +28,15 @@ const Stats = () => {
             {/* {conferenceStats && conferenceStats.map((cf)=>(
                 <div key={cf.id}>
                     {cf.title} */}
-             {stats && stats.map((stat)=>(
-                <div key={stat.id}>
+             {/* {stats && stats.map((stat)=>(
+                <div key={stat.id}> */}
                 {/* <p>Total Participants</p> */}
                 <h3>Overall Participants</h3>
 
-                    {/* <p>Total Participants</p>
+                    <p>Total Participants</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.activeParticipants}`} /> 
-                    </div> <br/> */}
+                        <Progress totalp={`${conferenceStats.maxParticipants}`} totalItem={`${conferenceStats.maxParticipants}`} /> 
+                    </div> <br/>
 
                     {/* <p>Total Participants</p>
                     <div className="stat-prog-bar">
@@ -45,41 +45,41 @@ const Stats = () => {
                     {/* <p>Total Participants</p>
                     <div className="stat-prog-bar">
                         <ProgressBar now={stat.activeParticipants} label={`${stat.activeParticipants}`} /> 
-                    </div> <br/> *
+            </div> <br/> */}
 
                     <p>General Participants</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.generalParticipants}`} /> 
+                        <Progress totalp={`${conferenceStats.maxParticipants}`} totalItem={`${conferenceStats.generalParticipants}`} /> 
                     </div> <br/>                                        
                     
-                    <p>Research Student Participants</p>
+                   <p>Research Student Participants</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.researchStudParticipants}`} /> 
+                        <Progress totalp={`${conferenceStats.maxParticipants}`} totalItem={`${conferenceStats.researchStudParticipants}`} /> 
                     </div> <br/>
 
                     <p>Company Representatives Participants</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.companyRepParticipants}`} /> 
+                        <Progress totalp={`${conferenceStats.maxParticipants}`} totalItem={`${conferenceStats.companyRepParticipants}`} /> 
                     </div> <br/>
 
                         <p>Advisor Participants</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.professorParticipants}`} /> 
+                        <Progress totalp={`${conferenceStats.maxParticipants}`} totalItem={`${conferenceStats.professorParticipants}`} /> 
                     </div> <br/>
 
                     <p>Women</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.totalWomen}`} /> 
+                        <Progress totalp={`${conferenceStats.maxParticipants}`} totalItem={`${conferenceStats.totalWomen}`} /> 
                     </div> <br/>
 
                     <p>Men</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.totalMen}`} /> 
+                        <Progress totalp={`${conferenceStats.maxParticipants}`} totalItem={`${conferenceStats.totalMen}`} /> 
                     </div> <br/>
 
                     <p>Other</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.totalNotDisclosed}`} /> 
+                        <Progress totalp={`${conferenceStats.maxParticipants}`} totalItem={`${conferenceStats.totalNotDisclosed}`} /> 
                     </div> <br/>
 
 
@@ -87,42 +87,62 @@ const Stats = () => {
 
                     <p>Research Student Participants</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.researchStudParticipants}`} totalItem={`${stat.researchStudParticipants}`} /> 
+                        <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.researchStudParticipants}`} /> 
                     </div> <br/>
 
                     <p>Research Students from ICOM</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.researchStudParticipants}`} totalItem={`${stat.resStudICOM}`} /> 
+                        <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.resStudICOM}`} /> 
                     </div> <br/>
 
                     <p>Research Students from INEL</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.researchStudParticipants}`} totalItem={`${stat.resStudINEL}`} /> 
+                        <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.resStudINEL}`} /> 
+                    </div> <br/>
+
+                    <p>Research Students from INSO</p>
+                    <div className="stat-prog-bar">
+                        <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.resStudINSO}`} /> 
+                    </div> <br/>
+
+                    <p>Research Students from CIIC</p>
+                    <div className="stat-prog-bar">
+                        <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.resStudCIIC}`} /> 
+                    </div> <br/>
+
+                    <p>Research Students from INME</p>
+                    <div className="stat-prog-bar">
+                        <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.resStudINME}`} /> 
+                    </div> <br/>
+
+                    <p>Research Students from Other Departments</p>
+                    <div className="stat-prog-bar">
+                        <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.resStudOther}`} /> 
                     </div> <br/>
 
                     <p>Current Grad Students</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.researchStudParticipants}`} totalItem={`${stat.resStudGRAD}`} /> 
+                        <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.resStudGRAD}`} /> 
                     </div> <br/>
 
                     <p>Women</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.researchStudParticipants}`} totalItem={`${stat.totalResStudWomen}`} /> 
+                        <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.totalResStudWomen}`} /> 
                     </div> <br/>
 
                     <p>Men</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.researchStudParticipants}`} totalItem={`${stat.totalResStudMen}`} /> 
+                        <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.totalResStudMen}`} /> 
                     </div> <br/>
 
                     <p>Other</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.researchStudParticipants}`} totalItem={`${stat.totalResStudNotDisclosed}`} /> 
-                    </div> <br/> */}
+                        <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.totalResStudNotDisclosed}`} /> 
+                    </div> <br/>
 
                 </div>
-             ))}
-            </div>
+             {/* ))}
+            </div> */}
 
         </div>
 
