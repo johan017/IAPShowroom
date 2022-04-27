@@ -16,15 +16,17 @@ const Settings = ({user_Role}) => {
                             {user_Role == "admin" && (
                                 <div>
                                     {/* <h2>{}</h2> */}                                    
-                                    
-                                    <Link to ="/schedule" ><h4>CONFERENCE SCHEDULE</h4> </Link>
-                                    <Link to ="/membervalidation" ><h4>MEMBERS VALIDATION</h4> </Link>
+                                    <h2>IAP Conference Management</h2>
+                                    <p><Link to ="/schedule" >CONFERENCE SCHEDULE </Link></p>
+                                    <p><Link to ="/membervalidation" >MEMBERS VALIDATION </Link></p>
 
 
                                 </div>
                             )}
-                                    <Link to ="/account" ><h4>ACCOUNT</h4> </Link>
-                                    <Link to ="/validate" ><h4>ACCOUNT VALIDATION</h4> </Link>
+                            
+                            <h2>Account Management</h2>
+
+                            <p><Link to ="/account" >ACCOUNT </Link> </p>
                           
                     
 
