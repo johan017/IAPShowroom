@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useHistory, useParams, withRouter, Link } from "react-router-dom";
 import useFetch from "../useFetch";
+import Calendar from './Calendar';
+
 
 
 
@@ -40,6 +42,16 @@ function ScheduleUpdateEvent (props) {
         })
     
     }
+    // const handleDelete = (props) =>{
+    //     const eventID = props;
+
+    //     fetch('http://localhost:8000/events/'+ eventID, {
+    //         method: 'DELETE'
+    //     }).then(() => {
+    //         history.push('/cal');
+    //     })
+    //     // isDeleted = true;
+    // }
 
     useEffect(async ()=> {
         let result = await fetch(`http://localhost:8000/events/${props.match.params.id}`);
@@ -48,42 +60,46 @@ function ScheduleUpdateEvent (props) {
     })
 
     return ( 
-        <div className = "addNewEvent">
-            <h2>Update Event</h2>
-            <label>Event Title: </label>
-            <input 
-                type="text" 
-                defaultValue={data.title}
-                onChange = {(e) => data.setTitle(e.target.value)}
-            />
-            <label>Start Time: </label>
-            <input
-                type="datetime-local"
-                // required
-                defaultValue = {data.start}
-                onChange = {(e) => data.setStart(e.target.value)}
+        <div className = "Event-information">
+            <div className="addNewEvent">
+                <h2>Event Information</h2>
+                <label>Event Title: </label>
+                <input 
+                    type="text" 
+                    defaultValue={data.title}
+                    onChange = {(e) => data.setTitle(e.target.value)}
+                />
+                <label>Start Time: </label>
+                <input
+                    type="datetime-local"
+                    // required
+                    defaultValue = {data.start}
+                    onChange = {(e) => data.setStart(e.target.value)}
 
-            ></input>
-            <label>End Time: </label>
-            <input 
-                type="datetime-local" 
-                // required 
-                defaultValue = {data.end}
-                onChange = {(e) => data.setEnd(e.target.value)}
-            ></input>
-           
-            <Link to ={"/cal"}>
-                     <button>Cancel</button>
-            </Link>
-            <button onClick={handleClick}>Update Event</button> {/** adds the new event  */}
-            {/* {isLoading && <button disabled>Adding Event...</button>} * add event button disabled while loading  */}
+                ></input>
+                <label>End Time: </label>
+                <input 
+                    type="datetime-local" 
+                    // required 
+                    defaultValue = {data.end}
+                    onChange = {(e) => data.setEnd(e.target.value)}
+                ></input>
+            
+                <Link to ={"/cal"}>
+                        <button style={{ background: 'gray' }}>Cancel</button>
+                </Link>
+                <button style={{ background: '#3B8D25' }} onClick={handleClick}>Update Event</button> 
+                <button>Delete Event</button>
 
-            {/* </form> */}
+            </div>
+
+            <div className="Event-information-calendar">
+                <Calendar/>
+
+            </div>
         </div>
-                       /**select & option is a dropdown */
 
-
-     );
+    );
 }
  
 export default withRouter(ScheduleUpdateEvent);

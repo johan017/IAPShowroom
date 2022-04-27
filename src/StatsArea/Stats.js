@@ -2,14 +2,17 @@ import useFetch from "../useFetch";
 import React, { useState } from "react";
 import Progress from "./Progress";
 import { blue } from "@material-ui/core/colors";
+import useFetchConferenceStats from "../hooks/use-fetch-Conference-stats";
 // import ProgressBar from 'react-bootstrap/ProgressBar'
 // import 'bootstrap/dist/css/bootstrap.css';
 
 
 const Stats = () => {
     
-    const {data:stats, isLoading, error} = useFetch('http://localhost:8000/stats');
-   
+    // const {data:stats, isLoading, error} = useFetch('http://localhost:8000/stats');
+
+    const {conferenceStats} = useFetchConferenceStats();
+   console.log(conferenceStats);
    
     return ( 
         <div >
@@ -17,33 +20,41 @@ const Stats = () => {
             {isLoading && <div> Loading...</div>} */}
             <div className="statsdate" style={{ borderBottom: '1px solid #8e8a8a' }} >
                 <h2> Conference Stats </h2>  <h3>March 23, 2022</h3>
-               
+               {/* {conferenceStats} */}
             </div>
           
            
             <div className="stat-prog">
-             {stats && stats.map((stat)=>(
-                <div key={stat.id}>
+            {/* {conferenceStats && conferenceStats.map((cf)=>(
+                <div key={cf.id}>
+                    {cf.title} */}
+             {/* {stats && stats.map((stat)=>(
+                <div key={stat.id}> */}
                 {/* <p>Total Participants</p> */}
                 <h3>Overall Participants</h3>
 
                     <p>Total Participants</p>
+                    <div className="stat-prog-bar">
+                        <Progress totalp={`${conferenceStats.maxParticipants}`} totalItem={`${conferenceStats.maxParticipants}`} /> 
+                    </div> <br/>
+
+                    {/* <p>Total Participants</p>
                     <div className="stat-prog-bar">
                         <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.activeParticipants}`} /> 
                     </div> <br/>
                     {/* <p>Total Participants</p>
                     <div className="stat-prog-bar">
                         <ProgressBar now={stat.activeParticipants} label={`${stat.activeParticipants}`} /> 
-                    </div> <br/> */}
+            </div> <br/> */}
 
                     <p>General Participants</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.generalParticipants}`} /> 
+                        <Progress totalp={`${conferenceStats.generalParticipants}`} totalItem={`${conferenceStats.generalParticipants}`} /> 
                     </div> <br/>                                        
                     
-                    <p>Research Student Participants</p>
+                   {/* <p>Research Student Participants</p>
                     <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.researchStudParticipants}`} /> 
+                        <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${stat.researchStudParticipants}`} /> 
                     </div> <br/>
 
                     <p>Company Representatives Participants</p>
@@ -107,11 +118,11 @@ const Stats = () => {
                     <p>Other</p>
                     <div className="stat-prog-bar">
                         <Progress totalp={`${stat.researchStudParticipants}`} totalItem={`${stat.totalResStudNotDisclosed}`} /> 
-                    </div> <br/>
+                    </div> <br/> */}
 
                 </div>
-             ))}
-            </div>
+             {/* ))}
+            </div> */}
 
         </div>
 

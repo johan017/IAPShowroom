@@ -18,6 +18,7 @@ export default class SignUpPage extends Component{
         user_role:'', 
         grad_date:'', 
         projectids: new Array(),
+        projectTitles: new Array(),
         department: '', 
        // department: new Array(), 
         company_name:'', 
@@ -40,10 +41,19 @@ export default class SignUpPage extends Component{
     
     handleProjectChange = e => {
         var inputArr = new Array();
+        var inputArrg = new Array();
+
         e.forEach(function (choice){
-            inputArr.push(choice.project_id);
+            inputArr.push(choice.title);
+
+            inputArr.push(", ");
+            inputArrg.push(choice.project_id);
         });
-        this.setState({"projectids": inputArr});
+
+        inputArr[inputArr.length-1] = "";
+     
+        this.setState({"projectTitles": inputArr});
+        this.setState({"projectids": inputArrg});
     }
 
     // Included for students who are in more than one department (unused)
@@ -58,8 +68,8 @@ export default class SignUpPage extends Component{
 
     render(){
         const {step} = this.state;
-        const {first_name, last_name, email, password, gender, user_role, grad_date, projectids, department, company_name, ispm} = this.state;
-        const values = {first_name, last_name, email, password, gender, user_role, grad_date, projectids, department, company_name, ispm};
+        const {first_name, last_name, email, password, gender, user_role, grad_date, projectids,projectTitles, department, company_name, ispm} = this.state;
+        const values = {first_name, last_name, email, password, gender, user_role, grad_date, projectids, projectTitles, department, company_name, ispm};
 
             if(step === 1){
                 return(

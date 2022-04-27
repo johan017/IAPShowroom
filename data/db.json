@@ -27,30 +27,6 @@
   ],
   "events": [
     {
-      "title": "Bowling tournament",
-      "start": "2022-03-31T12:00",
-      "end": "2022-03-31T19:00",
-      "id": 1
-    },
-    {
-      "title": "bye",
-      "start": "2022-03-17T15:15",
-      "end": "2022-03-17T15:30",
-      "id": 2
-    },
-    {
-      "id": 3,
-      "title": "hello_1",
-      "start": "2022-03-17T15:30",
-      "end": "2022-03-17T15:45"
-    },
-    {
-      "title": "Hello I am an undergraduate reasearch project for 2021-2022 academic session",
-      "start": "2022-03-20T15:30",
-      "end": "2022-03-20T15:45",
-      "id": 4
-    },
-    {
       "title": "ffff",
       "start": "22:13",
       "end": "12:13",
@@ -70,8 +46,8 @@
     },
     {
       "title": "new event1",
-      "start": "2022-04-19T09:58",
-      "end": "2022-04-19T10:58",
+      "start": "2022-04-19T08:58",
+      "end": "2022-04-19T12:58",
       "id": 8
     },
     {
@@ -79,6 +55,12 @@
       "start": "2022-04-19T13:30",
       "end": "2022-04-19T14:30",
       "id": 9
+    },
+    {
+      "title": "New Event HH2",
+      "start": "14:56",
+      "end": "14:56",
+      "id": 10
     }
   ],
   "usersLoggedIn": [
@@ -522,6 +504,13 @@
       "timeLimit": "",
       "academicSession": "",
       "id": 16
+    },
+    {
+      "date": "",
+      "startTime": "",
+      "timeLimit": "",
+      "academicSession": "",
+      "id": 17
     }
   ],
   "academicSessions": [
@@ -704,6 +693,31 @@
       "message": "jabeajcldshcd kdjkJDKSJDKSDC JDKS;DBC;SAD KJSDBCKDS KDJCBKJD DJCDBC JDCD CDJC DCDJCDC ",
       "time": "12:37 PM",
       "id": 30
+    },
+    {
+      "message": "hello its late",
+      "time": "11:55 PM",
+      "id": 31
+    },
+    {
+      "message": "hey",
+      "time": "12:08 AM",
+      "id": 32
+    },
+    {
+      "message": "New announcement",
+      "time": "12:16 AM",
+      "id": 33
+    },
+    {
+      "message": "Another Announcement",
+      "time": "12:17 AM",
+      "id": 34
+    },
+    {
+      "message": "hello again",
+      "time": "12:22 AM",
+      "id": 35
     }
   ]
 }

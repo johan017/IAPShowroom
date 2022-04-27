@@ -1,62 +1,78 @@
-// import ProjectRoom from "./ProjectRoom";
-import useFetch from "../useFetch";
 import {Link, useHistory} from "react-router-dom";
-import useFetchEvents from "../hooks/use-fetch-events";
-import useFetchRoomStats from "../hooks/use-fetch-room-stats";
-
-
+import { useState, useEffect } from "react";
+import axios from "../context/axios";
 
 const Rooms = ({checked}) => {
 
-  // const {data: projects, isLoading, error} = useFetch('http://localhost:8000/projects'); /* data is projects because info is found in db within projects */
-  const {events, loading} = useFetchEvents();
-  const {roomStats} = useFetchRoomStats();
   const history = useHistory();
+  const cdate = new Date(Date.now());
+  const getDate = (props) =>{
+    const today = props;
+
+    const month = parseInt((new Date(today).getMonth() +1).toString().padStart(2, "0")); 
+    const day = parseInt(new Date(today).getDate().toString().padStart(2, "0"));
+    const year2 = parseInt(new Date(today).getFullYear().toString().substring(2));
+    const ndate = [month, day,year2].join('-');
+    return ndate;
+  }
+
+  const ROOM_STATS_URL = `api/showroom/rooms/status?date=${getDate(cdate)}`;
+
+  const [roomStats, setRoomStats] = useState([]);
+  const [redirect, setRedirect] = useState(false);
+  const [isLoading, setLoading] = useState(false);
+  
+  const getRoomStats = async() =>{
+    try{
+      const result = await axios.get(ROOM_STATS_URL, 
+      {
+        headers: {"Content-Type": "application/json"},
+        withCredentials: true
+      }) 
+      setRoomStats(result.data.payload);
+      console.log(result.data.payload)
+      } catch(error) {
+         console.error(error.response.status);
+          if(error.response.status = '401'){
+            setRedirect(true);
+          }
+    }
+    setLoading(false);
+  };
+  
+  useEffect(()=>{
+    getRoomStats();
+  }, []);
 
   const handleStage = () =>{
     history.push('/stage');
-}
+  }
 
   return ( 
     <div className="rooms" >
       <h2> ROOMS </h2>
       <h2>{checked && (<button onClick={handleStage} style={{backgroundColor: 'red'}}>STAGE LIVE</button>)}
       {!checked && (<button onClick={handleStage}>STAGE LIVE</button>)} </h2>
-
-      {loading && <div> Loading...</div>}
-            
-
-     
-
-      {events && events.map((event) =>(
-         // Project list for schedule view in Lobby 
-        <div className="pr-list" key ={event.id}>
-          {roomStats && roomStats.map((roomS) => (
-            <div key = {roomS.title}>
-              {event.title === roomS.title && (
-                <div className="project-rooms">
-                  {/* <Link to ={`/project_room/${event.projectid}`} style={{display: 'inline-block', width:'475px', height:'100px',marginTop: '10px', marginLeft:'5px'}}>  */}
-
-                  <Link to ={`/project_room/${event.projectid}`} > 
-                    {event.title}
-                
-                    <br/> <br/>
-              
-                    <img 
-                      src = "company_rep.png"
-                      alt="display image"
-                    /><text>{roomS.company_representatives}</text>
-                    <img
-                      src = "users.png"
-                      alt="display image"
-                    /><text>{roomS.general_users}</text>   
-                  </Link>
-                </div>
-              )}
-            </div> 
+      <div  className="pr-list">
+        <div style={{border: "1px solid #E5E5E5"}}className="project-rooms">
+          <>
+          {roomStats && roomStats.map((roomS)=>(
+            <Link to ={`/project_room/${1}`} > 
+              <p style={{marginLeft: "10px", marginTop: "10px"}}>{roomS.title}</p>
+              <br/> 
+              <img 
+                src = "company_rep.png"
+                alt="display image"     
+              /><text>{roomS.company_representatives}</text>
+              <img
+                src = "users.png"
+                alt="display image"
+              /><text>{roomS.general_users}</text>   
+            </Link>
           ))}
+          </>
         </div>
-      ))}
+      </div> 
     </div>
   );
 }

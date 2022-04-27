@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import useFetch from '../useFetch';
-import ScrollToBottom from "react-scroll-to-bottom";
+// import ScrollToBottom from "react-scroll-to-bottom";
+import axios from "../context/axios";
+import useFetchAnnouncements from "../hooks/use-fetch-announcements";
 
+//TODO: Find out why the fetch announcements API is not working
 
 
 
@@ -10,6 +13,7 @@ const Announcements = ({user_Role}) => {
 
     const {id} = useParams();
     const {data: announcement} = useFetch('http://localhost:8000/announcements');
+    // const {announcements, redirect, isLoading } = useFetchAnnouncements();
 
     const [currentMess, setCurrentMess] = useState('');
    
@@ -20,33 +24,45 @@ const Announcements = ({user_Role}) => {
 
         var messageData = {};
         const currentDate = new Date(Date.now());
-        var currentHours = currentDate.getHours();
-        const ampm = currentHours >=12? 'PM' : 'AM';
-        currentHours = (currentHours%12) || 12;
-        const currentMinutes = String(currentDate.getMinutes()).padStart(2, '0');
-        const currentTime = currentHours+":"+currentMinutes+" "+ampm;
-
+        // var currentHours = currentDate.getHours();
+        // const ampm = currentHours >=12? 'PM' : 'AM';
+        // currentHours = (currentHours%12) || 12;
+        // const currentMinutes = String(currentDate.getMinutes()).padStart(2, '0');
+        // const currentTime = currentHours+":"+currentMinutes+" "+ampm;
+       
         if(currentMess !== ""){
             messageData ={
                 message: currentMess,
-                time: currentTime,
+                time: currentDate,
             };
             console.log("announcement", messageData);
+        
 
         }
-        fetch('http://localhost:8000/announcements', {
-            method: 'POST',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(messageData)
-        }).then (() => {
-            console.log('new announcement added');
-            // receiveAnnouncement();
-            // setIsLoading(false); //when form is submitted; completed
-        })
+        // axios.post('api/showroom/announcement', messageData)
+        //     .then((res) => {
+        //         console.log(res.data)
+        //     }).catch((error)=>{
+        //         console.log(error)
+        //     });
+
         setCurrentMess('');
     }
 
-
+    const getTime = (props) =>{
+        const time = props;
+    
+        const eventDate = new Date(time);
+        var eventHours = eventDate.getHours();
+        const ampm = eventHours >=12? 'PM' : 'AM';
+        eventHours = (eventHours%12) || 12;
+        const eventMinutes = String(eventDate.getMinutes()).padStart(2, '0');
+        const eventTime = eventHours+":"+eventMinutes+" "+ampm;
+    
+        // var eventMinute =new Date(time).getMinutes;
+        console.log("hours", eventTime);
+        return(eventTime);
+    }
 
 
     // const receiveAnnouncement = () =>{
@@ -74,16 +90,19 @@ const Announcements = ({user_Role}) => {
     return ( 
         <div className="announcements" >
             <div className="admin-ann"> 
-                <ScrollToBottom>
+                {/* <ScrollToBottom> */}
                     {announcement && announcement.map((announce) => (
-                        <div className="announce-body" key={announce.id}>
+                        <div className="announce-body" key={announce.announcementid}>
+                            {/* <p>{announce.a_content}</p><br/> */}
                             <p>{announce.message}</p><br/>
 
                             <text>{announce.time}</text>
+
+                            {/* <text>{getTime(announce.a_date)}</text> */}
                                         {/* {receiveAnnouncement()} */}
                         </div>
                     ))}
-               </ScrollToBottom>
+               {/* </ScrollToBottom> */}
                 
             </div>
 
@@ -94,7 +113,7 @@ const Announcements = ({user_Role}) => {
                             placeholder="Enter Announcement" 
                             value={currentMess}
                             onChange={(event)=>{setCurrentMess(event.target.value)}}></input>
-                        <button onClick={sendAnnouncement}>&#9658;</button>
+                        <button onClick={sendAnnouncement}>Send</button>
                     </div>
             )}
 

@@ -5,35 +5,36 @@
   margin: 0;
   font-family: "Montserrat";
   color: #333;
+  /* align-self: center; */
 }
 
-.content {
-  max-width: 1200px;
-  /* margin: 30px; */
-  margin-left: 225px;
+/* .content { */
+  /* max-width: 1200px; */
+  /* margin: 0 auto; */
+  /* margin-left: 150px; */
   /* padding: 20px; */
-  /* display:flexbox; */
-  align-items: center;
-
-  
-}  
-/*--------------HOME PAGE - NAVIGATION BAR--------------*/
+  /* display:flex; */
+  /* align-items: center; */
+  /* align-content: center; */
+/* }   */
+/*---------------------------------------------- NAVIGATION BAR ----------------------------------------------*/
 .navbar {
-  /* MAX-width:fit-content; */
+  width:100%;
   padding: 8px;
-  display:inline-flex;
+  display:flex;
   align-items: center;
-  margin-left: 275px;
-  margin: 0 auto;
   border-bottom: 1px solid #f2f2f2;
 }
 
 .navbar .links {
   margin-left: auto;
 }
+.navbar .links img{
+  margin-left: auto;
+}
 /*how close the navigation buttons are from each other*/
 .navbar a {
-  margin-left: 16px;
+  margin-left: 14px;
   text-decoration: none;
   padding: 6px;
 }
@@ -45,65 +46,668 @@
 .navbar img{
   width: 250px;
   height: 100px;
-  top: 50px;
-  left: 26px;
-  margin-right: 300px;
-
+  display: flex;
 }
 
+/*---------------------------------------------- HOME PAGE ----------------------------------------------*/
 
-/*--------------HOME PAGE - Box of content for Project listed--------------*/
+/* .home{
+  /* width: 35%; */
+  /* display: flex; *
+} */
+
 .home-date-sched {
-  /* display: inline-block; */
-  width: 150%;
-  /* border:hidden; */
-  box-sizing:content-box;
-  /* display: block; */
-  /* margin-bottom: 30px; */
+  width: 53%;
+  margin-left: 5%;
+  /* align-items: center; */
   display:inline-block; 
-
 }
+
 .home-date-sched label{
-  /* display: inline-block; */
-  /* width: 25%; */
   font-size: 25px;
   font-weight: bold;
-  /* padding: 4px 10px; */
-  /* margin: 6px 10px; */
   border: 2px #ddd solid;
   margin-top: 20px;
 
   border:hidden;
   box-sizing:content-box;
-  /* display: block; */
   display:inline-block; 
-  /* padding-left: 10px; */
-  /* padding-right: 16px; */
 }
 
-.home-date-sched text{
-  font-size: 30px;
-  font-weight: bold;
-  border: 2px #ddd solid;
-  margin-left: 120%;
-  margin-top: -100px;
-
-  border:hidden;
-  /* box-sizing:content-box; */
-  display:inline-block; 
-
-}
 .home-date-sched p{
+  /* width: 100%; */
   font-size: 25px;
   font-weight: bold;
   border: 2px #ddd solid;
-  margin-left: 50%;
+  margin-left: 59%;
 
   border:hidden;
   box-sizing:content-box;
   display:inline-block; 
   
 }
+
+.home h2{
+  font-size: 30px;
+  font-weight: bold;
+  border: 2px #ddd solid;
+  margin-left: 12%;
+  /* margin-top: -100px; */
+
+  border:hidden;
+  /* box-sizing:content-box; */
+  display:inline-block; 
+
+}
+.home-button button{
+  background: #424240;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  width: 100px;
+  height: 30px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-left: 90%;
+  display: inline-block;
+  cursor: pointer;
+}
+/*Display event list*/
+.events-home{
+  position: absolute;
+  height: 500px;
+  margin-bottom: 30px;
+  width: 50%;
+  left: 100px;
+  top: 250px;
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
+.events-home p {
+  font-size: 20px;
+  margin-top: 5px;
+  margin-left: 85%;
+  display:inline-block;
+}
+.events-home h2 {
+  margin-left: 0px;
+  display:inline-block;
+}
+
+.project-preview{
+  padding: 10px 20px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+
+.project-preview button {
+  margin-bottom: 8px;
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: -250px;
+  margin-left: 300px;
+  display:inline-block;
+}
+
+/*Display announcement list*/
+.admin-ann {
+  position: absolute;
+  width: 372px;
+  height: 490px;
+  left: 850px;
+  top: 240px;
+
+  background: #B6B9BB;
+  border: 1px solid #979797;
+  box-sizing: border-box;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  border-radius: 5px;
+  overflow-y: scroll;
+}
+
+.announce-body{
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+
+  padding: 10px 20px;
+  margin: 10px 10px;
+  border-bottom: 1px solid #fafafa;
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+
+.announce-body text{
+  margin-left: 75%;
+
+}
+.announce-body p{
+  width: 300px;
+}
+
+.announce-footer{
+  position: absolute;
+  width: 400px;
+  left: 850px;
+  top: 730px;
+  /* border-radius: 8px; */
+}
+
+.announce-footer input{
+  width: 75%;
+  height: 25px;
+  border-radius: 3px;
+}
+
+.announce-footer button{
+  height: 25px;
+  width:18%;
+  /* margin-left: 10%; */
+  margin-bottom: 20px;
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  /* padding: 8px 20px; */
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/*---------------------------------------------- STAGE PAGE ----------------------------------------------*/
+
+.stage-announcements .admin-ann{
+  position: absolute;
+  width: 372px;
+  height: 125px;
+  left: 857px;
+  top: 200px;
+
+  background: #B6B9BB;
+  border: 1px solid #979797;
+  box-sizing: border-box;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  border-radius: 5px;
+  display: inline-block;
+  overflow-y: scroll;
+}
+.stage-announcements .announce-footer{
+  position: absolute;
+  left: 857px;
+  top: 325px;
+  width: 372px;
+
+}
+.stage-announcements .announce-footer input{
+  /* position: absolute; */
+
+  width: 82%;
+  height: 30px;
+  /* margin-bottom: 30px; */
+}
+.stage-announcements .announce-footer button{
+  /* width: 90%; */
+  /* position: absolute; */
+  height: 30px;
+  width: 18%;
+  margin-bottom: 30px;
+}
+
+.stage h2{
+  font-size: 25px;
+  font-weight: bold;
+  border: 2px #ddd solid;
+  margin-top: 10px;
+  border:hidden;
+  box-sizing:content-box;
+  display:inline-block; 
+}
+.stage h3{
+  font-size: 25px;
+  font-weight: bold;
+  border: 2px #ddd solid;
+  margin-left: 29%;
+  border:hidden;
+  box-sizing:content-box;
+  display:inline-block; 
+ }
+
+.stage-upcoming{
+  position: absolute;
+  margin-left: 27%;
+  height: 125px;
+  top: 200px;
+}
+
+/*---------------------------------------------- ROOMS PAGE ----------------------------------------------*/
+
+.rooms button{
+  background: #424240;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  width: 100px;
+  height: 30px;
+  border-radius: 8px;
+  margin-top: 10px;
+  margin-left: 900px;
+  display: inline-block;
+  cursor: pointer;
+}
+.rooms h2{
+  margin-left: 5%;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+.pr-list{
+  width: 40%;
+  font-size: 20px;
+  align-content: center;
+  margin-left: 5%;
+  margin-right: 50px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  /* background: rgba(94, 236, 99, 0.816); */
+  /* border: 1px solid #E5E5E5; */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px; 
+  display: inline-block;
+}
+
+.project-rooms img {
+  width: 25px;
+  height: 25px;
+  /* margin-left: 40px;
+  margin-right: 2px; */
+  margin-right: -190px;
+  margin-left: 280px;
+  /* margin-bottom: 10px; */
+  /* font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 8px; */
+}
+.project-rooms text {
+  font-size: 20px;
+  text-align: right;
+  color: #000000;
+  /* margin-left: 5px;
+  margin-right: 1px; */
+  /* margin-bottom: 20px; */
+
+  margin-right: -250px;
+  margin-left: 200px;}
+
+.project-rooms a{
+  display: inline-block;
+  background: rgba(94, 236, 99, 0.816);
+
+  width: 511px;
+  height: 100px;
+  /* margin-top: 10px; */
+  /* margin-left:5px;  */
+  text-decoration: none;
+}
+.project-rooms a:visited{
+  background: rgb(146, 158, 161);
+  border: 1px solid #939ca2;
+  border-radius: 5px;
+}
+
+.project-rooms a:hover{
+  background: rgb(30, 185, 228);
+  border: 1px solid #008DED;
+  border-radius: 5px;
+}
+
+/* .project-rooms text{
+
+  margin-bottom: 20px;
+} */
+
+/*---------------------------------------------- CONFERENCE SCHEDULE ----------------------------------------------*/
+
+
+/*--------Schedule main view--------*/
+.schedule-prev h2{ 
+  width: 50%;
+  padding: 6px 10px;
+  border:hidden;
+  box-sizing: border-box;
+  display:inline-block; 
+}
+.schedule-prev p {
+  width: 150px;
+  margin-bottom: 10px;
+  margin-left: 25%;
+  display:inline-block; 
+}
+.schedule-prev text {
+  width: 90px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  display:inline-block; 
+}
+.schedule-done h2, .review-page h2{
+  padding: 6px 10px;
+  margin: 10px 0;
+  display:inline-block; 
+}
+.schedule-done button{
+  margin-left: 75%;
+  font-size: 15px;
+  background: #25b12a;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  width: 100px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.schedule-button button{
+  /* margin-left: 75%; */
+  margin-top: 20px;
+  font-size: 15px;
+  background: #25b12a;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  width: 150px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.schedule-button h2{
+  margin-left: 500px;
+  margin-top: 30px;
+  /* font-size: 15px; */
+  /* background: #25b12a; */
+  /* color: #fff; */
+ 
+}
+
+/*--------Schedule Create view---------*/
+.cal2{
+  margin-top: 20px;
+  margin-left: 50px;
+  display: flex;
+}
+.cal22{
+  max-width: 500px; 
+  height: 650px;
+  margin-bottom: 30px;
+  overflow-y: scroll;
+}
+.schedule-container{
+  display: flex;
+  flex-direction: column;
+}
+.schedule-buttons button{
+  background: #008DED;
+  color: #fff;
+  border: 0;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 60px;
+  margin-top: 10px;
+}
+.scheduler{
+  width: 600px; 
+  display: flex;
+}
+.c2{
+  max-width: 400px; 
+  padding: 6px 10px;
+  margin: 20px 25px;
+  border-bottom: 1px solid #fafafa;
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  box-sizing:content-box;  
+  text-decoration: none; 
+} 
+.c2 a {
+  margin-left: 6px;
+  text-decoration: none;
+  padding: 6px;
+}
+.c2 button{
+  background: #008DED;
+  color: #fff;
+  border: 0;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 300px;
+  margin-top: 10px;
+}
+/*--------Modify Event Information view---------*/
+.Event-information{
+  display: flex;
+}
+.Event-information-calendar{
+  width:50%;
+  display: inline-block;
+}
+.addNewEvent {
+  width: 30%;
+  margin-right: 5%;
+  margin-left: 5%;
+  display: inline-block;
+  text-align: center;
+}
+.addNewEvent label{
+  text-align: left;
+  display: block;
+}
+.addNewEvent h2{
+  font-size: 20px;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+.addNewEvent input, .addNewEvent textarea, .addNewEvent select {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: inline-block;
+}
+.addNewEvent button{
+  margin-bottom: 8px;
+  background: #bc0707;
+  color: #fff;
+  border: 0;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 30px;
+  display:inline-block;
+}
+/* REVIEW PAGE */
+.review-page button{
+  margin-left: 750px;
+  font-size: 15px;
+  background: #25b12a;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  width: 100px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/*---------------------------------------------- CONFERENCE SCHEDULE ----------------------------------------------*/
+.members-validation h1{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.display-members-validation button{
+  margin-left: 30px;
+  font-size: 15px;
+  background: #25b12a;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  width: 100px;
+  height: 30px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.display-members-validation li{
+  margin-left: 30px;
+  margin-top: 20px; 
+  margin-bottom: 20px;
+  /* font-size: 15px; */
+ 
+}
+
+/*---------------------------------------------- SETTINGS ----------------------------------------------*/
+.settings p {
+  font-size: 20px;
+  margin-left: 20px;
+  margin-top: 15px;
+}
+.settings a {
+  text-decoration: none;
+  padding: 6px;
+  /* display:inline-block; */
+  /* width: 50px; */
+  color: black;
+}
+/* .settings a:link{
+   color: green;
+} */
+.settings a:visited{
+  /* text-decoration: none; */
+  color: red;
+}
+.settings a:hover{
+  /* text-decoration: none; */
+  color: blue;
+
+}
+.settings h1{
+  margin-top: 10px;
+  /* font-size: 20px; */
+}
+.settings h2{
+  margin-top: 30px;
+  /* font-size: 20px; */
+}
+
+/*---------------------------------------------- ACCOUNT ----------------------------------------------*/
+.account h1{
+  margin-top: 10px;
+  /* font-size: 20px; */
+}
+.account h2{
+  margin-top: 30px;
+  /* font-size: 20px; */
+}
+.account label{
+  margin-top: 10px;
+  margin-left: 20px;
+  /* width: 100px; */
+  padding: 4px 0px;
+  /* margin: 6px 10px; */
+  border: 2px #ddd solid;
+
+  border:hidden;
+  box-sizing: border-box;
+  display: block;
+  display:inline-block; 
+}
+.account p{
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.account a{
+  text-decoration: none;
+  color:#008DED;
+}
+
+
+
+
+
+
+
+
+
+/* 
+.cal22 a {
+  font-size: 25px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  text-decoration: none;
+  padding: 6px;
+  /* display:inline-block; *
+  width: 50px;
+  color: black;
+
+}
+.cal22 a:link{
+  color: #c9330e;
+}
+.cal22 a:visited{
+  color: #3535f1;
+}
+.cal22 a:hover{
+  color: #10a015;
+} */
+
+/*----------------------------*/
+.event-list-preview {
+  padding: 10px 100px;
+  margin: 20px 0;
+  border-bottom: 1px solid #fafafa;
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+
+}
+.event-list-preview a{
+  text-decoration: none; 
+}
+
+
+/*--------------SCHEDULE DAY FILE PAGE--------------*/
+
+.schedule input, .schedule select{
+  width: 50%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  /* display: block; */
+  display:inline-block; 
+  /* display: inline-block;  */
+  /* height: 20px;
+  width: 20px;
+  background: #fff;
+  border: 2px #ddd solid;
+  margin-right: 10px; */
+}
+.schedule label{
+  width: 40%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border:hidden;
+  box-sizing: border-box;
+  /* display: block; */
+  display:inline-block; 
+} 
+.schedule h2{
+  margin-bottom: 30px;
+}
+
+
 
 
 
@@ -127,111 +731,6 @@
 }
 
 
-/*--------------HOME PAGE - project list--------------*/
-.project-preview{
-  /* max-width: 60%; */
-  padding: 10px 20px;
-  margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-  /* background-color: #008DED; */
-
-}
-/* .project-rooms {
-  width: 40%;
-  font-size: 20px;
-  align-content: center;
-  /* padding: 10px 20px; *
-  margin-right: 50px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  /* margin: 20px 0; *
-  /* : 10px bold #008DED; *
-  background: rgba(229, 229, 229, 0.5);
-  border: 1px solid #E5E5E5;
-  /* box-sizing: border-box; *
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px; 
-  display: inline-block;
- 
-  /* border-bottom: 1px solid #fafafa; *
-  /* box-shadow: 1px 3px 5px rgba(0,0,0,0.1); *
-  /* background-color: #eff3f7; *
-
-} */
-
-.pr-list{
-  width: 40%;
-  font-size: 20px;
-  align-content: center;
-  /* padding: 10px 20px; */
-  margin-right: 50px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  /* margin: 20px 0; */
-  /* : 10px bold #008DED; */
-  background: rgba(94, 236, 99, 0.816);
-  border: 1px solid #E5E5E5;
-  /* box-sizing: border-box; */
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px; 
-  display: inline-block;
- 
-  /* border-bottom: 1px solid #fafafa; */
-  /* box-shadow: 1px 3px 5px rgba(0,0,0,0.1); */
-  /* background-color: #eff3f7; */
-}
-
-.project-rooms a{
-  display: inline-block;
-  width: 475px;
-  height: 100px;
-  margin-top: 10px;
-  margin-left:5px; 
-  text-decoration: none;
-}
-.project-rooms a:visited{
-  background: rgb(61, 206, 247);
-  border: 1px solid #008DED;
-  border-radius: 5px;
-}
-/* .project-rooms a:hover{
-  background: rgba(95, 102, 228, 0.5);
-  border: 1px solid #008DED;
-  border-radius: 5px;
-} */
-
-.project-prev p {
-  font-size: 20px;
-  /* color: #f1356d; */
-  /* margin-bottom: 8px; */
-  margin-top: 5px;
-  margin-left: 85%;
-  display:inline-block;
-}
-
-.events-home{
-  /* position: absolute; */
-  /* width: 372px; */
-  height: 500px;
-  /* left: 947px; */
-  /* top: 222px;  */
-  width: 150%;
-  margin-bottom: 30px;
-
-
-  /* background: #B6B9BB; */
-  /* border: 1px solid #979797; */
-  box-sizing: border-box;
-  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-  border-radius: 5px;
-  overflow-y: scroll;
-}
-
-/* .project-preview label{
-  display: block;
-
-} */
 .project-preview a {
   font-size: 25px;
   margin-left: 10px;
@@ -254,74 +753,10 @@
 } */
 
 
-.cal22 a {
-  font-size: 25px;
-  margin-bottom: 20px;
-  margin-left: 10px;
-  text-decoration: none;
-  padding: 6px;
-  /* display:inline-block; */
-  width: 50px;
-  color: black;
 
-}
-.cal22 a:link{
-  color: #c9330e;
-}
-.cal22 a:visited{
-  color: #3535f1;
-}
-.cal22 a:hover{
-  color: #10a015;
-}
 
-.project-preview h2 {
-  /* font-size: 20px; */
-  /* color: #f1356d; */
-  /* margin-bottom: 8px; */
-  margin-right: 199px;
-  margin-left: 0px;
-  display:inline-block;
-}
-.project-rooms img {
-  width: 25px;
-  height: 25px;
-  /* margin-left: 40px;
-  margin-right: 2px; */
-  margin-right: -190px;
-  margin-left: 280px;
-  /* font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 8px; */
-}
-.project-rooms text {
-  font-size: 20px;
-  text-align: right;
-  /* margin-left: 5px;
-  margin-right: 1px; */
-
-  margin-right: -250px;
-  margin-left: 200px;}
 
 /*--------------HOME PAGE - Project button--------------*/
-.project-preview button {
-  /* font-size: 10px; */
-  /* background-color: #14a932; */
-  margin-bottom: 8px;
-  background: #f1356d;
-  color: #fff;
-  border: 0;
-  padding: 8px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-right: -250px;
-  margin-left: 300px;
-  /* display:inline-block; */
-  display:inline-block;
-  /* margin: 150px; */
-}
-
-
 
 
 
@@ -358,130 +793,9 @@
 
 }
 
-/* .project-room-popup-button button{
-  /* font-size: 25px; */
-  /* font-weight: bold; */
-  /* margin-left: auto; */
-  /* padding: 4px 10px; */
-  /* margin: 6px 10px; *
-  background: #424240;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  width: 100px;
-  height: 30px;
-  border-radius: 8px;
-  margin-top: 10px;
-  margin-left: 10px;
-  cursor: pointer;
-  /* border: 2px #ddd solid; */
-  /* margin-top: 20px; */
-
-  /* border:hidden; *
-  box-sizing:content-box;
-  /* display: block; * display: inline-block;
-
-} */
 
 
 
-/*--------------SCHEDULE PAGE--------------*/
-.event-list-preview {
-  padding: 10px 100px;
-  margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-
-}
-.event-list-preview a{
-  text-decoration: none; 
-}
-
-.schedule{
-    max-width: 1000px;
-
-}
-
-.schedule input, .schedule select{
-  width: 50%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  box-sizing: border-box;
-  /* display: block; */
-  display:inline-block; 
-  /* display: inline-block;  */
-  /* height: 20px;
-  width: 20px;
-  background: #fff;
-  border: 2px #ddd solid;
-  margin-right: 10px; */
-}
-.schedule label{
-  width: 40%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  border:hidden;
-  box-sizing: border-box;
-  /* display: block; */
-  display:inline-block; 
-} 
-.schedule h2{
-  margin-bottom: 30px;
-}
-
-/*--------------ADD a New EVENT  BUTTON IN SCHEDULE--------------*/
-
-.schedule button{
-  background: #f1356d;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 30px;
-  /* margin-right: 30px; */
-  margin-left: 200px;
-  display:inline-block;
- 
-}
-/*--------------ADD EVENT FORM IN SCHEDULE--------------*/
-.addNewEvent {
-  max-width: 400px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.addNewEvent label{
-  text-align: left;
-  display: block;
-}
-
-.addNewEvent h2{
-  font-size: 20px;
-  color:#f1356d;
-  margin-bottom: 30px;
-  margin-top: 30px;
-
-}
-
-.addNewEvent input, .addNewEvent textarea, .addNewEvent select {
-  width: 100%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  box-sizing: border-box;
-  display: block;
-}
-
-.addNewEvent button{
-  background: #f1356d;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-}
 
 /*--------------EVENT DETAIL PAGE--------------*/
 .event-details h2{
@@ -533,7 +847,7 @@
   align-items: center;
  
   color:#000000;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .signIn input{
@@ -565,8 +879,8 @@
   height: 100px;
   top: 103px;
   left: 564px;
-  margin-bottom: 40px;
-  margin-top: 40px;
+  margin-bottom: 30px;
+  /* margin-top: 40px; */
 }
 
 .recaptcha{
@@ -590,10 +904,11 @@
 .generalInfoSignUp {
   /* max-width: 400px; */
   margin: 0 auto;
-  margin-top: 0px;
+  /* margin-bottom: 20px; */
+  /* margin-top: 0px; */
   text-align: center;
   width:500px;
-  height: 750px;/* 400px; /* how wide will the border around the information will be*/
+  height: 720px;/* 400px; /* how wide will the border around the information will be*/
   /* height: 750px; how long will the border around the information will be */
   left: 401px;
   top: 158px;
@@ -602,20 +917,65 @@
   box-sizing: border-box;
 }
 
-.generalInfoSignUp label{
+.generalInfoSignUp-student {
+  /* max-width: 400px; */
+  margin: 0 auto;
+  /* margin-bottom: 20px; */
+  /* margin-top: 0px; */
+  text-align: center;
+  width:500px;
+  height: 550px;/* 400px; /* how wide will the border around the information will be*/
+  /* height: 750px; how long will the border around the information will be */
+  left: 401px;
+  top: 158px;
+  
+  border: 1px solid #5353539a;
+  box-sizing: border-box;
+}
+.generalInfoSignUp-verify{
+  margin: 0 auto;
+  /* margin-bottom: 20px; */
+  /* margin-top: 0px; */
+  text-align: center;
+  width:500px;
+  height: 850px;/* 400px; /* how wide will the border around the information will be*/
+  /* height: 750px; how long will the border around the information will be */
+  left: 401px;
+  top: 158px;
+  
+  border: 1px solid #5353539a;
+  box-sizing: border-box;
+}
+.generalInfoSignUp-acreated{
+  margin: 0 auto;
+  /* margin-bottom: 20px; */
+  /* margin-top: 0px; */
+  text-align: center;
+  width:500px;
+  height: 350px;/* 400px; /* how wide will the border around the information will be*/
+  /* height: 750px; how long will the border around the information will be */
+  left: 401px;
+  top: 158px;
+  
+  border: 1px solid #5353539a;
+  box-sizing: border-box;
+}
+.generalInfoSignUp label, .generalInfoSignUp-student label, .changePass label, .generalInfoSignUp-verify label{
   text-align: left;
   margin: 0px 20px; /*under_label left*/
   display: block;
 }
 
-.generalInfoSignUp h1{
+.generalInfoSignUp h1,  .generalInfoSignUp-student h1, .generalInfoSignUp-verify h1, .generalInfoSignUp-acreated h1{
   margin-top: 30px;
   font-size: 20px;
   color:#000000;
   margin-bottom: 30px;
 }
-
-
+/* 
+.generalInfoSignUp .Select{
+  height: 20px;
+} */
 
 .account-created h1{
   margin-top: 30px;
@@ -625,24 +985,25 @@
   margin-bottom: 30px;
 }
 
-.account-created p{
+.account-created p, .askChangePass p, .changePass p{
   /* margin-top: 30px; */
   margin-left: 10px;
   margin-right: 10px;
+  margin-bottom: 20px;
   text-align: justify;
   /* font-size: 20px; */
   /* color:#f1356d; */
   /* margin-bottom: 30px; */
 }
 
-.generalInfoSignUp h2{
+.generalInfoSignUp h2, .askChangePass h1, .changePass h1,  .generalInfoSignUp-student h2, .generalInfoSignUp-verify h2, .generalInfoSignUp-acreated h2{
   /* font-size: 20px; */
   /* color:#f1356d; */
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-.generalInfoSignUp input, .generalInfoSignUp select{
+.generalInfoSignUp input, .generalInfoSignUp select, .askChangePass input, .changePass input,  .generalInfoSignUp-student input,  .generalInfoSignUp-student select{
   width: 90%; /*represents how log the box will be visually*/
   padding: 6px 10px; /* 10px = where it starts writting inside box; 6px = how thick the box is (size) downwards*/
   margin: 0px 20px 10px; /* 0px = how close the box is to label (above box); 20px = how close box is to left margin; 10px = how close the box is to the next box (below box) */
@@ -652,15 +1013,31 @@
 
 }
 
-.generalInfoSignUp button{
+.generalInfoSignUp button, .askChangePass button, .changePass button{
   background: #f1356d;
   color: #fff;
   border: 0;
   padding: 8px;
-  width: 75px;
+  margin-bottom: 60px;
+  /* width: 75px; */
   height: 38px;
   border-radius: 8px;
-  margin-top: 30px;
+  margin-top: 20px;
+  cursor: pointer;
+}
+.generalInfoSignUp-student button, .generalInfoSignUp-verify button, .generalInfoSignUp-acreated button{
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  margin-bottom: 60px;
+  width: 75px;
+  margin-right: 10px;
+
+  margin-left: 10px;
+  height: 38px;
+  border-radius: 8px;
+  margin-top: 20px;
   cursor: pointer;
 }
 
@@ -668,8 +1045,37 @@
   margin-right: 50px;
   margin-left: 50px;
   display:inline-block;
- }
+}
 
+.askChangePass {
+  /* max-width: 400px; */
+  margin: 0 auto;
+  margin-top: 0px;
+  text-align: center;
+  width:500px;
+  height: 300px;/* 400px; /* how wide will the border around the information will be*/
+  /* height: 750px; how long will the border around the information will be */
+  left: 401px;
+  top: 158px;
+  
+  border: 1px solid #5353539a;
+  box-sizing: border-box;
+}
+
+.changePass {
+  /* max-width: 400px; */
+  margin: 0 auto;
+  margin-top: 0px;
+  text-align: center;
+  width:500px;
+  height: 450px;/* 400px; /* how wide will the border around the information will be*/
+  /* height: 750px; how long will the border around the information will be */
+  left: 401px;
+  top: 158px;
+  
+  border: 1px solid #5353539a;
+  box-sizing: border-box;
+}
 /* .dropdown-project select{
   /* width: 100%; *
   padding: 6px 10px;
@@ -842,9 +1248,51 @@
 .BarContainer {
   height: 20;
   width: 100%;
-  background-color: rgb(197, 231, 209);
+  background-color: rgb(128, 142, 133);
   border-radius: 50;
   margin: 50;
+}
+
+.UpcomingEvents{
+  height: 400px;
+  width: 100%;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.event-item{
+  height: 120px;
+  width: 35%;
+  border: solid black 1px;
+  background-color: #979797;
+  font-size: 1.5rem;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 1.2px;
+  margin-bottom: 0.25rem;
+  color: var(--primary);
+}
+
+.event-item p{
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 1.2px;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  text-align: right;
+}
+
+.event-item span{
+  font-size: 1.8rem;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 1.2px;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  color: black;
 }
 
 body .temp {
@@ -852,9 +1300,6 @@ body .temp {
   height: 0;
   width: 0;
 }
-
-
-
 
 body {
     position: relative;
@@ -971,213 +1416,6 @@ body {
     margin-bottom: -1px;
 }
 
-
-.scheduler{
-  /* margin-left: 700px; */
-  max-width: 600px; 
-  /* margin-right: 100px; */
-  margin-top: 20px;
-  display: inline-flex;
-
-}
-
-.c2{
-  max-width: 400px; 
-  /* display: inline-block; */
-  padding: 6px 10px;
-  margin: 20px 25px;
-  border-bottom: 1px solid #fafafa;
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-  box-sizing:content-box;  
-  text-decoration: none; 
-  /* margin-right: -300px;
-  /* margin-left: 350px;  */
-} 
-
-.c2 a {
-  margin-left: 6px;
-  text-decoration: none;
-  padding: 6px;
-}
-
-.cal2{
-  margin: 20px 20px;
-
-  display: inline-flex;
-}
-/* 
-.cal22{
-  max-width: 400px; 
-  /* display: inline-block; *
-  padding: 6px 10px;
-  margin: 10px 0px;
-  border-bottom: 1px solid #fafafa;
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);  
-  text-decoration: none; 
-  /* margin-right: -300px;*
-  /* margin-left: 350px;  *
-} */
-.cal2 h2{
-  font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 10px;
-}
-
-.admin-ann {
-  position: absolute;
-  width: 372px;
-  height: 490px;
-  left: 947px;
-  top: 280px;
-
-  background: #B6B9BB;
-  border: 1px solid #979797;
-  box-sizing: border-box;
-  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-  border-radius: 5px;
-  overflow-y: scroll;
-}
-
-.home{
-  width: 35%;
-  display: inline-block;
-}
-
-.announce-body{
-  background: #FFFFFF;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-
-  padding: 10px 20px;
-  margin: 10px 10px;
-  border-bottom: 1px solid #fafafa;
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-}
-/* .stage{
-  display: inline-block;
-} */
-.stage h2{
-  font-size: 25px;
-  font-weight: bold;
-  /* padding: 4px 10px; */
-  /* margin: 6px 10px; */
-  border: 2px #ddd solid;
-  margin-top: 10px;
-
-  border:hidden;
-  box-sizing:content-box;
-  /* display: block; */
-  display:inline-block; 
-  /* width: 10%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  display: inline-block; */
-}
-.stage h3{
-  font-size: 25px;
-  font-weight: bold;
-  border: 2px #ddd solid;
-  margin-left: 27%;
-
-  border:hidden;
-  box-sizing:content-box;
-  display:inline-block; 
-  /* width: 10%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  display: inline-block; */
-}
-
-
-.stage-announcements .admin-ann{
-  position: absolute;
-  width: 372px;
-  height: 125px;
-  left: 1000px;
-  top: 200px;
-
-  background: #B6B9BB;
-  border: 1px solid #979797;
-  box-sizing: border-box;
-  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
-  border-radius: 5px;
-  display: inline-block;
-  overflow-y: scroll;
-}
-
-.stage-upcoming{
-  position: absolute;
-  /* width: 372px; */
-  height: 125px;
-  left: 500px;
-  top: 200px;
-}
-
-.announce-body text{
-  margin-left: 75%;
-
-}
-.announce-body p{
-  width: 300px;
-}
-
-.announce-footer{
-  position: absolute;
-  width: 100%;
-  /* height: 668px; */
-  left: 948px;
-  top: 770px;
-  /* margin-bottom: 30px; */
- 
-  /* height: 100%; */
-  /* flex: 85%; */
-  /* border: 0; */
-  border-radius: 8px;
-  /* font-size: 20px; */
-  /* border-right: 1px dotted #607d8b; */
-
-  /* outline: none; */
-}
-.announce-footer input{
-  width: 22%;
-  height: 25px;
-  /* margin-bottom: 30px; */
-}
-.announce-footer button{
-  /* width: 90%; */
-  /* position: absolute; */
-  height: 30px;
-
-  margin-bottom: 30px;
-}
-
-.home-button button{
-  background: #424240;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  width: 100px;
-  height: 30px;
-  border-radius: 8px;
-  margin-top: 10px;
-  margin-left: 1000px;
-  display: inline-block;
-  cursor: pointer;
-}
-
-/* .home-date-sched button{
-  background: #424240;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  width: 100px;
-  height: 30px;
-  border-radius: 8px;
-  margin-top: 10px;
-  margin-left: 1000px;
-  display: inline-block;
-  cursor: pointer;
-} */
 .overlay {
   position: fixed;
   display: none;
@@ -1206,22 +1444,6 @@ body {
   cursor: pointer;
 } */
 
-.rooms button{
-  background: #424240;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  width: 100px;
-  height: 30px;
-  border-radius: 8px;
-  margin-top: 10px;
-  margin-left: 900px;
-  display: inline-block;
-  cursor: pointer;
-}
-.rooms h2{
-  display: inline-block;
-}
 
 
 :root {
@@ -1522,4 +1744,15 @@ color: #EA4C89;
   padding: 5px;
   color: white;
   font-weight: bold;
+}
+
+.form-sr-rp{
+  height: 20px;
+}
+
+
+
+svg{
+  height: 20px;
+  width: 20px;
 }
