@@ -84,14 +84,15 @@ export default function Home({user_Role, checked}) {
         {/* </div>   */}
         
       {/* </div> */}
+      <div className="events-home">
+        {displayEvents(events)}
+      </div>
 
       {/* <div className="schedule-container"> */}
         <div >
           <Announcements user_Role={user_Role}/>
         </div>
-        <div className="events-home">
-          {displayEvents(events)}
-        </div>
+        
       {/* </div> */}
     </div>   
   );
