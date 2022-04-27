@@ -159,8 +159,11 @@
 .admin-ann {
   position: absolute;
   width: 372px;
+  /* width: 31%; */
   height: 490px;
-  left: 850px;
+  /* left: 850px; */
+  /* right: 285px; */
+  right: 10%;
   top: 240px;
 
   background: #B6B9BB;
@@ -168,6 +171,8 @@
   box-sizing: border-box;
   /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
   border-radius: 5px;
+  /* display: flex; */
+  display: inline-block;
   overflow-y: scroll;
 }
 
@@ -193,7 +198,9 @@
 .announce-footer{
   position: absolute;
   width: 400px;
-  left: 850px;
+  /* left: 850px; */
+  right: 8.5%;
+
   top: 730px;
   /* border-radius: 8px; */
 }
@@ -615,7 +622,7 @@
 .account label{
   margin-top: 10px;
   margin-left: 20px;
-  /* width: 100px; */
+  width: 150px;
   padding: 4px 0px;
   /* margin: 6px 10px; */
   border: 2px #ddd solid;
@@ -634,7 +641,47 @@
   color:#008DED;
 }
 
-
+/*---------------------------------------------- STATS PAGE ----------------------------------------------*/
+.stat-prog{
+  width: 100%; 
+  display: inline-block;
+}
+.stat-prog-bar {
+  width: 50%;
+  padding: 6px 10px;
+  display:inline-block; 
+}
+.stat-prog p{
+  width: 25%;
+  padding: 6px 10px;
+  /* margin: 10px 0; */
+  margin-left: 50px;
+  border:hidden;
+  box-sizing: border-box;
+  /* display: block; */
+  display:inline-block; 
+}
+.stat-prog h3{
+  font-weight: bold;
+  margin-top: 30px;
+}
+.progress-container{
+  height: 20px;
+  background-color: gray;
+  border-radius: 10px;
+  margin: 5px;
+}
+/*Value passed from API*/
+.progress-filler{
+  height: 100%;
+  border-radius: inherit;
+  text-align: center;
+}
+.progress-label{
+  padding: 5px;
+  color: white;
+  font-weight: bold;
+}
 
 
 
@@ -1681,35 +1728,8 @@ color: #EA4C89;
     opacity: 1;
   }
 }
-.stat-prog{
-  /* transform: rotate(-90deg); */
-  /* height: 100px;*/
-  width: 100%; 
-  /* resize: both; */
-  display: inline-block;
-}
-.stat-prog-bar {
-  width: 50%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  /* border: 1px solid #ddd; */
-  /* box-sizing: border-box; */
-  /* display: block; */
-  display:inline-block; 
-}
-.stat-prog p{
-  width: 25%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  border:hidden;
-  box-sizing: border-box;
-  /* display: block; */
-  display:inline-block; 
-}
-.stat-prog h3{
-  font-weight: bold;
-  margin-top: 30px;
-}
+
+
 
 
 /* #app {
@@ -1727,24 +1747,6 @@ color: #EA4C89;
 }
 
 
-
-.progress-container{
-  height: 20px;
-  width: 75%;
-  background-color: gray;
-  border-radius: 10px;
-  margin: 50px;
-}
-.progress-filler{
-  height: 100%;
-  border-radius: inherit;
-  text-align: center;
-}
-.progress-label{
-  padding: 5px;
-  color: white;
-  font-weight: bold;
-}
 
 .form-sr-rp{
   height: 20px;
