@@ -312,11 +312,34 @@
   margin-top: 15px;
   margin-bottom: 15px;
   /* background: rgba(94, 236, 99, 0.816); */
-  border: 1px solid #E5E5E5;
+  /* border: 1px solid #E5E5E5; */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px; 
   display: inline-block;
 }
+
+.project-rooms img {
+  width: 25px;
+  height: 25px;
+  /* margin-left: 40px;
+  margin-right: 2px; */
+  margin-right: -190px;
+  margin-left: 280px;
+  /* margin-bottom: 10px; */
+  /* font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 8px; */
+}
+.project-rooms text {
+  font-size: 20px;
+  text-align: right;
+  color: #000000;
+  /* margin-left: 5px;
+  margin-right: 1px; */
+  /* margin-bottom: 20px; */
+
+  margin-right: -250px;
+  margin-left: 200px;}
 
 .project-rooms a{
   display: inline-block;
@@ -341,6 +364,7 @@
 }
 
 /* .project-rooms text{
+
   margin-bottom: 20px;
 } */
 
@@ -731,27 +755,6 @@
 
 
 
-.project-rooms img {
-  width: 25px;
-  height: 25px;
-  /* margin-left: 40px;
-  margin-right: 2px; */
-  margin-right: -190px;
-  margin-left: 280px;
-  /* margin-bottom: 10px; */
-  /* font-size: 20px;
-  color: #f1356d;
-  margin-bottom: 8px; */
-}
-.project-rooms text {
-  font-size: 20px;
-  text-align: right;
-  /* margin-left: 5px;
-  margin-right: 1px; */
-  /* margin-bottom: 20px; */
-
-  margin-right: -250px;
-  margin-left: 200px;}
 
 /*--------------HOME PAGE - Project button--------------*/
 
