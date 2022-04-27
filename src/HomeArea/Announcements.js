@@ -4,6 +4,8 @@ import useFetch from '../useFetch';
 // import ScrollToBottom from "react-scroll-to-bottom";
 import axios from "../context/axios";
 import useFetchAnnouncements from "../hooks/use-fetch-announcements";
+// import useFetchServerSideEventsAnnouncements from "./hooks/use-fetch-server-side-events-announcement";
+
 
 //TODO: Find out why the fetch announcements API is not working
 
@@ -24,45 +26,46 @@ const Announcements = ({user_Role}) => {
 
         var messageData = {};
         const currentDate = new Date(Date.now());
-        // var currentHours = currentDate.getHours();
-        // const ampm = currentHours >=12? 'PM' : 'AM';
-        // currentHours = (currentHours%12) || 12;
-        // const currentMinutes = String(currentDate.getMinutes()).padStart(2, '0');
-        // const currentTime = currentHours+":"+currentMinutes+" "+ampm;
-       
         if(currentMess !== ""){
             messageData ={
-                message: currentMess,
-                time: currentDate,
+                "message": currentMess,
+                "date": currentDate,
             };
             console.log("announcement", messageData);
         
 
         }
-        // axios.post('api/showroom/announcement', messageData)
-        //     .then((res) => {
-        //         console.log(res.data)
-        //     }).catch((error)=>{
-        //         console.log(error)
-        //     });
+        try{
+
+        await axios.post('api/showroom/announcement', messageData, {
+            headers: {"Content-Type": "application/json"},
+            withCredentials: true
+            }).then((res) => {
+                console.log(res.data)
+            }).catch((error)=>{
+                console.log(error)
+        });
+        }catch(err){
+
+        }
 
         setCurrentMess('');
     }
 
-    const getTime = (props) =>{
-        const time = props;
+    // const getTime = (props) =>{
+    //     const time = props;
     
-        const eventDate = new Date(time);
-        var eventHours = eventDate.getHours();
-        const ampm = eventHours >=12? 'PM' : 'AM';
-        eventHours = (eventHours%12) || 12;
-        const eventMinutes = String(eventDate.getMinutes()).padStart(2, '0');
-        const eventTime = eventHours+":"+eventMinutes+" "+ampm;
+    //     const eventDate = new Date(time);
+    //     var eventHours = eventDate.getHours();
+    //     const ampm = eventHours >=12? 'PM' : 'AM';
+    //     eventHours = (eventHours%12) || 12;
+    //     const eventMinutes = String(eventDate.getMinutes()).padStart(2, '0');
+    //     const eventTime = eventHours+":"+eventMinutes+" "+ampm;
     
-        // var eventMinute =new Date(time).getMinutes;
-        console.log("hours", eventTime);
-        return(eventTime);
-    }
+    //     // var eventMinute =new Date(time).getMinutes;
+    //     console.log("hours", eventTime);
+    //     return(eventTime);
+    // }
 
 
     // const receiveAnnouncement = () =>{
@@ -89,6 +92,8 @@ const Announcements = ({user_Role}) => {
 
     return ( 
         <div className="announcements" >
+            {/* <div>{useFetchServerSideEventsAnnouncements()}</div> */}
+
             <div className="admin-ann"> 
                 {/* <ScrollToBottom> */}
                     {announcement && announcement.map((announce) => (
