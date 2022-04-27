@@ -88,8 +88,8 @@ function ScheduleUpdateEvent (props) {
                 <Link to ={"/cal"}>
                         <button style={{ background: 'gray' }}>Cancel</button>
                 </Link>
-                <button style={{ background: '#3B8D25' }} onClick={handleClick}>Update Event</button> {/** adds the new event  */}
-                <button >Delete Event</button>
+                <button style={{ background: '#3B8D25' }} onClick={handleClick}>Update Event</button> 
+                <button>Delete Event</button>
 
             </div>
 
@@ -98,10 +98,8 @@ function ScheduleUpdateEvent (props) {
 
             </div>
         </div>
-                       /**select & option is a dropdown */
 
-
-     );
+    );
 }
  
 export default withRouter(ScheduleUpdateEvent);
