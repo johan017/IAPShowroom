@@ -1,4 +1,3 @@
-
 import {Link, Redirect} from "react-router-dom";
 import Announcements from "./Announcements";
 import useFetchEvents from "../hooks/use-fetch-events";
@@ -7,7 +6,6 @@ import { useHistory } from "react-router-dom";
 
 
 export default function Home({user_Role, checked}) {  
-  // chatContainer = React.createRef();
   const history = useHistory();
 
   const getDate = () =>{
@@ -68,32 +66,25 @@ export default function Home({user_Role, checked}) {
     <div className="home">
       {loading && <div> Loading...</div>}
 
-      {/* <div className="schedule-container"> */}
-       
-        {/* <div > */}
-          <div className="home-button">
-          {checked && (<button onClick={handleStage} style={{backgroundColor: 'red'}}>STAGE LIVE</button>)}
-          {!checked && (<button onClick={handleStage}>STAGE LIVE</button>)}
+      <div className="home-container2">
+       <div className="home-date-sched" >
+         <div className="home-date-sched-1" style={{ borderBottom: '1px solid #8e8a8a'}}>
+            <label> Schedule </label> <p>{getDate()}</p>  
           </div>
-        {/* TODO: CHANGE TO A METHOD AND ACCESPT CHECKED AS PARAMETER */}
-          <div className="home-date-sched" style={{ borderBottom: '1px solid #8e8a8a'}} >
-            <label> Schedule </label> <p>{getDate()}</p>   
-          </div>
-          
-          <h2>Announcements</h2>
-        {/* </div>   */}
-        
-      {/* </div> */}
+          {/* {checked && (<button onClick={handleStage} style={{backgroundColor: 'red'}}>STAGE LIVE</button>)}
+          {!checked && (<button onClick={handleStage}>STAGE LIVE</button>)}  */}
+        </div>
+      </div>  
+
       <div className="events-home">
         {displayEvents(events)}
       </div>
+      
 
-      {/* <div className="schedule-container"> */}
-        <div >
-          <Announcements user_Role={user_Role}/>
-        </div>
+      <div >
+        <Announcements user_Role={user_Role}/>
+      </div>
         
-      {/* </div> */}
     </div>   
   );
 }
