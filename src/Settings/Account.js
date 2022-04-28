@@ -1,15 +1,40 @@
 import {Link} from "react-router-dom";
 import useFetchUserInfo from "../hooks/use-fetch-all-user-info";
+import axios from "../context/axios";
 
 
 
-const Account = ({user_Role}) => {
+
+const Account = () => {
     const{userInfo} = useFetchUserInfo();
 
     const getDate = (props) =>{
         const today = new Date();
         return today.toLocaleDateString('default', {month: 'long', day: 'numeric', year: 'numeric'});
-      }
+    }
+
+    const handleValidateAccount = async (event) =>{
+        event.preventDefault();
+
+        var messageData = {};
+       
+        try{
+
+        await axios.post('api/auth/verify/1/heyhxusaixhauhsixuhsiuxhiuashx?resend=true', messageData, {
+            headers: {"Content-Type": "application/json"},
+            withCredentials: true
+            }).then((res) => {
+                console.log("message sent")
+                console.log(res.data)
+            }).catch((error)=>{
+                console.log(error)
+        });
+        }catch(err){
+
+        }
+
+    }
+
 
     return ( 
         <div>
@@ -51,7 +76,7 @@ const Account = ({user_Role}) => {
                 <h2>Account Validation</h2>
 
                 {userInfo.verifiedemail === false &&(
-                <p>Do you need to receive an account validation email? <Link to ="/validate" >Validate your Account</Link></p>
+                <p>Do you need to receive an account validation email? <Link to="/account" onClick={handleValidateAccount} >Validate your Account</Link></p>
                 )}
 
                 {userInfo.verifiedemail === true &&(
