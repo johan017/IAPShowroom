@@ -1,36 +1,47 @@
 import { useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import useFetch from "../useFetch";
+import axios from "../context/axios";
+import useGetRole from "../hooks/use-get-role";
 
-
+const EVENTS_URL = "api/showroom/schedule/events"
 
 const ScheduleNewEvent = () => {
+    const {uID}  = useGetRole();
     const {id} = useParams();
-    // const {data: conference, error}= useFetch('http://localhost:8000/conference-info/' + id); /* data is project because we want the id of a singular project */
-  
+    const adminid = uID;
     const [title, setTitle] = useState('');
-    const [start, setStart] = useState('');
+    const [starttime, setStart] = useState('');
     const [end, setEnd] = useState('');
     const [isLoading, setIsLoading] = useState(false); // when first loading the page the POST request is not being made; only after sumbitting form is when request is made
     const history = useHistory();
+    const projectid= null;
 
 
-
-    const handleSubmit = (e) =>{
+    const handleSubmit = async(e) =>{
         e.preventDefault();
-        const event = {title, start, end};
+        var difference = new Date(end) - new Date(starttime);
+        let duration = Math.floor((difference / (1000 * 60)));
+
+        var e_date = starttime;
+
+        const event = [{adminid,  starttime, duration, title, projectid, e_date}];
+        //const event = {title, starttime, end};
         setIsLoading(true); //before submitting
 
-        fetch('http://localhost:8000/events', {
-            method: 'POST',
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify(event)
-        }).then (() => {
-            console.log('new event added');
-            setIsLoading(false); //when form is submitted; completed
-        })
-        //need to go back to a specific id of conference details(not working)
-        history.push('/cal');
+        try{
+            await axios.post(EVENTS_URL, 
+                event,
+                {
+                    headers: {"Content-Type": "application/json"},
+                    withCredentials: true
+                }).then(() =>{
+                    history.push('/cal');
+                });
+                
+        }catch(err){
+            console.log(err);
+        }
 
     }
 
@@ -49,7 +60,7 @@ const ScheduleNewEvent = () => {
                 <input
                     type="datetime-local"
                     required
-                    value = {start}
+                    value = {starttime}
                     onChange = {(e) => setStart(e.target.value)}
 
                 ></input>

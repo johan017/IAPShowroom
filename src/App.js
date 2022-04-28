@@ -118,6 +118,9 @@ function App() {
 
                 <ProtectedRoute exact path="/membervalidation" user_role="admin" component={MemberValidation}/>
                             
+                {/* Create Schedule component - organize events and projects (calendar component)*/}
+                {/* <ProtectedRoute exact path="/create_day" user_role="admin" component={ScheduleDay}/>  */}
+                
                 {/* Create Schedule component - organize events and projects (calendar component)
                 <Route exact path="/create_day"> 
                   <ScheduleDay/> 
@@ -133,9 +136,7 @@ function App() {
                 </Route> */}
                 
                 {/*NewEvent component - events created manually*/}
-                <Route exact path="/new_event"> 
-                  <ScheduleNewEvent/> 
-                </Route>
+                <ProtectedRoute  exact path="/new_event" user_role="admin" component={ScheduleNewEvent}/> 
 
                 {/*NewEvent component - events created manually*/}
                 <Route exact path="/update_event/:projectid"> 
@@ -176,10 +177,7 @@ function App() {
                 </Route>
 
             
-                <Route exact path="/cal"> 
-                  <C2/> 
-                </Route>
-
+                <ProtectedRoute exact path="/cal" user_role="admin" component={C2}/> 
                
                 
                 {/* <ProtectedRoute exact path="/announce" user_role="all" component={Announcements}/> */}
