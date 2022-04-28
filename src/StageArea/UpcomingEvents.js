@@ -1,13 +1,19 @@
 import axios from "../context/axios";
 import React, {Component} from 'react';
 
+// const WebSocket = require('ws');
+
 const EVENTS_URL = "/api/showroom/schedule/events";
+const WEBSOCKETS_URL = 'ws://localhost:8080';
+// const SSE_URL = "/api/showroom/sse";
 const MINUTESTOMILLISECONDS = 60000;
 
+var TIMETOEND;
+
+const ws = new WebSocket(WEBSOCKETS_URL);
 export default class UpcomingEvents extends Component{
     constructor(props){
         super(props);
-        this.mounted = false;
         this.state = {
             currentstarttime: '0:00',
             currentendtime: '0:00',
@@ -18,18 +24,28 @@ export default class UpcomingEvents extends Component{
     }
 
     componentDidMount(){
-        const source = new EventSource(`http://localhost:8080/api/showroom/sse`, {withCredentials: true});
-      
-        source.addEventListener('open', () => {
-            console.log('SSE opened for Upcoming Events!');
-        });
-        source.addEventListener('upcomingevents', this.getEvents().then(response => this.updateEvents(response)));
+        console.log("component did mount");
+        ws.onopen = () => {
+            console.log('Upcoming Events WebSocket Client Connected');
+        };
+        ws.onmessage = (message) => {
+            console.log("WebSocket received message:", message.data)
+            const dataFromServer = JSON.parse(message.data);
+            if(dataFromServer.type === 'upcomingevents'){
+                this.getEvents().then(response => this.updateEvents(response));
+            }
+        };
 
-        this.mounted = true;
-        // this.getEvents().then(response => this.updateEvents(response));
+        ws.onclose = () => {
+            console.log('Upcoming Events WebSocket Client Disconnected');
+            ws.close();
+        }
+
+        this.getEvents().then(response => this.updateEvents(response));
     }
     componentWillUnmount(){
-        this.mounted = false;
+        console.log("unmounted upcomingevents");
+        ws.close();
     }
 
     getEvents = async() => {
@@ -44,11 +60,9 @@ export default class UpcomingEvents extends Component{
                     time: new Date().toLocaleString("en-US")
                 }
             });
-            console.log("result:",result);
             return result.data.payload;
         } 
         catch(error) {
-            // console.error(error);
             console.log(error.response);
             if(error.response.status === 404) return {};
         }
@@ -56,50 +70,70 @@ export default class UpcomingEvents extends Component{
 
     updateEvents(response){
         if(response){
-            console.log(response);
             if(response[1] && response[0]){
-                // let d = new Date(response[0]['e_date']).toDateString();
-                
                 let st = new Date(response[0]['starttime']);
-                let endtime = new Date(+st + response[0]['duration'] * MINUTESTOMILLISECONDS);
+                let endtime = new Date(+st + response[0]['duration'] * MINUTESTOMILLISECONDS).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                 const currentstarttime = st.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                 const currenttitle = response[0]['title'];
 
                 st = new Date(response[1]['starttime']);
-                endtime = new Date(+st + response[1]['duration'] * MINUTESTOMILLISECONDS);
                 const upcomingstarttime = st.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                 const upcomingtitle = response[1]['title'];
 
-                this.setState({currentstarttime: currentstarttime, currentendtime: endtime, upcomingstarttime: upcomingstarttime, currenttitle: currenttitle, upcomingtitle: upcomingtitle });
+                this.setState({
+                    currentstarttime: currentstarttime, 
+                    currentendtime: endtime, 
+                    upcomingstarttime: upcomingstarttime, 
+                    currenttitle: currenttitle, 
+                    upcomingtitle: upcomingtitle 
+                });
             }
             else if(response[0]){
                 let st = new Date(response[0]['starttime']);
-                let endtime = new Date(+st + response[0]['duration'] * MINUTESTOMILLISECONDS);
+                let endtime = new Date(+st + response[0]['duration'] * MINUTESTOMILLISECONDS).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                 const currentstarttime = st.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                 const currenttitle = response[0]['title'];
 
-                this.setState({currentstarttime: currentstarttime, currentendtime: endtime, currenttitle: currenttitle, upcomingstarttime: "0:00", upcomingtitle: '' });
+                this.setState({
+                    currentstarttime: currentstarttime, 
+                    currentendtime: endtime, 
+                    currenttitle: currenttitle, 
+                    upcomingstarttime: "0:00", 
+                    upcomingtitle: '' 
+                });
             }
             else {
                 console.log("error response:", response);
-                this.setState({currentstarttime: "0:00", currentendtime: "0:00", currenttitle: '', upcomingstarttime: "0:00", upcomingtitle: '' });
+                this.setState({
+                    currentstarttime: "0:00", 
+                    currentendtime: "0:00", 
+                    currenttitle: '', 
+                    upcomingstarttime: "0:00", 
+                    upcomingtitle: '' 
+                });
             }
         }
     }
 
     render(){
-        const date = new Date();
-
-        const end = +new Date(date.toLocaleDateString("en-US")+' '+this.state.currentendtime);
-        const diff = end - +date;
-        console.log("diff:",diff);
-        // const diff = 0;
-
-        if(this.state.currentendtime != "0:00" && diff < 1){
-            this.getEvents().then(response => this.updateEvents(response));
-        }
-
         let {update, currentstarttime, currentendtime, upcomingstarttime, currenttitle, upcomingtitle} = this.state
+
+        const date = new Date();
+        const start = +new Date(date.toLocaleDateString("en-US")+' '+ currentstarttime);
+        const end = +new Date(date.toLocaleDateString("en-US")+' '+ currentendtime);
+        // TIMETOEND = end - start;
+        const diff = end - +date;
+        console.log("diff:", diff);
+
+        if(diff > 0){
+            setTimeout(() => {
+                this.getEvents().then(response => this.updateEvents(response));
+            }, diff+1000);
+        }
+        
+        ({update, currentstarttime, currentendtime, upcomingstarttime, currenttitle, upcomingtitle} = this.state)
+
+        
 
         console.log("state:", this.state);
 
