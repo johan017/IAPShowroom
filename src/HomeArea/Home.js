@@ -32,7 +32,7 @@ export default function Home({user_Role, checked}) {
           return (
           // event list for schedule view in Lobby 
           <div className="project-prev" key ={event.meetid}>
-                <p>{getTime(event.starttime)}</p>
+                <p>{getTime(event.e_date)}</p>
             <div className="project-preview">
               <h2>{event.title}</h2>  <br/>
               <Link to={`/project_room/${event.meetid}`}>
