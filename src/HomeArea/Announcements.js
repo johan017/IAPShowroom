@@ -80,26 +80,27 @@ const Announcements = ({user_Role}) => {
         <div className="announcements" >
             {/* <div>{useFetchServerSideEventsAnnouncements()}</div> */}
             {user_Role !== "admin" && ( 
-            <div className="admin-ann"> 
-                {/* <ScrollToBottom> */}
-                <h2>Announcements</h2>
-
+            <div className="home-container">
+                <div className="ann-title">
+                    <h2>Announcements</h2>
+                </div>
+                <div style={{marginBottom: "30px"}}  className="admin-ann">
+                    {/* <ScrollToBottom> */}
                     {announcements && announcements.map((announce) => (
                         <div className="announce-body" key={announce.announcementid}>
-                            <p>{announce.a_content}</p><br/>
-                           
-
-                            <text>{getTime(announce.a_date)}</text>
+                            <p>{announce.a_content}</p><br/> 
+                            <text style={{marginLeft: "220px"}}>{getTime(announce.a_date)}</text>
                         </div>
-                    ))} 
+                    ))}
 
                     {announcements.length === 0 && (
                         <div className="announce-body">
                             <p>No Announcemnts At The Moment</p>
                         </div>
                     )}
-               {/* </ScrollToBottom> */}
-                
+                {/* </ScrollToBottom> */}
+                    
+                </div>
             </div>
             )}
 
@@ -110,32 +111,30 @@ const Announcements = ({user_Role}) => {
                 </div>
                 <div className="admin-ann">
                     {/* <ScrollToBottom> */}
-                    
+                    {announcements && announcements.map((announce) => (
+                        <div className="announce-body" key={announce.announcementid}>
+                            <p>{announce.a_content}</p><br/> 
+                            <button onClick={() => {handleDelete(announce.announcementid)}}>Delete</button>
+                            <text>{getTime(announce.a_date)}</text>
+                        </div>
+                    ))}
 
-                        {announcements && announcements.map((announce) => (
-                            <div className="announce-body" key={announce.announcementid}>
-                                <p>{announce.a_content}</p><br/> 
-                                <button onClick={() => {handleDelete(announce.announcementid)}}>Delete</button>
-                                <text>{getTime(announce.a_date)}</text>
+                    {announcements.length === 0 && (
+                        <div className="announce-body">
+                            <p>No Announcemnts At The Moment</p>
+                        </div>
+                    )}
+                {/* </ScrollToBottom> */}  
+                </div>
 
-                            </div>
-                        ))}
-
-                        {announcements.length === 0 && (
-                            <div className="announce-body">
-                                <p>No Announcemnts At The Moment</p>
-                            </div>
-                        )}
-                {/* </ScrollToBottom> */}
-                    
-                    </div>
-                    <div className="announce-footer">                    
-                            <input 
-                                type="text" 
-                                placeholder="Enter Announcement" 
-                                value={currentMess}
-                                onChange={(event)=>{setCurrentMess(event.target.value)}}></input>
-                            <button onClick={sendAnnouncement}>Send</button>
+                <div className="announce-footer">                    
+                    <input 
+                        type="text" 
+                        placeholder="Enter Announcement" 
+                        value={currentMess}
+                        onChange={(event)=>{setCurrentMess(event.target.value)}}>
+                    </input>
+                    <button onClick={sendAnnouncement}>Send</button>
                 </div>
             </div>
             )}
