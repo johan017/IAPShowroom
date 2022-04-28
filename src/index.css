@@ -8,6 +8,10 @@
   /* align-self: center; */
 }
 
+svg{
+  height: 20px;
+  width: 20px;
+}
 /* .content { */
   /* max-width: 1200px; */
   /* margin: 0 auto; */
@@ -56,13 +60,25 @@
   /* display: flex; *
 } */
 
+/*Home schedule date container*/
+.home-container2{
+  margin-left: 45px;
+  /* widt */
+  display: flex;
+  flex-direction: column;
+}
 .home-date-sched {
-  width: 53%;
-  margin-left: 5%;
+  /* width: 70%;s */
+  /* margin-left: 5%; */
   /* align-items: center; */
   display:inline-block; 
 }
-
+.home-date-sched-1 {
+  width: 62.5%;
+  /* margin-left: 5%; */
+  /* align-items: center; */
+  display:inline-block; 
+}
 .home-date-sched label{
   font-size: 25px;
   font-weight: bold;
@@ -79,12 +95,11 @@
   font-size: 25px;
   font-weight: bold;
   border: 2px #ddd solid;
-  margin-left: 59%;
-
+  margin-left: 66%;
+  margin-top: 20px;
   border:hidden;
   box-sizing:content-box;
   display:inline-block; 
-  
 }
 
 .home h2{
@@ -93,13 +108,11 @@
   border: 2px #ddd solid;
   margin-left: 12%;
   /* margin-top: -100px; */
-
   border:hidden;
   /* box-sizing:content-box; */
   display:inline-block; 
-
 }
-.home-button button{
+.home-date-sched button{
   background: #424240;
   color: #fff;
   border: 0;
@@ -108,7 +121,7 @@
   height: 30px;
   border-radius: 8px;
   margin-top: 10px;
-  margin-left: 90%;
+  margin-left: 350px;
   display: inline-block;
   cursor: pointer;
 }
@@ -117,9 +130,9 @@
   position: absolute;
   height: 500px;
   margin-bottom: 30px;
-  width: 50%;
-  left: 100px;
-  top: 250px;
+  width: 57%;
+  left: 70px;
+  top: 210px;
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -141,10 +154,10 @@
   border-bottom: 1px solid #fafafa;
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
 }
-
+/*Project room & Speaker buttons */
 .project-preview button {
   margin-bottom: 8px;
-  background: #f1356d;
+  background: #008DED;
   color: #fff;
   border: 0;
   padding: 8px 20px;
@@ -154,17 +167,27 @@
   margin-left: 300px;
   display:inline-block;
 }
-
+/*Announcemnts Container*/
+.home-container{
+  margin-left: 70%;
+  display: flex;
+  flex-direction: column;
+}
 /*Display announcement list*/
+.ann-title{
+  /* text-align: center; */
+margin-left: 25px;
+  display: flex;
+}
 .admin-ann {
-  position: absolute;
+  /* position: absolute; */
   width: 372px;
   /* width: 31%; */
   height: 490px;
   /* left: 850px; */
   /* right: 285px; */
-  right: 10%;
-  top: 240px;
+  /* right: 10%; */
+  top: 100px;
 
   background: #B6B9BB;
   border: 1px solid #979797;
@@ -188,20 +211,36 @@
 }
 
 .announce-body text{
-  margin-left: 75%;
+  margin-left: 140px;
+  display: inline-block;
 
 }
 .announce-body p{
   width: 300px;
 }
+/*Delete Announcement Button*/
+.announce-body button{
+  height: 25px;
+  width:80px;
+  /* margin-left: 10%; */
+  /* margin-bottom: 20px; */
+  background: #bc0707;
+  color: #fff;
+  border: 0;
+  /* padding: 8px 20px; */
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+}
 
 .announce-footer{
-  position: absolute;
+  /* position: absolute; */
   width: 400px;
   /* left: 850px; */
-  right: 8.5%;
+  /* right: 8.5%; */
 
   top: 730px;
+  display: flex;
   /* border-radius: 8px; */
 }
 
@@ -210,13 +249,13 @@
   height: 25px;
   border-radius: 3px;
 }
-
+/*Send announcement button*/
 .announce-footer button{
   height: 25px;
   width:18%;
   /* margin-left: 10%; */
   margin-bottom: 20px;
-  background: #f1356d;
+  background: #008DED;
   color: #fff;
   border: 0;
   /* padding: 8px 20px; */
@@ -665,25 +704,44 @@
   font-weight: bold;
   margin-top: 30px;
 }
+/*max value of progressbar*/
 .progress-container{
   height: 20px;
   background-color: gray;
   border-radius: 10px;
   margin: 5px;
 }
-/*Value passed from API*/
+/*percentage of max value*/
 .progress-filler{
   height: 100%;
   border-radius: inherit;
   text-align: center;
 }
+/*Value inside progress bar*/
 .progress-label{
   padding: 5px;
   color: white;
   font-weight: bold;
 }
-
-
+/*Title & Date*/
+.statsdate h2{
+  width: 75%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border:hidden;
+  box-sizing: border-box;
+  /* display: block; */
+  display:inline-block; 
+}
+.statsdate h3{
+  /* width: 25%; */
+  padding: 6px 10px;
+  margin: 10px 0;
+  border:hidden;
+  box-sizing: border-box;
+  /* display: block; */
+  display:inline-block; 
+}
 
 
 
@@ -756,28 +814,6 @@
 
 
 
-
-
-.statsdate h2{
-  width: 75%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  border:hidden;
-  box-sizing: border-box;
-  /* display: block; */
-  display:inline-block; 
-}
-.statsdate h3{
-  /* width: 25%; */
-  padding: 6px 10px;
-  margin: 10px 0;
-  border:hidden;
-  box-sizing: border-box;
-  /* display: block; */
-  display:inline-block; 
-}
-
-
 .project-preview a {
   font-size: 25px;
   margin-left: 10px;
@@ -803,11 +839,8 @@
 
 
 
-/*--------------HOME PAGE - Project button--------------*/
 
-
-
-/*--------------PROJECT ROOM PAGE--------------*/
+/*---------------------------------------------- PROJECT ROOM PAGE ----------------------------------------------*/
 .project-room h2{
   font-size: 20px;
   color: #f1356d;
@@ -819,7 +852,7 @@
 }
 .project-room button{
   /* font-size: 25px; */
-  background: #424240;
+  background: #008DED;
   color: #fff;
   /* border: 0; */
   padding: 8px;
@@ -872,7 +905,7 @@
   cursor: pointer;
 }
 
-/*-------------- LOG IN FORM IN LOG IN--------------*/
+/*---------------------------------------------- LOG IN ----------------------------------------------*/
 .signIn {
   max-width: 400px;
   margin: 0 auto;
@@ -939,7 +972,7 @@
   /* display: block; */
 }
 
-/*-------------- SIGN UP FORM IN USER SIGN UP FORM--------------*/
+/*---------------------------------------------- REGISTER ----------------------------------------------*/
 /* .signupImage img{
   align-items: left;
   width: 250px;
@@ -971,8 +1004,7 @@
   /* margin-top: 0px; */
   text-align: center;
   width:500px;
-  height: 550px;/* 400px; /* how wide will the border around the information will be*/
-  /* height: 750px; how long will the border around the information will be */
+  height: 550px;
   left: 401px;
   top: 158px;
   
@@ -985,8 +1017,7 @@
   /* margin-top: 0px; */
   text-align: center;
   width:500px;
-  height: 850px;/* 400px; /* how wide will the border around the information will be*/
-  /* height: 750px; how long will the border around the information will be */
+  height: 850px;
   left: 401px;
   top: 158px;
   
@@ -999,8 +1030,7 @@
   /* margin-top: 0px; */
   text-align: center;
   width:500px;
-  height: 350px;/* 400px; /* how wide will the border around the information will be*/
-  /* height: 750px; how long will the border around the information will be */
+  height: 350px;
   left: 401px;
   top: 158px;
   
@@ -1043,14 +1073,16 @@
   /* margin-bottom: 30px; */
 }
 
-.generalInfoSignUp h2, .askChangePass h1, .changePass h1,  .generalInfoSignUp-student h2, .generalInfoSignUp-verify h2, .generalInfoSignUp-acreated h2{
+.generalInfoSignUp h2, .askChangePass h1, .changePass h1,  .generalInfoSignUp-student h2, 
+.generalInfoSignUp-verify h2, .generalInfoSignUp-acreated h2{
   /* font-size: 20px; */
   /* color:#f1356d; */
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-.generalInfoSignUp input, .generalInfoSignUp select, .askChangePass input, .changePass input,  .generalInfoSignUp-student input,  .generalInfoSignUp-student select{
+.generalInfoSignUp input, .generalInfoSignUp select, .askChangePass input, .changePass input,  
+.generalInfoSignUp-student input,  .generalInfoSignUp-student select{
   width: 90%; /*represents how log the box will be visually*/
   padding: 6px 10px; /* 10px = where it starts writting inside box; 6px = how thick the box is (size) downwards*/
   margin: 0px 20px 10px; /* 0px = how close the box is to label (above box); 20px = how close box is to left margin; 10px = how close the box is to the next box (below box) */
@@ -1142,14 +1174,13 @@
 
 
 
-
+/*---------------------------------------------- SPONSORS ----------------------------------------------*/
 .sponsors h1{
   position: absolute;
   width: 477px;
   height: 45px;
   left: 450px;
   top: 300px;
-  
   /* font-family: 'Montserrat'; */
   font-style: normal;
   font-weight: 600;
@@ -1161,11 +1192,7 @@
   letter-spacing: -0.004em;
   
   color: #000000;
-  
-
 }
-
-
 
 .logo-preview img{
   width: 200px;
@@ -1207,27 +1234,7 @@
   color:#f1356d;
   margin-bottom: 30px;
 } */
-/* 
-.general-info input, .general-info select{
-  
-   width: 100%;
-  /* padding: 6px 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd; 
-  box-sizing: border-box;
-  display: block;  
-    /* position: absolute; 
-  width: 535px;
-  height: 46px;
-  left: 452px;
-  top: 753px;
 
-  background: #FFFEFE;
-  border: 2px solid #A7A7A7;
-  box-sizing: border-box;
-  border-radius: 5px;
-
-} */
 
 .checklist input{
   /* font-size: 100px; */
@@ -1241,29 +1248,6 @@
 }
 
 
-/* .stats text {
-  /* font-size: 20px;
-  text-align: left;
-  margin-bottom: 20px; *
-
-  width: 100%;
-  padding: 6px 10px;
-  margin: 8px 0;
-  border:hidden;
-  box-sizing: border-box;
-  /* display: block; *
-  display:inline-block; 
-} */
-
-/* .stats h2, .stats h3 {
-  /* font-size: 20px;
-  text-align: left;
-  margin-bottom: 20px; *
-  margin-top: 30px;
-  margin-bottom: 30px;
- 
-} */
-
 .verifying label{
   width: 35%;
   padding: 4px 0px;
@@ -1276,7 +1260,7 @@
   display:inline-block; 
 }
 
-/*-------------- STAGE --------------*/
+/*---------------------------------------------- STAGE ----------------------------------------------*/
 .bbb div {
   display: flex;
   justify-content: center;
@@ -1511,204 +1495,6 @@ body {
   box-sizing: inherit;
 }
 
-/* html {
-  box-sizing: border-box;
-  font-size: 62.5%;
-  /* overflow-y: scroll; 
-  font-family: 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  letter-spacing: .5px;
-  line-height: 1.4;
-} */
-
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--greyLight-2);
-  padding: 2rem;
-}
-
-.card {
-  width: 34rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 2rem;
-  background: var(--greyLight-1);
-  box-shadow: 0px 20px 30px rgba(100, 131, 177, 0.2);
-  padding: 5rem;
-  border: 1px solid white;
-}
-.card__percent {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 6rem;
-  }
-
-.card__number {
-      position: absolute;
-      color: var(--greyDark);
-      font-size: 3.6rem;
-      font-family: 'DM Sans', sans-serif;
-  }
-
-.card__description {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-}
-.card__description h2 {
-          font-size: 1.8rem;
-          font-family: 'DM Sans', sans-serif;
-          letter-spacing: 1.2px;
-          margin-bottom: 1rem;
-          color: var(--primary);
-  }
- .card__description p {font-size: 1.4rem;
-          color: var(--greyDark);
-  }
-  
-
-
-svg {
-  position: relative;
-  width: 24rem;
-  height: 24rem;
-  z-index: 1000;
-  transform: rotate(-90deg);
-}
-
-svg circle {
-  width: 100%;
-  height: 100%;
-  fill: none;
-  stroke-linecap: round;
-  transform: translate(3rem, 3rem);
-  stroke-dasharray: 565.49; 
-  stroke-dashoffset: 282.75;
-  transition: all 1s ease;
-  stroke-width: 24;
-}
-.circle {
-  position: absolute;
-  width: 23rem;
-  height: 23rem;
-  border-radius: 50%;
-  box-shadow: 6px 6px 8px var(--greyLight-2),
-              -6px -6px 8px var(--white);
-  background: var(--greyLight-1);
-}
-.circle_medium {
-      width: 20.5rem;
-      height: 20.5rem;
-      box-shadow: inset 8px 8px 10px var(--greyLight-2),
-                  inset -4px -4px 8px var(--white);
-  }
-  .circle_small {
-      width: 15.5rem;
-      height: 15.5rem;
-      box-shadow: 6px 6px 8px var(--greyLight-2),
-                  -2px -2px 8px var(--white);
-  }
-
-
-.form {
-  display: grid;
-  grid-template-columns: 40% 60%;
-  justify-items: center;
-  padding: 4rem;
-  margin-left: 4rem;
-  border-radius: 2rem;
-  background: var(--greyLight-1);
-  text-align: center;
-  box-shadow: 0px 20px 30px rgba(100, 131, 177, 0.2);
-  border: 1px solid var(--white);
-  position: relative;
-}
-  .form_text {
-      grid-column: 1 / 3;
-      font-weight: 400;
-      margin-bottom: 2rem;
-      color: var(--greyDark);
-  }
-
-.form input {
-      border: none;
-      outline: none;
-      background: none;
-      font-family: inherit;
-      width: 5rem;
-      font-size: 1.6rem;
-      text-align: center;
-      padding: .8rem;
-      border-radius: 1rem;
-      margin-right: 1rem;
-      color: var(--primary);
-
-      box-shadow: inset .2rem .2rem .4rem var(--greyLight-2),
-                  inset -.3rem -.3rem .4rem var(--white);
-      /* &::placeholder { color: var(--greyLight-3); } */
-      /* &:focus { color: var(--primary);
-          box-shadow: .3rem .3rem .6rem var(--greyLight-3), 
-                          -.2rem -.2rem .5rem var(--white); } */
-  }
-
-.form_btn {
-      border: none;
-      outline: none;
-      font-family: 'DM Sans', sans-serif;
-      letter-spacing: .8px;
-      background: var(--greyLight-1);
-      padding: .8rem 2rem;
-      border-radius: 2rem;
-      color: var(--white);
-      cursor: pointer;
-      background: linear-gradient(-25deg, var(--primary) 0%, var(--primary-light) 100%);
-      
-      /* &:hover {
-          background: linear-gradient(-25deg, var(--primary-dark) 0%, var(--primary) 100%);
-      } */
-  }
-
-
-
-.tooltip {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  bottom: -6rem;
-  padding: 1rem 2rem;
-  border-radius: 1rem;
-  background: var(--greyLight-1);
-  font-size: 1.2rem;
-  color: var(--primary-dark);
-  opacity: 0;
-  transition: all .3s ease;
-
-  /* &__text { margin-left: .6rem;}
-
-  &.fade-in { animation: fadeIn .8s ease;}
-  
-  &::after {
-      content: '';
-      position: absolute;
-      left: 45%;
-      bottom: 74%;
-      width: 2rem;
-      height: 2rem;
-      background: var(--greyLight-1);
-      clip-path: polygon(0% 0%, 100% 100%, 0% 100%);
-      transform: rotate(135deg);
-      border-radius: 0 0 0 0.4em;
-      
-  } */
-}
 
 .dribbble {
 position: fixed;
@@ -1753,8 +1539,3 @@ color: #EA4C89;
 }
 
 
-
-svg{
-  height: 20px;
-  width: 20px;
-}

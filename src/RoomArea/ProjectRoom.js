@@ -45,10 +45,10 @@ const ProjectRoom = ({checked}) => {
 
                     {event.meetid === eid &&(
                         <div>
-                            <div style={{marginLeft: "1000px"}}>
+                            {/* <div style={{marginLeft: "1000px"}}>
                             {checked && (<button onClick={handleStage} style={{backgroundColor: 'red'}}>STAGE LIVE</button>)}
                             {!checked && (<button onClick={handleStage}>STAGE LIVE</button>)}   
-                            </div>
+                            </div> */}
 
                             <div style={{marginLeft: "10px"}}>
                                 <button onClick={changePopup}>Project Information</button>  
@@ -59,9 +59,7 @@ const ProjectRoom = ({checked}) => {
                                 <div>
                                     <h2>{event.title}</h2>
                                     <h3>{event.abstract}</h3> <br/>
-                                    {/* <h2>{project.iapproject_title}</h2>
-                                    <h3>{project.iapproject_abstract}</h3> <br/> */}
-                                    {/* <h4>{event.author}</h4>  */}
+                                  
                                 </div>
                             )}
 
