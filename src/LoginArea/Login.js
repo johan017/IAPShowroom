@@ -39,7 +39,9 @@ const Login = () => {
                     {
                         headers: {"Content-Type": "application/json"},
                         withCredentials: true
-                    });
+                    }).then(
+                        
+                    );
                     console.log(response.data.payload)
                     setAuth(response.data.payload);
                     // role = "role";
