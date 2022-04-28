@@ -1,16 +1,47 @@
 import {Link} from "react-router-dom";
 import useFetchUserInfo from "../hooks/use-fetch-all-user-info";
 import axios from "../context/axios";
+import useFetchProjects from "../hooks/use-fetch-projects";
 
 
 
 
 const Account = () => {
     const{userInfo} = useFetchUserInfo();
+    const {projects} = useFetchProjects();
+
 
     const getDate = (props) =>{
         const today = new Date();
         return today.toLocaleDateString('default', {month: 'long', day: 'numeric', year: 'numeric'});
+    }
+
+    const projTitles = (e) =>{
+        var inputArr = new Array();
+
+        e.forEach(function (choice){
+            for(var i = 0; i < projects.length; i++) {
+                if(choice == projects[i].project_id){
+                     inputArr.push(projects[i].title);
+                     inputArr.push(", ");
+                }
+            }
+           
+        });
+
+        inputArr[inputArr.length-1] = "";
+        
+        return inputArr;
+        // this.setState({"projectTitles": inputArr});
+        // this.setState({"projectids": inputArrg});
+    }
+
+    const pm = (ispm) =>{
+        if(ispm === false){
+            return "No";
+        }else {
+            return "Yes";
+        }
     }
 
     const handleValidateAccount = async (event) =>{
@@ -51,16 +82,17 @@ const Account = () => {
 
                     {userInfo.user_role === "Student Researcher" && (
                         <div>
-                        {/* <label>Research Project: </label> <label>{userInfo.projectTitles}</label> <br/>*/}
+                        <label>Research Project: </label> <label>{projTitles(userInfo.project_ids)}</label> <br/>
+                        <label>Project Manager: </label> <label>{pm(userInfo.ispm)}</label> <br/>
                         <label>Major: </label> <label>{userInfo.department}</label> <br/>
                         <label>Graduation Date: </label> <label>{getDate(userInfo.grad_date)}</label> <br/>
-                        {/* <label>Project Manager: </label> <label>{userInfo.ispm}</label> <br/>*/}
+                       
                         </div>
                     )}
 
                     {userInfo.user_role === "Advisor" && (  
                         <div>
-                        <label>Research Project: </label> <label>{userInfo.projectTitles}</label> <br/>
+                        <label>Research Project: </label> <label>{projTitles(userInfo.project_ids)}</label> <br/>
                         </div>
                     )}
 
