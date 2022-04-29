@@ -4,19 +4,17 @@ import useFetch from '../useFetch';
 // import ScrollToBottom from "react-scroll-to-bottom";
 import axios from "../context/axios";
 import useFetchAnnouncements from "../hooks/use-fetch-announcements";
-import useFetchServerSideEventsAnnouncements from "../hooks/use-fetch-server-side-events-announcement";
 
 
 //TODO: Find out why the fetch announcements API is not working
 
 
-
+const ws = new WebSocket(WEBSOCKETS_URL);
 const Announcements = ({user_Role}) => {
 
     const {id} = useParams();
     const {announcements, redirect, isLoading } = useFetchAnnouncements();
     const [currentMess, setCurrentMess] = useState('');
-    // const announcements = new useFetchServerSideEventsAnnouncements();
    
     const handleDelete = async (itemToDelete) =>{
         // const itemToDelete = props;
