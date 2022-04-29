@@ -58,7 +58,9 @@ function App() {
           <Route path="/accountCreated"> 
             <AccountCreated/> 
           </Route>
-
+          <Route path="/endMeeting"> 
+              <HtmlEndMeeting/> 
+            </Route>
 
           <div className="content">
             <ProtectedRoute user_role="all" component={Navbar}/>      
@@ -118,10 +120,7 @@ function App() {
 
             <ProtectedRoute exact path="/account" user_role="all" component={Account}/>
 
-            <Route path="/endMeeting"> 
-              <HtmlEndMeeting/> 
-            </Route>
-                      
+                                 
             <ProtectedRoute exact path="/settings" user_role="all" component={Settings}/>
 
             <Route path="/logout"> 

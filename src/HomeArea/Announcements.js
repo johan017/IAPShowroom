@@ -67,11 +67,6 @@ const Announcements = ({user_Role}) => {
     }, []);
    
     const handleDelete = async (itemToDelete) =>{
-        // const itemToDelete = props;
-
-        
-        // props.preventDefault();
-
         try{
 
         await axios.delete(`api/showroom/announcement/${itemToDelete}`, {

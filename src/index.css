@@ -368,6 +368,15 @@ margin-left: 25px;
   top: 200px;
 }
 
+.html-endMeeting {
+  /* width:100%; */
+  padding: 8px;
+  margin-top: 15%;
+  margin-left: 25%;
+  display:inline-block;
+  align-items: center;
+}
+
 /*---------------------------------------------- ROOMS PAGE ----------------------------------------------*/
 
 .rooms button{
@@ -579,7 +588,7 @@ margin-left: 25px;
   display: inline-block;
 }
 .addNewEvent {
-  width: 30%;
+  /* width: 50%; */
   margin-right: 5%;
   margin-left: 5%;
   display: inline-block;
@@ -1102,7 +1111,7 @@ margin-left: 25px;
   margin-bottom: 30px;
 }
 
-.account-created p, .askChangePass p, .changePass p{
+.account-created p, .askChangePass p, .changePass p, .html-endMeeting p{
   /* margin-top: 30px; */
   margin-left: 10px;
   margin-right: 10px;
@@ -1114,7 +1123,7 @@ margin-left: 25px;
 }
 
 .generalInfoSignUp h2, .askChangePass h1, .changePass h1,  .generalInfoSignUp-student h2, 
-.generalInfoSignUp-verify h2, .generalInfoSignUp-acreated h2{
+.generalInfoSignUp-verify h2, .generalInfoSignUp-acreated h2, .html-endMeeting h1{
   /* font-size: 20px; */
   /* color:#f1356d; */
   margin-top: 30px;
@@ -1558,4 +1567,42 @@ color: #EA4C89;
   height: 20px;
 }
 
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 
