@@ -33,7 +33,7 @@ export default class UpcomingEvents extends Component{
 
         ws.onclose = () => {
             console.log('Upcoming Events WebSocket Client Disconnected');
-            ws.close();
+            // ws.close();
         }
 
         this.getEvents().then(response => this.updateEvents(response));
