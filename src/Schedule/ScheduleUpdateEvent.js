@@ -5,7 +5,6 @@ import useFetch from "../useFetch";
 import Calendar from './Calendar';
 import axios from "../context/axios";
 import useFetchUserInfo from "../hooks/use-fetch-all-user-info";
-import useFetchEvents from "../hooks/use-fetch-events";
 import { RestoreOutlined } from "@material-ui/icons";
 
 
@@ -24,6 +23,7 @@ function ScheduleUpdateEvent (props) {
     
     const {projects} = useFetchProjects();
     var  pathArray = window.location.pathname.split('/');
+    console.log("AHHHHHHHH",pathArray);
 
     var eid = parseInt(pathArray[2]);
     const history = useHistory();
@@ -34,9 +34,8 @@ function ScheduleUpdateEvent (props) {
     // }, []);
 
     const [event, setEvent] = useState();
-    const [redirect, setRedirect] = useState(false);
-    const [isLoading, setLoading] = useState(false);
-  
+
+
     const [defaultST, setDefaultST] = useState();
 
 //    console.log(new Date(event.starttime))
@@ -50,19 +49,20 @@ console.log (event)
             headers: {"Content-Type": "application/json"},
             withCredentials: true
         }) 
+        console.log("RESULT",result);
         setEvent(result.data.payload);
         setDefaultST(result.data.payload.starttime);
         } catch(error) {
             console.error(error.response.status);
             if(error.response.status = '401'){
-                setRedirect(true);
+               
             }
         }
-        setLoading(false);
+        // setLoading(false);
     };
 
     useEffect(()=>{
-        getEvents();
+       getEvents();
     }, []);
 
     // var defaultST = event.starttime;
@@ -165,8 +165,9 @@ console.log (event)
                 {/* // {events && ( */}
                     {project.project_id === eid &&(
                         <div>                        
-                            
-
+                        {event && (    
+                            <div>
+                         <h1>{new Date(event.starttime).toISOString('en-US').slice(0,16)}</h1>
                          <h2>Event Information</h2>
                          <label>Event Title: </label>
                          <input 
@@ -201,6 +202,8 @@ console.log (event)
                         </div>
                     )}
                 {/* )} */}
+                    </div>
+                    )}
                     </div>
 
                 ))}
