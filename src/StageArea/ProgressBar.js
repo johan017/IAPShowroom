@@ -1,10 +1,11 @@
 import axios from "../context/axios";
 import React, {Component} from 'react';
+const config = require('../config/config')
+
 
 const EVENTS_URL = "/api/showroom/schedule/events";
-const WEBSOCKETS_URL = 'ws://localhost:8080';
 
-const ws = new WebSocket(WEBSOCKETS_URL);
+const ws = new WebSocket(config.WebSocketURL);
 
 const HIGH = "green";
 const MEDIUM = "yellow";
@@ -45,7 +46,7 @@ export default class ProgressBar extends Component{
         ws.onmessage = (message) => {
             console.log("WebSocket received message:", message.data)
             const dataFromServer = JSON.parse(message.data);
-            if(dataFromServer.type === 'progressbar'){
+            if(dataFromServer.type === config.ws_progressbar){
                 this.getEvents().then(response => this.updateTimestamp(response));
             }
         };
@@ -90,7 +91,7 @@ export default class ProgressBar extends Component{
         }
     }
     getEvents = async() => {
-        console.log("getEvents: got here");
+        // console.log("getEvents: got here");
         try{
             const upcoming = true;
             const date = new Date().toLocaleDateString("en-US");
