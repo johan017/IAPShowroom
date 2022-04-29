@@ -86,35 +86,35 @@ svg{
 
 /*---------------------------------------------- HOME PAGE ----------------------------------------------*/
 
-/* .home{
+.home{
   /* width: 35%; */
-  /* display: flex; *
-} */
+  display: flex; 
+}
 
 /*Home schedule date container*/
 .home-container2{
-  margin-left: 45px;
-  /* widt */
+  margin-left: 8%;
+  width: 50%;
   display: flex;
   flex-direction: column;
 }
 .home-date-sched {
-  /* width: 70%;s */
+  /* width: 50%; */
+  margin-top: 2%;
+  /* align-items: center; */
+  display:inline-block;  
+}
+/* .home-date-sched-1 {
+  /* width: 62.5%; */
   /* margin-left: 5%; */
   /* align-items: center; */
-  display:inline-block; 
-}
-.home-date-sched-1 {
-  width: 62.5%;
-  /* margin-left: 5%; */
-  /* align-items: center; */
-  display:inline-block; 
-}
+  /* display:inline-block;  */
+/* }  */
 .home-date-sched label{
   font-size: 25px;
   font-weight: bold;
   border: 2px #ddd solid;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 
   border:hidden;
   box-sizing:content-box;
@@ -126,8 +126,8 @@ svg{
   font-size: 25px;
   font-weight: bold;
   border: 2px #ddd solid;
-  margin-left: 66%;
-  margin-top: 20px;
+  margin-left: 60%;
+  /* margin-top: 20px; */
   border:hidden;
   box-sizing:content-box;
   display:inline-block; 
@@ -156,16 +156,25 @@ svg{
   display: inline-block;
   cursor: pointer;
 }
+
+.announcements-home{
+  
+  margin-top:2%;
+  margin-left: 8%;
+  display: inline-block;
+}
+
 /*Display event list*/
+
 .events-home{
-  position: absolute;
+  /* position: absolute; */
   height: 500px;
   margin-bottom: 30px;
-  width: 57%;
-  left: 70px;
-  top: 220px;
+  /* width: 50%; */
+  margin-top: 5%;
   box-sizing: border-box;
   overflow-y: scroll;
+  display: inline-block;
 }
 
 .events-home p {
@@ -200,7 +209,7 @@ svg{
 }
 /*Announcemnts Container*/
 .home-container{
-  margin-left: 70%;
+  /* margin-left: 70%; */
   display: flex;
   flex-direction: column;
 }
