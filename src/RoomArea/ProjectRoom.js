@@ -13,10 +13,12 @@ const ProjectRoom = ({checked}) => {
 
     // const {id} = useParams();
     // const {data: event, error, isLoading} = useFetch('http://localhost:8000/projects/' + id); /* data is project because we want the id of a singular project */
-    // const {projects, isLoading} = useFetchProjects();
+    const {projects, isLoading} = useFetchProjects();
     const {events, loading} = useFetchEvents();   
     const [popup, setPopup] = useState(false);
+   
 
+    /** los eventos que son projects no devuelven abstracts */
     const changePopup = () =>{
         console.log(popup);
         if(popup === false){
@@ -31,6 +33,23 @@ const ProjectRoom = ({checked}) => {
 
     var eid = parseInt(pathArray[2]);
 
+    const getProject = (e) =>{
+        var inputArr = new Array();
+        for(var i = 0; i < projects.length; i++) {
+            if(e == projects[i].project_id){
+                inputArr.push(projects[i].title);
+                inputArr.push(", ");
+                inputArr.push(projects[i].abstract);
+
+            }
+        }
+
+        console.log("PInfoArr", inputArr)
+           
+        return inputArr;  
+     
+    }
+    var nArr = getProject(eid); //new Array();
     
     const handleStage = () =>{
         history.push('/stage');
@@ -43,13 +62,13 @@ const ProjectRoom = ({checked}) => {
             {events && events.map((event) =>(
                 <div key={event.meetid}>                 
 
-                    {event.meetid === eid &&(
+                    {event.projectid === eid &&(
                         <div>
-                            <div style={{marginLeft: "1000px"}}>
+                            {/* <div style={{marginLeft: "1000px"}}>
                             {checked && (<button onClick={handleStage} style={{backgroundColor: 'red'}}>STAGE LIVE</button>)}
                             {!checked && (<button onClick={handleStage}>STAGE LIVE</button>)}   
-                            </div>
-
+                            </div> */}
+                            {/* nArr = getProject(eid) */}
                             <div style={{marginLeft: "10px"}}>
                                 <button onClick={changePopup}>Project Information</button>  
                             </div>
@@ -57,11 +76,11 @@ const ProjectRoom = ({checked}) => {
                             
                             {popup == true && (
                                 <div>
-                                    <h2>{event.title}</h2>
-                                    <h3>{event.abstract}</h3> <br/>
-                                    {/* <h2>{project.iapproject_title}</h2>
-                                    <h3>{project.iapproject_abstract}</h3> <br/> */}
-                                    {/* <h4>{event.author}</h4>  */}
+                                    {/* <h2>{event.title}</h2>
+                                    <h3>{event.abstract}</h3> <br/> */}
+                                      <h2>{nArr[0]}</h2>
+                                    <h3>{nArr[2]}</h3> <br/>
+                                  
                                 </div>
                             )}
 

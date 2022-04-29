@@ -4,7 +4,7 @@ import useFetch from '../useFetch';
 // import ScrollToBottom from "react-scroll-to-bottom";
 import axios from "../context/axios";
 import useFetchAnnouncements from "../hooks/use-fetch-announcements";
-// import useFetchServerSideEventsAnnouncements from "./hooks/use-fetch-server-side-events-announcement";
+import useFetchServerSideEventsAnnouncements from "../hooks/use-fetch-server-side-events-announcement";
 
 
 //TODO: Find out why the fetch announcements API is not working
@@ -14,26 +14,45 @@ import useFetchAnnouncements from "../hooks/use-fetch-announcements";
 const Announcements = ({user_Role}) => {
 
     const {id} = useParams();
-    const {data: announcement} = useFetch('http://localhost:8000/announcements');
-    // const {announcements, redirect, isLoading } = useFetchAnnouncements();
-
+    const {announcements, redirect, isLoading } = useFetchAnnouncements();
     const [currentMess, setCurrentMess] = useState('');
+    // const announcements = new useFetchServerSideEventsAnnouncements();
    
+    const handleDelete = async (itemToDelete) =>{
+        // const itemToDelete = props;
+
+        
+        // props.preventDefault();
+
+        try{
+
+        await axios.delete(`api/showroom/announcement/${itemToDelete}`, {
+            headers: {"Content-Type": "application/json"},
+            withCredentials: true
+            }).then((res) => {
+                console.log(res.data)
+                console.log(`item  ${itemToDelete} deleted`)
+            }).catch((error)=>{
+                console.log(error)
+        });
+        }catch(err){
+
+        }
+
+    }
     
     const sendAnnouncement = async (event) =>{ 
 
         event.preventDefault();
 
         var messageData = {};
-        const currentDate = new Date(Date.now());
+        const currentDate = new Date(Date.now()).toLocaleString('en-US');
         if(currentMess !== ""){
             messageData ={
                 "message": currentMess,
                 "date": currentDate,
             };
             console.log("announcement", messageData);
-        
-
         }
         try{
 
@@ -48,78 +67,76 @@ const Announcements = ({user_Role}) => {
         }catch(err){
 
         }
-
         setCurrentMess('');
     }
 
-    // const getTime = (props) =>{
-    //     const time = props;
-    
-    //     const eventDate = new Date(time);
-    //     var eventHours = eventDate.getHours();
-    //     const ampm = eventHours >=12? 'PM' : 'AM';
-    //     eventHours = (eventHours%12) || 12;
-    //     const eventMinutes = String(eventDate.getMinutes()).padStart(2, '0');
-    //     const eventTime = eventHours+":"+eventMinutes+" "+ampm;
-    
-    //     // var eventMinute =new Date(time).getMinutes;
-    //     console.log("hours", eventTime);
-    //     return(eventTime);
-    // }
-
-
-    // const receiveAnnouncement = () =>{
-    //     // fetch('http://localhost:8000/announcements/'+ id, {
-    //     //     method: 'GET',
-           
-    //     // }).then (() => {
-    //     //     // setIsLoading(false); //when form is submitted; completed
-    //     // })
-    //     return(
-    //         <div  className="admin-ann">
-    //         {announcement && announcement.map((announce) => (
-    //             <div  key={announce.id}>
-    //                 <p>Message: {announce.message}</p>
-
-    //                 <p>Time: {announce.time}</p>
-    //                     {/* {receiveAnnouncement()} */}
-    //             </div>
-    //         ))}
-    //         </div>
-    //     );
-    // }
-
+    const getTime = (props) =>{
+        const time = props;
+        return(new Date(time).toLocaleTimeString('en-US', {hour: 'numeric', minute:'2-digit'}));
+    }
+  
 
     return ( 
         <div className="announcements" >
             {/* <div>{useFetchServerSideEventsAnnouncements()}</div> */}
-
-            <div className="admin-ann"> 
-                {/* <ScrollToBottom> */}
-                    {announcement && announcement.map((announce) => (
+            {user_Role !== "admin" && ( 
+            <div className="home-container">
+                <div className="ann-title">
+                    <h2>Announcements</h2>
+                </div>
+                <div style={{marginBottom: "30px"}}  className="admin-ann">
+                    {/* <ScrollToBottom> */}
+                    {announcements && announcements.map((announce) => (
                         <div className="announce-body" key={announce.announcementid}>
-                            {/* <p>{announce.a_content}</p><br/> */}
-                            <p>{announce.message}</p><br/>
-
-                            <text>{announce.time}</text>
-
-                            {/* <text>{getTime(announce.a_date)}</text> */}
-                                        {/* {receiveAnnouncement()} */}
+                            <p>{announce.a_content}</p><br/> 
+                            <text style={{marginLeft: "220px"}}>{getTime(announce.a_date)}</text>
                         </div>
                     ))}
-               {/* </ScrollToBottom> */}
-                
+
+                    {announcements.length === 0 && (
+                        <div className="announce-body">
+                            <p>No Announcemnts At The Moment</p>
+                        </div>
+                    )}
+                {/* </ScrollToBottom> */}
+                    
+                </div>
             </div>
+            )}
 
             {user_Role === "admin" && ( 
-                    <div className="announce-footer">
-                        <input 
-                            type="text" 
-                            placeholder="Enter Announcement" 
-                            value={currentMess}
-                            onChange={(event)=>{setCurrentMess(event.target.value)}}></input>
-                        <button onClick={sendAnnouncement}>Send</button>
-                    </div>
+            <div className="home-container">
+                <div className="ann-title">
+                <h2>Announcements</h2>
+                </div>
+                <div className="admin-ann">
+                    {/* <ScrollToBottom> */}
+                    {announcements && announcements.map((announce) => (
+                        <div className="announce-body" key={announce.announcementid}>
+                            <p>{announce.a_content}</p><br/> 
+                            <button onClick={() => {handleDelete(announce.announcementid)}}>Delete</button>
+                            <text>{getTime(announce.a_date)}</text>
+                        </div>
+                    ))}
+
+                    {announcements.length === 0 && (
+                        <div className="announce-body">
+                            <p>No Announcemnts At The Moment</p>
+                        </div>
+                    )}
+                {/* </ScrollToBottom> */}  
+                </div>
+
+                <div className="announce-footer">                    
+                    <input 
+                        type="text" 
+                        placeholder="Enter Announcement" 
+                        value={currentMess}
+                        onChange={(event)=>{setCurrentMess(event.target.value)}}>
+                    </input>
+                    <button onClick={sendAnnouncement}>Send</button>
+                </div>
+            </div>
             )}
 
         </div>

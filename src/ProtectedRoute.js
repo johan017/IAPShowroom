@@ -7,7 +7,7 @@ function isEmpty(obj) {
 }
 const ProtectedRoute = ({component: Component, user_role: user_Role, ...rest})  => {
     const { auth } = useAuth();
-    const {role}  = useGetRole();
+    const {role, uID}  = useGetRole();
     return(
         <Route {...rest} render={
             (props) => {
@@ -20,7 +20,7 @@ const ProtectedRoute = ({component: Component, user_role: user_Role, ...rest})  
                     return <Component user_Role={role} {...rest} {...props}/>
                 }
                 else if(!isEmpty(role) && role === user_Role) {
-                    return <Component  {...rest} {...props}/>
+                    return <Component user_Role={role} {...rest} {...props}/>
                 }
                 else if(!isEmpty(role) && role != user_Role) {
                     return (
