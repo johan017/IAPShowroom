@@ -5,10 +5,7 @@ import React, {Component} from 'react';
 
 const EVENTS_URL = "/api/showroom/schedule/events";
 const WEBSOCKETS_URL = 'ws://localhost:8080';
-// const SSE_URL = "/api/showroom/sse";
 const MINUTESTOMILLISECONDS = 60000;
-
-var TIMETOEND;
 
 const ws = new WebSocket(WEBSOCKETS_URL);
 export default class UpcomingEvents extends Component{
@@ -119,9 +116,7 @@ export default class UpcomingEvents extends Component{
         let {update, currentstarttime, currentendtime, upcomingstarttime, currenttitle, upcomingtitle} = this.state
 
         const date = new Date();
-        const start = +new Date(date.toLocaleDateString("en-US")+' '+ currentstarttime);
         const end = +new Date(date.toLocaleDateString("en-US")+' '+ currentendtime);
-        // TIMETOEND = end - start;
         const diff = end - +date;
         console.log("diff:", diff);
 
