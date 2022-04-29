@@ -368,6 +368,15 @@ margin-left: 25px;
   top: 200px;
 }
 
+.html-endMeeting {
+  /* width:100%; */
+  padding: 8px;
+  margin-top: 15%;
+  margin-left: 25%;
+  display:inline-block;
+  align-items: center;
+}
+
 /*---------------------------------------------- ROOMS PAGE ----------------------------------------------*/
 
 .rooms button{
@@ -579,7 +588,7 @@ margin-left: 25px;
   display: inline-block;
 }
 .addNewEvent {
-  width: 30%;
+  /* width: 50%; */
   margin-right: 5%;
   margin-left: 5%;
   display: inline-block;
@@ -1102,7 +1111,7 @@ margin-left: 25px;
   margin-bottom: 30px;
 }
 
-.account-created p, .askChangePass p, .changePass p{
+.account-created p, .askChangePass p, .changePass p, .html-endMeeting p{
   /* margin-top: 30px; */
   margin-left: 10px;
   margin-right: 10px;
@@ -1114,7 +1123,7 @@ margin-left: 25px;
 }
 
 .generalInfoSignUp h2, .askChangePass h1, .changePass h1,  .generalInfoSignUp-student h2, 
-.generalInfoSignUp-verify h2, .generalInfoSignUp-acreated h2{
+.generalInfoSignUp-verify h2, .generalInfoSignUp-acreated h2, .html-endMeeting h1{
   /* font-size: 20px; */
   /* color:#f1356d; */
   margin-top: 30px;

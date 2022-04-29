@@ -26,10 +26,11 @@ function ScheduleUpdateEvent (props) {
     var  pathArray = window.location.pathname.split('/');
 
     var eid = parseInt(pathArray[2]);
+    const history = useHistory();
 
     console.log("url_id",eid)
     // useEffect(()=>{
-        // getEvents();
+    //     getEvents();
     // }, []);
 
     const [event, setEvent] = useState();
@@ -38,7 +39,9 @@ function ScheduleUpdateEvent (props) {
   
     const [defaultST, setDefaultST] = useState();
 
-   
+//    console.log(new Date(event.starttime))
+console.log (event)
+// console.log(event.isdeleted)
 
     const getEvents = async() =>{
         try{
@@ -66,7 +69,7 @@ function ScheduleUpdateEvent (props) {
 
     // const defaultst = new Date(event.starttime).toISOString('en-US').slice(0,16);
 
-//   console.log("event starttime", event.starttime);
+//   console.log("event ", event);
 //     console.log("event starttime type", typeof(event.starttime));
 //     console.log("event starttime", new Date(event.starttime).toISOString('en-US').slice(0,16));
 //     console.log("event starttime", new Date(event.starttime).toLocaleString('en-US'));
@@ -103,6 +106,7 @@ function ScheduleUpdateEvent (props) {
     // console.log("event starttime formatFN", formatDate(startTime))
 
     console.log ("projects", projects)
+
     const handleEvent = async () =>{ 
         console.log("start time", startTime)
         var messageData = {
@@ -133,29 +137,28 @@ function ScheduleUpdateEvent (props) {
        
     }
 
-
+ const handleDelete = async () =>{ 
+        console.log("Item deleted")
+        await axios.delete(`api/showroom/schedule/events/${eid}`,  {
+            headers: {"Content-Type": "application/json"},
+            withCredentials: true
+            }).then((res) => {
+                console.log(res.data)
+            }).catch((error)=>{
+                console.log(error)
+        });
+        history.push('/cal');
+      
+    }
 
    
    
-    // const handleDelete = (props) =>{
-    //     const eventID = props;
-
-    //     fetch('http://localhost:8000/events/'+ eventID, {
-    //         method: 'DELETE'
-    //     }).then(() => {
-    //         history.push('/cal');
-    //     })
-    //     // isDeleted = true;
-    // }
-
-    // useEffect(async ()=> {
-    //     let result = await fetch(`http://localhost:8000/events/${props.match.params.id}`);
-    //     result = await result.json();
-    //     setData(result);
-    // })
-
     return ( 
         <div className = "Event-information">
+            {event && (
+            //     <div>
+            // {event.isdeleted === false && (
+
             <div className="addNewEvent">
                 {projects && projects.map((project)=>(
                     <div key={project.project_id}>  
@@ -176,7 +179,7 @@ function ScheduleUpdateEvent (props) {
                          <input
                              type="datetime-local"
                              // required
-                             defaultValue={new Date(defaultST).toISOString('en-US').slice(0,16)}
+                             defaultValue={new Date(event.starttime).toISOString('en-US').slice(0,16)}
                             //  value = {startTime}
                              onChange = {(e) => setStartTime(e.target.value)}
          
@@ -194,7 +197,7 @@ function ScheduleUpdateEvent (props) {
                                  <button style={{ background: 'gray' }}>Cancel</button>
                          </Link>
                          <button style={{ background: '#3B8D25' }}  onClick={() => {handleEvent(); setProjectID(project.project_id); setTitle(project.title); }}>Update Event</button> 
-                         <button>Delete Event</button>
+                         <button onClick={handleDelete}>Delete Event</button>
                         </div>
                     )}
                 {/* )} */}
@@ -203,6 +206,61 @@ function ScheduleUpdateEvent (props) {
                 ))}
                
             </div>
+            )}
+
+
+            {!event && (
+
+            <div className="addNewEvent">
+                {projects && projects.map((project)=>(
+                    <div key={project.project_id}>  
+                {/* // {events && ( */}
+                    {project.project_id === eid &&(
+                        <div>                        
+                            
+
+                        <h2>Event Information</h2>
+                        <label>Event Title: </label>
+                        <input 
+                            type="text" 
+                            defaultValue={project.title}
+                            //  value={title}
+                            onChange = {(e) => setTitle(e.target.value)}
+                        />
+                        <label>Start Time: </label>
+                        <input
+                            type="datetime-local"
+                            // required
+                            // defaultValue={new Date(defaultST).toISOString('en-US').slice(0,16)}
+                             value = {startTime}
+                            onChange = {(e) => setStartTime(e.target.value)}
+
+                        ></input>
+                        <label>Duration: </label>
+                        <input 
+                            type="number" 
+                            // required 
+                            // defaultValue={duration}
+                             value = {duration}
+                            onChange = {(e) => setDuration(e.target.value)}
+                        ></input>
+                    
+                        <Link to ={"/cal"}>
+                                <button style={{ background: 'gray' }}>Cancel</button>
+                        </Link>
+                        <button style={{ background: '#3B8D25' }}  onClick={() => {handleEvent(); setProjectID(project.project_id); setTitle(project.title); }}>Update Event</button> 
+                        <button onClick={handleDelete}>Delete Event</button>
+                        </div>
+                    )}
+                {/* )} */}
+                    </div>
+
+                ))}
+            
+            </div>
+            )}
+            {/* </div> */}
+                
 
             <div className="Event-information-calendar">
                 <Calendar/>

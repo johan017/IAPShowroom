@@ -19,11 +19,6 @@ const Announcements = ({user_Role}) => {
     // const announcements = new useFetchServerSideEventsAnnouncements();
    
     const handleDelete = async (itemToDelete) =>{
-        // const itemToDelete = props;
-
-        
-        // props.preventDefault();
-
         try{
 
         await axios.delete(`api/showroom/announcement/${itemToDelete}`, {
