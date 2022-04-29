@@ -30,7 +30,7 @@ const C2 = () => {
       end: dataItem.endtime,
       title: dataItem.title,
     }));
-  
+  console.log("sampleData", sampleData)
     const modelFields ={
         id: "id",
         title: "title",
