@@ -10,33 +10,27 @@ const currentYear = new Date().getFullYear();
 const currentMonth =new Date().getMonth();
 const currentDay = new Date().getDate();
 
-const parseAdjust = eventDate => {
-    const date = new Date(eventDate);
-    date.setFullYear(currentYear);
-    return date;
-};
-var sampleData = "";
+// const parseAdjust = eventDate => {
+//     const date = new Date(eventDate);
+//     date.setFullYear(currentYear);
+//     return date;
+// };
 
 const C2 = () => {
-    const {data: events, error, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
-    // const [info, setInfo] = useState(events);
-    // const {events, loading } = useFetchEvents();
-    // const conferenceDate = new Date(2022, 4, 14);
     const displayDate = new Date(currentYear, currentMonth, currentDay);
-
-    //Assigning the events to the Calendar
-    {events && (
-        sampleData =  events.map((dataItem) => ({
-                id: dataItem.id,
-                start: parseAdjust(dataItem.start),
-            //     startTimezone: dataItem.StartTimezone,
-                end: parseAdjust(dataItem.end),
-            //     endTimezone: dataItem.EndTimezone,
-            //     isAllDay: dataItem.isAllDay,
-                title: dataItem.title
-        }))
-    )}
-  
+    const {events, isLoading} = useFetchEvents();
+    for(let i=0; i < events.length; i++) {
+        let milli = new Date(events[i].starttime).getTime()+events[i].duration*60000;
+        let end = new Date(milli)
+        events[i]['endtime'] = end;
+    }
+    const sampleData = events.map((dataItem) => ({
+      id: dataItem.meetid,
+      start: new Date(dataItem.starttime),
+      end: dataItem.endtime,
+      title: dataItem.title,
+    }));
+  console.log("sampleData", sampleData)
     const modelFields ={
         id: "id",
         title: "title",
@@ -57,7 +51,7 @@ const C2 = () => {
           <DayView 
             title="" 
             numberOfDays={1} 
-            slotDuration={60} 
+            slotDuration={15} 
             slotDivisions={2} 
             startTime={"00:00"} 
             endTime={"23:59"} 

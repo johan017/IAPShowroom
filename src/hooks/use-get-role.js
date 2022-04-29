@@ -5,6 +5,7 @@ const ROLE_URL = "api/auth/user-info"
 const useGetRole = () => {
     const [isLoading, setLoading] = useState(true);
     const [role, setRole] = useState([]);
+    const [uID, setuID] = useState([]);
 
     const getRole = async() =>{
         try{
@@ -14,6 +15,7 @@ const useGetRole = () => {
                     withCredentials: true
                 });
                 setRole(result.data.payload.user_role);
+                setuID(result.data.payload.adminid);
                 setLoading(false);
                // setLoading(false);
         }catch(err){
@@ -27,6 +29,7 @@ const useGetRole = () => {
 
     return {
         role,
+        uID,
         isLoading
       };
 };
