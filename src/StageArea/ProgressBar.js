@@ -1,7 +1,11 @@
 import axios from "../context/axios";
 import React, {Component} from 'react';
+const config = require('../config/config')
+
 
 const EVENTS_URL = "/api/showroom/schedule/events";
+
+const ws = new WebSocket(config.WebSocketURL);
 
 const HIGH = "green";
 const MEDIUM = "yellow";
@@ -13,7 +17,7 @@ function getbarstyle(completed, bgcolor) {
         width: `${completed}%`,
         backgroundColor: bgcolor,
         borderRadius: 'inherit',
-        textAlign: 'center'
+        'text-align': 'center'
     };
 } 
 
@@ -34,22 +38,34 @@ export default class ProgressBar extends Component{
     
 
     componentDidMount(){
-        const source = new EventSource(`http://localhost:8080/api/showroom/sse`, {withCredentials: true});
-      
-        source.addEventListener('open', () => {
-            console.log('SSE opened for progress bar!');
-        });
-        source.addEventListener('progress', this.getEvents().then(response => this.updateTimestamp(response)));
-
         this.mounted = true;
+
+        ws.onopen = () => {
+            console.log('Upcoming Events WebSocket Client Connected');
+        };
+        ws.onmessage = (message) => {
+            console.log("WebSocket received message:", message.data)
+            const dataFromServer = JSON.parse(message.data);
+            if(dataFromServer.type === config.ws_progressbar){
+                this.getEvents().then(response => this.updateTimestamp(response));
+            }
+        };
+
+        ws.onclose = () => {
+            console.log('Upcoming Events WebSocket Client Disconnected');
+            ws.close();
+        }
+
+        this.getEvents().then(response => this.updateTimestamp(response));
+
         this.mounted && setInterval(() => {
             if(this.state.endtime != '0:00'){
 
-                let eventDate = +new Date(this.state.endtime);
-                let difference = eventDate - +new Date();
+                let eventTime = +new Date(this.state.endtime);
+                let difference = eventTime - +new Date();
 
                 if (difference < 1) {
-                this.setState({ timeUp: true });
+                    this.setState({ timeUp: true });
                 } else {
                     let hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
                     let minutes = Math.floor((difference / (1000 * 60)) % 60);
@@ -65,6 +81,7 @@ export default class ProgressBar extends Component{
     }
     componentWillUnmount(){
         this.mounted = false;
+        ws.close();
         clearInterval();
     }
 
@@ -74,7 +91,7 @@ export default class ProgressBar extends Component{
         }
     }
     getEvents = async() => {
-        console.log("getEvents: got here");
+        // console.log("getEvents: got here");
         try{
             const upcoming = true;
             const date = new Date().toLocaleDateString("en-US");
@@ -101,31 +118,35 @@ export default class ProgressBar extends Component{
 
     updateTimestamp(response){
         if(response[0]){
-            // console.log("response[0]: is a thing");
-            // console.log(response);
             const MINUTESTOMILLISECONDS = 60000;
             let st = new Date(response[0]['starttime']);
             const starttime = st.toLocaleString("en-US");
             const endtime = new Date(+st +  response[0]['duration'] * MINUTESTOMILLISECONDS).toLocaleString("en-US");
 
-            this.setState({ timeUp: false, starttime: starttime, endtime: endtime });
+            this.setState({ 
+                timeUp: false,
+                starttime: starttime, 
+                endtime: endtime 
+            });
         }
         else{
-            console.log("response[0]: is not a thing");
-            this.setState({ timeUp: false, starttime: '0:00', endtime: '0:00', hours: '0', minutes: '0', seconds: '0' });
+            this.setState({ 
+                timeUp: false, 
+                starttime: '0:00', 
+                endtime: '0:00', 
+                hours: '0', 
+                minutes: '0', 
+                seconds: '0' 
+            });
         }
     }
 
     render(){
         const {hours, minutes, seconds, timeUp, starttime, endtime} = this.state
 
-        console.log("progressstate:", this.state);
-
-        let start = +new Date(this.state.starttime);
-        let end = +new Date(this.state.endtime);
+        let start = +new Date(starttime);
+        let end = +new Date(endtime);
         let diff = start - +new Date();
-
-        
 
         let duration = end-start;
         
@@ -133,19 +154,17 @@ export default class ProgressBar extends Component{
         let color = completed < 5 ? LOW : completed < 20 ? MEDIUM : HIGH;
         const barstyle = getbarstyle(completed, color);
         
-            
-
         if(timeUp || diff > 1) return (<p></p>);
         
         else {
 
             if(hours == '0' && minutes == '0' && seconds == '0') return (<p></p>);
 
-            else if(hours == '0' && minutes == '0') return (<div className="BarContainer"><div className="progressBar" style={barstyle}><span>{ `.` }</span></div></div>);
+            else if(hours == '0' && minutes == '0') return (<div className="BarContainer"><div className="progressBar" style={barstyle}><span style={{padding: '5px'}}>{ `${seconds}s` }</span></div></div>);
 
-            else if(hours == '0') return (<div className="BarContainer"><div className="progressBar" style={barstyle}><span>{ `${minutes} m` }</span></div></div>);
+            else if(hours == '0') return (<div className="BarContainer"><div className="progressBar" style={barstyle}><span>{ `${minutes}m` }</span></div></div>);
 
-            else return (<div className="BarContainer"><div className="progressBar" style={barstyle}><span>{ `${hours} h ${minutes} m` }</span></div></div>);
+            else return (<div className="BarContainer"><div className="progressBar" style={barstyle}><span>{ `${hours}h ${minutes}m` }</span></div></div>);
             
         }
     }
