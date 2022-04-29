@@ -5,7 +5,6 @@ import useFetch from "../useFetch";
 import Calendar from './Calendar';
 import axios from "../context/axios";
 import useFetchUserInfo from "../hooks/use-fetch-all-user-info";
-import useFetchEvents from "../hooks/use-fetch-events";
 import { RestoreOutlined } from "@material-ui/icons";
 
 
@@ -24,6 +23,7 @@ function ScheduleUpdateEvent (props) {
     
     const {projects} = useFetchProjects();
     var  pathArray = window.location.pathname.split('/');
+    console.log("AHHHHHHHH",pathArray);
 
     var eid = parseInt(pathArray[2]);
 
@@ -33,9 +33,8 @@ function ScheduleUpdateEvent (props) {
     // }, []);
 
     const [event, setEvent] = useState();
-    const [redirect, setRedirect] = useState(false);
-    const [isLoading, setLoading] = useState(false);
-  
+
+
     const [defaultST, setDefaultST] = useState();
 
    
@@ -47,19 +46,20 @@ function ScheduleUpdateEvent (props) {
             headers: {"Content-Type": "application/json"},
             withCredentials: true
         }) 
+        console.log("RESULT",result);
         setEvent(result.data.payload);
         setDefaultST(result.data.payload.starttime);
         } catch(error) {
             console.error(error.response.status);
             if(error.response.status = '401'){
-                setRedirect(true);
+               
             }
         }
-        setLoading(false);
+        // setLoading(false);
     };
 
     useEffect(()=>{
-        getEvents();
+       getEvents();
     }, []);
 
     // var defaultST = event.starttime;
@@ -162,8 +162,9 @@ function ScheduleUpdateEvent (props) {
                 {/* // {events && ( */}
                     {project.project_id === eid &&(
                         <div>                        
-                            
-
+                        {event && (    
+                            <div>
+                         <h1>{new Date(event.starttime).toISOString('en-US').slice(0,16)}</h1>
                          <h2>Event Information</h2>
                          <label>Event Title: </label>
                          <input 
@@ -176,7 +177,8 @@ function ScheduleUpdateEvent (props) {
                          <input
                              type="datetime-local"
                              // required
-                             defaultValue={new Date(defaultST).toISOString('en-US').slice(0,16)}
+
+                             defaultValue={new Date(event.starttime).toISOString('en-US').slice(0,16)}
                             //  value = {startTime}
                              onChange = {(e) => setStartTime(e.target.value)}
          
@@ -195,6 +197,8 @@ function ScheduleUpdateEvent (props) {
                          </Link>
                          <button style={{ background: '#3B8D25' }}  onClick={() => {handleEvent(); setProjectID(project.project_id); setTitle(project.title); }}>Update Event</button> 
                          <button>Delete Event</button>
+                         </div>
+                         )}
                         </div>
                     )}
                 {/* )} */}
