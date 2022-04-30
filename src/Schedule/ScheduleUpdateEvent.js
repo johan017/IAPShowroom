@@ -112,19 +112,19 @@ function ScheduleUpdateEvent (props) {
 
     {/* if an event does not exist - creat event [post] */}
     const handleProjToEvent = async () =>{
-        var messageData = {
+        var messageData = [{
             "adminid": userInfo.adminid,
             "projectid": projectID, //parseInt(projectID),
             "starttime": formatDate(startTime), //new Date(endTime).toLocaleString(),
             "duration": parseInt(duration),
             "title": title,
             "e_date": formatDate2(startTime), //new Date(startTime), //.toLocaleString('en-US'),
-        };
+        }];
         console.log("event", messageData);
 
         try{
 
-        await axios.post(`api/showroom/schedule/events/${eid}`, messageData, {
+        await axios.post(`api/showroom/schedule/events`, messageData, {
             headers: {"Content-Type": "application/json"},
             withCredentials: true
             }).then((res) => {
