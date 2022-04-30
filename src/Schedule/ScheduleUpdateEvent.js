@@ -111,11 +111,11 @@ function ScheduleUpdateEvent (props) {
         }
         const messageData = [{
             "adminid": userInfo.adminid,
-            "projectid": id, //parseInt(projectID),
-            "starttime": formatDate(startTime), //new Date(endTime).toLocaleString(),
+            "starttime": formatDate(startTime),
             "duration": parseInt(duration),
             "title": inputTitle,
-            "e_date": formatDate2(startTime), //new Date(startTime), //.toLocaleString('en-US'),
+            "projectid": id, 
+            "e_date": formatDate2(startTime), 
         }];
         console.log("event", messageData);
 
@@ -129,6 +129,7 @@ function ScheduleUpdateEvent (props) {
             }).catch((error)=>{
                 console.log(error)
         });
+        history.push('/cal');
         }catch(err){
 
         }
@@ -168,6 +169,7 @@ function ScheduleUpdateEvent (props) {
             }).catch((error)=>{
                 console.log(error)
         });
+        history.push('/cal');
         }catch(err){
 
         }
