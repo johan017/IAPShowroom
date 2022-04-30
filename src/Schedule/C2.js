@@ -1,9 +1,11 @@
 import * as React from 'react';
 import Calendar from './Calendar';
 import { useHistory} from "react-router-dom";
-
+import {useState} from 'react';
+import ProjectList from './ProjectList';
 import EventList from './EventList';
 import useFetch from '../useFetch';
+
 
 const C2 = () => {
 
@@ -20,13 +22,34 @@ const C2 = () => {
         e.preventDefault();
         history.push('/schedule/review');
     }
+
+    const [popup, setPopup] = useState(false);
+       /** los eventos que son projects no devuelven abstracts */
+    const changePopup = () =>{
+        console.log(popup);
+        if(popup === false){
+            setPopup(true);
+        } else {
+            setPopup(false);
+        }
+    }
   return (
     <div className="cal2">
       {/* {error && <div> {error} </div>}
       {isLoading && <div> Loading...</div>} */}
-
+       <div className="schedule-container">
+       <div className="sched-buttons">
+       <button onClick={() => changePopup()}> Projects </button>
+       </div>
       <div className="cal22">
+        
+        {popup === true && (
+          <ProjectList></ProjectList>
+        )}
         {<EventList></EventList>}
+
+
+      </div>
       </div>
       
       <div className="schedule-container">

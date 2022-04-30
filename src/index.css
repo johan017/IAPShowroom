@@ -531,6 +531,17 @@ margin-left: 25px;
   margin-left: 50px;
   display: flex;
 }
+.sched-buttons button{
+  background: #008DED;
+  color: #fff;
+  border: 0;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-top: 10px;
+  /* height: 40px; */
+}
 .cal22{
   max-width: 500px; 
   height: 650px;
@@ -890,15 +901,19 @@ margin-left: 25px;
 
 
 /*---------------------------------------------- PROJECT ROOM PAGE ----------------------------------------------*/
+/* .project-room{
+  display: flex;
+} */
+
 .project-room h2{
   font-size: 20px;
   color: #f1356d;
   margin-bottom: 10px;
 }
 
-.project-room div{
+/* .project-room {
   margin: 20px 0;
-}
+} */
 .project-room button{
   /* font-size: 25px; */
   background: #008DED;
@@ -921,7 +936,34 @@ margin-left: 25px;
    display: inline-block;
 
 }
-
+.student-room-info h4{
+  margin-left: 120px;
+  /* display: inline-block; */
+}
+.student-room-info li{
+  margin-left: 140px;
+  /* display: inline-block; */
+}
+.advisor-room-info h4{
+  margin-left: 120px;
+  /* display: inline-block; */
+}
+.advisor-room-info li{
+  margin-left: 140px;
+  /* display: inline-block; */
+}
+/* .advisor-room-info{ */
+  /* margin-left: 70%; */
+  /* display: flex; */
+/* } */
+.proj-info-button-room h2, .proj-info-button-room h3,.proj-info-button-room p {
+  /* width: 100%; */
+  margin-left: 100px;
+}
+/* .proj-info-button-room-container{
+  display: flex;
+  flex-direction: column;
+} */
 
 
 
@@ -952,6 +994,7 @@ margin-left: 25px;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  /* display: inline-block; */
 }
 
 /*---------------------------------------------- LOG IN ----------------------------------------------*/
@@ -1310,11 +1353,15 @@ margin-left: 25px;
 }
 
 /*---------------------------------------------- STAGE ----------------------------------------------*/
-.bbb div {
+.bbb {
   display: flex;
   justify-content: center;
 }
-
+/* .temp{
+  width: 100%;
+  /* margin-left: 50%; *
+  display: inline-block;
+} */
 .iframe {
   display: block;
   width: 100%;
@@ -1385,7 +1432,7 @@ margin-left: 25px;
         transform: rotate(360deg);
     }
 } */
-
+/* 
 .k-i-loading.k-example-loading {
     font-size: 64px;
     position: absolute;
@@ -1402,8 +1449,8 @@ margin-left: 25px;
     left: 50%;
     display: inline-block;
     content: "";
-    box-sizing: inherit;
-    border-radius: 50%;
+    box-sizing: inherit; */
+    /* border-radius: 50%;
     border-width: .05em;
     border-style: solid;
     border-color: currentColor;
@@ -1471,7 +1518,7 @@ margin-left: 25px;
 }
 .event-log li:last-child {
     margin-bottom: -1px;
-}
+} */
 
 .overlay {
   position: fixed;
