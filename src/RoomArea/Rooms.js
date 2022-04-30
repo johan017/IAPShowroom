@@ -16,7 +16,7 @@ const Rooms = ({checked}) => {
     return ndate;
   }
 
-  const ROOM_STATS_URL = `api/showroom/rooms/status?date=${getDate(cdate)}`;
+  const ROOM_STATS_URL = "api/showroom/rooms/status"; //?date=${getDate(cdate)}`;
 
   const [roomStats, setRoomStats] = useState([]);
   const [redirect, setRedirect] = useState(false);
@@ -57,7 +57,7 @@ const Rooms = ({checked}) => {
         <div style={{border: "1px solid #E5E5E5"}}className="project-rooms">
           <>
           {roomStats && roomStats.map((roomS)=>(
-            <Link to ={`/project_room/${1}`} > 
+            <Link to ={`/project_room/${roomS.project_id}`} > 
               <p style={{marginLeft: "10px", marginTop: "10px"}}>{roomS.title}</p>
               <br/> 
               <img 
