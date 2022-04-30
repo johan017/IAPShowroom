@@ -3,6 +3,8 @@ import Announcements from "./Announcements";
 import useFetchEvents from "../hooks/use-fetch-events";
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { useState} from 'react';
+import axios from "../context/axios";
 
 
 export default function Home({user_Role, checked}) {  
@@ -18,14 +20,43 @@ export default function Home({user_Role, checked}) {
     return(new Date(time).toLocaleTimeString([], {hour: 'numeric', minute:'2-digit'}));
   }
 
-  const {
-    events,
-    redirect,
-    loading
-  } = useFetchEvents();
+  const { events, redirect, loading} = useFetchEvents();
+
+  var modal;
+  const [roomInfo, setRoomInfo] = useState('');
+  const [title, setModalTitle] = useState('');
+
+
+  const showSpeakers = async(pID, title) => {
+    modal = document.getElementById("myModal");
+    modal.style.display = "block";
+    try{
+      const result = await axios.get(`api/showroom/qna/info/1?meeting_id=${pID}`, 
+      {
+          headers: {"Content-Type": "application/json"},
+          withCredentials: true
+      }) 
+      setRoomInfo(result.data.payload.project_members);
+      setModalTitle(title)
+      } catch(error) {
+          console.error(error.response.status);
+      }
+  }
+
+  const closeModal = () => {
+    document.getElementById("myModal").style = "none";
+  }
+
+  window.onclick = function(event) {
+    if (event.target == document.getElementById("myModal")) {
+      document.getElementById("myModal").style = "none";
+    }
+  }
+
 
   const displayEvents = (props) => {
     const e = props;
+    if(roomInfo) console.log("Got room Info ", roomInfo)
     if(e.length>0){
       return(
         e.map((event) => {
@@ -34,13 +65,44 @@ export default function Home({user_Role, checked}) {
                 <p>{getTime(event.starttime)}</p>
             <div className="project-preview">
               <h2>{event.title}</h2>  <br/>
-              <Link to={`/project_room/${event.meetid}`}>
-                <button>Speakers</button>  
-              </Link> 
-              <Link to ={`/project_room/${event.meetid}`}>           
+              {event.projectid && ( 
+              <div>
+              {/* <Link to={`/project_room/${event.meetid}`}> */}
+                <button onClick={() => {showSpeakers(event.projectid, event.title)}} >Speakers</button>  
+              {/* </Link>  */}
+              <Link to ={`/project_room/${event.projectid}`}>           
                 <button>Room</button>
                       {/* <p>Written by {project.author} </p> */}
               </Link>
+              
+              <div id="myModal" class="modal">
+              
+                <div id="myModal" class="modal-content">
+                  <span onClick={() => {closeModal()}}class="close">&times;</span>
+                  <h2>{title}</h2>
+                  <h4> Student Researchers </h4>
+                  {roomInfo && roomInfo.map((member)=> ( 
+                    <>
+                    {member.user_role === "Student Researcher" ? (
+                    <li>{member.first_name} {member.last_name}</li>
+                    ):(<></>)}
+                    </>
+                  ))} 
+                  <br></br>
+                  <h4> Advisors </h4>
+                   {roomInfo && roomInfo.map((member)=> ( 
+                    <>
+                    {member.user_role === "Advisor" ? (
+                    <li>{member.first_name} {member.last_name}</li>
+                    ):(<></>)}
+                    </>
+                  ))} 
+                  {/* <p>Some text in the Modal..</p> */}
+                </div>
+              
+              </div>
+              </div>
+              )}
             </div>
           </div>       
           )

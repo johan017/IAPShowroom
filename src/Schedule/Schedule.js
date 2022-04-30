@@ -3,7 +3,7 @@ import { useState } from "react";
 import Calendar from './Calendar';
 import useFetch from "../useFetch";
 import { useHistory } from 'react-router-dom';
-import EventList from './EventList';
+// import EventList from './EventList';
 import useFetchEvents from "../hooks/use-fetch-events";
 import { getDate } from '@progress/kendo-date-math';
 

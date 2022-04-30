@@ -8,24 +8,32 @@ const EVENTS_URL = "api/showroom/schedule/events"
 
 const ScheduleNewEvent = () => {
     const {uID}  = useGetRole();
-    const {id} = useParams();
     const adminid = uID;
     const [title, setTitle] = useState('');
     const [starttime, setStart] = useState('');
-    const [end, setEnd] = useState('');
+    const [duration, setDuration] = useState('');
     const [isLoading, setIsLoading] = useState(false); // when first loading the page the POST request is not being made; only after sumbitting form is when request is made
     const history = useHistory();
     const projectid= null;
 
+    const formatDate2 = (date) =>{
+        const splitDate = date.split('T');
+        const sdate = splitDate[0].toString();
+        console.log("date", sdate)
+        const stime = "00:00:00";
+        console.log("time", stime)
+
+        return `${sdate}`+" "+`${stime}`;
+    }
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
-        var difference = new Date(end) - new Date(starttime);
-        let duration = Math.floor((difference / (1000 * 60)));
+        // var difference = new Date(end) - new Date(starttime);
+        // let duration = Math.floor((difference / (1000 * 60)));
 
-        var e_date = starttime;
+        var e_date = formatDate2(starttime);
 
-        const event = [{adminid,  starttime, duration, title, projectid, e_date}];
+        const event = [{adminid,  starttime, "duration": parseInt(duration), title, projectid, e_date}];
         //const event = {title, starttime, end};
         setIsLoading(true); //before submitting
 
@@ -64,12 +72,12 @@ const ScheduleNewEvent = () => {
                     onChange = {(e) => setStart(e.target.value)}
 
                 ></input>
-                <label>End Time: </label>
+                <label>Duration: </label>
                 <input 
-                    type="datetime-local" 
+                    type="number" 
                     required 
-                    value = {end}
-                    onChange = {(e) => setEnd(e.target.value)}
+                    value = {duration}
+                    onChange = {(e) => setDuration(e.target.value)}
                 ></input>
                
                 {!isLoading && <button>Add Event</button>} {/** adds the new event  */}

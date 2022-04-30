@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+import axios from "../context/axios";
 
 
 
@@ -10,17 +11,37 @@ const AskChangePassword = () => {
    
     const [isLoading, setIsLoading] = useState(false); 
     
-    
+    const handlePassChange = async (e) =>{ 
+        e.preventDefault();
+        var messageData = {
+              "email": email,
+        };
+        
+        console.log("email", messageData);
+
+        try{
+
+        await axios.post('api/auth/forgot-pass?sendemail=true', messageData, {
+            headers: {"Content-Type": "application/json"},
+            // withCredentials: true
+            }).then((res) => {
+                console.log(res.data)
+            }).catch((error)=>{
+                console.log(error)
+        });
+        }catch(err){
+
+        }
+        history.push('/')
+    }
+
     return ( 
         <div  className="askChangePass">
-             <h1>Reset Password</h1>
+            <h1>Reset Password</h1>
 
-             <p>A link will be sent to the email account provided below. Make sure this is your IAPShowroom account email.</p>
+            <p>A link will be sent to the email account provided below. Make sure this is your IAPShowroom account email.</p>
 
-             <form >
-
-            {/* <form onSubmit = {async (e) => handleSubmit(e)}> */}
-                {/* <label>Email: </label> */}
+            <form>
                 <input 
                     type="email" 
                     placeholder="Enter your Email"
@@ -29,7 +50,7 @@ const AskChangePassword = () => {
                     onChange = {(e) => setEmail(e.target.value)}
                 />
                                
-                {!isLoading && <button style={{width: "75px"}}>Send</button>} {/** adds the new event  */}
+                {!isLoading && <button style={{width: "75px"}} onClick={handlePassChange}>Send</button>} {/** adds the new event  */} {/** post email a /api/auth/forgot-pass?sendemail=true */}
                 {isLoading && <button disabled>Sending...</button>} {/** add event button disabled while loading  */}
 
             </form>

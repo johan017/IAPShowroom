@@ -363,9 +363,18 @@ margin-left: 25px;
 
 .stage-upcoming{
   position: absolute;
-  margin-left: 27%;
+  margin-left: 29%;
   height: 125px;
   top: 200px;
+}
+
+.html-endMeeting {
+  /* width:100%; */
+  padding: 8px;
+  margin-top: 15%;
+  margin-left: 25%;
+  display:inline-block;
+  align-items: center;
 }
 
 /*---------------------------------------------- ROOMS PAGE ----------------------------------------------*/
@@ -522,6 +531,17 @@ margin-left: 25px;
   margin-left: 50px;
   display: flex;
 }
+.sched-buttons button{
+  background: #008DED;
+  color: #fff;
+  border: 0;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 20px;
+  margin-top: 10px;
+  /* height: 40px; */
+}
 .cal22{
   max-width: 500px; 
   height: 650px;
@@ -579,7 +599,7 @@ margin-left: 25px;
   display: inline-block;
 }
 .addNewEvent {
-  width: 30%;
+  /* width: 50%; */
   margin-right: 5%;
   margin-left: 5%;
   display: inline-block;
@@ -881,15 +901,19 @@ margin-left: 25px;
 
 
 /*---------------------------------------------- PROJECT ROOM PAGE ----------------------------------------------*/
+/* .project-room{
+  display: flex;
+} */
+
 .project-room h2{
   font-size: 20px;
   color: #f1356d;
   margin-bottom: 10px;
 }
 
-.project-room div{
+/* .project-room {
   margin: 20px 0;
-}
+} */
 .project-room button{
   /* font-size: 25px; */
   background: #008DED;
@@ -912,7 +936,34 @@ margin-left: 25px;
    display: inline-block;
 
 }
-
+.student-room-info h4{
+  margin-left: 120px;
+  /* display: inline-block; */
+}
+.student-room-info li{
+  margin-left: 140px;
+  /* display: inline-block; */
+}
+.advisor-room-info h4{
+  margin-left: 120px;
+  /* display: inline-block; */
+}
+.advisor-room-info li{
+  margin-left: 140px;
+  /* display: inline-block; */
+}
+/* .advisor-room-info{ */
+  /* margin-left: 70%; */
+  /* display: flex; */
+/* } */
+.proj-info-button-room h2, .proj-info-button-room h3,.proj-info-button-room p {
+  /* width: 100%; */
+  margin-left: 100px;
+}
+/* .proj-info-button-room-container{
+  display: flex;
+  flex-direction: column;
+} */
 
 
 
@@ -943,6 +994,7 @@ margin-left: 25px;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  /* display: inline-block; */
 }
 
 /*---------------------------------------------- LOG IN ----------------------------------------------*/
@@ -1102,7 +1154,7 @@ margin-left: 25px;
   margin-bottom: 30px;
 }
 
-.account-created p, .askChangePass p, .changePass p{
+.account-created p, .askChangePass p, .changePass p, .html-endMeeting p{
   /* margin-top: 30px; */
   margin-left: 10px;
   margin-right: 10px;
@@ -1114,7 +1166,7 @@ margin-left: 25px;
 }
 
 .generalInfoSignUp h2, .askChangePass h1, .changePass h1,  .generalInfoSignUp-student h2, 
-.generalInfoSignUp-verify h2, .generalInfoSignUp-acreated h2{
+.generalInfoSignUp-verify h2, .generalInfoSignUp-acreated h2, .html-endMeeting h1{
   /* font-size: 20px; */
   /* color:#f1356d; */
   margin-top: 30px;
@@ -1301,11 +1353,15 @@ margin-left: 25px;
 }
 
 /*---------------------------------------------- STAGE ----------------------------------------------*/
-.bbb div {
+.bbb {
   display: flex;
   justify-content: center;
 }
-
+/* .temp{
+  width: 100%;
+  /* margin-left: 50%; *
+  display: inline-block;
+} */
 .iframe {
   display: block;
   width: 100%;
@@ -1317,39 +1373,42 @@ margin-left: 25px;
 }
 
 .BarContainer {
-  height: 20;
-  width: 100%;
+  height: 20px;
+  width: 1120px;
   background-color: rgb(128, 142, 133);
   border-radius: 50;
+  margin-top: 15px;
+  margin-bottom: 2px;
   margin: 50;
 }
 
 .UpcomingEvents{
-  height: 400px;
+  height: 130px;
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   box-sizing: border-box;
   border-radius: 5px;
 }
 
 .event-item{
-  height: 120px;
-  width: 35%;
+  height: 65px;
+  width: 100%;
   border: solid black 1px;
   background-color: #979797;
-  font-size: 1.5rem;
   font-family: 'DM Sans', sans-serif;
   letter-spacing: 1.2px;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.001em;
+  border-radius: 10px;
   color: var(--primary);
 }
 
 .event-item p{
   font-family: 'DM Sans', sans-serif;
   letter-spacing: 1.2px;
-  margin-top: 1rem;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
   color: black;
   display: flex;
   flex-direction: column;
@@ -1358,7 +1417,7 @@ margin-left: 25px;
 }
 
 .event-item span{
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-family: 'DM Sans', sans-serif;
   letter-spacing: 1.2px;
   margin-bottom: 1rem;
@@ -1376,7 +1435,7 @@ margin-left: 25px;
         transform: rotate(360deg);
     }
 } */
-
+/* 
 .k-i-loading.k-example-loading {
     font-size: 64px;
     position: absolute;
@@ -1393,8 +1452,8 @@ margin-left: 25px;
     left: 50%;
     display: inline-block;
     content: "";
-    box-sizing: inherit;
-    border-radius: 50%;
+    box-sizing: inherit; */
+    /* border-radius: 50%;
     border-width: .05em;
     border-style: solid;
     border-color: currentColor;
@@ -1462,7 +1521,7 @@ margin-left: 25px;
 }
 .event-log li:last-child {
     margin-bottom: -1px;
-}
+} */
 
 .overlay {
   position: fixed;
@@ -1555,4 +1614,42 @@ color: #EA4C89;
   height: 20px;
 }
 
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
 

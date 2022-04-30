@@ -26,6 +26,7 @@ const ChangePassword = () => {
         }
         
     }
+{/*new_password - post on click */} 
     
     return ( 
         <div  className="changePass">
@@ -70,6 +71,7 @@ const ChangePassword = () => {
         
                 {!isLoading && <button>Reset Password</button>} {/** adds the new event  */}
                 {isLoading && <button disabled>Resetting Password...</button>} {/** add event button disabled while loading  */}
+                {/*add redirect message based on message response */}
 
             </form>
         </div>

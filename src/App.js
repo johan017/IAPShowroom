@@ -58,7 +58,6 @@ function App() {
           <Route path="/accountCreated"> 
             <AccountCreated/> 
           </Route>
-
           <Route path="/endMeeting"> 
               <HtmlEndMeeting/> 
             </Route>
@@ -121,7 +120,7 @@ function App() {
 
             <ProtectedRoute exact path="/account" user_role="all" component={Account}/>
 
-                      
+                                 
             <ProtectedRoute exact path="/settings" user_role="all" component={Settings}/>
 
             <Route path="/logout"> 
