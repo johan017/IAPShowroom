@@ -3,6 +3,9 @@ import {Link} from 'react-router-dom';
 // import Home from './HomeArea/Home';
 // import useGetRole from './hooks/use-get-role';
 import useFetchUserInfo from './hooks/use-fetch-all-user-info';
+import axios from "./context/axios";
+
+const LOGOUT_URL = "api/auth/logout";
 
 const Navbar = ({user_Role}) => {
     console.log(user_Role);
@@ -11,7 +14,20 @@ const Navbar = ({user_Role}) => {
 
     // const {role, isLoading} = useGetRole();
 
-
+    const handleLogout = async() => {
+        try {
+            await axios.post(LOGOUT_URL, 
+                {data: "Request Logout"},
+                {   
+                headers: {"Content-Type": "application/json"},
+                withCredentials: true,
+                data: "Request Logout"
+                },)
+            localStorage.clear();
+        } catch (error) {
+            console.log(error);
+        }
+  } 
     return (  
         //Need to use the getUserInfo from showroom proxy to identify user_role
         //n
@@ -39,7 +55,7 @@ const Navbar = ({user_Role}) => {
                             src = "setting_img.png"
                             alt="display image"/> */}
                      </Link>
-                     <Link to ="/logout"> LOGOUT</Link>
+                     <Link to="/" onClick={handleLogout}> LOGOUT</Link>
 
                   </div>
                 )}
@@ -55,7 +71,7 @@ const Navbar = ({user_Role}) => {
 
                       {/* <Link to="/schedule" >SCHEDULE</Link> */}
                       <Link to="/settings">SETTINGS</Link>
-                      <Link to ="/logout"> LOGOUT</Link>
+                      <Link to="/" onClick={handleLogout}> LOGOUT</Link>
                       
 
                   </div>
