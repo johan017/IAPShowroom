@@ -23,7 +23,6 @@ import Validate from './Settings/Validate';
 import Account from './Settings/Account';
 import Settings from './Settings/Settings';
 import C2 from './Schedule/C2';
-import Logout from './Logout';
 import MemberValidation from './Settings/MemberValidation';
 import HtmlEndMeeting from './StageArea/HtmlEndMeeting';
 
@@ -67,8 +66,6 @@ function App() {
             {/*Home component*/}
             <ProtectedRoute path="/home" user_role="all" component={Home}/>
             {/* <ProtectedRoute exact path="/announce" user_role="all" component={Announcements}/> */}
-
-            <ProtectedRoute path="/logout" user_role="all" component={Logout}/>
 
             {/*Stage component*/}
             <ProtectedRoute path="/stage" user_role="all" component={Stage}/>
@@ -123,9 +120,6 @@ function App() {
                                  
             <ProtectedRoute exact path="/settings" user_role="all" component={Settings}/>
 
-            <Route path="/logout"> 
-              <Logout/> 
-            </Route>
                           
             <ProtectedRoute exact path="/cal" user_role="admin" component={C2}/> 
                
