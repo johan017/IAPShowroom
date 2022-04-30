@@ -20,11 +20,7 @@ export default function Home({user_Role, checked}) {
     return(new Date(time).toLocaleTimeString([], {hour: 'numeric', minute:'2-digit'}));
   }
 
-  const {
-    events,
-    redirect,
-    loading
-  } = useFetchEvents();
+  const { events, redirect, loading} = useFetchEvents();
 
   var modal;
   const [roomInfo, setRoomInfo] = useState('');
@@ -74,7 +70,7 @@ export default function Home({user_Role, checked}) {
               {/* <Link to={`/project_room/${event.meetid}`}> */}
                 <button onClick={() => {showSpeakers(event.projectid, event.title)}} >Speakers</button>  
               {/* </Link>  */}
-              <Link to ={`/project_room/${event.meetid}`}>           
+              <Link to ={`/project_room/${event.projectid}`}>           
                 <button>Room</button>
                       {/* <p>Written by {project.author} </p> */}
               </Link>
