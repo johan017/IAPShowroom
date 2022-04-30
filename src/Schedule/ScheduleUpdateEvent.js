@@ -6,7 +6,7 @@ import Calendar from './Calendar';
 import axios from "../context/axios";
 import useFetchUserInfo from "../hooks/use-fetch-all-user-info";
 import { RestoreOutlined } from "@material-ui/icons";
-import useFetchEvents from "../hooks/use-fetch-events";
+
 
 
 
@@ -20,17 +20,14 @@ function ScheduleUpdateEvent (props) {
     const [projectID, setProjectID] = useState('');
 
     const {userInfo} = useFetchUserInfo();
-
-    const {events} = useFetchEvents();
     
     const {projects} = useFetchProjects();
     var  pathArray = window.location.pathname.split('/');
-    console.log("AHHHHHHHH",pathArray);
+
 
     var eid = parseInt(pathArray[2]);
     const history = useHistory();
 
-    console.log("url_id",eid)
     // useEffect(()=>{
     //     getEvents();
     // }, []);
@@ -51,7 +48,6 @@ function ScheduleUpdateEvent (props) {
             headers: {"Content-Type": "application/json"},
             withCredentials: true
         }) 
-        console.log("RESULT",result);
         setEvent(result.data.payload);
         setDefaultST(result.data.payload.starttime);
         } catch(error) {
@@ -101,23 +97,24 @@ function ScheduleUpdateEvent (props) {
         
      }
     const formatDate2 = (date) =>{
+        
         const splitDate = date.split('T');
         const sdate = splitDate[0].toString();
-        console.log("date", sdate)
         const stime = "00:00:00";
-        console.log("time", stime)
-
         return `${sdate}`+" "+`${stime}`;
     }
 
     {/* if an event does not exist - creat event [post] */}
-    const handleProjToEvent = async () =>{
-        var messageData = [{
+    const handlePostEvent = async (id, defaultTitle, inputTitle) =>{
+        if(inputTitle === "") { 
+            inputTitle = defaultTitle;
+        }
+        const messageData = [{
             "adminid": userInfo.adminid,
-            "projectid": projectID, //parseInt(projectID),
+            "projectid": id, //parseInt(projectID),
             "starttime": formatDate(startTime), //new Date(endTime).toLocaleString(),
             "duration": parseInt(duration),
-            "title": title,
+            "title": inputTitle,
             "e_date": formatDate2(startTime), //new Date(startTime), //.toLocaleString('en-US'),
         }];
         console.log("event", messageData);
@@ -138,15 +135,26 @@ function ScheduleUpdateEvent (props) {
     }
     
     {/* if an event already exists - update [put] */}
-    const handleUpdateEvent = async () =>{ 
-        console.log("start time", startTime)
+    const handleUpdateEvent = async (id, defaultTitle, inputTitle, defaultStartTime, inputStartTime, defaultDuration, inputDuration) =>{ 
+
+        if(inputTitle === "") { 
+            inputTitle = defaultTitle;
+        }
+        if(inputStartTime === "") { 
+            inputStartTime = defaultStartTime;
+        }
+        if(inputDuration === "") { 
+            inputDuration = defaultDuration;
+        }
+        // console.log("start time", startTime)
+        console.log("edate", formatDate2(startTime));
         var messageData = {
                 "adminid": userInfo.adminid,
-                "projectid": projectID, //parseInt(projectID),
-                "starttime": formatDate(startTime), //new Date(endTime).toLocaleString(),
-                "duration": parseInt(duration),
-                "title": title,
-                "e_date": formatDate2(startTime), //new Date(startTime), //.toLocaleString('en-US'),
+                "projectid": id, //parseInt(projectID),
+                "starttime": inputStartTime, //new Date(endTime).toLocaleString(),
+                "duration": parseInt(inputDuration),
+                "title": inputTitle,
+                "e_date": inputStartTime.slice(0,10), //new Date(startTime), //.toLocaleString('en-US'),
         };
         console.log("event", messageData);
 
@@ -167,7 +175,7 @@ function ScheduleUpdateEvent (props) {
     }
 
     const handleDelete = async () =>{ 
-        console.log("Item deleted")
+    
         await axios.delete(`api/showroom/schedule/events/${eid}`,  {
             headers: {"Content-Type": "application/json"},
             withCredentials: true
@@ -180,29 +188,28 @@ function ScheduleUpdateEvent (props) {
     }
 
    
-   
+
     return ( 
         <div className = "Event-information">
             {/* if an event already exists - update [put] */}
             {event && (
                 <div className="addNewEvent">
-                    {events && events.map((uevent)=>(
-                        <div key={uevent.meetid}>  
-                            {uevent.meetid === eid &&(
+                    
+                        <div key={event.meetid}>  
+    
                                 <div>                        
                                     <h2>Event Information</h2>
                                     <label>Event Title: </label>
                                     <input 
                                         type="text" 
-                                        defaultValue={uevent.title}
-                                        //  value={title}
+                                        defaultValue={event.title}
                                         onChange = {(e) => setTitle(e.target.value)}
                                     />
                                     <label>Start Time: </label>
                                     <input
                                         type="datetime-local"
                                         // required
-                                        defaultValue={formatDate1(uevent.starttime)} 
+                                        defaultValue={formatDate1(event.starttime)} 
                                         //  value = {startTime}
                                         onChange = {(e) => setStartTime(e.target.value)}
                     
@@ -211,7 +218,7 @@ function ScheduleUpdateEvent (props) {
                                     <input 
                                         type="number" 
                                         // required 
-                                        defaultValue={uevent.duration}
+                                        defaultValue={event.duration}
                                         //  value = {duration}
                                         onChange = {(e) => setDuration(e.target.value)}
                                     ></input>
@@ -219,12 +226,12 @@ function ScheduleUpdateEvent (props) {
                                     <Link to ={"/cal"}>
                                         <button style={{ background: 'gray' }}>Cancel</button>
                                     </Link>
-                                    <button style={{ background: '#3B8D25' }}  onClick={() => {handleUpdateEvent(); setProjectID(parseInt(uevent.projectid)); setTitle(uevent.title); }}>Update Event</button> 
+                                    <button style={{ background: '#3B8D25' }}  onClick={() => { handleUpdateEvent(event.projectid, event.title, title, event.starttime, startTime, event.duration, duration);}}>Update Event</button> 
                                     <button onClick={handleDelete}>Delete Event</button>
                                 </div>
-                            )}
+                            
                         </div>
-                    ))}             
+                                
                 </div>
             )}
 
@@ -240,7 +247,6 @@ function ScheduleUpdateEvent (props) {
                                     <input 
                                         type="text" 
                                         defaultValue={project.title}
-                                        //  value={title}
                                         onChange = {(e) => setTitle(e.target.value)}
                                     />
                                     <label>Start Time: </label>
@@ -264,7 +270,7 @@ function ScheduleUpdateEvent (props) {
                                     <Link to ={"/cal"}>
                                             <button style={{ background: 'gray' }}>Cancel</button>
                                     </Link>
-                                    <button style={{ background: '#3B8D25' }}  onClick={() => {handleProjToEvent(); setProjectID(parseInt(project.project_id)); setTitle(project.title); }}>Update Event</button> 
+                                    <button style={{ background: '#3B8D25' }}  onClick={() => {handlePostEvent(project.project_id, project.title, title);}}>Update Event</button> 
                                     <button onClick={handleDelete}>Delete Event</button>
                                 </div>
                             )}
