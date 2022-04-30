@@ -11,8 +11,8 @@ const AskChangePassword = () => {
    
     const [isLoading, setIsLoading] = useState(false); 
     
-    const handlePassChange = async () =>{ 
-
+    const handlePassChange = async (e) =>{ 
+        e.preventDefault();
         var messageData = {
               "email": email,
         };
