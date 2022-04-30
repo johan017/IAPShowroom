@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import PasswordStrengthBar from 'react-password-strength-bar';
+import axios from "../context/axios";
+
 
 
 
@@ -25,6 +27,32 @@ const ChangePassword = () => {
             document.getElementById("match").innerHTML = "Passwords does not match";
         }
         
+    }
+
+    const handlePassChange = async (e) =>{ 
+        e.preventDefault();
+        const messageData = {
+              "email": email,
+              "new_password": password,
+        };
+        
+        console.log("email", messageData);
+
+        try{
+
+        await axios.post('api/auth/forgot-pass', messageData, {
+            headers: {"Content-Type": "application/json"}
+            // withCredentials: true
+            }).then((res) => {
+                console.log(res.data)
+            }).catch((error)=>{
+                console.log(error)
+        })
+        }catch(err){
+
+        }
+        history.push('/');
+
     }
 {/*new_password - post on click */} 
     
@@ -69,7 +97,7 @@ const ChangePassword = () => {
                 ></input> 
                 <p id="match"/>       
         
-                {!isLoading && <button>Reset Password</button>} {/** adds the new event  */}
+                {!isLoading && <button onClick={handlePassChange}>Reset Password</button>} {/** adds the new event  */}
                 {isLoading && <button disabled>Resetting Password...</button>} {/** add event button disabled while loading  */}
                 {/*add redirect message based on message response */}
 
