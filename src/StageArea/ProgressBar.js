@@ -49,6 +49,7 @@ export default class ProgressBar extends Component{
             if(dataFromServer.type === config.ws_progressbar){
                 this.getEvents().then(response => this.updateTimestamp(response));
             }
+            if(dataFromServer.type === config.ws_die) window.location.href = "/"; // reloads page after server is attempting close
         };
 
         ws.onclose = () => {
