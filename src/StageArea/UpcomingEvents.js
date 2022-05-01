@@ -29,6 +29,7 @@ export default class UpcomingEvents extends Component{
             if(dataFromServer.type === config.ws_upcomingevents){
                 this.getEvents().then(response => this.updateEvents(response));
             }
+            if(dataFromServer.type === config.ws_die) window.location.href = "/"; // reloads page after server is attempting close
         };
 
         ws.onclose = () => {
