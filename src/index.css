@@ -5,33 +5,34 @@
   margin: 0;
   font-family: "Montserrat";
   color: #333;
+  /* width: 100%; */
   /* align-self: center; */
 }
 
-body .temp {
+/* body .temp {
   display: none;
   height: 0;
   width: 0;
-}
-
+} */
+/* 
 body {
     position: relative;
-}
+} */
 
-html,
+/* html,
 body {
     height: 100%;
-}
+} */
 
-body {
+/* body {
     display:inline-block;
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    /* min-height: 80px; */
+    /* min-height: 80px; *
     box-sizing: border-box;
     padding: 10px;
-}
+} */
 
 svg{
   height: 20px;
@@ -48,7 +49,7 @@ svg{
 /* }   */
 /*---------------------------------------------- NAVIGATION BAR ----------------------------------------------*/
 .navbar {
-  width:100%;
+  /* width:100%; */
   padding: 8px;
   display:flex;
   align-items: center;
@@ -72,10 +73,14 @@ svg{
   margin-left: 14px;
   text-decoration: none;
   padding: 6px;
+  cursor: pointer;
+
 }
 /*Changes color to the navigation buttons when hovering*/
 .navbar a:hover {
   color: #f1356d;
+  cursor: pointer;
+
 }
 
 .navbar img{
@@ -184,6 +189,7 @@ svg{
   display:inline-block;
 }
 .events-home h2 {
+  font-size: 20px;
   margin-left: 0px;
   display:inline-block;
 }
@@ -203,8 +209,8 @@ svg{
   padding: 8px 20px;
   border-radius: 8px;
   cursor: pointer;
-  margin-right: -250px;
-  margin-left: 300px;
+  margin-right: -390px;
+  margin-left: 440px;
   display:inline-block;
 }
 /*Announcemnts Container*/
@@ -224,9 +230,6 @@ margin-left: 25px;
   width: 372px;
   /* width: 31%; */
   height: 490px;
-  /* left: 850px; */
-  /* right: 285px; */
-  /* right: 10%; */
   top: 100px;
 
   background: #B6B9BB;
@@ -267,7 +270,8 @@ margin-left: 25px;
   background: #bc0707;
   color: #fff;
   border: 0;
-  /* padding: 8px 20px; */
+  /* p
+  adding: 8px 20px; */
   border-radius: 8px;
   cursor: pointer;
   display: inline-block;
@@ -305,6 +309,55 @@ margin-left: 25px;
 
 /*---------------------------------------------- STAGE PAGE ----------------------------------------------*/
 
+
+.stage-1{
+  display: flex;
+  /* flex-direction: column; */
+}
+.stage h2{
+  font-size: 25px;
+  font-weight: bold;
+  border: 2px #ddd solid;
+  margin-top: 10px;
+  margin-left: 30px;
+  width: 10%;
+  height: 30px;
+  border:hidden;
+  box-sizing:content-box;
+  /* display:inline-block;  */
+}
+.stage-upcoming{
+  /* position: absolute; */
+  margin-top: 10px;
+  margin-left:30%;
+  /* width:500px; */
+  /* height: 125px; */
+  font-size: 20px;
+  /* top: 200px; */
+  display:inline-block;
+}
+.stage-announcements{
+  /* .stage-upcoming{ */
+    /* position: absolute; */
+    margin-left: 10%;
+    /* height: 120px; */
+    /* top: 200px; */
+  /* align-items: center; */
+  display: inline-block;
+}
+.stage-announcements .home-container{
+  /* margin-left: 100%; */
+  height: 190px;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+/* .stage-announcements .ann-title h2{
+  /* text-align: center; *
+  margin-left: 25px;
+  display: inline-block;
+} */
+/* 
 .stage-announcements .admin-ann{
   position: absolute;
   width: 372px;
@@ -315,7 +368,7 @@ margin-left: 25px;
   background: #B6B9BB;
   border: 1px solid #979797;
   box-sizing: border-box;
-  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); *
   border-radius: 5px;
   display: inline-block;
   overflow-y: scroll;
@@ -328,30 +381,20 @@ margin-left: 25px;
 
 }
 .stage-announcements .announce-footer input{
-  /* position: absolute; */
-
   width: 82%;
   height: 30px;
-  /* margin-bottom: 30px; */
+  /* margin-bottom: 30px; *
 }
 .stage-announcements .announce-footer button{
   /* width: 90%; */
-  /* position: absolute; */
+  /* position: absolute; *
   height: 30px;
   width: 18%;
   margin-bottom: 30px;
-}
+} */
 
-.stage h2{
-  font-size: 25px;
-  font-weight: bold;
-  border: 2px #ddd solid;
-  margin-top: 10px;
-  border:hidden;
-  box-sizing:content-box;
-  display:inline-block; 
-}
-.stage h3{
+
+/* .stage h3{
   font-size: 25px;
   font-weight: bold;
   border: 2px #ddd solid;
@@ -359,13 +402,102 @@ margin-left: 25px;
   border:hidden;
   box-sizing:content-box;
   display:inline-block; 
- }
+ } */
 
-.stage-upcoming{
+
+/* .stage-upcoming{
   position: absolute;
   margin-left: 29%;
   height: 125px;
   top: 200px;
+  display:inline-block;
+} */
+
+/*---------------------------------------------- STAGE BBB ----------------------------------------------*/
+.bbb {
+  /* display: flex;
+  justify-content: center; */
+  color: red;
+  display: flex;
+  flex-direction: column;
+}
+.temp{
+  /* width: 100%; */
+  margin-left: 5%;
+  margin-right: 5%;
+  /* color: blue; */
+  display: inline-block;
+}
+.iframe {
+  display: inline-block;
+  /* width: 100%; */
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 20px;
+  /* height: 100%; */
+  /* border: 0; */
+  height: 630px;
+  /* width: 1120px; */
+  overflow-y: scroll;
+}
+
+.BarContainer {
+  height: 20px;
+  /* width: 1120px; */
+  background-color: rgb(128, 142, 133);
+  border-radius: 50;
+  /* margin-top: 15px; */
+  margin-bottom: 2px;
+  /* margin: 50; */
+  margin-right: 5%;
+  margin-left: 5%;
+
+}
+
+.UpcomingEvents{
+  /* height: 130px; */
+  width: 300px;
+  /* margin-bottom: 10px; */
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.event-item{
+  height: 65px;
+  width: 300px;
+  border: solid black 1px;
+  background-color: #979797;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 1.2px;
+  margin-bottom: 0.001em;
+  border-radius: 10px;
+  color: var(--primary);
+  /* display: inline-block; */
+  /* align-items: center; */
+}
+
+.event-item p{
+  /* margin-left: 50%; */
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 1.2px;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: black;
+  /* display: flex;
+  flex-direction: column; */
+  align-items: right;
+  text-align: right;
+}
+
+.event-item span{
+  font-size: 1.5rem;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 1.2px;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+  color: black;
 }
 
 .html-endMeeting {
@@ -373,39 +505,46 @@ margin-left: 25px;
   padding: 8px;
   margin-top: 15%;
   margin-left: 25%;
-  display:inline-block;
-  align-items: center;
+  /* display:inline-block;
+  align-items: center; */
 }
 
 /*---------------------------------------------- ROOMS PAGE ----------------------------------------------*/
-
-.rooms button{
+.rooms{
+  width: 100%;
+  /* display: inline-flexbox; */
+}
+.rooms-title-block h2{
+  margin-top: 10px;
+  margin-left: 5%;
+  margin-bottom: 25px;
+  display: inline-block;
+}
+.rooms-title-block button{
   background: #424240;
   color: #fff;
-  border: 0;
+  /* border: 0; */
   padding: 8px;
   width: 100px;
-  height: 30px;
+  /* height: 30px; */
   border-radius: 8px;
-  margin-top: 10px;
-  margin-left: 900px;
+  /* margin-top: 10px; */
+  margin-left: 1100px;
   display: inline-block;
   cursor: pointer;
 }
-.rooms h2{
-  margin-left: 5%;
-  margin-bottom: 20px;
+.room-list{
   display: inline-block;
 }
 
-.pr-list{
-  width: 40%;
-  font-size: 20px;
+.project-rooms{
+  /* width: 35%; */
+  font-size: 16px;
   align-content: center;
-  margin-left: 5%;
+  margin-left: 10%;
   margin-right: 50px;
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   /* background: rgba(94, 236, 99, 0.816); */
   /* border: 1px solid #E5E5E5; */
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -754,7 +893,7 @@ margin-left: 25px;
   width: 25%;
   padding: 6px 10px;
   /* margin: 10px 0; */
-  margin-left: 50px;
+  margin-left: 10%;
   border:hidden;
   box-sizing: border-box;
   /* display: block; */
@@ -763,6 +902,7 @@ margin-left: 25px;
 .stat-prog h3{
   font-weight: bold;
   margin-top: 30px;
+  margin-left: 8%;
 }
 /*max value of progressbar*/
 .progress-container{
@@ -771,6 +911,7 @@ margin-left: 25px;
   border-radius: 10px;
   margin: 5px;
 }
+
 /*percentage of max value*/
 .progress-filler{
   height: 100%;
@@ -783,11 +924,16 @@ margin-left: 25px;
   color: white;
   font-weight: bold;
 }
+.statsdate{
+  width: 90%;
+  margin-left: 5%;
+}
 /*Title & Date*/
 .statsdate h2{
-  width: 75%;
+  width: 85%;
   padding: 6px 10px;
   margin: 10px 0;
+  /* margin-left: 10%; */
   border:hidden;
   box-sizing: border-box;
   /* display: block; */
@@ -802,9 +948,36 @@ margin-left: 25px;
   /* display: block; */
   display:inline-block; 
 }
-
-
-
+.stats-people{
+  display: flex;
+  /* flex:1; */
+  flex-direction:column;
+ 
+}
+.stats-people-women{
+  margin-left: 20%;
+  /* flex:1; */
+  display: inline-block;
+  /* flex-direction: column; */
+}
+.stats-people-women text{
+  font-weight: bold;
+  margin-top: 10%;
+  /* margin-bottom: 20%; */
+  font-size: 35px;
+  margin-left: 15%;
+  justify-self: center;
+}
+.stats-people-men{
+  /* flex:1; */
+  display: inline-block;
+  /* flex-direction: column; */
+}.stats-people-other{
+  /* flex:1; */
+  display: inline-block;
+  /* flex-direction: column; */
+  /* align-self: center; */
+}
 
 
 /* 
@@ -1350,79 +1523,6 @@ margin-left: 25px;
   box-sizing: border-box;
   display: block;
   display:inline-block; 
-}
-
-/*---------------------------------------------- STAGE ----------------------------------------------*/
-.bbb {
-  display: flex;
-  justify-content: center;
-}
-/* .temp{
-  width: 100%;
-  /* margin-left: 50%; *
-  display: inline-block;
-} */
-.iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  height: 630px;
-  width: 1120px;
-  overflow-y: scroll;
-}
-
-.BarContainer {
-  height: 20px;
-  width: 1120px;
-  background-color: rgb(128, 142, 133);
-  border-radius: 50;
-  margin-top: 15px;
-  margin-bottom: 2px;
-  margin: 50;
-}
-
-.UpcomingEvents{
-  height: 130px;
-  width: 100%;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-  border-radius: 5px;
-}
-
-.event-item{
-  height: 65px;
-  width: 100%;
-  border: solid black 1px;
-  background-color: #979797;
-  font-family: 'DM Sans', sans-serif;
-  letter-spacing: 1.2px;
-  margin-bottom: 0.001em;
-  border-radius: 10px;
-  color: var(--primary);
-}
-
-.event-item p{
-  font-family: 'DM Sans', sans-serif;
-  letter-spacing: 1.2px;
-  font-size: 1rem;
-  margin-top: 0.25rem;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  align-items: right;
-  text-align: right;
-}
-
-.event-item span{
-  font-size: 1.5rem;
-  font-family: 'DM Sans', sans-serif;
-  letter-spacing: 1.2px;
-  margin-bottom: 1rem;
-  margin-left: 1rem;
-  color: black;
 }
 
 

@@ -13,13 +13,17 @@ const Stats = () => {
 
     const {conferenceStats, isLoading} = useFetchConferenceStats();
    console.log(conferenceStats);
+   const getDate = () =>{
+    const today = new Date();
+    return today.toLocaleDateString('default', {month: 'long', day: 'numeric', year: 'numeric'});
+  }
    
     return ( 
         <div >
             {/* {error && <div> {error} </div>} */}
             {isLoading && <div> Loading...</div>}
             <div className="statsdate" style={{ borderBottom: '1px solid #8e8a8a' }} >
-                <h2> Conference Stats </h2>  <h3>March 23, 2022</h3>
+                <h2> Conference Stats </h2>  <h3>{getDate()}</h3>
                {/* {conferenceStats} */}
             </div>
           
@@ -67,7 +71,7 @@ const Stats = () => {
                         <Progress totalp={`${conferenceStats.maxParticipants}`} totalItem={`${conferenceStats.professorParticipants}`} /> 
                     </div> <br/>
 
-                    <p>Women</p>
+                    {/* <p>Women</p>
                     <div className="stat-prog-bar">
                         <Progress totalp={`${conferenceStats.maxParticipants}`} totalItem={`${conferenceStats.totalWomen}`} /> 
                     </div> <br/>
@@ -80,8 +84,29 @@ const Stats = () => {
                     <p>Other</p>
                     <div className="stat-prog-bar">
                         <Progress totalp={`${conferenceStats.maxParticipants}`} totalItem={`${conferenceStats.totalNotDisclosed}`} /> 
-                    </div> <br/>
+                    </div> <br/> */}
+                    <div className="stats-people">
 
+                        <div className="stats-people-women"><br/>
+                        <text style={{marginLeft: "20%"}}>{`${conferenceStats.totalWomen}`}</text>
+                        <text style={{marginLeft: "20.5%"}}>{`${conferenceStats.totalMen}`}</text> 
+                        <text style={{marginLeft: "20%"}}>{`${conferenceStats.totalNotDisclosed}`}</text>
+                       </div>
+
+                       <div className="stats-people-women" >
+
+                       <text>Women</text>
+                        <text>Men</text>
+                        <text>Other</text>
+                        </div>
+
+                        {/* <div >
+
+                        
+                        
+                        </div> */}
+                     
+                    </div>
 
                     <h3>Project Research Students</h3>
 
@@ -125,7 +150,7 @@ const Stats = () => {
                         <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.resStudGRAD}`} /> 
                     </div> <br/>
 
-                    <p>Women</p>
+                    {/* <p>Women</p>
                     <div className="stat-prog-bar">
                         <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.totalResStudWomen}`} /> 
                     </div> <br/>
@@ -138,7 +163,26 @@ const Stats = () => {
                     <p>Other</p>
                     <div className="stat-prog-bar">
                         <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.totalResStudNotDisclosed}`} /> 
-                    </div> <br/>
+                    </div> <br/> */}
+
+                    <div className="stats-people">
+
+                    <div className="stats-people-women"><br/>
+                    <text style={{marginLeft: "20%"}}>{`${conferenceStats.totalResStudWomen}`}</text>
+                    <text style={{marginLeft: "20.5%"}}>{`${conferenceStats.totalResStudMen}`}</text> 
+                    <text style={{marginLeft: "20%"}}>{`${conferenceStats.totalResStudNotDisclosed}`}</text>
+                    </div>
+
+                    <div className="stats-people-women" >
+
+                    <text>Women</text>
+                    <text>Men</text>
+                    <text>Other</text>
+                    </div>
+                    <br/>
+
+
+                    </div>
 
                 </div>
              {/* ))}

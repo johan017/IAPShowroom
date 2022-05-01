@@ -16,7 +16,7 @@ const Rooms = ({checked}) => {
     return ndate;
   }
 
-  const ROOM_STATS_URL = "api/showroom/rooms/status"; //?date=${getDate(cdate)}`;
+  const ROOM_STATS_URL = `api/showroom/rooms/status?date=${getDate(cdate)}`;
 
   const [roomStats, setRoomStats] = useState([]);
   const [redirect, setRedirect] = useState(false);
@@ -50,13 +50,18 @@ const Rooms = ({checked}) => {
 
   return ( 
     <div className="rooms" >
-      <h2> ROOMS </h2>
-      <h2>{checked && (<button onClick={handleStage} style={{backgroundColor: 'red'}}>STAGE LIVE</button>)}
-      {!checked && (<button onClick={handleStage}>STAGE LIVE</button>)} </h2>
-      <div  className="pr-list">
-        <div style={{border: "1px solid #E5E5E5"}}className="project-rooms">
-          <>
-          {roomStats && roomStats.map((roomS)=>(
+      <div className="rooms-title-block">
+      <h2> ROOMS </h2> 
+      {checked && (<button onClick={handleStage} style={{backgroundColor: 'red'}}>STAGE LIVE</button>)}
+      {!checked && (<button onClick={handleStage}>STAGE LIVE</button>)}
+      
+      </div>
+
+
+     <div className="room-list">
+        {roomStats && roomStats.map((roomS)=>(
+         <div  className="pr-list">
+          <div style={{border: "1px solid #E5E5E5"}}className="project-rooms">
             <Link to ={`/project_room/${roomS.project_id}`} > 
               <p style={{marginLeft: "10px", marginTop: "10px"}}>{roomS.title}</p>
               <br/> 
@@ -68,11 +73,11 @@ const Rooms = ({checked}) => {
                 src = "users.png"
                 alt="display image"
               /><text>{roomS.general_users}</text>   
-            </Link>
-          ))}
-          </>
-        </div>
-      </div> 
+            </Link> 
+            </div>
+          </div> 
+        ))}
+      </div>
     </div>
   );
 }
