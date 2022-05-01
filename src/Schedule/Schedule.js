@@ -60,7 +60,7 @@ const Schedule = () => {
     return ( 
         <div>   
             
-            {!events &&(
+            {events.length <=0 &&(
                 // <Link to="/create_day">
                 <div className="schedule-button"> 
                     <h2>No Schedule Available</h2>
@@ -71,7 +71,7 @@ const Schedule = () => {
             )}
             {/* TODO ADD QUERY TO GET A LIST OF EVENTS FROM DB  */}
 
-            {events && (
+            {events.length>0 && (
                 <div className="schedule-done"> 
                     <h2>Schedule Main</h2>  <button onClick={handleEdit} >Edit Schedule</button>
                     {displayEvents(events)}

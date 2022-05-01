@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import useFetch from "../useFetch";
 import {Link} from  "react-router-dom";
 import { useHistory } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useFetchProjects from "../hooks/use-fetch-projects";
 import useFetchEvents from "../hooks/use-fetch-events";
 import axios from "../context/axios";
@@ -16,12 +16,42 @@ const ProjectRoom = ({checked}) => {
     // const {id} = useParams();
     // const {data: event, error, isLoading} = useFetch('http://localhost:8000/projects/' + id); /* data is project because we want the id of a singular project */
     const {projects, isLoading} = useFetchProjects();
-    const {events, loading} = useFetchEvents();   
-    console.log("events", events)
+    const [event, setEvent] = useState({});
+    var  pathArray = window.location.pathname.split('/');
+
+    var eid = parseInt(pathArray[2]);
+    console.log ("url_eid", eid)
+    console.log("event_Project_id", event.projectid)
+    console.log("event_Meet_id", event.meetid)
+
+    const [roomInfo, setRoomInfo] = useState('');
+    // const {events, loading} = useFetchEvents();   
+    console.log("event", event)
     // console.log("event id", event)
     const [popup, setPopup] = useState(false);
    
+    const getEvents = async() =>{
+        try{
+        const result = await axios.get(`api/showroom/schedule/events/${eid}`, 
+        {
+            headers: {"Content-Type": "application/json"},
+            withCredentials: true
+        }) 
+        setEvent(result.data.payload);
+        // setDefaultST(result.data.payload.starttime);
+        } catch(error) {
+            console.error(error.response.status);
+            if(error.response.status = '401'){
+               
+            }
+        }
+        // setLoading(false);
+    };
 
+    useEffect(()=>{
+        getEvents();
+     }, []);
+ 
     /** los eventos que son projects no devuelven abstracts */
     const changePopup = () =>{
         console.log(popup);
@@ -33,11 +63,7 @@ const ProjectRoom = ({checked}) => {
         
     }
    
-    var  pathArray = window.location.pathname.split('/');
-
-    var eid = parseInt(pathArray[2]);
-    const [roomInfo, setRoomInfo] = useState('');
-
+  
 
     const getSpeakers = async(pID) => {
           try{
@@ -62,8 +88,9 @@ const ProjectRoom = ({checked}) => {
                 inputArr.push(projects[i].abstract);
 
             }
+            // console.log("project_id", projects[i].project_id)
         }
-
+        
         console.log("PInfoArr", inputArr)
            
         return inputArr;  
@@ -77,13 +104,12 @@ const ProjectRoom = ({checked}) => {
     
     return (  
         <div className = "project-room">
-            {loading && <div> Loading... </div>}
+            {isLoading && <div> Loading... </div>}
             {/* {error && <div> {error} </div>} */}
            
-            {events && events.map((event) =>(
+            {event && (
                 <div key={event.meetid}>                 
 
-                    {event.projectid === eid &&(
                         <div>
                         
                             <div style={{marginLeft: "10px"}}>
@@ -131,11 +157,10 @@ const ProjectRoom = ({checked}) => {
                             </div>
                             
                         </div>
-                    )} 
 
 
                 </div>
-            ))}
+            )}
 
             <Link to ="/rooms">
                 <button> Back to Rooms</button>

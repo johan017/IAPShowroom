@@ -109,7 +109,9 @@ export default function Home({user_Role, checked}) {
         })
         )
     } else {
+      <div>
       <h3>No events currently available</h3>
+      </div>
     }
 
   }
@@ -135,7 +137,15 @@ export default function Home({user_Role, checked}) {
           {/* {checked && (<button onClick={handleStage} style={{backgroundColor: 'red'}}>STAGE LIVE</button>)}
           {!checked && (<button onClick={handleStage}>STAGE LIVE</button>)}  */}
           <div className="events-home">
-          {displayEvents(events)}
+            {events.length>0 && (
+              displayEvents(events)
+            )}
+
+            {events.length <=0 && (
+                        <div className="project-prev">
+                        <h2>No Events in Schedule</h2>
+                        </div>
+            )} 
           </div>
   
        </div>  

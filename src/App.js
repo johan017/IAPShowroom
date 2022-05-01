@@ -75,7 +75,7 @@ function App() {
             <ProtectedRoute path="/rooms" user_role="all" component={Rooms}/>
 
             {/*Project Room component*/}
-            <Route path="/project_room/:meetid"> 
+            <Route path="/project_room/:project_id"> 
               <ProjectRoom/> 
             </Route>
 
