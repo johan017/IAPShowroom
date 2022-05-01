@@ -6,7 +6,7 @@ function isEmpty(obj) {
     return Object.keys(obj).length === 0;
 }
 const ProtectedRoute = ({component: Component, user_role: user_Role, ...rest})  => {
-    const { auth } = useAuth();
+    // const { auth } = useAuth();
     const {role, uID}  = useGetRole();
     return(
         <Route {...rest} render={

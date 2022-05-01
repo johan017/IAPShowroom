@@ -23,27 +23,30 @@ const C2 = () => {
         history.push('/schedule/review');
     }
 
-    const [popup, setPopup] = useState(false);
+    const [tab, setTab] = useState(false);
        /** los eventos que son projects no devuelven abstracts */
-    const changePopup = () =>{
-        console.log(popup);
-        if(popup === false){
-            setPopup(true);
-        } else {
-            setPopup(false);
+    const showProjects = () =>{
+        if(tab === false){
+            setTab(true);
         }
     }
+    const showEvents = () =>{
+      if(tab === true){
+          setTab(false);
+      }
+  }
   return (
     <div className="cal2">
       {/* {error && <div> {error} </div>}
       {isLoading && <div> Loading...</div>} */}
        <div className="schedule-container">
        <div className="sched-buttons">
-       <button onClick={() => changePopup()}> Projects </button>
+       <button onClick={() => showProjects()}> IAP Projects </button>
+       <button onClick={() => showEvents()}> Events </button>
        </div>
       <div className="cal22">
         
-        {popup === true && (
+        {tab === true && (
           <ProjectList></ProjectList>
         )}
         {<EventList></EventList>}
