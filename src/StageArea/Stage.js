@@ -22,24 +22,20 @@ const Stage = ({user_Role}) => {
         console.log("value of check", checked);
     }
 
-    // const {id} = 1; //useParams();
-
-    // const {data: conf} = useFetch('http://localhost:8000/conference-info/'+ id); /* data is projects because info is found in db within projects */
-
-    //TODO: PULL DURATION FROM SCHEDULE DAY TIME LIMIT 
-
     return ( 
         <div className="stage">
-            
-            <h2> STAGE </h2>  <h3>Schedule</h3> <h3>Announcements</h3> 
+            <div className="stage-1">
 
-            <div className="stage-announcements">
-               
-                <Announcements user_Role={user_Role}></Announcements>
-                <div className="stage-upcoming">
+            <h2> STAGE </h2> 
+            <div className="stage-upcoming">
+                <h3>Schedule</h3> 
                 <UpcomingEvents></UpcomingEvents>
-                </div>
             </div>
+            <div className="stage-announcements">
+                <Announcements user_Role={user_Role}/>               
+            </div>
+            </div>
+           
             <br></br>
             <br></br>
             <br></br>
@@ -50,37 +46,15 @@ const Stage = ({user_Role}) => {
             <br></br>
             <br></br>
             
-            {/* <FormGroup>
-                <FormControlLabel control={
-                    <Switch 
-                        checked={checked}
-                        onClick={handleCheck}
-                    
-                    />} label="Stage is Live">   
-                    </FormControlLabel>
-            </FormGroup> 
-                    {checked && (<button style={{backgroundColor: 'red'}}>TURNED ON</button>)}
-                    {!checked && (<button style={{backgroundColor: 'green'}}>TURNED ON</button>)} */}
-
-            {/* {conf && ( 
-               < div key={conf.id}> */}
-               
-                <ProgressBar></ProgressBar>
-                
-                {/* </div> */}
-            {/* )} */}
+            <ProgressBar></ProgressBar>
             <div className="bbb">
-              
+               
                 {/* Update to get src url from the backend. Temporarily Hardcoded to get a view working  */}
-                {/* <iframe className="temp" src="https://iapstream.ece.uprm.edu/bigbluebutton/api/create?name=DemoMeeting&meetingID=DemoMeeting&attendeePW=ap&moderatorPW=mp&checksum=f5e85d6b55189f228cf06e4791736e44b63282f1"></iframe> TODO Remove after changes to incorporate backend url */}
+                <iframe className="temp" src="https://iapstream.ece.uprm.edu/bigbluebutton/api/create?name=DemoMeeting&meetingID=DemoMeeting&attendeePW=ap&moderatorPW=mp&checksum=f5e85d6b55189f228cf06e4791736e44b63282f1"></iframe> 
                 <br></br>
                 <iframe className="iframe" src={stageInfo} allow="camera;microphone;display-capture" allowFullScreen></iframe> 
             </div>
-            <div>
-                {/* <div>{useFetchServerSentEvents()}</div> */}
-                <br></br>
-                {/* <UpcomingEvents></UpcomingEvents> */}
-            </div>
+          
         </div>
 
     );
