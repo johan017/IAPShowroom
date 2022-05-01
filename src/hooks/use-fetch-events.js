@@ -20,7 +20,7 @@ const useFetchEvents = () => {
         } catch(error) {
             console.error(error.response.status);
             if(error.response.status = '401'){
-                // setRedirect(true);
+               //setRedirect(true);
             }
         }
         setLoading(false);

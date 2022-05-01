@@ -23,6 +23,7 @@ const Navbar = ({user_Role}) => {
                 withCredentials: true,
                 data: "Request Logout"
                 },)
+            window.location.reload();
             localStorage.clear();
         } catch (error) {
             console.log(error);
@@ -39,46 +40,17 @@ const Navbar = ({user_Role}) => {
                 alt="display image"
             />
             <div className="links">
+                 <div >
+                    <a onClick={() => {window.location.href="/home"}}>HOME</a>
+                    <a onClick={() => {window.location.href="/stage"}}>STAGE</a>
+                    <a onClick={() => {window.location.href="/rooms"}}>ROOMS</a>
+                    <a onClick={() => {window.location.href="/stats"}}>STATS</a>
+                    <a onClick={() => {window.location.href="/sponsors"}}>SPONSORS</a>
+                    <a onClick={() => {window.location.href="/settings"}}>SETTINGS</a>
+                     <Link onClick={() => handleLogout()}> LOGOUT</Link>
+                     {/* <a onClick={() => handleLogout()} > LOGOUT</a> */}
 
-                {user_Role === "admin" && (
-                      <div >
-                      <Link to="/home" >HOME</Link>
-                      <Link to="/stage" >STAGE</Link>
-                      <Link to="/rooms" >ROOMS</Link>
-                      <Link to="/stats" >STATS</Link>
-                      <Link to="/sponsors" >SPONSORS</Link>
-                      {/* <Link to="/schedule" >SCHEDULE</Link>
-                      <Link to="/membervalidation">VALIDATION</Link>  */}
-                      <Link to="/settings">SETTINGS
-                          {/* <img 
-                            style={{width:'40px', height:'40px'}}
-                            src = "setting_img.png"
-                            alt="display image"/> */}
-                     </Link>
-                     <Link to="/" onClick={handleLogout}> LOGOUT</Link>
-
-                  </div>
-                )}
-
-                {user_Role !== "admin" && (
-                      <div >
-                      <Link to="/home" >HOME</Link>
-                      <Link to="/stage" >STAGE</Link>
-                      <Link to="/rooms" >ROOMS</Link>
-                      <Link to="/stats" >STATS</Link>
-                      <Link to="/sponsors" >SPONSORS</Link>
-                      {/* <Link to="/announce" >Announce</Link> */}
-
-                      {/* <Link to="/schedule" >SCHEDULE</Link> */}
-                      <Link to="/settings">SETTINGS</Link>
-                      <Link to="/" onClick={handleLogout}> LOGOUT</Link>
-                      
-
-                  </div>
-                )}
-               
-
-                   
+                  </div>               
             </div>
             </nav>
              {/* <h3>{userInfo.first_name} {userInfo.last_name}</h3> */}
