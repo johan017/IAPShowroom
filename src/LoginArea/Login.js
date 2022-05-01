@@ -58,7 +58,8 @@ const Login = () => {
                     console.log('Login Failed');
                 }
             }
-            history.push('/home');
+            window.location.href="/home";
+            // history.push('/home');
 
         }
 
