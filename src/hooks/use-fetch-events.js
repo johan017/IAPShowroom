@@ -1,13 +1,19 @@
 import { useEffect, useState} from 'react';
 import axios from "../context/axios";
 
-const EVENTS_URL = "api/showroom/schedule/events"
+var EVENTS_URL = "api/showroom/schedule/events"
 
-const useFetchEvents = () => {
+const useFetchEvents = (flag) => {
 
     const [events, setEvents] = useState([]);
     const [redirect, setRedirect] = useState(false);
     const [isLoading, setLoading] = useState(false);
+
+    console.log(flag);
+    if(flag === "all"){
+        EVENTS_URL = "api/showroom/schedule/events?all=true"
+        console.log(EVENTS_URL)
+    }
 
     const getEvents = async() =>{
         try{

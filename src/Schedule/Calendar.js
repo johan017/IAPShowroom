@@ -18,7 +18,9 @@ const currentDay = new Date().getDate();
 
 const C2 = () => {
     const displayDate = new Date(currentYear, currentMonth, currentDay);
-    const {events, isLoading} = useFetchEvents();
+    const {events, isLoading} = useFetchEvents('all');
+    console.log(events);
+
     for(let i=0; i < events.length; i++) {
         let milli = new Date(events[i].starttime).getTime()+events[i].duration*60000;
         let end = new Date(milli)

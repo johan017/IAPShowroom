@@ -48,9 +48,8 @@ const Announcements = ({user_Role}) => {
         ws.onmessage = (message) => {
             console.log("WebSocket received message:", message.data)
             const dataFromServer = JSON.parse(message.data);
-            if(dataFromServer.type === config.ws_announcement){
-                fetchAnnouncements();
-            }
+            if(dataFromServer.type === config.ws_announcement) fetchAnnouncements();
+            if(dataFromServer.type === config.ws_die) window.location.href = "/"; // reloads page after server is attempting close
         };
         ws.onclose = () => {
             console.log('Announcements WebSocket Client Disconnected');

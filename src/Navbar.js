@@ -9,7 +9,7 @@ const LOGOUT_URL = "api/auth/logout";
 
 const Navbar = ({user_Role}) => {
     console.log(user_Role);
-    const{userInfo} = useFetchUserInfo();
+    // const{userInfo} = useFetchUserInfo();
 
 
     // const {role, isLoading} = useGetRole();
@@ -23,11 +23,11 @@ const Navbar = ({user_Role}) => {
                 withCredentials: true,
                 data: "Request Logout"
                 },)
-            window.location.reload();
             localStorage.clear();
         } catch (error) {
             console.log(error);
         }
+        window.location.reload();
   } 
     return (  
         //Need to use the getUserInfo from showroom proxy to identify user_role
