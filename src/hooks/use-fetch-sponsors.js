@@ -1,7 +1,7 @@
 import { useEffect, useState} from 'react';
-import axios from 'axios';
+import axios from '../context/axios';
 
-const SPONSORS_URL = "https://iap.ece.uprm.edu/api/sponsors/all"
+const SPONSORS_URL = "/api/sponsors/"
 
 const useFetchSponsors = () => {
 
