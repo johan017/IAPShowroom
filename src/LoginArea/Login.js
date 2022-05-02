@@ -94,11 +94,10 @@ const Login = () => {
                
 
                 <div className="recaptcha">
-                    <ReCAPTCHA 
-                    sitekey="6Lfnv_geAAAAABsSPS0UKVKIFkeZWly0yiA_-Wxi"
-                    onChange={handleCaptcha}
-                    
-                    ></ReCAPTCHA>
+                <ReCAPTCHA
+                   sitekey="6LeZSrUfAAAAACW7B4vSpseKslUZ-FzbLGKZpBla"
+                   onChange={handleCaptcha}
+                ></ReCAPTCHA>
                 </div> 
                 
                 {!isLoading && <button>Log In</button>} {/** adds the new event  */}

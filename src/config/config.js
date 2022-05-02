@@ -1,5 +1,5 @@
-const baseURL = 'http://localhost:8080';
-const WebSocketURL = 'ws://localhost:8081'
+const baseURL = 'https://iapshowroom.ece.uprm.edu';
+const WebSocketURL = 'wss://iapshowroom.ece.uprm.edu/ws/'
 
 //Web Socket Server event variables
 const ws_announcement = "announcement";
