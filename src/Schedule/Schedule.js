@@ -30,14 +30,14 @@ const Schedule = () => {
             e.map((event) => {
               return (
               // event list for schedule view in Lobby 
+              <>
+              {/* <h2>{getDate()}</h2> */}
               <div className="schedule-prev" key ={event.projectid}>
-                  
-
-                    <p>{getDate(event.starttime)}</p>
-                    <text>{getTime(event.starttime)}</text>
-                  <h2>{event.title}</h2> 
+                  <text>{getTime(event.starttime)}</text>
+                  <h4>{event.title}</h4> 
                   
               </div>
+              </>
               )
             })
             )
@@ -47,9 +47,9 @@ const Schedule = () => {
         }
     }
 
-    const getDate = (props) =>{
-        const today = props;
-        return new Date(today).toLocaleDateString('default', {month: 'long', day: 'numeric', year: 'numeric'});
+    const getDate = () =>{
+        // const today = props;
+        return new Date().toLocaleDateString('default', {month: 'long', day: 'numeric', year: 'numeric'});
       }
     const getTime = (props) =>{
         const time = props;
@@ -63,9 +63,9 @@ const Schedule = () => {
             {events.length <=0 &&(
                 // <Link to="/create_day">
                 <div className="schedule-button"> 
-                    <h2>No Schedule Available</h2>
+                    
                     <button onClick={handelSchedule}>Create Schedule</button>
-                  
+                  <h2>No Schedule Available</h2>
                 </div>
                 // </Link>
             )}
@@ -73,7 +73,9 @@ const Schedule = () => {
 
             {events.length>0 && (
                 <div className="schedule-done"> 
-                    <h2>Schedule Main</h2>  <button onClick={handleEdit} >Edit Schedule</button>
+                    <h1>Schedule Main</h1>  <button onClick={handleEdit} >Edit Schedule</button>
+                    <h2>{getDate()}</h2>
+                    
                     {displayEvents(events)}
 
                     {/* <EventList></EventList> */}
