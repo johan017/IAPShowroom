@@ -4,13 +4,16 @@ import { useHistory} from "react-router-dom";
 import {useState} from 'react';
 import ProjectList from './ProjectList';
 import EventList from './EventList';
-import useFetch from '../useFetch';
-
+import {Link} from "react-router-dom";
+import useFetchEvents from "../hooks/use-fetch-events";
+import ScheduledEventList from './ScheduledEventList';
 
 const C2 = () => {
 
   // const {data: events, error, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
   const history = useHistory();
+
+  const {events, loading} = useFetchEvents();
 
     const handleNewEvent =(e)=>{
       history.push('/new_event');
@@ -20,19 +23,25 @@ const C2 = () => {
     }
     const handleNext = (e) =>{
         e.preventDefault();
-        history.push('/schedule/review');
+        history.push('/schedule');
     }
 
-    const [tab, setTab] = useState(false);
-       /** los eventos que son projects no devuelven abstracts */
+    const [projtab, setProjTab] = useState(false);
+
+    const [etab, setETab] = useState(false);
+    /** los eventos que son projects no devuelven abstracts */
     const showProjects = () =>{
-        if(tab === false){
-            setTab(true);
+        if(projtab === false){
+          setProjTab(true);
+        }else{
+          setProjTab(false);
         }
     }
     const showEvents = () =>{
-      if(tab === true){
-          setTab(false);
+      if(etab === true){
+          setETab(false);
+      }else{
+        setETab(true);
       }
   }
   return (
@@ -42,14 +51,19 @@ const C2 = () => {
        <div className="schedule-container">
        <div className="sched-buttons">
        <button onClick={() => showProjects()}> IAP Projects </button>
-       <button onClick={() => showEvents()}> Events </button>
+       <button onClick={() => showEvents()}> All Existing Events </button>
        </div>
       <div className="cal22">
         
-        {tab === true && (
+        {projtab === true && (
           <ProjectList></ProjectList>
         )}
-        {<EventList></EventList>}
+         {etab === true && (
+          <EventList></EventList>
+         )} 
+        {<ScheduledEventList/>}
+
+
 
 
       </div>
@@ -67,7 +81,10 @@ const C2 = () => {
           <Calendar/>
         </div>
       </div>
-      
+        {/* <div className="scheduler">
+          <Calendar/>
+        </div>
+       */}
       
     </div>
   );
