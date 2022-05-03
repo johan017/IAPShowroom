@@ -86,7 +86,6 @@ const VerifyInformation = ({ prevStep, values }) =>{
                     <label>First Name: </label> <label>{first_name}</label>
                     <label>Last Name: </label> <label>{last_name}</label>
                     <label>Email: </label> <label>{email}</label>
-                    <label>Password: </label> <label>{password}</label>
                     <label>Gender: </label> <label>{gender}</label>
                     <label>Role: </label> <label>{user_role}</label>
 

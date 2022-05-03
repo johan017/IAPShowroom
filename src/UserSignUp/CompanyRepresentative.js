@@ -8,14 +8,23 @@ import useFetchSponsors from "../hooks/use-fetch-sponsors";
 const CompanyRepresentative = ({ nextStep, prevStep, handleChange, values }) =>{
 
     const page = 2;
-    const {sponsors} = useFetchSponsors();
-    const mockSponsors = [
-        { sponsor_id : 1, company_name : "Verizon" },
-        { sponsor_id : 2, company_name : "L3Harris" },
-        { sponsor_id : 3, company_name : "Sikorski" },
-        { sponsor_id : 4, company_name : "Raytheon" }
-    ];
-
+    var {sponsors} = useFetchSponsors();
+    if(sponsors.length === 0) {
+       sponsors = [
+           { sponsor_id : 1, company_name : "Verizon" },
+           { sponsor_id : 2, company_name : "Texas Instruments" },
+           { sponsor_id : 3, company_name : "Sikorski" },
+           { sponsor_id : 4, company_name : "GM Foundation" },
+           { sponsor_id : 5, company_name : "L3Harris" },
+           { sponsor_id : 6, company_name : "Capital One" },
+           { sponsor_id : 7, company_name : "DXC Technology" },
+           { sponsor_id : 8, company_name : "Gird Systems Inc." },
+           { sponsor_id : 9, company_name : "Intel" },
+           { sponsor_id : 10, company_name : "Raytheon" }
+       ];
+    }
+    
+    console.log(sponsors);
     const nextPage = e =>{
         e.preventDefault();
         nextStep();
@@ -62,7 +71,7 @@ const CompanyRepresentative = ({ nextStep, prevStep, handleChange, values }) =>{
                             required
                         > 
                             <option value="" disabled> Choose an option</option>
-                            {mockSponsors && mockSponsors.map((sponsor) =>(
+                            {sponsors && sponsors.map((sponsor) =>(
                                 <option key={sponsor.sponsor_id} value={sponsor.company_name} >{sponsor.company_name}</option>             
                             ))}
                             {/* {sponsors && sponsors.map((sponsor) =>(

@@ -6,14 +6,15 @@ import axios from "../context/axios";
 
 const VAL_URL = "api/showroom/validateResearchMember";
 
-export default function MemberValidation({user_Role}) {  
+export default function MemberValidation({adminID}) {  
   const [isValidated, setValidated] = useState();
   const {
     researchData,
     redirect,
     loading
   } = useFetchAllResearchMembers();
-
+  
+  
   const displayProjects = (props) => {
     const data = props;
     return (

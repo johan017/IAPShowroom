@@ -7,8 +7,10 @@ import { useState} from 'react';
 import axios from "../context/axios";
 
 
-export default function Home({user_Role, checked}) {  
+export default function Home({user_Role, aID, checked}) {  
   const history = useHistory();
+
+  console.log("Home Parameters",user_Role, aID);
 
   const getDate = () =>{
     const today = new Date();
@@ -31,7 +33,7 @@ export default function Home({user_Role, checked}) {
     modal = document.getElementById("myModal");
     modal.style.display = "block";
     try{
-      const result = await axios.get(`api/showroom/qna/info/1?meeting_id=${pID}`, 
+      const result = await axios.get(`api/showroom/qna/info/?meeting_id=${pID}`, 
       {
           headers: {"Content-Type": "application/json"},
           withCredentials: true
@@ -75,16 +77,16 @@ export default function Home({user_Role, checked}) {
                       {/* <p>Written by {project.author} </p> */}
               </Link>
               
-              <div id="myModal" class="modal">
+              <div id="myModal" className="modal">
               
-                <div id="myModal" class="modal-content">
-                  <span onClick={() => {closeModal()}}class="close">&times;</span>
+                <div id="myModal" className="modal-content">
+                  <span onClick={() => {closeModal()}}className="close">&times;</span>
                   <h2>{title}</h2>
                   <h4> Student Researchers </h4>
                   {roomInfo && roomInfo.map((member)=> ( 
                     <>
                     {member.user_role === "Student Researcher" ? (
-                    <li>{member.first_name} {member.last_name}</li>
+                    <li key={member.userid}>{member.first_name} {member.last_name}</li>
                     ):(<></>)}
                     </>
                   ))} 
@@ -93,7 +95,7 @@ export default function Home({user_Role, checked}) {
                    {roomInfo && roomInfo.map((member)=> ( 
                     <>
                     {member.user_role === "Advisor" ? (
-                    <li>{member.first_name} {member.last_name}</li>
+                    <li key={member.userid}>{member.first_name} {member.last_name}</li>
                     ):(<></>)}
                     </>
                   ))} 
@@ -153,7 +155,7 @@ export default function Home({user_Role, checked}) {
       
 
       <div className="announcements-home">
-        <Announcements user_Role={user_Role}/>
+        <Announcements user_Role={user_Role} adminID={aID}/>
       </div>
         
     </div>   

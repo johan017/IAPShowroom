@@ -3,7 +3,7 @@ import {Link} from  "react-router-dom";
 
 
 
-const Settings = ({user_Role}) => {
+const Settings = ({user_Role, adminID}) => {
 
     const [popup, setPopup] = useState(false);
 
@@ -13,7 +13,7 @@ const Settings = ({user_Role}) => {
             <div><h1>Settings</h1></div>
            
                             
-                            {user_Role == "admin" && (
+                            {user_Role == "admin" && adminID && (
                                 <div>
                                     {/* <h2>{}</h2> */}                                    
                                     <h2>IAP Conference Management</h2>
