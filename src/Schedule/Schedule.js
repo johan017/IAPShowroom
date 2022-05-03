@@ -2,14 +2,14 @@ import {Link, useParams} from 'react-router-dom';
 import { useState } from "react";
 import Calendar from './Calendar';
 import useFetch from "../useFetch";
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 // import EventList from './EventList';
 import useFetchEvents from "../hooks/use-fetch-events";
 import { getDate } from '@progress/kendo-date-math';
 
 
 
-const Schedule = () => {
+const Schedule = ({adminID}) => {
     
     const history = useHistory();
 
@@ -21,6 +21,8 @@ const Schedule = () => {
         history.push('/cal');
     }
     const {events,redirect, loading} = useFetchEvents();
+
+    if(!adminID) return <Redirect from="*" to ="/home"/>
 
     const displayEvents = (props) => {
         const e = props;

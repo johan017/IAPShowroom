@@ -7,8 +7,8 @@ import axios from "./context/axios";
 
 const LOGOUT_URL = "api/auth/logout";
 
-const Navbar = ({user_Role}) => {
-    console.log(user_Role);
+const Navbar = () => {
+  
     // const{userInfo} = useFetchUserInfo();
 
 
@@ -27,7 +27,8 @@ const Navbar = ({user_Role}) => {
         } catch (error) {
             console.log(error);
         }
-        window.location.reload();
+        window.location.href="/"
+        // window.location.reload();
   } 
     return (  
         //Need to use the getUserInfo from showroom proxy to identify user_role
@@ -47,9 +48,7 @@ const Navbar = ({user_Role}) => {
                     <a onClick={() => {window.location.href="/stats"}}>STATS</a>
                     <a onClick={() => {window.location.href="/sponsors"}}>SPONSORS</a>
                     <a onClick={() => {window.location.href="/settings"}}>SETTINGS</a>
-                     <Link onClick={() => handleLogout()}> LOGOUT</Link>
-                     {/* <a onClick={() => handleLogout()} > LOGOUT</a> */}
-
+                    <a onClick={() => handleLogout()}> LOGOUT</a>
                   </div>               
             </div>
             </nav>

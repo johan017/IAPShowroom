@@ -11,7 +11,8 @@ import config from "../config/config";
 
 
 const ws = new WebSocket(config.WebSocketURL);
-const Announcements = ({user_Role}) => {
+const Announcements = ({user_Role, aID}) => {
+    console.log("Announcement Parameters",user_Role, aID);;
     const Announcement_URL = "api/showroom/announcement"
 
     const fetchAnnouncements = async () => {
@@ -156,7 +157,9 @@ const Announcements = ({user_Role}) => {
                     {announcements && announcements.map((announce) => (
                         <div className="announce-body" key={announce.announcementid}>
                             <p>{announce.a_content}</p><br/> 
+                       
                             <button onClick={() => {handleDelete(announce.announcementid)}}>Delete</button>
+                            
                             <text>{getTime(announce.a_date)}</text>
                         </div>
                     ))}
@@ -168,7 +171,7 @@ const Announcements = ({user_Role}) => {
                     )}
                 {/* </ScrollToBottom> */}  
                 </div>
-
+        
                 <div className="announce-footer">                    
                     <input 
                         type="text" 
@@ -178,6 +181,7 @@ const Announcements = ({user_Role}) => {
                     </input>
                     <button onClick={sendAnnouncement}>Send</button>
                 </div>
+              
             </div>
             )}
 

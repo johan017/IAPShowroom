@@ -7,14 +7,13 @@ const useFetchProjects = () => {
 
     const [projects, setProjects] = useState([]);
     const [isLoading, setLoading] = useState(false);
-    const params = new URLSearchParams([['session_id', 14]]);
+    // const params = new URLSearchParams([['session_id', 14]]);
 
     /* Get Projects requires IAPSession ID, possibly remove that requirement from 
     backend */
     const getProjects = async() =>{
         try{
         const result = await axios.get(PROJECTS_URL, 
-        {params},
         {
             headers: {"Content-Type": "application/json"},
             withCredentials: true
