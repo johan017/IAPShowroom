@@ -18,7 +18,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 const Sponsors = () => {
     const {id}=useParams();
-    const {data: uploads, error, isLoading} = useFetch('http://localhost:8000/uploads'); /* data is project because we want the id of a singular project */
+    // const {data: uploads, error, isLoading} = useFetch('http://localhost:8000/uploads'); /* data is project because we want the id of a singular project */
     const {sponsors} = useFetchSponsors();
     return ( 
         <div className="sponsors">
@@ -27,12 +27,12 @@ const Sponsors = () => {
             {/* <h2> SPONSORS </h2> */}
             {/* <h1>Thank You to Our Sponsors</h1> */}
             {/* <Grid container item spacing={3} >*/}
-                {uploads && uploads.map((upload) =>(
-                    <Grid item xs="auto" key ={upload.id}>
+                {sponsors && sponsors.map((sponsor) =>(
+                    <Grid item xs="auto" key ={sponsor.sponsor_id}>
                         <Item> <img
                             height={100}
                             width={200}
-                            src = {upload.upload_location}
+                            src = {sponsor.company_url}
                             alt="display image"
                         />
                         </Item>
