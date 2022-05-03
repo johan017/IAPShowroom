@@ -102,7 +102,7 @@ const Login = () => {
                 </div> 
                 
                 {!isLoading && <button>Log In</button>} {/** adds the new event  */}
-                {isLoading && <button disabled>Loging In...</button>} {/** add event button disabled while loading  */}
+                {isLoading && <button disabled>Logging In...</button>} {/** add event button disabled while loading  */}
 
             </form>
 
