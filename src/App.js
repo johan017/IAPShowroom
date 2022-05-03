@@ -26,6 +26,7 @@ import C2 from './Schedule/C2';
 import MemberValidation from './Settings/MemberValidation';
 import HtmlEndMeeting from './StageArea/HtmlEndMeeting';
 import useGetRole from "./hooks/use-get-role";
+import CheckEmail from './LoginArea/CheckEmail';
 
 
 
@@ -61,6 +62,9 @@ function App() {
           <Route path="/endMeeting"> 
               <HtmlEndMeeting/> 
             </Route>
+          <Route path="/checkEmail">
+            <CheckEmail/>
+          </Route>
 
           <div className="content">
             <ProtectedRoute component={Navbar}/>      
