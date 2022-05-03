@@ -6,6 +6,7 @@ import UpcomingEvents from "./UpcomingEvents";
 import Announcements from "../HomeArea/Announcements";
 import axios from "../context/axios";
 import useFetchStageInfo from "../hooks/use-fetch-stage-info";
+import StageLiveButton from "./StageLiveButton";
 
 
 const JOIN_STAGE_URL = "/api/meet/join-stage";
@@ -27,6 +28,7 @@ const Stage = ({user_Role}) => {
             <div className="stage-1">
 
             <h2> STAGE </h2> 
+            <StageLiveButton user_Role = {user_Role} disable={false}/>
             <div className="stage-upcoming">
                 <h3>Schedule</h3> 
                 <UpcomingEvents></UpcomingEvents>
@@ -36,22 +38,8 @@ const Stage = ({user_Role}) => {
             </div>
             </div>
            
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            <br></br>
-            
-            <ProgressBar></ProgressBar>
             <div className="bbb">
-               
-                {/* Update to get src url from the backend. Temporarily Hardcoded to get a view working  */}
-                <iframe className="temp" src="https://iapstream.ece.uprm.edu/bigbluebutton/api/create?name=DemoMeeting&meetingID=DemoMeeting&attendeePW=ap&moderatorPW=mp&checksum=f5e85d6b55189f228cf06e4791736e44b63282f1"></iframe> 
-                <br></br>
+                <ProgressBar></ProgressBar>
                 <iframe className="iframe" src={stageInfo} allow="camera;microphone;display-capture" allowFullScreen></iframe> 
             </div>
           

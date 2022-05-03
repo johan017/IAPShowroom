@@ -1,15 +1,44 @@
-import {createContext,useState } from "react";
+// import {createContext,useState, useEffect } from "react";
+// import axios from "../context/axios"
 
-const AuthContext = createContext({});
+// const ROLE_URL = "api/auth/user-info"
 
-export const AuthProvider = ({children}) => {
-    const [auth, setAuth] = useState({});
+// const AuthContext = createContext({});
+
+// export const AuthProvider = ({children}) => {
+//     // const [auth, setAuth] = useState({});
+//     const [role, setRole] = useState();
+//     const [uID, setuID] = useState();
+//     const [isLoading, setLoading] = useState(true);
+
+//     const getRole = async() =>{
+//          try{
+//              const result = await axios.get(ROLE_URL, 
+//                  {
+//                      headers: {"Content-Type": "application/json"},
+//                      withCredentials: true
+//                  })
+//                      setRole(result.data.payload.user_role)
+//                      setRole(result.data.payload.user_role);
+//                      setuID(result.data.payload.adminid);
+//                      setLoading(false);
+
+//                 // setLoading(false);
+//          }catch(err){
+//              setRole(null);
+//              setuID(null); 
+//          }
+//     }
+//     useEffect(()=>{
+//         getRole();
+//     }, []);
+
     
-    return (
-    <AuthContext.Provider value={{auth,setAuth}}>
-        {children}
-    </AuthContext.Provider>
-    )
-}
+//     return (
+//     <AuthContext.Provider value={{role,uID,isLoading}}>
+//         {children}
+//     </AuthContext.Provider>
+//     )
+// }
 
-export default AuthContext;
+// export default AuthContext;

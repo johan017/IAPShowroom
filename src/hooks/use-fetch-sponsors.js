@@ -12,11 +12,7 @@ const useFetchSponsors = () => {
     backend */
     const getSponsors = async() =>{
         try{
-        const result = await axios.get(SPONSORS_URL, 
-        {
-            headers: {"Content-Type": "application/json"},
-            withCredentials: true
-        }) 
+        const result = await axios.get(SPONSORS_URL) 
         setSponsors(result.data.payload);
         console.log(result.data.payload)
         } catch(error) {

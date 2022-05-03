@@ -1,10 +1,11 @@
 import {Link, useHistory} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "../context/axios";
+import StageLiveButton from "../StageArea/StageLiveButton";
 
-const Rooms = ({checked}) => {
+const Rooms = ({user_Role}) => {
 
-  const history = useHistory();
+  // const history = useHistory();
   const cdate = new Date(Date.now());
   const getDate = (props) =>{
     const today = props;
@@ -44,17 +45,12 @@ const Rooms = ({checked}) => {
     getRoomStats();
   }, []);
 
-  const handleStage = () =>{
-    history.push('/stage');
-  }
 
   return ( 
     <div className="rooms" >
       <div className="rooms-title-block">
-      <h2> ROOMS </h2> 
-      {checked && (<button onClick={handleStage} style={{backgroundColor: 'red'}}>STAGE LIVE</button>)}
-      {!checked && (<button onClick={handleStage}>STAGE LIVE</button>)}
-      
+        <h2> ROOMS </h2>  <StageLiveButton user_Role={user_Role} disable={true}/>
+            
       </div>
 
 

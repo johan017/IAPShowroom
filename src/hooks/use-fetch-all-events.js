@@ -1,9 +1,9 @@
 import { useEffect, useState} from 'react';
 import axios from "../context/axios";
 
-var EVENTS_URL = "api/showroom/schedule/events"
+var EVENTS_URL = "api/showroom/schedule/events?all=true"
 
-const useFetchEvents = (flag) => {
+const useFetchAllEvents = () => {
 
     const [events, setEvents] = useState([]);
     const [redirect, setRedirect] = useState(false);
@@ -52,4 +52,4 @@ const useFetchEvents = (flag) => {
       };
 };
 
-export default useFetchEvents;
+export default useFetchAllEvents;

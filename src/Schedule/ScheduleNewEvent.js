@@ -72,7 +72,7 @@ const ScheduleNewEvent = () => {
                     onChange = {(e) => setStart(e.target.value)}
 
                 ></input>
-                <label>Duration: </label>
+                <label>Duration (in minutes): </label>
                 <input 
                     type="number" 
                     required 

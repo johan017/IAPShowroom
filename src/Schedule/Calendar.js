@@ -4,7 +4,9 @@ import * as React from 'react';
 import { useState } from "react";
 import useFetch from '../useFetch';
 
-import useFetchEvents from "../hooks/use-fetch-events";
+// import useFetchEvents from "../hooks/use-fetch-events";
+import useFetchAllEvents from "../hooks/use-fetch-all-events";
+
 
 const currentYear = new Date().getFullYear();
 const currentMonth =new Date().getMonth();
@@ -16,10 +18,10 @@ const currentDay = new Date().getDate();
 //     return date;
 // };
 
-const C2 = () => {
+const Calendar = () => {
     const displayDate = new Date(currentYear, currentMonth, currentDay);
-    const {events, isLoading} = useFetchEvents('all');
-    console.log(events);
+    const {events, isLoading} = useFetchAllEvents();
+    console.log("calendar events", events);
 
     for(let i=0; i < events.length; i++) {
         let milli = new Date(events[i].starttime).getTime()+events[i].duration*60000;
@@ -67,4 +69,4 @@ const C2 = () => {
 };
   
 // ReactDOM.render(<C2 />, document.querySelector('my-app'));
-export default C2;
+export default Calendar;

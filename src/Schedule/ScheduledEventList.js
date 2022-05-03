@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import useFetchAllEvents from "../hooks/use-fetch-all-events";
+import useFetchEvents from "../hooks/use-fetch-events";
 // import useFetch from "./useFetch";
 // import useFetchProjects from "../hooks/use-fetch-projects";
 
 
 //List of events inside the conference day 
 const EventList = () => {
-    const {events, loading,} = useFetchAllEvents();
+    const {events, loading,} = useFetchEvents();
     
 
     console.log("event list events", events)
@@ -29,7 +29,6 @@ const EventList = () => {
                 <div className="c2" key ={event.meetid}>
                        {/* {project.projectid} */}
                     {/* <Link to ={`/event_details/${event.meetid}`}> */}
-                    <p>{getDate(event.e_date)}</p>
                         {event.title}
                         {/* <h2>Date {event.date}</h2> */}
                     {/* </Link> <br/> */}

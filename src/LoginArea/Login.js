@@ -2,13 +2,11 @@ import { useContext, useState } from "react";
 import { useHistory } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import {Link} from 'react-router-dom';
-import AuthContext from "../context/AuthProvider";
 import axios from "../context/axios";
 const LOGIN_URL = 'api/auth/login';
 
 const Login = () => {
     const history = useHistory();
-    const { setAuth } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -43,7 +41,7 @@ const Login = () => {
                         
                     );
                     console.log(response.data.payload)
-                    setAuth(response.data.payload);
+                    // setAuth(response.data.payload);
                     // role = "role";
                     // setRole = response.data.payload.admin;
                     
@@ -80,6 +78,7 @@ const Login = () => {
                     placeholder="Email"
                     required 
                     value = {email}
+                    autoComplete="email"
                     onChange = {(e) => setEmail(e.target.value)}
                 />
                 {/* <label>Password: </label> */}
@@ -88,6 +87,7 @@ const Login = () => {
                    placeholder="Password"
                    required
                    value = {password}
+                   autoComplete="current-password"
                    onChange = {(e) => setPassword(e.target.value)}
                 ></input>
                 <Link to="/askChangePassword" style={{marginLeft: "70%", color:"#008DED", textDecoration: "none"}}> Forgot Password?</Link>
@@ -101,7 +101,7 @@ const Login = () => {
                 </div> 
                 
                 {!isLoading && <button>Log In</button>} {/** adds the new event  */}
-                {isLoading && <button disabled>Loging In...</button>} {/** add event button disabled while loading  */}
+                {isLoading && <button disabled>Logging In...</button>} {/** add event button disabled while loading  */}
 
             </form>
 
