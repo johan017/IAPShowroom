@@ -132,12 +132,12 @@ export default class UpcomingEvents extends Component{
         console.log("state:", this.state);
 
         if(currenttitle && currentstarttime && upcomingtitle && upcomingstarttime){
-            return (<div className="UpcomingEvents">
-                        <div className="event-item">
-                        <p>{currentstarttime}</p>
-                        <span>{currenttitle}</span>
+            return (<div className="UpcomingEvents"> 
+                        <div className="event-item"> 
+                        <p>{currentstarttime}</p> 
+                        <span>{currenttitle}</span> 
                         </div>
-                    <br></br>
+                    {/* <br></br> */}
                         <div className="event-item">
                         <p>{upcomingstarttime}</p>
                         <span>{upcomingtitle}</span>
@@ -154,7 +154,9 @@ export default class UpcomingEvents extends Component{
         }
         else{
             return (<div className="UpcomingEvents">
-                <h3></h3>
+                        <div className="event-item"> 
+                        <span>No more events scheduled at this time!</span> 
+                        </div>
                 </div>);
         }
         

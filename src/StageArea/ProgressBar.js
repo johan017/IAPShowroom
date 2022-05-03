@@ -8,7 +8,7 @@ const EVENTS_URL = "/api/showroom/schedule/events";
 const ws = new WebSocket(config.WebSocketURL);
 
 const HIGH = "green";
-const MEDIUM = "yellow";
+const MEDIUM = "orange";
 const LOW = "red";
 
 function getbarstyle(completed, bgcolor) {
