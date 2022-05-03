@@ -25,8 +25,8 @@ import Settings from './Settings/Settings';
 import C2 from './Schedule/C2';
 import MemberValidation from './Settings/MemberValidation';
 import HtmlEndMeeting from './StageArea/HtmlEndMeeting';
+import useGetRole from "./hooks/use-get-role";
 import CheckEmail from './LoginArea/CheckEmail';
-
 
 
 
@@ -34,6 +34,7 @@ function App() {
 
   // const likes = 100;
   // const FEAV = "https://drive.google.com/file/d/1Oa8CutI95VZUt05YpeYBVMcgKLhpjGsx/view?usp=sharing";
+  const {role, uID}  = useGetRole();
 
   return (
     <div className="App">   
@@ -66,24 +67,23 @@ function App() {
           </Route>
 
           <div className="content">
-            <ProtectedRoute user_role="all" component={Navbar}/>      
+            <ProtectedRoute component={Navbar}/>      
             {/*Home component*/}
-            <ProtectedRoute path="/home" user_role="all" component={Home}/>
+            <ProtectedRoute path="/home" component={Home} uRole={role} aID={uID}/>
             {/* <ProtectedRoute exact path="/announce" user_role="all" component={Announcements}/> */}
 
             {/*Stage component*/}
-            <ProtectedRoute path="/stage" user_role="all" component={Stage}/>
+            <ProtectedRoute path="/stage" component={Stage} uRole={role} aID={uID}/>
             {/* <Stage path="/stage"></Stage> */}
 
             {/*Rooms component*/}
-            <ProtectedRoute path="/rooms" user_role="all" component={Rooms}/>
+            <ProtectedRoute path="/rooms" component={Rooms} uRole={role} aID={uID}/>
 
             {/*Project Room component*/}
-            <Route path="/project_room/:project_id"> 
-              <ProjectRoom/> 
-            </Route>
+            <ProtectedRoute path="/project_room/:project_id" component={ProjectRoom} uRole={role} aID={uID}/>
 
             {/*Stats component*/}
+            
             <Route path="/stats">
               <Stats/> 
             </Route>
@@ -94,38 +94,33 @@ function App() {
             </Route>           
 
             {/*Schedule component - schedule of conferencia*/}
-            <ProtectedRoute exact path="/schedule" user_role="admin" component={Schedule}/>
+            <ProtectedRoute exact path="/schedule" component={Schedule} uRole={role} aID={uID}/>
 
-            <ProtectedRoute exact path="/membervalidation" user_role="admin" component={MemberValidation}/>
+            <ProtectedRoute exact path="/membervalidation" component={MemberValidation} uRole={role} aID={uID}/>
                             
             {/*NewEvent component - events created manually*/}
-            <ProtectedRoute  exact path="/new_event" user_role="admin" component={ScheduleNewEvent}/> 
+            <ProtectedRoute  exact path="/new_event"  component={ScheduleNewEvent} uRole={role} aID={uID}/> 
 
             {/*NewEvent component - events created manually*/}
-            <Route exact path="/update_event/:projectid"> 
-              <ScheduleUpdateEvent/> 
-            </Route>
+            <ProtectedRoute  exact path="/update_event/:projectid" component={ScheduleUpdateEvent} uRole={role} aID={uID}/> 
  
-            <Route exact path="/event_details/:project_id"> 
-              <EventDetails/> {/*Event Details component*/}
-            </Route>
+            <ProtectedRoute  exact path="/event_details/:project_id" component={EventDetails} uRole={role} aID={uID}/> 
 
             {/* Schedule Review  component - view schedule before submitting* */}
-            <Route exact path="/schedule/review"> 
-              <ScheduleReview/> 
-            </Route>
+            <ProtectedRoute  exact path="/schedule/review" component={ScheduleReview} uRole={role} aID={uID}/> 
+
 
             <Route path="/validate">
               <Validate/> 
             </Route> 
 
-            <ProtectedRoute exact path="/account" user_role="all" component={Account}/>
+            <ProtectedRoute exact path="/account" component={Account} uRole={role} aID={uID}/>
 
                                  
-            <ProtectedRoute exact path="/settings" user_role="all" component={Settings}/>
+            <ProtectedRoute exact path="/settings" component={Settings} uRole={role} aID={uID}/>
 
                           
-            <ProtectedRoute exact path="/cal" user_role="admin" component={C2}/> 
+            <ProtectedRoute exact path="/cal" component={C2} uRole={role} aID={uID}/> 
                
           </div> 
           <Route path="*"> 
