@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-// import useFetchEvents from "../hooks/use-fetch-events";
+import useFetchEvents from "../hooks/use-fetch-events";
 // import useFetch from "./useFetch";
 import useFetchProjects from "../hooks/use-fetch-projects";
 
@@ -7,32 +7,31 @@ import useFetchProjects from "../hooks/use-fetch-projects";
 //List of events inside the conference day 
 const ProjectList = () => {
     const {projects, loading,} = useFetchProjects();
-    // const {id} = useParams();
-    //   const {data: events, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
+    const {events} = useFetchEvents();
+
+    var eventsList = new Set();
+
+    events.forEach(e =>{
+        if(e.projectid) eventsList.add(e.projectid);
+    })
 
     return (
 
         <div className="event-list">
             {loading && <div> Loading...</div>}
 
-           {/* {displayEvents(events)} */}
-
-           {/* return(  */}
-            
            {projects && projects.map((project) =>(
-                <div className="c2" key ={project.project_id}>
-                       {/* {project.projectid} */}
-                    <Link to ={`/event_details/${project.project_id}`}>
-                        {project.title}
-                        {/* <h2>Date {event.date}</h2> */}
-                    </Link> <br/>
-                    <Link to ={`/update_event/${project.project_id}`}>
-                        <button>Modify</button>
-                    </Link>                
+                <div key ={project.project_id}>
+                    {!eventsList.has(project.project_id) && (
+                        <div className="c2">
+                            {project.title}
+                            <Link to ={`/update_event/${project.project_id}`}>
+                                <button>Modify</button>
+                            </Link> 
+                        </div>
+                    )}
                 </div>     
-                
-
-           ))}
+            ))}
         
         </div>
     );
