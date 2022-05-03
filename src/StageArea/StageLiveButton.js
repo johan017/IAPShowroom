@@ -5,19 +5,19 @@ import { useHistory } from "react-router-dom";
 const StageLiveButton = ({user_Role, disable}) => {
     
     const [checked, setChecked] = useState(false);
-    const [popup, setPopup] = useState(false);
+    const [live, setLive] = useState(false);
     const [color, setColor] = useState('#424240');
 
 
     const history = useHistory();
 
-    const changePopup = () =>{
-        console.log(popup);
-        if(popup === false){
-            setPopup(true);
+    const changeLive = () =>{
+        console.log(live);
+        if(live === false){
+            setLive(true);
             setColor('red');
         } else {
-            setPopup(false);
+            setLive(false);
             setColor('#424240');
         } 
     }
@@ -35,11 +35,12 @@ const StageLiveButton = ({user_Role, disable}) => {
     return ( 
         <div>
             <div className="stage-live-button">
-                {/* {popup === true && ( */}
+                {live === false && (
                 <>
-                <button onClick={()=>{changePopup();handleStage}} style={{backgroundColor: {color}}}>STAGE LIVE</button>
+                <button onClick={()=>{changeLive();handleStage();}} style={{backgroundColor: {color}}}>STAGE LIVE</button>
                 </>
-                   
+                )}
+                
                 {user_Role === "admin" && (
                     <>
                     {disable === false && (
