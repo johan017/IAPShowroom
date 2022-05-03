@@ -314,7 +314,18 @@ svg{
 
 .stage-1{
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
+}
+.stage-1 .stage-live button{
+  background: #424240;
+  color: #fff;
+  /* border: 0; */
+  padding: 8px;
+  width: 100px;
+  /* height: 30px; */
+  border-radius: 8px;
+  /* cursor: pointer; */
+
 }
 .stage h2{
   font-size: 25px;
@@ -582,19 +593,19 @@ svg{
   margin-bottom: 25px;
   display: inline-block;
 }
-.rooms-title-block .stage-live-button button{
+/* .stage-live-button button{
   background: #424240;
   color: #fff;
-  /* border: 0; */
+  /* border: 0; *
   padding: 8px;
   width: 100px;
-  /* height: 30px; */
+  /* height: 30px; *
   border-radius: 8px;
   /* margin-top: 10px; */
-  margin-left: 1100px;
+  /* margin-left: 1100px; *
   display: inline-block;
   cursor: pointer;
-}
+} */
 .room-list{
   display: inline-block;
 }
@@ -1149,10 +1160,37 @@ svg{
   display: flex;
 } */
 
-.project-room h2{
-  font-size: 20px;
+.project-room h1{
+  /* font-size: 20px; */
   color: #f1356d;
   margin-bottom: 10px;
+  margin-top: 20px;
+  margin-left: 40px;
+  margin-right: 80px;
+}
+.project-room h2{
+  /* font-size: 15px; */
+  /* color: #f1356d; */
+  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-left: 40px;
+}
+.project-room h3, .project-room p{
+  /* font-size: 15px; */
+  /* color: #f1356d; */
+  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-left: 80px;
+  margin-right: 80px;
+text-align: justify;
+}
+
+.project-room li{
+  /* font-size: 15px; */
+  /* color: #f1356d; */
+  margin-bottom: 10px;
+  margin-top: 20px;
+  margin-left: 100px;
 }
 
 /* .project-room {
@@ -1166,7 +1204,7 @@ svg{
   padding: 8px;
   height: 30px;
   border-radius: 8px;
-  /* margin-top: 10px; */
+  margin-top: 10px;
   /* margin-left: 1000px; */
   cursor: pointer;
   font-weight: bold;
@@ -1180,22 +1218,22 @@ svg{
    display: inline-block;
 
 }
-.student-room-info h4{
+/* .student-room-info h4{
   margin-left: 120px;
-  /* display: inline-block; */
+  /* display: inline-block; *
 }
 .student-room-info li{
   margin-left: 140px;
-  /* display: inline-block; */
+  /* display: inline-block; *
 }
 .advisor-room-info h4{
   margin-left: 120px;
-  /* display: inline-block; */
+  /* display: inline-block; *
 }
 .advisor-room-info li{
   margin-left: 140px;
-  /* display: inline-block; */
-}
+  /* display: inline-block; *
+} */
 /* .advisor-room-info{ */
   /* margin-left: 70%; */
   /* display: flex; */

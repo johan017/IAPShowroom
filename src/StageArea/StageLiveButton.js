@@ -5,41 +5,20 @@ import { useHistory } from "react-router-dom";
 const StageLiveButton = ({user_Role, disable}) => {
     
     const [checked, setChecked] = useState(false);
-    const [live, setLive] = useState(false);
-    const [color, setColor] = useState('#424240');
-
 
     const history = useHistory();
 
-    const changeLive = () =>{
-        console.log(live);
-        if(live === false){
-            setLive(true);
-            setColor('red');
-        } else {
-            setLive(false);
-            setColor('#424240');
-        } 
-    }
-    
-    const handleCheck = (e) =>{
-        e.preventDefault();
-        setChecked(e.target.checked);
-        console.log("value of check", checked);
-    }
     const handleStage = () =>{
         history.push('/stage');
-      }
-    
-    
+    }
+        
     return ( 
-        <div>
+        <div className="stage-live">
             <div className="stage-live-button">
-                {live === false && (
-                <>
-                <button onClick={()=>{changeLive();handleStage();}} style={{backgroundColor: {color}}}>STAGE LIVE</button>
-                </>
-                )}
+           
+                {checked &&(<button onClick={handleStage} style={{backgroundColor: 'red'}}>STAGE LIVE</button>)}
+                {!checked &&(<button onClick={handleStage} style={{backgroundColor: '#424240'}}>STAGE LIVE</button>)}
+               </div>
                 
                 {user_Role === "admin" && (
                     <>
@@ -48,7 +27,7 @@ const StageLiveButton = ({user_Role, disable}) => {
                         <FormControlLabel control={
                             <Switch 
                                 checked={checked}
-                                onClick={handleCheck}
+                                onClick={(e) => setChecked(e.target.checked)}
 
                             />} label="Stage is Live">   
                             </FormControlLabel>
@@ -59,7 +38,7 @@ const StageLiveButton = ({user_Role, disable}) => {
 
                 
                 
-            </div>
+          
         </div>
     );
 }
