@@ -49,8 +49,9 @@ const Rooms = ({user_Role}) => {
   return ( 
     <div className="rooms" >
       <div className="rooms-title-block">
-        <h2> ROOMS </h2>  <StageLiveButton user_Role={user_Role} disable={true}/>
-            
+        <h2> ROOMS </h2>  
+        <StageLiveButton user_Role={user_Role} disable={true}/>
+
       </div>
 
 
