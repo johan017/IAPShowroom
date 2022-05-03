@@ -129,52 +129,47 @@ const ProjectRoom = ({checked}) => {
            
             {event && (
                 <div key={event.meetid}>                 
-
-                        <div>
-                        
-                            <div style={{marginLeft: "10px"}}>
-                                <button onClick={()=>{changePopup(); getSpeakers(event.projectid)}}>Project Information</button>  
-                            </div>
-                            
-                            {popup == true && (
-                                <div >
-                                    <h1>{nArr[0]}</h1> 
-                                    <h2>Team Members</h2>
-                                        <div >
-                                        <h3> Student Researcher </h3>
-                                            {roomInfo && roomInfo.map((member)=> ( 
-                                                <>
-                                                {member.user_role === "Student Researcher" && (
-                                                <li>{member.first_name} {member.last_name}</li>
-                                                )}
-                                                </>
-                                            ))} 
-                                        
-                                        <h3> Advisors </h3>
-                                            {roomInfo && roomInfo.map((member)=> ( 
-                                                <>
-                                                {member.user_role === "Advisor" && (
-                                                <li>{member.first_name} {member.last_name}</li>
-                                                )}
-                                                </>
-                                            ))} 
-                                        </div>
-                                    <h2>Abstract</h2>
-                                     <p>{nArr[2]}</p>                                  
-                                </div>
-                            )}
-
-
-                            <div className="bbb">
-                                {/* Update to get src url from the backend. Temporarily Hardcoded to get a view working  */}
-                                {/* <iframe className="temp" src="https://iapstream.ece.uprm.edu/bigbluebutton/api/create?name=DemoMeeting&meetingID=DemoMeeting&attendeePW=ap&moderatorPW=mp&checksum=f5e85d6b55189f228cf06e4791736e44b63282f1"></iframe>  */}
-                                <br></br>
-                                <iframe className="iframe" src={bbbUrl} allow="camera;microphone;display-capture" allowFullScreen></iframe>  
-                            </div>
-                            
+                    <div>
+                        <h1>{nArr[0]}</h1> 
+                        <div style={{marginLeft: "10px"}}>
+                            <button onClick={()=>{changePopup(); getSpeakers(event.projectid)}}>Project Information</button>  
                         </div>
+                            
+                        {popup == true && (
+                            <div className="p-room-1">
+                                {/* <h1>{nArr[0]}</h1>  */}
+                                <h2>Team Members</h2>
+                                <div >
+                                    <h3> Student Researcher </h3>
+                                    {roomInfo && roomInfo.map((member)=> ( 
+                                        <>
+                                        {member.user_role === "Student Researcher" && (
+                                        <li>{member.first_name} {member.last_name}</li>
+                                        )}
+                                        </>
+                                    ))} 
+                                        
+                                    <h3> Advisors </h3>
+                                    {roomInfo && roomInfo.map((member)=> ( 
+                                        <>
+                                        {member.user_role === "Advisor" && (
+                                        <li>{member.first_name} {member.last_name}</li>
+                                        )}
+                                        </>
+                                    ))} 
+                                    </div>
+                                <h2>Abstract</h2>
+                                <p>{nArr[2]}</p>                                  
+                            </div>
+                        )}
 
-
+                        <div className="bbb">
+                            {/* Update to get src url from the backend. Temporarily Hardcoded to get a view working  */}
+                            {/* <iframe className="temp" src="https://iapstream.ece.uprm.edu/bigbluebutton/api/create?name=DemoMeeting&meetingID=DemoMeeting&attendeePW=ap&moderatorPW=mp&checksum=f5e85d6b55189f228cf06e4791736e44b63282f1"></iframe>  */}
+                            <br></br>
+                            <iframe className="iframe" src={bbbUrl} allow="camera;microphone;display-capture" allowFullScreen></iframe>  
+                        </div>
+                    </div>
                 </div>
             )}
 
