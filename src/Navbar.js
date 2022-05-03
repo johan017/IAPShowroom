@@ -35,11 +35,12 @@ const Navbar = () => {
         //n
         <div className = "navb">
             <nav className = "navbar">
-
-            <img
-                src = "IAP_Showroom_Logo_HD_Big.png"
-                alt="display image"
-            />
+            <a href='/home'>
+                <img
+                    src = "IAP_Showroom_Logo_HD_Big.png"
+                    alt="display image"
+                />
+            </a>
             <div className="links">
                  <div >
                     <a onClick={() => {window.location.href="/home"}}>HOME</a>

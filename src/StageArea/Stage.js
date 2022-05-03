@@ -40,9 +40,6 @@ const Stage = ({user_Role}) => {
            
             <div className="bbb">
                 <ProgressBar></ProgressBar>
-                {/* Update to get src url from the backend. Temporarily Hardcoded to get a view working  */}
-                {/* <iframe className="temp" src="https://iapstream.ece.uprm.edu/bigbluebutton/api/create?name=DemoMeeting&meetingID=DemoMeeting&attendeePW=ap&moderatorPW=mp&checksum=f5e85d6b55189f228cf06e4791736e44b63282f1"></iframe> 
-                <br></br> */}
                 <iframe className="iframe" src={stageInfo} allow="camera;microphone;display-capture" allowFullScreen></iframe> 
             </div>
           

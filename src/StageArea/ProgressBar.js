@@ -151,7 +151,7 @@ export default class ProgressBar extends Component{
 
         let duration = end-start;
         
-        let completed = Math.floor((end-new Date())/duration * 100);
+        let completed = (end-new Date())/duration * 100;
         let color = completed < 5 ? LOW : completed < 20 ? MEDIUM : HIGH;
         const barstyle = getbarstyle(completed, color);
         

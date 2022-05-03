@@ -17,7 +17,7 @@ const Announcements = ({user_Role, aID}) => {
 
     const fetchAnnouncements = async () => {
         try{
-            console.log("before axios")
+            // console.log("before axios")
             const result = await axios.get(Announcement_URL, 
             {
                 headers: {"Content-Type": "application/json"},
@@ -30,7 +30,7 @@ const Announcements = ({user_Role, aID}) => {
             console.log("error obj:");
             console.log(error);
             console.error(error.response.status);
-            if(error.response.status === 404) return {};
+            if(error.response.status === 404) return setAnnouncements([]);
         }
 
        
@@ -97,6 +97,9 @@ const Announcements = ({user_Role, aID}) => {
             };
             console.log("announcement", messageData);
         }
+
+        setCurrentMess('');
+
         try{
 
         await axios.post('api/showroom/announcement', messageData, {
@@ -110,7 +113,6 @@ const Announcements = ({user_Role, aID}) => {
         }catch(err){
 
         }
-        setCurrentMess('');
     }
 
     const getTime = (props) =>{
@@ -138,7 +140,7 @@ const Announcements = ({user_Role, aID}) => {
 
                     {announcements.length === 0 && (
                         <div className="announce-body">
-                            <p>No Announcemnts At The Moment</p>
+                            <p>No Announcements At The Moment</p>
                         </div>
                     )}
                 {/* </ScrollToBottom> */}
@@ -166,7 +168,7 @@ const Announcements = ({user_Role, aID}) => {
 
                     {announcements.length === 0 && (
                         <div className="announce-body">
-                            <p>No Announcemnts At The Moment</p>
+                            <p>No Announcements At The Moment</p>
                         </div>
                     )}
                 {/* </ScrollToBottom> */}  
