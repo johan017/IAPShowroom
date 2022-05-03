@@ -26,16 +26,19 @@ const Sponsors = () => {
             {error && <div> {error} </div>} */}
             {/* <h2> SPONSORS </h2> */}
             {/* <h1>Thank You to Our Sponsors</h1> */}
-            {/* <Grid container item spacing={3} >*/}
+            <Grid container item spacing={10} >
+                    <h1>Thank You to Our Sponsors</h1>
                 {sponsors && sponsors.map((sponsor) =>(
                     <Grid item xs="auto" key ={sponsor.sponsor_id}>
+                        {sponsor.company_url !== null && (
                         <Item> <img
                             height={100}
-                            width={200}
+                            width={400}
                             src = {sponsor.company_url}
                             alt="display image"
                         />
                         </Item>
+                        )} 
                     </Grid>
                 ))}
                         {/* <Grid item xs={10}>
@@ -49,10 +52,10 @@ const Sponsors = () => {
                 ))}
                  <Grid item xs={10}>
                     <Item style={{fontSize:"60px", fontFamily:"Montserrat", color:"#000000"}}>Thank You to Our Sponsors</Item>
-                 </Grid>
-            </Grid>
+                 </Grid>*/}
+                    </Grid>
                            
-           */}
+        
 
         </div>
 
