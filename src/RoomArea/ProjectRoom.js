@@ -17,6 +17,7 @@ const ProjectRoom = ({checked}) => {
     // const {data: event, error, isLoading} = useFetch('http://localhost:8000/projects/' + id); /* data is project because we want the id of a singular project */
     const {projects, isLoading} = useFetchProjects();
     const [event, setEvent] = useState({});
+    const [bbbUrl, setBBBUrl] = useState();
     var  pathArray = window.location.pathname.split('/');
 
     var eid = parseInt(pathArray[2]);
@@ -50,6 +51,7 @@ const ProjectRoom = ({checked}) => {
 
     useEffect(()=>{
         getEvents();
+        getBBBUrl();
      }, []);
  
     /** los eventos que son projects no devuelven abstracts */
@@ -101,6 +103,24 @@ const ProjectRoom = ({checked}) => {
     const handleStage = () =>{
         history.push('/stage');
     }
+
+    const getBBBUrl = async() =>{
+        try{
+        const result = await axios.get(`/api/showroom/qna/info?meeting_id=${eid}&bbb=true`, 
+        {
+            headers: {"Content-Type": "application/json"},
+            withCredentials: true
+        }) 
+        setBBBUrl(result.data.payload.join_url);
+        // setDefaultST(result.data.payload.starttime);
+        } catch(error) {
+            console.error(error.response.status);
+            if(error.response.status = '401'){
+               
+            }
+        }
+        // setLoading(false);
+    };
     
     return (  
         <div className = "project-room">
@@ -118,12 +138,10 @@ const ProjectRoom = ({checked}) => {
                             
                             {popup == true && (
                                 <div >
-                                    {/* <h2>{event.title}</h2>
-                                    <h3>{event.abstract}</h3> <br/> */}
-                                      <h2>{nArr[0]}</h2> <br/>
-                                      <h3>Team Members</h3>
+                                    <h1>{nArr[0]}</h1> 
+                                    <h2>Team Members</h2>
                                         <div >
-                                            <h4> Student Researcher </h4>
+                                        <h3> Student Researcher </h3>
                                             {roomInfo && roomInfo.map((member)=> ( 
                                                 <>
                                                 {member.user_role === "Student Researcher" && (
@@ -131,10 +149,8 @@ const ProjectRoom = ({checked}) => {
                                                 )}
                                                 </>
                                             ))} 
-                                        </div>
-                                        {/* <br></br> */}
-                                        <div className="advisor-room-info">
-                                            <h4> Advisors </h4>
+                                        
+                                        <h3> Advisors </h3>
                                             {roomInfo && roomInfo.map((member)=> ( 
                                                 <>
                                                 {member.user_role === "Advisor" && (
@@ -143,8 +159,8 @@ const ProjectRoom = ({checked}) => {
                                                 </>
                                             ))} 
                                         </div>
-                                      {/* {getSpeakers(event.projectid)} */}
-                                    <h3>Abstract</h3> <br/> <p>{nArr[2]}</p>                                  
+                                    <h2>Abstract</h2>
+                                     <p>{nArr[2]}</p>                                  
                                 </div>
                             )}
 
@@ -153,7 +169,7 @@ const ProjectRoom = ({checked}) => {
                                 {/* Update to get src url from the backend. Temporarily Hardcoded to get a view working  */}
                                 {/* <iframe className="temp" src="https://iapstream.ece.uprm.edu/bigbluebutton/api/create?name=DemoMeeting&meetingID=DemoMeeting&attendeePW=ap&moderatorPW=mp&checksum=f5e85d6b55189f228cf06e4791736e44b63282f1"></iframe>  */}
                                 <br></br>
-                                <iframe className="iframe" src="https://iapstream.ece.uprm.edu/bigbluebutton/api/join?fullName=w1&meetingID=DemoMeeting&password=mp&role=moderator&checksum=62dcc9207e6fbaef56223b4f4b0dcd5abcad159e" allow="camera;microphone;display-capture" allowFullScreen></iframe>  
+                                <iframe className="iframe" src={bbbUrl} allow="camera;microphone;display-capture" allowFullScreen></iframe>  
                             </div>
                             
                         </div>
