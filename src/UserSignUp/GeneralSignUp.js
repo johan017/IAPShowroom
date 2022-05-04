@@ -9,9 +9,9 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
     const page = 1;
     /* Selection values */
     const genders = [
-        { g_id : 1, gender: "male"},
-        { g_id : 2, gender: "female"},
-        { g_id : 3, gender: "other"}
+        { g_id : 1, gender: "Male"},
+        { g_id : 2, gender: "Female"},
+        { g_id : 3, gender: "Non Disclosed"}
       ];
       const roles = [
         { id : 1, user_role: "Guest"},
@@ -22,7 +22,7 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
   
     //used to verify captcha
     const [isVerified, setIsVerified] = useState(false);
-    const [matchPass,setMatchPass] = useState();
+    const [matchPass,setMatchPass] = useState('');
     const [isMatched, setisMatched] = useState(false);
 
     //verifies if captcha was successfull (checked)
@@ -46,25 +46,18 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
         // formValues.forEach(v => {
         //     document.getElementById(v).checkValidity();
         // })
-        if(!isMatched) alert("Passwords must match");
-        if(name.checkValidity() && lastName.checkValidity() && email.checkValidity() && password.checkValidity() 
-         && role.checkValidity() && gender.checkValidity() && isMatched){
+        if(values.password !== values.confirmPass){
+            alert("Passwords must match");
+            e.preventDefault();
+        } 
+        else if(name.checkValidity() && lastName.checkValidity() && email.checkValidity() && password.checkValidity() 
+         && role.checkValidity() && gender.checkValidity()){
            // && vpassword.checkValidity()
             e.preventDefault()
             nextStep();
         }
       }
-    
-    const matchPassword = e =>{
-        if(e.target.value === values.password){
-            setisMatched(true);
-            document.getElementById("match").innerHTML = "Passwords matched";
-        } else{ 
-            setisMatched(false);
-            document.getElementById("match").innerHTML = "Passwords does not match";
-        }
-        
-    }
+
 
     return(
 
@@ -113,10 +106,10 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
                             id="email" 
                             value = {values.email}
                             onChange = {handleChange('email')} 
-                            pattern= {EMAILREGEX} 
+                            // pattern= {EMAILREGEX} 
                             required 
                         />
-
+ 
                         <label>Password: </label>
                         <input
                             type="password"
@@ -134,8 +127,8 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
                         <input
                             type="password"
                             id="confirm-password"
-                            value = {matchPass}
-                            onChange= { e => {matchPassword(e);}}
+                            value = {values.confirmPass}
+                            onChange= {handleChange('confirmPass')}
                             required 
                         ></input> 
                         <p id="match"/>
