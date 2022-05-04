@@ -71,7 +71,7 @@ export default function Home({user_Role, aID, checked}) {
               <div>
                 <button onClick={() => {showSpeakers(event.projectid, event.title)}} >Speakers</button>  
                 <Link to ={`/project_room/${event.projectid}`}>           
-                  <button>Room</button>
+                  <button style={{marginLeft: "10px"}}>Room</button>
                 </Link>
               
                 <div id="myModal" className="modal">

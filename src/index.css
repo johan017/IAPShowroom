@@ -124,8 +124,9 @@ svg{
   border-radius: 8px;
   margin-top: 10px;
   margin-left: 350px;
-  display: inline-block;
-  cursor: pointer;
+
+  cursor: pointer;  
+  display: fle;
 }
 
 .announcements-home{
@@ -175,8 +176,9 @@ svg{
   padding: 8px 20px;
   border-radius: 8px;
   cursor: pointer;
-  margin-right: -390px;
-  margin-left: 390px;
+  margin-left: 65%;
+  /* margin-right: -390px;
+  margin-left: 390px; */
   display:inline-block;
 }
 /*Announcemnts Container*/
@@ -1468,48 +1470,26 @@ svg{
 
 /*---------------------------------------------- SPONSORS ----------------------------------------------*/
 .sponsors h1{
-  position: absolute;
-  width: 477px;
+  /* position: absolute; */
+  /* width: 477px;
   height: 45px;
   left: 450px;
-  top: 300px;
+  top: 300px; */
   /* font-family: 'Montserrat'; */
+  margin-left: 20%;
+  margin-top: 2%;
   font-style: normal;
   font-weight: 600;
   font-size: 60px;
-  line-height: 78px;
+  /* line-height: 78px; */
   display: flex;
   align-items: center;
   text-align: center;
-  letter-spacing: -0.004em;
+  /* letter-spacing: -0.004em; */
   
   color: #000000;
 }
 
-.logo-preview img{
-  width: 200px;
-  height: 50px;
-}
-/* 
-.project-preview-checkbox input{
-  /* padding: 10px 100px;
-  margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1); 
-  width: 100%;
-  padding: 6px 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
-  box-sizing: border-box;
-  display: block;
-
-}
-.project-preview-checkbox {
-  padding: 10px 100px;
-  margin: 20px 0;
-  border-bottom: 1px solid #fafafa;
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
-} */
 
 .dropdown-project select{
   
