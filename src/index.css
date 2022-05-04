@@ -726,7 +726,7 @@ svg{
   display: flex;
 }
 .sched-buttons button{
-  background: #008DED;
+  background: #535353;
   color: #fff;
   border: 0;
   padding: 8px 20px;
@@ -1766,3 +1766,26 @@ color: #EA4C89;
   cursor: pointer;
 }
 
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background: #008DED;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
