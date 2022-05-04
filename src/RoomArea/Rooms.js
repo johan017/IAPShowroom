@@ -2,6 +2,7 @@ import {Link, useHistory} from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "../context/axios";
 import StageLiveButton from "../StageArea/StageLiveButton";
+import { modalUnstyledClasses } from "@mui/material";
 
 const Rooms = ({user_Role}) => {
 
@@ -45,29 +46,45 @@ const Rooms = ({user_Role}) => {
     getRoomStats();
   }, []);
 
+  const modStyle =(props) =>{
+    const sr = props;
+    if(sr === false){
+      return({
+      border: "3px solid red",
+      background: "red"
+      })
+    }else{
+      return({
+      border: "3px solid purple",
+      background: "purple"
+      })
+    }
+   
+  }
 
   return ( 
     <div className="rooms" >
       <div className="rooms-title-block">
         <h2> ROOMS </h2>  
         <StageLiveButton user_Role={user_Role} disable={true}/>
-
       </div>
 
 
      <div className="room-list">
         {roomStats && roomStats.map((roomS)=>(
          <div  className="pr-list">
-          <div style={{border: "1px solid #E5E5E5"}}className="project-rooms">
+          <div style={modStyle(roomS.student_researcher)}className="project-rooms">
             <Link to ={`/project_room/${roomS.project_id}`} > 
               <p style={{marginLeft: "10px", marginTop: "10px"}}>{roomS.title}</p>
               <br/> 
               <img 
-                src = "company_rep.png"
+                src = "comp-rep.png"
                 alt="display image"     
-              /><text>{roomS.company_representatives}</text>
+              />
+              {/* <i class="tio">user</i> */}
+              <text>{roomS.company_representatives}</text>
               <img
-                src = "users.png"
+                src = "user-2.png"
                 alt="display image"
               /><text>{roomS.general_users}</text>   
             </Link> 
