@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import PasswordStrengthBar from 'react-password-strength-bar';
+import {Link} from 'react-router-dom';
 
 const EMAILREGEX = "^.+@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z])$";
 
@@ -140,7 +141,7 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
                         ></input> 
                         <p id="match"/>
 
-                        <label>Gender: </label>
+                        <label>Gender:</label>
                         <select 
                             id="gender" 
                             onChange = {handleChange('gender')} 
@@ -167,7 +168,7 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
                         </select>
 
                          
-                        <button style={{ background: '#3B8D25', width: "75px"}} type="submit" value="Next"> Next </button>
+                        <button variant="contained" style={{ background: '#3B8D25', width: "75px"}} type="submit" value="Next"> Next </button>
                 </div>
             </div>
         </form>
