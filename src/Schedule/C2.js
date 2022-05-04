@@ -26,49 +26,53 @@ const C2 = () => {
         history.push('/schedule');
     }
 
-    const [projtab, setProjTab] = useState(false);
-
-    const [etab, setETab] = useState(false);
-    /** los eventos que son projects no devuelven abstracts */
-    const showProjects = () =>{
-        if(projtab === false){
-          setProjTab(true);
-        }else{
-          setProjTab(false);
-        }
-    }
-    const showEvents = () =>{
-      if(etab === true){
-          setETab(false);
-      }else{
-        setETab(true);
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+    
+      // Get all elements with class="tabcontent" and hide them
+      tabcontent = document.getElementsByClassName("tabcontent");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
       }
-  }
+    
+      // Get all elements with class="tablinks" and remove the class "active"
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+      }
+    
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(tabName).style.display = "block";
+      evt.currentTarget.className += " active";
+    }
+
+
   return (
     <div className="cal2">
       {/* {error && <div> {error} </div>}
       {isLoading && <div> Loading...</div>} */}
        <div className="schedule-container">
-       <div className="sched-buttons">
-       <button onClick={() => showProjects()}> IAP Projects </button>
-       <button onClick={() => showEvents()}> All Existing Events </button>
-       </div>
-      <div className="cal22">
-        
-        {projtab === true && (
-          <ProjectList></ProjectList>
-        )}
-         {etab === true && (
-          <EventList></EventList>
-         )} 
-        {<ScheduledEventList/>}
-
-
-
-
-      </div>
-      </div>
-      
+            <div className='tab'>
+                 <div className="sched-buttons">
+                      <button class="tablinks" onClick={e => openTab(e, 'Projects')}> IAP Projects </button>
+                      <button class="tablinks" onClick={e => openTab(e, 'Events')}> All Existing Events </button>
+                </div>
+            </div>
+       
+           <div className="cal22">
+             
+               <div id="Projects" class="tabcontent">
+                    <ProjectList></ProjectList>
+               </div>
+               <div id="Events" class="tabcontent">
+                    <EventList></EventList>
+               </div>
+              
+             {<ScheduledEventList/>}
+             
+             </div>
+        </div>
+           
       <div className="schedule-container">
       
         <div className="schedule-buttons">
