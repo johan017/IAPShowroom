@@ -12,8 +12,7 @@ const C2 = () => {
 
   // const {data: events, error, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
   const history = useHistory();
-
-  const {events, loading} = useFetchEvents();
+  // const {events, loading} = useFetchEvents();
 
     const handleNewEvent =(e)=>{
       history.push('/new_event');
@@ -55,20 +54,23 @@ const C2 = () => {
             <div className='tab'>
                  <div className="sched-buttons">
                       <button class="tablinks" onClick={e => openTab(e, 'Projects')}> IAP Projects </button>
-                      <button class="tablinks" onClick={e => openTab(e, 'Events')}> All Existing Events </button>
+                      <button class="tablinks" onClick={e => openTab(e, 'AllEvents')}> All Existing Events </button>
+                      <button class="tablinks" onClick={e => openTab(e, 'TodayEvents')}> Today's Events </button>
                 </div>
             </div>
        
            <div className="cal22">
              
                <div id="Projects" class="tabcontent">
-                    <ProjectList></ProjectList>
+                    <ProjectList/>
                </div>
-               <div id="Events" class="tabcontent">
-                    <EventList></EventList>
+               <div id="AllEvents" class="tabcontent">
+                    <EventList/>
                </div>
-              
-             {<ScheduledEventList/>}
+               <div id="TodayEvents" class="tabcontent">
+                    <ScheduledEventList/>
+               </div>
+            
              
              </div>
         </div>
@@ -93,6 +95,7 @@ const C2 = () => {
     </div>
   );
 };
+
   
 // ReactDOM.render(<C2 />, document.querySelector('my-app'));
 export default C2;

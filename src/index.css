@@ -726,7 +726,7 @@ svg{
   display: flex;
 }
 .sched-buttons button{
-  background: #008DED;
+  background: #535353;
   color: #fff;
   border: 0;
   padding: 8px 20px;
@@ -1773,7 +1773,7 @@ color: #EA4C89;
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #ccc;
+  background: #008DED;
 }
 
 /* Style the tab content */
