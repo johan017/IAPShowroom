@@ -7,6 +7,8 @@ const captchaKey = '6Lfnv_geAAAAABsSPS0UKVKIFkeZWly0yiA_-Wxi'
 const ws_announcement = "announcement";
 const ws_progressbar = "progressbar";
 const ws_upcomingevents = "upcomingevents";
+const ws_stageUpdate = "stageupdate";
+const ws_getStageLive = "stagelive";
 const ws_die = "die";
 
 
@@ -19,6 +21,8 @@ module.exports = {
     ws_announcement: ws_announcement,
     ws_progressbar: ws_progressbar,
     ws_upcomingevents: ws_upcomingevents,
+    ws_stageUpdate: ws_stageUpdate,
+    ws_getStageLive: ws_getStageLive,
     ws_die: ws_die,
     captchaKey: captchaKey
 }
