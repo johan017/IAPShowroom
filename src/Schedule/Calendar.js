@@ -57,9 +57,9 @@ const Calendar = () => {
             numberOfDays={1} 
             slotDuration={15} 
             slotDivisions={2} 
-            startTime={"00:00"} 
+            startTime={"07:00"} 
             endTime={"23:59"} 
-            workDayStart={"00:00"} 
+            workDayStart={"07:00"} 
             workDayEnd={"23:59"} 
           />
         </Scheduler>

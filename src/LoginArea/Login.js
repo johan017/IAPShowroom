@@ -44,19 +44,24 @@ const Login = () => {
                     // setAuth(response.data.payload);
                     // role = "role";
                     // setRole = response.data.payload.admin;
-                    
+                    window.location.href="/home";
             }catch(err){
                 if(!err?.response) {
+                    alert("Server is not responding");
                     console.log('No Server Response');
                 } else if((err.response?.status === 400)){
+                    alert("Missing Username or Password")
                     console.log('Missing Username or Password');
                 } else if((err.response?.status === 400)){
+                    alert("User is unauthorized to ");
                     console.log('Unauthorized');
                 } else {
+                    alert("No user exists with those credentials");
                     console.log('Login Failed');
                 }
+                window.location.href="/";
             }
-            window.location.href="/home";
+            // window.location.href="/home";
             // history.push('/home');
 
         }

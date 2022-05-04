@@ -9,44 +9,11 @@
   /* align-self: center; */
 }
 
-/* body .temp {
-  display: none;
-  height: 0;
-  width: 0;
-} */
-/* 
-body {
-    position: relative;
-} */
-
-/* html,
-body {
-    height: 100%;
-} */
-
-/* body {
-    display:inline-block;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    /* min-height: 80px; *
-    box-sizing: border-box;
-    padding: 10px;
-} */
-
 svg{
   height: 20px;
   width: 20px;
 }
-/* .content { */
-  /* max-width: 1200px; */
-  /* margin: 0 auto; */
-  /* margin-left: 150px; */
-  /* padding: 20px; */
-  /* display:flex; */
-  /* align-items: center; */
-  /* align-content: center; */
-/* }   */
+
 /*---------------------------------------------- NAVIGATION BAR ----------------------------------------------*/
 .navbar {
   /* width:100%; */
@@ -78,9 +45,8 @@ svg{
 }
 /*Changes color to the navigation buttons when hovering*/
 .navbar a:hover {
-  color: #f1356d;
+  color: rgb(20, 203, 26);
   cursor: pointer;
-
 }
 
 .navbar img{
@@ -194,7 +160,7 @@ svg{
   display:inline-block;
 }
 
-.project-preview{
+.project-preview {
   padding: 10px 20px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
@@ -210,7 +176,7 @@ svg{
   border-radius: 8px;
   cursor: pointer;
   margin-right: -390px;
-  margin-left: 440px;
+  margin-left: 390px;
   display:inline-block;
 }
 /*Announcemnts Container*/
@@ -313,6 +279,7 @@ svg{
 
 
 .stage-1{
+  margin-left: 50px;
   display: flex;
   flex-direction: column;
 }
@@ -322,17 +289,23 @@ svg{
   /* border: 0; */
   padding: 8px;
   width: 100px;
+  margin-top: 20px;
+  margin-bottom: 10px;
   /* height: 30px; */
   border-radius: 8px;
   /* cursor: pointer; */
 
+}
+.stage-2{
+  display: flex;
+  flex-direction: row;
 }
 .stage h2{
   font-size: 25px;
   font-weight: bold;
   border: 2px #ddd solid;
   margin-top: 10px;
-  margin-left: 30px;
+  /* margin-left: 50px; */
   width: 10%;
   height: 30px;
   border:hidden;
@@ -342,7 +315,7 @@ svg{
 .stage-upcoming{
   /* position: absolute; */
   margin-top: 10px;
-  margin-left:20%;
+  margin-left:5%;
   /* width:500px; */
   /* height: 125px; */
   font-size: 20px;
@@ -580,11 +553,13 @@ svg{
   width: 100%;
   display: flex;
   flex-direction: column;
-  flex: 2;
+  /* flex: 2; */
   /* display: inline-flexbox; */
 }
 .rooms-title-block{
   width: 100%;
+  display: flex;
+  flex-direction: row;
 }
 
 .rooms-title-block h2{
@@ -593,19 +568,19 @@ svg{
   margin-bottom: 25px;
   display: inline-block;
 }
-/* .stage-live-button button{
+.rooms-title-block button{
   background: #424240;
   color: #fff;
-  /* border: 0; *
+  /* border: 0; */
   padding: 8px;
-  width: 100px;
-  /* height: 30px; *
+  /* width: 100px; */
+  /* height: 30px; */
   border-radius: 8px;
-  /* margin-top: 10px; */
-  /* margin-left: 1100px; *
+  margin-top: 5px;
+  margin-left: 1000px;
   display: inline-block;
   cursor: pointer;
-} */
+}
 .room-list{
   display: inline-block;
 }
@@ -912,11 +887,11 @@ svg{
 } */
 .settings a:visited{
   /* text-decoration: none; */
-  color: red;
+  color: rgb(20, 203, 26);
 }
 .settings a:hover{
   /* text-decoration: none; */
-  color: blue;
+  color: #008DED;
 
 }
 .settings h1{
@@ -1061,29 +1036,6 @@ svg{
   /* align-self: center; */
 }
 
-
-/* 
-.cal22 a {
-  font-size: 25px;
-  margin-bottom: 20px;
-  margin-left: 10px;
-  text-decoration: none;
-  padding: 6px;
-  /* display:inline-block; *
-  width: 50px;
-  color: black;
-
-}
-.cal22 a:link{
-  color: #c9330e;
-}
-.cal22 a:visited{
-  color: #3535f1;
-}
-.cal22 a:hover{
-  color: #10a015;
-} */
-
 /*----------------------------*/
 .event-list-preview {
   padding: 10px 100px;
@@ -1156,33 +1108,32 @@ svg{
 
 
 /*---------------------------------------------- PROJECT ROOM PAGE ----------------------------------------------*/
-/* .project-room{
-  display: flex;
-} */
+.p-room-1{
+  margin-left: 70px;
+  margin-right: 80px;
+
+  /* display: flex; */
+}
 
 .project-room h1{
-  /* font-size: 20px; */
-  color: #f1356d;
+  color: #25b12a;
   margin-bottom: 10px;
-  margin-top: 20px;
-  margin-left: 40px;
+  margin-top: 30px;
+  margin-left: 80px;
   margin-right: 80px;
+  text-align: center;
 }
 .project-room h2{
-  /* font-size: 15px; */
-  /* color: #f1356d; */
   margin-bottom: 10px;
   margin-top: 20px;
   margin-left: 40px;
 }
 .project-room h3, .project-room p{
-  /* font-size: 15px; */
-  /* color: #f1356d; */
   margin-bottom: 10px;
   margin-top: 20px;
   margin-left: 80px;
   margin-right: 80px;
-text-align: justify;
+  text-align: justify;
 }
 
 .project-room li{
@@ -1193,59 +1144,26 @@ text-align: justify;
   margin-left: 100px;
 }
 
-/* .project-room {
-  margin: 20px 0;
-} */
 .project-room button{
-  /* font-size: 25px; */
   background: #008DED;
   color: #fff;
-  /* border: 0; */
   padding: 8px;
   height: 30px;
   border-radius: 8px;
   margin-top: 10px;
-  /* margin-left: 1000px; */
+  margin-left: 80px;
   cursor: pointer;
   font-weight: bold;
   border: 2px #ddd solid;
-  /* margin-right: 200px;
-  margin-left: 200px; */
- /* margin-bottom: 20px; */
-  /* border:hidden; */
   box-sizing:content-box;
-  /* display:inline-block;  */
-   display: inline-block;
+  display: inline-block;
+}
 
-}
-/* .student-room-info h4{
-  margin-left: 120px;
-  /* display: inline-block; *
-}
-.student-room-info li{
-  margin-left: 140px;
-  /* display: inline-block; *
-}
-.advisor-room-info h4{
-  margin-left: 120px;
-  /* display: inline-block; *
-}
-.advisor-room-info li{
-  margin-left: 140px;
-  /* display: inline-block; *
-} */
-/* .advisor-room-info{ */
-  /* margin-left: 70%; */
-  /* display: flex; */
-/* } */
 .proj-info-button-room h2, .proj-info-button-room h3,.proj-info-button-room p {
   /* width: 100%; */
   margin-left: 100px;
 }
-/* .proj-info-button-room-container{
-  display: flex;
-  flex-direction: column;
-} */
+
 
 
 
@@ -1745,20 +1663,6 @@ text-align: justify;
   z-index: 2;
   cursor: pointer;
 }
-
-/* .project-room button{
-  background: #424240;
-  color: #fff;
-  border: 0;
-  padding: 8px;
-  width: 100px;
-  height: 30px;
-  border-radius: 8px;
-  margin-top: 10px;
-  margin-left: 1000px;
-  display: inline-block;
-  cursor: pointer;
-} */
 
 
 

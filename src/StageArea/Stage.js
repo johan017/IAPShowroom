@@ -25,20 +25,19 @@ const Stage = ({user_Role}) => {
 
     return ( 
         <div className="stage">
-            <div className="stage-2"></div> //add flex row
-            <div className="stage-1">
-
-            <h2> STAGE </h2> 
-            <StageLiveButton user_Role = {user_Role} disable={false}/> 
-            </div>
-            <div className="stage-upcoming">
-                <h3>Schedule</h3> 
-                <UpcomingEvents></UpcomingEvents>
-            </div>
-            <div className="stage-announcements">
-                <Announcements user_Role={user_Role}/>               
-            </div>
-           
+            <div className="stage-2">
+                <div className="stage-1">
+                    <h2> STAGE </h2> 
+                    <StageLiveButton user_Role = {user_Role} disable={false}/> 
+                </div>
+                <div className="stage-upcoming">
+                    <h3>Schedule</h3> 
+                    <UpcomingEvents></UpcomingEvents>
+                </div>
+                <div className="stage-announcements">
+                    <Announcements user_Role={user_Role}/>               
+                </div>
+           </div>
            
             <div className="bbb">
                 <ProgressBar></ProgressBar>
