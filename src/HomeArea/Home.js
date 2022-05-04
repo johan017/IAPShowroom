@@ -10,7 +10,6 @@ import axios from "../context/axios";
 export default function Home({user_Role, aID, checked}) {  
   const history = useHistory();
 
-  console.log("Home Parameters",user_Role, aID);
 
   const getDate = () =>{
     const today = new Date();
@@ -64,39 +63,43 @@ export default function Home({user_Role, aID, checked}) {
         e.map((event) => {
           return (
           <div className="project-prev" key ={event.meetid}>
-            <p>{getTime(event.starttime)}</p>
+                <p>{getTime(event.starttime)}</p>
             <div className="project-preview">
               <h2>{event.title}</h2>  <br/>
               {event.projectid && ( 
               <div>
+              {/* <Link to={`/project_room/${event.meetid}`}> */}
                 <button onClick={() => {showSpeakers(event.projectid, event.title)}} >Speakers</button>  
                 <Link to ={`/project_room/${event.projectid}`}>           
                   <button style={{marginLeft: "10px"}}>Room</button>
                 </Link>
               
-                <div id="myModal" className="modal">
-                  <div id="myModal" className="modal-content">
-                    <span onClick={() => {closeModal()}}className="close">&times;</span>
-                    <h2>{title}</h2>
-                    <h4> Student Researchers </h4>
-                    {roomInfo && roomInfo.map((member)=> ( 
-                      <>
-                      {member.user_role === "Student Researcher" ? (
-                      <li key={member.userid}>{member.first_name} {member.last_name}</li>
-                      ):(<></>)}
-                      </>
-                    ))} 
+              <div id="myModal" className="modal">
+              
+                <div id="myModal" className="modal-content">
+                  <span onClick={() => {closeModal()}}className="close">&times;</span>
+                  <h2>{title}</h2>
+                  <h4> Student Researchers </h4>
+                  {roomInfo && roomInfo.map((member)=> ( 
+                    <>
+                    {member.user_role === "Student Researcher" ? (
+                    <li key={member.userid}>{member.first_name} {member.last_name}</li>
+                    ):(<></>)}
+                    </>
+                  ))} 
                   <br></br>
-                    <h4> Advisors </h4>
-                    {roomInfo && roomInfo.map((member)=> ( 
-                      <>
-                      {member.user_role === "Advisor" ? (
-                      <li key={member.userid}>{member.first_name} {member.last_name}</li>
-                      ):(<></>)}
-                      </>
-                    ))} 
-                  </div>
+                  <h4> Advisors </h4>
+                   {roomInfo && roomInfo.map((member)=> ( 
+                    <>
+                    {member.user_role === "Advisor" ? (
+                    <li key={member.userid}>{member.first_name} {member.last_name}</li>
+                    ):(<></>)}
+                    </>
+                  ))} 
+                  {/* <p>Some text in the Modal..</p> */}
                 </div>
+              
+              </div>
               </div>
               )}
             </div>
