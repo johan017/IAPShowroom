@@ -1,7 +1,7 @@
 const baseURL = 'http://localhost:8080';
 const WebSocketURL = 'ws://localhost:8081'
 
-const captchaKey = '6Lfnv_geAAAAABsSPS0UKVKIFkeZWly0yiA_-Wxi'
+const captchaKey = '6LeZSrUfAAAAACW7B4vSpseKslUZ-FzbLGKZpBla'
 
 //Web Socket Server event variables
 const ws_announcement = "announcement";
