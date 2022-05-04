@@ -5,6 +5,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useState} from 'react';
 import axios from "../context/axios";
+import StageLiveButton from "../StageArea/StageLiveButton";
 
 
 export default function Home({user_Role, aID, checked}) {  
@@ -150,11 +151,12 @@ export default function Home({user_Role, aID, checked}) {
        </div>  
 
       
-
-      <div className="announcements-home">
-        <Announcements user_Role={user_Role} adminID={aID}/>
+      <div className="home-container-3">
+        <StageLiveButton user_Role={user_Role} disable={true}/>
+        <div className="announcements-home">
+          <Announcements user_Role={user_Role} adminID={aID}/>
+        </div>
       </div>
-        
     </div>   
   );
 }

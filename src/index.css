@@ -60,6 +60,7 @@ svg{
 .home{
   /* width: 35%; */
   display: flex; 
+  flex-direction: row;
 }
 
 /*Home schedule date container*/
@@ -69,6 +70,25 @@ svg{
   display: flex;
   flex-direction: column;
 }
+.home-container-3{
+  margin-left: 8%;
+  display: flex;
+  flex-direction: column;
+}
+.home-container-3 .stage-live button{
+  background: #424240;
+  color: #fff;
+  /* border: 0; */
+  padding: 8px;
+  width: 100px;
+  margin-top: 20px;
+  margin-left: 90%;
+  margin-bottom: 10px;
+  /* height: 30px; */
+  border-radius: 8px;
+  /* cursor: pointer; */
+}
+
 .home-date-sched {
   /* width: 50%; */
   margin-top: 2%;
@@ -457,7 +477,7 @@ svg{
 
 .BarContainer {
   height: 25px;
-  /* width: 1120px; */
+  width: 93%;
   background-color: rgb(128, 142, 133);
   border-radius: 50;
   /* margin-top: 15px; */
@@ -584,6 +604,7 @@ svg{
 .rooms-title-block h2{
   margin-top: 10px;
   margin-left: 5%;
+  margin-right: 80%;
   margin-bottom: 25px;
   display: inline-block;
 }
@@ -596,7 +617,7 @@ svg{
   /* height: 30px; */
   border-radius: 8px;
   margin-top: 5px;
-  margin-left: 1000px;
+  /* margin-left: 50%; */
   display: inline-block;
   cursor: pointer;
 }
@@ -1142,14 +1163,24 @@ align-items: center;
 
   /* display: flex; */
 }
+.proj-room-1 {
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* align-content: center; */
+}
+/* .proj-room-1 .stage-live-button button{
+  margin-left: 50%;
+} */
 
-.project-room h1{
+.proj-room-1 h1{
   color: #25b12a;
   margin-bottom: 10px;
   margin-top: 30px;
-  margin-left: 80px;
-  margin-right: 80px;
-  text-align: center;
+  margin-left: 45%;
+  margin-right: 30%;
+  /* text-align: center; */
 }
 .project-room h2{
   margin-bottom: 10px;

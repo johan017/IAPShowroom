@@ -6,10 +6,11 @@ import { useState, useEffect } from "react";
 import useFetchProjects from "../hooks/use-fetch-projects";
 import useFetchEvents from "../hooks/use-fetch-events";
 import axios from "../context/axios";
+import StageLiveButton from "../StageArea/StageLiveButton";
 
 
 // TODO: figure out why info doesnt appear with fetch & ids 
-const ProjectRoom = ({checked}) => {
+const ProjectRoom = ({user_Role}) => {
 
     const history = useHistory();
 
@@ -129,12 +130,14 @@ const ProjectRoom = ({checked}) => {
            
             {event && (
                 <div key={event.meetid}>                 
-                    <div>
-                        <h1>{nArr[0]}</h1> 
+                    <div className="proj-room-1">
+                        <h1>{nArr[0]}</h1>  
+                        <StageLiveButton user_Role={user_Role} disable={true}/>
+                    </div>  
                         <div style={{marginLeft: "10px"}}>
                             <button onClick={()=>{changePopup(); getSpeakers(event.projectid)}}>Project Information</button>  
                         </div>
-                            
+                
                         {popup == true && (
                             <div className="p-room-1">
                                 {/* <h1>{nArr[0]}</h1>  */}
@@ -169,7 +172,7 @@ const ProjectRoom = ({checked}) => {
                             <br></br>
                             <iframe className="iframe" src={bbbUrl} allow="camera;microphone;display-capture" allowFullScreen></iframe>  
                         </div>
-                    </div>
+                    {/* </div> */}
                 </div>
             )}
 
