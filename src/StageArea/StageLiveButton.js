@@ -17,6 +17,9 @@ const StageLiveButton = ({user_Role, disable}) => {
     useEffect(() => {
         ws.onopen = () => {
             console.log('StageLiveButton WebSocket Client Connected');
+            setTimeout(()=>{
+                ws.send(JSON.stringify({ type: config.ws_getStageLive}));
+            }, 1000);
         };
         ws.onmessage = (message) => {
             console.log("StageLiveButton received message:", message.data)
@@ -32,8 +35,7 @@ const StageLiveButton = ({user_Role, disable}) => {
         ws.onclose = () => {
             console.log('StageLiveButton WebSocket Client Disconnected');
         }
-
-        ws.send(JSON.stringify({ type: config.ws_getStageLive}));
+        
 
         return () => {
             //on component unmount
@@ -58,8 +60,9 @@ const StageLiveButton = ({user_Role, disable}) => {
                             <Switch 
                                 checked={checked}
                                 onClick={(e) => {
-                                        setChecked(e.target.checked);
+                                        // setChecked(e.target.checked);
                                         ws.send(JSON.stringify({ type: config.ws_stageUpdate, value: e.target.checked }));
+                                        // setChecked(e.target.checked);
                                     }
                                 }
 
