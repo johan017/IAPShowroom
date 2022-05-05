@@ -145,7 +145,7 @@ const Stats = () => {
                         <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.resStudOther}`} /> 
                     </div> <br/>
 
-                    <p>Current Grad Students</p>
+                    <p>Students that will graduate soon</p>
                     <div className="stat-prog-bar">
                         <Progress totalp={`${conferenceStats.researchStudParticipants}`} totalItem={`${conferenceStats.resStudGRAD}`} /> 
                     </div> <br/>

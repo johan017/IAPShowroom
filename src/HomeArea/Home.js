@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { useState} from 'react';
 import axios from "../context/axios";
 const config = require('../config/config');
-
+import StageLiveButton from "../StageArea/StageLiveButton";
 
 
 export default function Home({user_Role, aID, checked}) {  
@@ -34,7 +34,7 @@ export default function Home({user_Role, aID, checked}) {
     modal = document.getElementById("myModal");
     modal.style.display = "block";
     try{
-      const result = await axios.get(`api/showroom/qna/info/?meeting_id=${pID}`, 
+      const result = await axios.get(`api/showroom/qna/info?meeting_id=${pID}`, 
       {
           headers: {"Content-Type": "application/json"},
           withCredentials: true
@@ -152,11 +152,12 @@ export default function Home({user_Role, aID, checked}) {
        </div>  
 
       
-
-      <div className="announcements-home">
-        <Announcements user_Role={user_Role} adminID={aID}/>
+      <div className="home-container-3">
+        <StageLiveButton user_Role={user_Role} disable={true}/>
+        <div className="announcements-home">
+          <Announcements user_Role={user_Role} adminID={aID}/>
+        </div>
       </div>
-        
     </div>   
   );
 }

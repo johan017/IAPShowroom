@@ -14,6 +14,7 @@ const ProjectList = () => {
     events.forEach(e =>{
         if(e.projectid) eventsList.add(e.projectid);
     })
+    console.log("eventList", eventsList);
 
     return (
 
@@ -25,8 +26,8 @@ const ProjectList = () => {
                     {!eventsList.has(project.project_id) && (
                         <div className="c2">
                             {project.title}
-                            <Link to ={`/update_event/${project.project_id}`}>
-                                <button>Modify</button>
+                            <Link to ={`/new_event/${project.project_id}`}>
+                                <button>Create Event</button>
                             </Link> 
                         </div>
                     )}
