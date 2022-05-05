@@ -5,6 +5,7 @@ import useFetch from "../useFetch";
 import { useHistory, Redirect } from 'react-router-dom';
 // import EventList from './EventList';
 import useFetchEvents from "../hooks/use-fetch-events";
+import config from "../config/config"
 import { getDate } from '@progress/kendo-date-math';
 
 
@@ -54,7 +55,7 @@ const Schedule = ({adminID}) => {
         return new Date().toLocaleDateString('default', {month: 'long', day: 'numeric', year: 'numeric'});
       }
     const getTime = (props) =>{
-        const time = props;
+        const time = config.safariPolyfill(props);
         return(new Date(time).toLocaleTimeString([], {hour: 'numeric', minute:'2-digit'}));
     }
     
