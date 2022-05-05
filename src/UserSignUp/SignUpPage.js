@@ -22,7 +22,8 @@ export default class SignUpPage extends Component{
         department: '', 
        // department: new Array(), 
         company_name:'', 
-        ispm:'false'
+        ispm:'false',
+        confirmPass: ''
     }
 
     nextStep = () =>{
@@ -68,8 +69,8 @@ export default class SignUpPage extends Component{
 
     render(){
         const {step} = this.state;
-        const {first_name, last_name, email, password, gender, user_role, grad_date, projectids,projectTitles, department, company_name, ispm} = this.state;
-        const values = {first_name, last_name, email, password, gender, user_role, grad_date, projectids, projectTitles, department, company_name, ispm};
+        const {first_name, last_name, email, password, gender, user_role, grad_date, projectids,projectTitles, department, company_name, ispm, confirmPass} = this.state;
+        const values = {first_name, last_name, email, password, gender, user_role, grad_date, projectids, projectTitles, department, company_name, ispm, confirmPass};
 
             if(step === 1){
                 return(

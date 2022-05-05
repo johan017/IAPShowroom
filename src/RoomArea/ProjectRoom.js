@@ -69,7 +69,7 @@ const ProjectRoom = ({checked}) => {
 
     const getSpeakers = async(pID) => {
           try{
-          const result = await axios.get(`api/showroom/qna/info/1?meeting_id=${pID}`, 
+          const result = await axios.get(`api/showroom/qna/info?meeting_id=${pID}`, 
           {
               headers: {"Content-Type": "application/json"},
               withCredentials: true

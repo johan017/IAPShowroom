@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
 import {Link} from 'react-router-dom';
 import axios from "../context/axios";
+import config from "../config/config";
 const LOGIN_URL = 'api/auth/login';
 
 const Login = () => {
@@ -100,7 +101,7 @@ const Login = () => {
 
                 <div className="recaptcha">
                 <ReCAPTCHA
-                   sitekey="6LeZSrUfAAAAACW7B4vSpseKslUZ-FzbLGKZpBla"
+                   sitekey= {config.captchaKey}
                    onChange={handleCaptcha}
                 ></ReCAPTCHA>
                 </div> 

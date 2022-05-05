@@ -11,7 +11,7 @@ const ScheduleNewEvent = () => {
     const adminid = uID;
     const [title, setTitle] = useState('');
     const [starttime, setStart] = useState('');
-    const [duration, setDuration] = useState('');
+    const [duration, setDuration] = useState(15);
     const [isLoading, setIsLoading] = useState(false); // when first loading the page the POST request is not being made; only after sumbitting form is when request is made
     const history = useHistory();
     const projectid= null;
