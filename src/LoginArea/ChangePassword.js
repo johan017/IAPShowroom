@@ -15,44 +15,39 @@ const ChangePassword = () => {
 
     
     const [isLoading, setIsLoading] = useState(false); 
-    const [matchPass,setMatchPass] = useState();
+    const [matchPass,setMatchPass] = useState('');
     const [isMatched, setisMatched] = useState(false);
 
-    const matchPassword = e =>{
-        if(e.target.value === password){
-            setisMatched(true);
-            document.getElementById("match").innerHTML = "Passwords matched";
-        } else{ 
-            setisMatched(false);
-            document.getElementById("match").innerHTML = "Passwords does not match";
-        }
-        
-    }
 
     const handlePassChange = async (e) =>{ 
-        e.preventDefault();
-        const messageData = {
-              "email": email,
-              "new_password": password,
-        };
-        
-        console.log("email", messageData);
-
-        try{
-
-        await axios.post('api/auth/forgot-pass', messageData, {
-            headers: {"Content-Type": "application/json"}
-            // withCredentials: true
-            }).then((res) => {
-                console.log(res.data)
-            }).catch((error)=>{
-                console.log(error)
-        })
-        }catch(err){
-
+        if(password !== matchPass){
+            alert("Passwords must match");
+            e.preventDefault();
+        } 
+        else {
+             e.preventDefault();
+             const messageData = {
+                   "email": email,
+                   "new_password": password,
+             };
+             
+             console.log("email", messageData);
+     
+             try{
+     
+             await axios.post('api/auth/forgot-pass', messageData, {
+                 headers: {"Content-Type": "application/json"}
+                 // withCredentials: true
+                 }).then((res) => {
+                     console.log(res.data)
+                 }).catch((error)=>{
+                     console.log(error)
+             })
+             }catch(err){
+                
+             }
+             history.push('/');
         }
-        history.push('/');
-
     }
 {/*new_password - post on click */} 
     
@@ -92,7 +87,7 @@ const ChangePassword = () => {
                     type="password"
                     id="confirm-password"
                     value = {matchPass}
-                    onChange= { e => {matchPassword(e);}}
+                    onChange= { e => {setMatchPass(e.target.value);}}
                     required 
                 ></input> 
                 <p id="match"/>       
