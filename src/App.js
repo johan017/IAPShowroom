@@ -9,10 +9,11 @@ import ProjectRoom from './RoomArea/ProjectRoom';
 import Stats from './StatsArea/Stats';
 import Sponsors from './Sponsors';
 import Schedule from './Schedule/Schedule';
-import ScheduleNewEvent from './Schedule/ScheduleNewEvent';
+import NewEvent from './Schedule/NewEvent';
+import NewProjectEvent from './Schedule/NewProjectEvent';
 import EventDetails from './Schedule/EventDetails';
-import ScheduleReview from './Schedule/ScheduleReview';
-import ScheduleUpdateEvent from './Schedule/ScheduleUpdateEvent';
+// import ScheduleReview from './Schedule/ScheduleReview';
+import UpdateEvent from './Schedule/UpdateEvent';
 import AccountCreated from './UserSignUp/AccountCreated';
 import SignUpPage from './UserSignUp/SignUpPage';
 import ProtectedRoute from './ProtectedRoute';
@@ -99,15 +100,17 @@ function App() {
             <ProtectedRoute exact path="/membervalidation" component={MemberValidation} uRole={role} aID={uID}/>
                             
             {/*NewEvent component - events created manually*/}
-            <ProtectedRoute  exact path="/new_event"  component={ScheduleNewEvent} uRole={role} aID={uID}/> 
+            <ProtectedRoute  exact path="/new_event"  component={NewEvent} uRole={role} aID={uID}/> 
+            <ProtectedRoute  exact path="/new_event/:project_id"  component={NewProjectEvent} uRole={role} aID={uID}/> 
 
             {/*NewEvent component - events created manually*/}
-            <ProtectedRoute  exact path="/update_event/:projectid" component={ScheduleUpdateEvent} uRole={role} aID={uID}/> 
- 
+            <ProtectedRoute  exact path="/update_event/:meetid" component={UpdateEvent} uRole={role} aID={uID}/> 
+            {/* <ProtectedRoute  exact path="/update_event" component={UpdateEvent} uRole={role} aID={uID}/>  */}
+
             <ProtectedRoute  exact path="/event_details/:project_id" component={EventDetails} uRole={role} aID={uID}/> 
 
             {/* Schedule Review  component - view schedule before submitting* */}
-            <ProtectedRoute  exact path="/schedule/review" component={ScheduleReview} uRole={role} aID={uID}/> 
+            {/* <ProtectedRoute  exact path="/schedule/review" component={ScheduleReview} uRole={role} aID={uID}/>  */}
 
 
             <Route path="/validate">

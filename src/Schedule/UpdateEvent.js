@@ -8,38 +8,24 @@ import useFetchUserInfo from "../hooks/use-fetch-all-user-info";
 import { RestoreOutlined } from "@material-ui/icons";
 
 
-
-
-
-
-function ScheduleUpdateEvent (props) {
+function UpdateEvent (props) {
    
     const [title, setTitle] = useState('');
     const [startTime, setStartTime] = useState('');
     const [duration, setDuration] = useState('');
-    const [projectID, setProjectID] = useState('');
+    // const [projectID, setProjectID] = useState('');
 
     const {userInfo} = useFetchUserInfo();
     
     const {projects} = useFetchProjects();
     var  pathArray = window.location.pathname.split('/');
 
-
     var eid = parseInt(pathArray[2]);
     const history = useHistory();
 
-    // useEffect(()=>{
-    //     getEvents();
-    // }, []);
-
     const [event, setEvent] = useState();
 
-
     const [defaultST, setDefaultST] = useState();
-
-//    console.log(new Date(event.starttime))
-// console.log (event)
-// console.log(event.isdeleted)
 
     const getEvents = async() =>{
         try{
@@ -56,7 +42,6 @@ function ScheduleUpdateEvent (props) {
                
             }
         }
-        // setLoading(false);
     };
 
     useEffect(()=>{
@@ -197,10 +182,10 @@ function ScheduleUpdateEvent (props) {
             {event && (
                 <div className="addNewEvent">
                     
-                        <div key={event.meetid}>  
+                        <div key={event.projectid}>  
     
                                 <div>                        
-                                    <h2>Event Information</h2>
+                                    <h2>Update Event Information</h2>
                                     <label>Event Title: </label>
                                     <input 
                                         type="text" 
@@ -244,8 +229,8 @@ function ScheduleUpdateEvent (props) {
                         <div key={project.project_id}>  
                             {project.project_id === eid &&(
                                 <div>                        
-                                    <h2>Event Information</h2>
-                                    <label>Event Title: </label>
+                                    <h2>New Event Information</h2>
+                                    <label>New Event Title: </label>
                                     <input 
                                         type="text" 
                                         defaultValue={project.title}
@@ -292,4 +277,4 @@ function ScheduleUpdateEvent (props) {
     );
 }
  
-export default withRouter(ScheduleUpdateEvent);
+export default withRouter(UpdateEvent);

@@ -27,14 +27,14 @@ const EventList = () => {
             
            {events && events.map((event) =>(
                 <div className="c2" key ={event.meetid}>
-                       {/* {project.projectid} */}
-                    {/* <Link to ={`/event_details/${event.meetid}`}> */}
+                      
                         {event.title}
-                        {/* <h2>Date {event.date}</h2> */}
-                    {/* </Link> <br/> */}
+                      
                     <Link to ={`/update_event/${event.meetid}`}>
-                        <button>Modify</button>
-                    </Link>                
+                        <button>Update Event</button>
+                    </Link>     
+                 
+
                 </div>     
                 
 

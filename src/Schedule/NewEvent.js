@@ -6,7 +6,7 @@ import useGetRole from "../hooks/use-get-role";
 
 const EVENTS_URL = "api/showroom/schedule/events"
 
-const ScheduleNewEvent = () => {
+const NewEvent = () => {
     const {uID}  = useGetRole();
     const adminid = uID;
     const [title, setTitle] = useState('');
@@ -91,4 +91,4 @@ const ScheduleNewEvent = () => {
      );
 }
  
-export default ScheduleNewEvent;
+export default NewEvent;
