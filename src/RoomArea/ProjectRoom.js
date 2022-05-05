@@ -7,7 +7,8 @@ import useFetchProjects from "../hooks/use-fetch-projects";
 import useFetchEvents from "../hooks/use-fetch-events";
 import axios from "../context/axios";
 import StageLiveButton from "../StageArea/StageLiveButton";
-
+import Announcements from "../HomeArea/Announcements";
+import UpcomingEvents from "../StageArea/UpcomingEvents";
 
 // TODO: figure out why info doesnt appear with fetch & ids 
 const ProjectRoom = ({user_Role}) => {
@@ -129,50 +130,62 @@ const ProjectRoom = ({user_Role}) => {
             {/* {error && <div> {error} </div>} */}
            
             {event && (
-                <div key={event.meetid}>                 
-                    <div className="proj-room-1">
+                <div key={event.meetid}>     
+                <div className="proj-room-2">            
+                    {/* <div className="proj-room-1"> */}
                         <h1>{nArr[0]}</h1>  
-                        <StageLiveButton user_Role={user_Role} disable={true}/>
-                    </div>  
-                        <div style={{marginLeft: "10px"}}>
+                    {/* </div>   */}
+                        {/* <div style={{marginLeft: "10px"}}> */}
                             <button onClick={()=>{changePopup(); getSpeakers(event.projectid)}}>Project Information</button>  
-                        </div>
+                        {/* </div> */}
                 
                         {popup == true && (
                             <div className="p-room-1">
-                                {/* <h1>{nArr[0]}</h1>  */}
                                 <h2>Team Members</h2>
-                                <div >
-                                    <h3> Student Researcher </h3>
-                                    {roomInfo && roomInfo.map((member)=> ( 
-                                        <>
-                                        {member.user_role === "Student Researcher" && (
-                                        <li>{member.first_name} {member.last_name}</li>
-                                        )}
-                                        </>
-                                    ))} 
-                                        
-                                    <h3> Advisors </h3>
-                                    {roomInfo && roomInfo.map((member)=> ( 
-                                        <>
-                                        {member.user_role === "Advisor" && (
-                                        <li>{member.first_name} {member.last_name}</li>
-                                        )}
-                                        </>
-                                    ))} 
+                                <div className="proj-room-adv-stud">
+                                    <div className="proj-room-studresearcher">
+                                        <h3> Student Researcher </h3>
+                                        {roomInfo && roomInfo.map((member)=> ( 
+                                            <>
+                                            {member.user_role === "Student Researcher" && (
+                                            <li>{member.first_name} {member.last_name}</li>
+                                            )}
+                                            </>
+                                        ))} 
                                     </div>
+                                    <div className="proj-room-advisor">  
+                                        <h3> Advisors </h3>
+                                        {roomInfo && roomInfo.map((member)=> ( 
+                                            <>
+                                            {member.user_role === "Advisor" && (
+                                            <li>{member.first_name} {member.last_name}</li>
+                                            )}
+                                            </>
+                                        ))} 
+                                    </div>
+                                </div>
                                 <h2>Abstract</h2>
                                 <p>{nArr[2]}</p>                                  
                             </div>
                         )}
 
-                        <div className="bbb">
-                            {/* Update to get src url from the backend. Temporarily Hardcoded to get a view working  */}
-                            {/* <iframe className="temp" src="https://iapstream.ece.uprm.edu/bigbluebutton/api/create?name=DemoMeeting&meetingID=DemoMeeting&attendeePW=ap&moderatorPW=mp&checksum=f5e85d6b55189f228cf06e4791736e44b63282f1"></iframe>  */}
-                            <br></br>
-                            <iframe className="iframe" src={bbbUrl} allow="camera;microphone;display-capture" allowFullScreen></iframe>  
+                        <div className="project-room-1">
+                            <div className="bbb">
+                                <iframe className="iframe" src={bbbUrl} allow="camera;microphone;display-capture" allowFullScreen></iframe>  
+                            </div>
+                            <div className="proj-r-1">
+                                <StageLiveButton user_Role={user_Role} disable={true}/>
+
+                                <div className="room-announcements">
+                                    <Announcements user_Role={user_Role}/>   
+                                </div>
+                                <div className="room-upcoming">
+                                    <h3>Schedule</h3> 
+                                    <UpcomingEvents></UpcomingEvents>
+                                </div>
+                            </div>
                         </div>
-                    {/* </div> */}
+                    </div>
                 </div>
             )}
 
