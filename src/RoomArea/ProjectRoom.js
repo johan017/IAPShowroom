@@ -29,7 +29,7 @@ const ProjectRoom = ({user_Role}) => {
 
     const [roomInfo, setRoomInfo] = useState('');
     // const {events, loading} = useFetchEvents();   
-    console.log("event", event)
+  
     // console.log("event id", event)
     const [popup, setPopup] = useState(false);
    
@@ -55,7 +55,7 @@ const ProjectRoom = ({user_Role}) => {
         getEvents();
         getBBBUrl();
      }, []);
- 
+   console.log("event", event)
     /** los eventos que son projects no devuelven abstracts */
     const changePopup = () =>{
         console.log(popup);
@@ -69,19 +69,22 @@ const ProjectRoom = ({user_Role}) => {
    
   
 
-    const getSpeakers = async(pID) => {
+    const getSpeakers = async() => {
+        // console.log("getSpeakers");
           try{
-          const result = await axios.get(`api/showroom/qna/info?meeting_id=${pID}`, 
+          const result = await axios.get(`api/showroom/qna/info?meeting_id=${eid}`, 
           {
               headers: {"Content-Type": "application/json"},
               withCredentials: true
           }) 
           setRoomInfo(result.data.payload.project_members);
+          console.log("payload.proj_members", result.data.payload.project_members)
         //   setModalTitle(title)
           } catch(error) {
               console.error(error.response.status);
           }
       }
+      console.log("roomInfo", roomInfo)
 
     const getProject = (e) =>{
         var inputArr = new Array();
@@ -136,7 +139,7 @@ const ProjectRoom = ({user_Role}) => {
                         <h1>{nArr[0]}</h1>  
                     {/* </div>   */}
                         {/* <div style={{marginLeft: "10px"}}> */}
-                            <button onClick={()=>{changePopup(); getSpeakers(event.projectid)}}>Project Information</button>  
+                            <button onClick={()=>{changePopup(); getSpeakers();}}>Project Information</button>  
                         {/* </div> */}
                 
                         {popup == true && (
@@ -162,6 +165,7 @@ const ProjectRoom = ({user_Role}) => {
                                             )}
                                             </>
                                         ))} 
+                                        
                                     </div>
                                 </div>
                                 <h2>Abstract</h2>
