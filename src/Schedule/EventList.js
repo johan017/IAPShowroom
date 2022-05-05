@@ -33,9 +33,21 @@ const EventList = () => {
                         {event.title}
                         {/* <h2>Date {event.date}</h2> */}
                     {/* </Link> <br/> */}
+                    {/* {event.projectid !== null && ( */}
                     <Link to ={`/update_event/${event.meetid}`}>
-                        <button>Modify</button>
-                    </Link>                
+                        <button>Update Event</button>
+                    </Link>  
+                    {/* )}        */}
+                    {/* {event.projectid === null && (
+                        <Link to={'/new_event'}>
+                            <button>Update Event</button>
+                        </Link>
+                    )}    */}
+                     {/* {event.projectid === null && (
+                    <Link to ={`/update_event`}>
+                        <button>Update Event</button>
+                    </Link>  
+                    )}       */}
                 </div>     
                 
 
