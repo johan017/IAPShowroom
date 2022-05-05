@@ -37,7 +37,7 @@ const Stage = ({user_Role}) => {
                 <div className="stage-2">
                 
                     <StageLiveButton user_Role = {user_Role} disable={false}/> 
-                      <div className="stage-announcements">
+                    <div className="stage-announcements">
                         <Announcements user_Role={user_Role}/>               
                     </div>
                     <div className="stage-upcoming">
@@ -45,9 +45,9 @@ const Stage = ({user_Role}) => {
                         <UpcomingEvents></UpcomingEvents>
                     </div>
                   
-            </div>
+                </div>
            
-           </div>
+            </div>
           
         </div>
 

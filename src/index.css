@@ -373,7 +373,7 @@ svg{
 }
 .stage-announcements .home-container{
   /* margin-left: 100%; */
-  height: 240px;
+  height: 300px;
   /* width: 100%; */
   /* display: flex;
   flex-direction: column; */
@@ -1157,30 +1157,47 @@ align-items: center;
 
 
 /*---------------------------------------------- PROJECT ROOM PAGE ----------------------------------------------*/
+.project-room{
+  display:flex;
+  flex-direction: column;
+}
 .p-room-1{
   margin-left: 70px;
   margin-right: 80px;
 
-  /* display: flex; */
-}
-.proj-room-1 {
-  width:100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  /* align-content: center; */
+  flex-direction: column;
 }
+.proj-room-adv-stud{
+  display:flex;
+  flex-direction: row;
+}
+.proj-room-advisor{
+  margin-left: 10%;
+}
+.proj-room-2{
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+}
+/* .proj-room-1 { */
+  /* width:100%; */
+  /* display: flex;
+  flex-direction: row; */
+  /* align-items: center;
+  align-content: center; */
+/* } */
 /* .proj-room-1 .stage-live-button button{
   margin-left: 50%;
 } */
 
-.proj-room-1 h1{
+.proj-room-2 h1{
   color: #25b12a;
   margin-bottom: 10px;
   margin-top: 30px;
-  margin-left: 45%;
-  margin-right: 30%;
-  /* text-align: center; */
+  /* margin-left: 30%;
+  margin-right: 30%; */
+  text-align: center;
 }
 .project-room h2{
   margin-bottom: 10px;
@@ -1207,6 +1224,7 @@ align-items: center;
   background: #008DED;
   color: #fff;
   padding: 8px;
+  width: 150px;
   height: 30px;
   border-radius: 8px;
   margin-top: 10px;
@@ -1222,9 +1240,76 @@ align-items: center;
   /* width: 100%; */
   margin-left: 100px;
 }
+.project-room .project-room-1 {
+  width:100%;
+  /* display: flex;
+  justify-content: center; */
+  margin-top: 30px;
+  /* color: red; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  display:flex;
+  flex-direction: row;
+}
 
+.proj-r-1 {
+  /* align-content: center; */
+  display: flex;
+  flex-direction: column;
+}
+.proj-r-1 .stage-live button{
+  background: #424240;
+  color: #fff;
+  /* border: 0; */
+  padding: 8px;
+  width: 100px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  /* height: 30px; */
+  border-radius: 8px;
+  /* cursor: pointer; */
 
+}
+.room-upcoming{
+  /* position: absolute; */
+  margin-top: 30px;
+  margin-left: 3%;
+  margin-right:8%;
+  /* width:500px; */
+  /* height: 125px; */
+  font-size: 20px;
+  /* top: 200px; */
+  display:inline-block;
+}
+.room-upcoming h3{
+  /* align-c: center; */
+  /* margin-left: 4%; */
 
+  margin-left: 40%;
+} 
+.room-announcements{
+  /* .stage-upcoming{ */
+    /* position: absolute; */
+    /* width: 100%; */
+    margin-top: 30px;
+    /* height: 120px; */
+    /* top: 200px; */
+  /* align-items: center; */
+  display: inline-block;
+}
+.room-announcements .home-container{
+  /* margin-left: 100%; */
+  height: 300px;
+  /* width: 100%; */
+  /* display: flex;
+  flex-direction: column; */
+}
+.room-announcements .home-container .ann-title h2{
+  margin-left: 18%;
+  /* height: 190px; */
+  /* display: flex;
+  flex-direction: column; */
+} 
 
 
 /*--------------EVENT DETAIL PAGE--------------*/
