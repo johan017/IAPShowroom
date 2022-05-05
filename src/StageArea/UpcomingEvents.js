@@ -67,12 +67,12 @@ export default class UpcomingEvents extends Component{
     updateEvents(response){
         if(response){
             if(response[1] && response[0]){
-                let st = new Date(response[0]['starttime']);
+                let st = new Date(config.safariPolyfill(response[0]['starttime']));
                 let endtime = new Date(+st + response[0]['duration'] * MINUTESTOMILLISECONDS).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                 const currentstarttime = st.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                 const currenttitle = response[0]['title'];
 
-                st = new Date(response[1]['starttime']);
+                st = new Date(config.safariPolyfill(response[1]['starttime']));
                 const upcomingstarttime = st.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                 const upcomingtitle = response[1]['title'];
 
@@ -85,7 +85,7 @@ export default class UpcomingEvents extends Component{
                 });
             }
             else if(response[0]){
-                let st = new Date(response[0]['starttime']);
+                let st = new Date(config.safariPolyfill(response[0]['starttime']));
                 let endtime = new Date(+st + response[0]['duration'] * MINUTESTOMILLISECONDS).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                 const currentstarttime = st.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                 const currenttitle = response[0]['title'];

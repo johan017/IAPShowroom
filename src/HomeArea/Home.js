@@ -5,6 +5,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useState} from 'react';
 import axios from "../context/axios";
+const config = require('../config/config');
 import StageLiveButton from "../StageArea/StageLiveButton";
 
 
@@ -18,7 +19,7 @@ export default function Home({user_Role, aID, checked}) {
   }
 
   const getTime = (props) =>{
-    const time = props;
+    const time = config.safariPolyfill(props);
     return(new Date(time).toLocaleTimeString([], {hour: 'numeric', minute:'2-digit'}));
   }
 

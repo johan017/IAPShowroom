@@ -120,7 +120,7 @@ export default class ProgressBar extends Component{
     updateTimestamp(response){
         if(response[0]){
             const MINUTESTOMILLISECONDS = 60000;
-            let st = new Date(response[0]['starttime']);
+            let st = new Date(config.safariPolyfill(response[0]['starttime']));
             const starttime = st.toLocaleString("en-US");
             const endtime = new Date(+st +  response[0]['duration'] * MINUTESTOMILLISECONDS).toLocaleString("en-US");
 
