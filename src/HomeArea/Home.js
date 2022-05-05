@@ -32,7 +32,7 @@ export default function Home({user_Role, aID, checked}) {
     modal = document.getElementById("myModal");
     modal.style.display = "block";
     try{
-      const result = await axios.get(`api/showroom/qna/info/?meeting_id=${pID}`, 
+      const result = await axios.get(`api/showroom/qna/info?meeting_id=${pID}`, 
       {
           headers: {"Content-Type": "application/json"},
           withCredentials: true

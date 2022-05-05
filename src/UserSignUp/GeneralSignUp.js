@@ -1,8 +1,8 @@
 import { useState } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
+// import ReCAPTCHA from "react-google-recaptcha";
 import PasswordStrengthBar from 'react-password-strength-bar';
 
-const EMAILREGEX = "^.+@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z])$";
+// const EMAILREGEX = "^.+@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z])$";
 
 const UserSignUpForm = ({ nextStep, handleChange, values }) => {
     
@@ -11,7 +11,8 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
     const genders = [
         { g_id : 1, gender: "Male"},
         { g_id : 2, gender: "Female"},
-        { g_id : 3, gender: "Non Disclosed"}
+        { g_id : 3, gender: "Other"},
+        { g_id : 4, gender: "Undisclosed"}
       ];
       const roles = [
         { id : 1, user_role: "Guest"},
@@ -20,16 +21,14 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
         { id : 4, user_role: "Advisor"}
       ];
   
-    //used to verify captcha
-    const [isVerified, setIsVerified] = useState(false);
-    const [matchPass,setMatchPass] = useState('');
-    const [isMatched, setisMatched] = useState(false);
+    // //used to verify captcha
+    // const [isVerified, setIsVerified] = useState(false);
 
-    //verifies if captcha was successfull (checked)
-    const handleCaptcha = () =>{
-        console.log("captcha has loaded");
-        setIsVerified(true);
-    }
+    // //verifies if captcha was successfull (checked)
+    // const handleCaptcha = () =>{
+    //     console.log("captcha has loaded");
+    //     setIsVerified(true);
+    // }
 
 
     /* Required input validation */
@@ -38,7 +37,6 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
     const lastName = document.getElementById("last_name");
     const email = document.getElementById("email");
     const password = document.getElementById("password");
-    const vpassword = document.getElementById("confirm-password");
     const gender = document.getElementById("gender");
     const role = document.getElementById("role");
 
@@ -46,7 +44,20 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
         // formValues.forEach(v => {
         //     document.getElementById(v).checkValidity();
         // })
-        if(values.password !== values.confirmPass){
+        if(values.first_name.length > 30){
+            alert("Name must be less or equal than 30 characters");
+            e.preventDefault();
+        }
+        else if(values.last_name.length > 30){
+            alert("Last Name must be less or equal than 30 characters");
+            e.preventDefault();
+        }
+        else if(values.password.length > 30){
+            alert("Password must be less or equal than 30 characters");
+            e.preventDefault();
+        }
+
+        else if(values.password !== values.confirmPass){
             alert("Passwords must match");
             e.preventDefault();
         } 
