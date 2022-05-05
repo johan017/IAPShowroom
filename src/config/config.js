@@ -12,7 +12,24 @@ const ws_getStageLive = "stagelive";
 const ws_die = "die";
 
 
-
+function safariPolyfill(date){
+    let unformatted = date;
+    let formatted;
+    try{
+        if(unformatted && unformatted.lastIndexOf(':') > 0){
+            unformatted = unformatted.substring(0, unformatted.lastIndexOf(':'));
+            formatted = unformatted.replaceAll("-", "/");
+            return formatted;
+        }
+        else {
+            return date;
+        }
+    }
+    catch{
+        console.log("polyfill was not completed");
+        return date;
+    }
+}
 
 
 module.exports = {
@@ -23,6 +40,7 @@ module.exports = {
     ws_upcomingevents: ws_upcomingevents,
     ws_stageUpdate: ws_stageUpdate,
     ws_getStageLive: ws_getStageLive,
+    safariPolyfill: safariPolyfill,
     ws_die: ws_die,
     captchaKey: captchaKey
 }
