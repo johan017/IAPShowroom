@@ -71,22 +71,28 @@ svg{
   flex-direction: column;
 }
 .home-container-3{
-  margin-left: 8%;
+  margin-left: 2%;
   display: flex;
   flex-direction: column;
 }
-.home-container-3 .stage-live button{
+.home-container-4 .stage-live button{
   background: #424240;
   color: #fff;
   /* border: 0; */
   padding: 8px;
   width: 100px;
   margin-top: 20px;
-  margin-left: 90%;
+  /* margin-left: 90%; */
   margin-bottom: 10px;
   /* height: 30px; */
   border-radius: 8px;
-  /* cursor: pointer; */
+  cursor: pointer;
+}
+.home-container-4{
+  margin-left: 90%;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: row;
 }
 
 .home-date-sched {
@@ -144,16 +150,20 @@ svg{
   border-radius: 8px;
   margin-top: 10px;
   margin-left: 350px;
+  margin-right: 10px;
 
   cursor: pointer;  
-  display: fle;
+  /* display: fle; */
 }
 
 .announcements-home{
   
   margin-top:2%;
-  margin-left: 8%;
-  display: inline-block;
+  margin-left: 2%;
+  margin-right: 3%;
+  /* display: inline-block; */
+  display: flex;
+  flex-direction: column;
 }
 
 /*Display event list*/
@@ -276,6 +286,18 @@ svg{
   top: 730px;
   display: flex;
   /* border-radius: 8px; */
+}
+.announce-pop{
+  display: flex;
+  flex-direction: row;
+}
+.announce-pop .popup-rooms{
+  /* width: 30%; */
+  /* width: 1000px; */
+  /* margin-left: 0.7px; */
+  margin-right: 5px;
+  display: flex;
+  flex-direction: column;
 }
 
 .announce-footer input{

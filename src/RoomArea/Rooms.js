@@ -82,7 +82,7 @@ const Rooms = ({user_Role}) => {
         <h2> ROOMS </h2>  
         {/* <div className="rooms-title-button-block"> */}
         <StageLiveButton user_Role={user_Role} disable={true}/>
-        <button style={{backgroundColor: "white", borderColor: "white", marginLeft:"20px"}}onClick={()=>{changePopup();}}>
+        <button style={{backgroundColor: "white", borderColor: "white", marginLeft:"20px", cursor: "pointer"}}onClick={()=>{changePopup();}}>
         <img
           
           width= "40px"
