@@ -10,10 +10,10 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
     const page = 1;
     /* Selection values */
     const genders = [
-        { g_id : 1, gender: "Male"},
-        { g_id : 2, gender: "Female"},
-        { g_id : 3, gender: "Other"},
-        { g_id : 4, gender: "Undisclosed"}
+        { g_id : 1, gender: "Male", backend: "male"},
+        { g_id : 2, gender: "Female", backend: "female"},
+        { g_id : 3, gender: "Other", backend: "other"},
+        { g_id : 4, gender: "Undisclosed", backend: "other"}
       ];
       const roles = [
         { id : 1, user_role: "Guest"},
@@ -154,7 +154,7 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
                         > 
                             <option value="" disabled > Choose an option</option>
                             {genders && genders.map((gender) =>(
-                                <option key={gender.g_id} value={gender.gender}>{gender.gender}</option>             
+                                <option key={gender.g_id} value={gender.backend}>{gender.gender}</option>             
                             ))}
                         </select> 
 
@@ -170,9 +170,10 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
                                 <option key={role.id} value={role.user_role}>{role.user_role}</option>             
                             ))}
                         </select>
-
-                         
-                        <button variant="contained" style={{ background: '#3B8D25', width: "75px"}} type="submit" value="Next"> Next </button>
+                        <Link to="/">
+                        <button style={{width: "75px", marginRight:"10px"}}> Cancel </button>
+                        </Link>
+                        <button variant="contained" style={{ background: '#3B8D25', width: "75px", marginLeft: "10px"}} type="submit" value="Next"> Next </button>
                 </div>
             </div>
         </form>
