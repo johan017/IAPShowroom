@@ -10,12 +10,10 @@ const AskChangePassword = () => {
     const [email, setEmail] = useState('');
    
     const [isLoading, setIsLoading] = useState(false); 
-
-    const [sentFirstTime, setSentFirstTime] = useState(false);
     
     const handlePassChange = async (e) =>{ 
         e.preventDefault();
-        setSentFirstTime(true);
+        setIsLoading(true);
         const messageData = {
               "email": email,
         };
@@ -28,14 +26,18 @@ const AskChangePassword = () => {
             headers: {"Content-Type": "application/json"}
             // withCredentials: true
             }).then((res) => {
-                console.log(res.data)
+                console.log(res.data);
+                history.push('/checkEmail');
             }).catch((error)=>{
                 console.log(error)
+                alert("Not a valid email.");
+                window.location.reload();
+                e.preventDefault();
         })
         }catch(err){
 
         }
-        history.push('/checkEmail');
+        
 
     }
 
@@ -52,20 +54,11 @@ const AskChangePassword = () => {
                     required 
                     value = {email}
                     onChange = {(e) => setEmail(e.target.value)}
-                />
-                {sentFirstTime === false && (     
+                />      
                     <div>
                         {!isLoading && <button style={{width: "75px"}} onClick={handlePassChange}>Send Email</button>}
                         {isLoading && <button disabled>Sending Email...</button>} {/** add event button disabled while loading  */}
                     </div>
-                )}
-
-                {sentFirstTime === true && (     
-                    <div>
-                        {!isLoading && <button style={{width: "75px"}} onClick={handlePassChange}>Resend Email</button>}
-                        {isLoading && <button disabled>Resending Email...</button>} {/** add event button disabled while loading  */}
-                    </div>
-                )}
 
             </form>
         </div>

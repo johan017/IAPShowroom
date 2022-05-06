@@ -60,6 +60,7 @@ svg{
 .home{
   /* width: 35%; */
   display: flex; 
+  flex-direction: row;
 }
 
 /*Home schedule date container*/
@@ -69,6 +70,25 @@ svg{
   display: flex;
   flex-direction: column;
 }
+.home-container-3{
+  margin-left: 8%;
+  display: flex;
+  flex-direction: column;
+}
+.home-container-3 .stage-live button{
+  background: #424240;
+  color: #fff;
+  /* border: 0; */
+  padding: 8px;
+  width: 100px;
+  margin-top: 20px;
+  margin-left: 90%;
+  margin-bottom: 10px;
+  /* height: 30px; */
+  border-radius: 8px;
+  /* cursor: pointer; */
+}
+
 .home-date-sched {
   /* width: 50%; */
   margin-top: 2%;
@@ -278,14 +298,27 @@ svg{
 }
 
 /*---------------------------------------------- STAGE PAGE ----------------------------------------------*/
-
+.stage{
+  display:flex;
+  flex-direction: column;
+}
+.stage-4{
+  /* align-items: right; */
+  display: flex;
+  flex-direction: row;
+}
 
 .stage-1{
   margin-left: 50px;
+  /* display: flex;
+  flex-direction: column; */
+}
+.stage-2{
+  align-items: center;
   display: flex;
   flex-direction: column;
 }
-.stage-1 .stage-live button{
+.stage-2 .stage-live button{
   background: #424240;
   color: #fff;
   /* border: 0; */
@@ -298,10 +331,7 @@ svg{
   /* cursor: pointer; */
 
 }
-.stage-2{
-  display: flex;
-  flex-direction: row;
-}
+
 .stage h2{
   font-size: 25px;
   font-weight: bold;
@@ -316,8 +346,9 @@ svg{
 }
 .stage-upcoming{
   /* position: absolute; */
-  margin-top: 10px;
-  margin-left:5%;
+  margin-top: 30px;
+  margin-left: 3%;
+  margin-right:8%;
   /* width:500px; */
   /* height: 125px; */
   font-size: 20px;
@@ -325,12 +356,16 @@ svg{
   display:inline-block;
 }
 .stage-upcoming h3{
+  /* align-c: center; */
+  /* margin-left: 4%; */
+
   margin-left: 40%;
-}
+} 
 .stage-announcements{
   /* .stage-upcoming{ */
     /* position: absolute; */
-    margin-left: 5%;
+    /* width: 100%; */
+    margin-top: 30px;
     /* height: 120px; */
     /* top: 200px; */
   /* align-items: center; */
@@ -338,7 +373,8 @@ svg{
 }
 .stage-announcements .home-container{
   /* margin-left: 100%; */
-  height: 240px;
+  height: 300px;
+  /* width: 100%; */
   /* display: flex;
   flex-direction: column; */
 }
@@ -411,6 +447,7 @@ svg{
 
 /*---------------------------------------------- STAGE BBB ----------------------------------------------*/
 .bbb {
+  width:100%;
   /* display: flex;
   justify-content: center; */
   margin-top: 30px;
@@ -418,18 +455,18 @@ svg{
   display: flex;
   flex-direction: column;
 }
-.temp{
+/* .temp{
   /* width: 100%; */
-  margin-left: 5%;
-  margin-right: 5%;
-  /* color: blue; */
+  /* margin-left: 5%; */
+  /* margin-right: 5%; */
+  /* color: blue; *
   display: inline-block;
-}
+} */
 .iframe {
   display: inline-block;
   /* width: 100%; */
   margin-left: 5%;
-  margin-right: 5%;
+  margin-right: 2%;
   margin-bottom: 20px;
   /* height: 100%; */
   /* border: 0; */
@@ -440,7 +477,7 @@ svg{
 
 .BarContainer {
   height: 25px;
-  /* width: 1120px; */
+  width: 93%;
   background-color: rgb(128, 142, 133);
   border-radius: 50;
   /* margin-top: 15px; */
@@ -496,24 +533,24 @@ svg{
   color: var(--primary); */
   /* display: inline-block; */
   /* align-items: center; */
-  width: 600px;
+  width: 400px;
   background: #FFFFFF;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); */
   border-radius: 5px;
   margin-bottom:10px;
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
   /* margin-bottom: 50px; */
-  padding: 5px 10px;
+  /* padding: 5px 10px; */
   /* margin: 5px 5px; */
-  border-bottom: 1px solid #fafafa;
-  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  /* border-bottom: 1px solid #fafafa; */
+  /* box-shadow: 1px 3px 5px rgba(0,0,0,0.1); */
 }
 
 .event-item p{
   /* width: 100px; */
-  margin-left: 85%;
+  margin-left: 75%;
   margin-bottom: 5px;
   /* font-family: 'DM Sans', sans-serif; */
   /* letter-spacing: 1.2px;
@@ -567,6 +604,7 @@ svg{
 .rooms-title-block h2{
   margin-top: 10px;
   margin-left: 5%;
+  margin-right: 80%;
   margin-bottom: 25px;
   display: inline-block;
 }
@@ -579,7 +617,7 @@ svg{
   /* height: 30px; */
   border-radius: 8px;
   margin-top: 5px;
-  margin-left: 1000px;
+  /* margin-left: 50%; */
   display: inline-block;
   cursor: pointer;
 }
@@ -601,10 +639,14 @@ svg{
   border-radius: 5px; 
   display: inline-block;
 }
-
+.project-rooms p{
+    color: #ffffff;
+    font-size: large;
+}
 .project-rooms img {
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
+  /* color: white; */
   /* margin-left: 40px;
   margin-right: 2px; */
   margin-right: -190px;
@@ -617,32 +659,35 @@ svg{
 .project-rooms text {
   font-size: 20px;
   text-align: right;
-  color: #000000;
+  color: #ffffff;
   /* margin-left: 5px;
   margin-right: 1px; */
   /* margin-bottom: 20px; */
-
+  align-content: center;
+align-items: center;
   margin-right: -250px;
   margin-left: 200px;}
 
 .project-rooms a{
   display: inline-block;
-  background: rgba(94, 236, 99, 0.816);
-
+  /* background: rgba(94, 236, 99, 0.816); */
+  background-color: #25b12a;
+  border: 1px solid #25b12a;
   width: 511px;
+
   height: 100px;
   /* margin-top: 10px; */
   /* margin-left:5px;  */
   text-decoration: none;
 }
 .project-rooms a:visited{
-  background: rgb(146, 158, 161);
+  background-color: rgb(146, 158, 161);
   border: 1px solid #939ca2;
   border-radius: 5px;
 }
 
 .project-rooms a:hover{
-  background: rgb(30, 185, 228);
+  background-color: rgb(30, 185, 228);
   border: 1px solid #008DED;
   border-radius: 5px;
 }
@@ -734,15 +779,17 @@ svg{
   padding: 8px 20px;
   border-radius: 8px;
   cursor: pointer;
-  margin-left: 20px;
+  margin-left: 25px;
   margin-top: 10px;
+  margin-right: 25px;
   /* height: 40px; */
 }
 .cal22{
-  max-width: 500px; 
+  max-width: 600px; 
   height: 650px;
   margin-bottom: 30px;
   overflow-y: scroll;
+  overflow: auto;
 }
 .schedule-container{
   display: flex;
@@ -1110,19 +1157,46 @@ svg{
 
 
 /*---------------------------------------------- PROJECT ROOM PAGE ----------------------------------------------*/
+.project-room{
+  display:flex;
+  flex-direction: column;
+}
 .p-room-1{
   margin-left: 70px;
   margin-right: 80px;
 
-  /* display: flex; */
+  display: flex;
+  flex-direction: column;
 }
+.proj-room-adv-stud{
+  display:flex;
+  flex-direction: row;
+}
+.proj-room-advisor{
+  margin-left: 10%;
+}
+.proj-room-2{
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+}
+/* .proj-room-1 { */
+  /* width:100%; */
+  /* display: flex;
+  flex-direction: row; */
+  /* align-items: center;
+  align-content: center; */
+/* } */
+/* .proj-room-1 .stage-live-button button{
+  margin-left: 50%;
+} */
 
-.project-room h1{
+.proj-room-2 h1{
   color: #25b12a;
   margin-bottom: 10px;
   margin-top: 30px;
-  margin-left: 80px;
-  margin-right: 80px;
+  /* margin-left: 30%;
+  margin-right: 30%; */
   text-align: center;
 }
 .project-room h2{
@@ -1150,6 +1224,7 @@ svg{
   background: #008DED;
   color: #fff;
   padding: 8px;
+  width: 150px;
   height: 30px;
   border-radius: 8px;
   margin-top: 10px;
@@ -1165,9 +1240,76 @@ svg{
   /* width: 100%; */
   margin-left: 100px;
 }
+.project-room .project-room-1 {
+  width:100%;
+  /* display: flex;
+  justify-content: center; */
+  margin-top: 30px;
+  /* color: red; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  display:flex;
+  flex-direction: row;
+}
 
+.proj-r-1 {
+  /* align-content: center; */
+  display: flex;
+  flex-direction: column;
+}
+.proj-r-1 .stage-live button{
+  background: #424240;
+  color: #fff;
+  /* border: 0; */
+  padding: 8px;
+  width: 100px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  /* height: 30px; */
+  border-radius: 8px;
+  /* cursor: pointer; */
 
+}
+.room-upcoming{
+  /* position: absolute; */
+  margin-top: 30px;
+  margin-left: 3%;
+  margin-right:8%;
+  /* width:500px; */
+  /* height: 125px; */
+  font-size: 20px;
+  /* top: 200px; */
+  display:inline-block;
+}
+.room-upcoming h3{
+  /* align-c: center; */
+  /* margin-left: 4%; */
 
+  margin-left: 40%;
+} 
+.room-announcements{
+  /* .stage-upcoming{ */
+    /* position: absolute; */
+    /* width: 100%; */
+    margin-top: 30px;
+    /* height: 120px; */
+    /* top: 200px; */
+  /* align-items: center; */
+  display: inline-block;
+}
+.room-announcements .home-container{
+  /* margin-left: 100%; */
+  height: 300px;
+  /* width: 100%; */
+  /* display: flex;
+  flex-direction: column; */
+}
+.room-announcements .home-container .ann-title h2{
+  margin-left: 18%;
+  /* height: 190px; */
+  /* display: flex;
+  flex-direction: column; */
+} 
 
 
 /*--------------EVENT DETAIL PAGE--------------*/
@@ -1387,7 +1529,7 @@ svg{
 }
 
 .generalInfoSignUp button, .askChangePass button, .changePass button{
-  background: #f1356d;
+  background: #bc0707;
   color: #fff;
   border: 0;
   padding: 8px;
@@ -1399,7 +1541,7 @@ svg{
   cursor: pointer;
 }
 .generalInfoSignUp-student button, .generalInfoSignUp-verify button, .generalInfoSignUp-acreated button{
-  background: #f1356d;
+  background: #bc0707;
   color: #fff;
   border: 0;
   padding: 8px;
@@ -1772,10 +1914,13 @@ color: #EA4C89;
   padding: 6px 12px;
   border: 1px solid #ccc;
   border-top: none;
+  border:hidden;
 }
 
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  /* background-color: #f1f1f1; */
+  border:hidden;
+
 }
