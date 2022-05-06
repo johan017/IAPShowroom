@@ -23,6 +23,9 @@ export default function Home({user_Role, aID, checked}) {
     return(new Date(time).toLocaleTimeString([], {hour: 'numeric', minute:'2-digit'}));
   }
 
+  const [popup, setPopup] = useState(false);
+
+
   const { events, redirect, loading} = useFetchEvents();
 
   var modal;
@@ -124,7 +127,19 @@ export default function Home({user_Role, aID, checked}) {
   }
   const handleStage = () =>{
     history.push('/stage');
-}
+  }
+
+
+
+  const changePopup = () =>{
+    console.log(popup);
+    if(popup === false){
+        setPopup(true);
+    } else {
+        setPopup(false);
+    }
+    
+  }
 
   return ( 
     <div className="home">
@@ -153,11 +168,41 @@ export default function Home({user_Role, aID, checked}) {
 
       
       <div className="home-container-3">
+        <div className="home-container-4">
         <StageLiveButton user_Role={user_Role} disable={true}/>
+        <button style={{backgroundColor: "white", borderColor: "white", cursor: "pointer", marginLeft: "10px"}}onClick={()=>{changePopup();}}>
+        <img
+          
+          width= "40px"
+          height="40px"
+          src="info.PNG"
+
+        ></img></button>
+        </div>
+      <div className="announce-pop">
+
         <div className="announcements-home">
           <Announcements user_Role={user_Role} adminID={aID}/>
         </div>
+
+          <div className="popup-rooms">
+          {popup === true && (
+            <div style={{ marginTop: "5px",marginRight: "30px", backgroundColor: "#a9a5a593", borderRadius: "8px"}}>
+            <h3>IAP Showroom</h3> <p>(currently a Beta product)</p>
+
+            <p>For technical support please contact us:</p>
+            <p><a href=" https://www.facebook.com/IAP-Showroom-115757747789908">Facebook Page</a></p>
+            <p><a href=" http://m.me/115757747789908">Direct Message on Facebook Page</a></p>
+            
+            </div>
+          )}
+          </div>
       </div>
+
+
+      
+</div>
+  
     </div>   
   );
 }

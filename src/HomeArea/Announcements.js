@@ -133,7 +133,7 @@ const Announcements = ({user_Role, aID}) => {
                     {/* <ScrollToBottom> */}
                     {announcements && announcements.map((announce) => (
                         <div className="announce-body" key={announce.announcementid}>
-                            <p>{announce.a_content}</p><br/> 
+                            <p>{announce.a_content}</p>
                             <text style={{marginLeft: "220px"}}>{getTime(announce.a_date)}</text>
                         </div>
                     ))}

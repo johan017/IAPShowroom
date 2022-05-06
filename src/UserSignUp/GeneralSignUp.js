@@ -170,9 +170,10 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
                                 <option key={role.id} value={role.user_role}>{role.user_role}</option>             
                             ))}
                         </select>
-
-                         
-                        <button variant="contained" style={{ background: '#3B8D25', width: "75px"}} type="submit" value="Next"> Next </button>
+                        <Link to="/">
+                        <button style={{width: "75px", marginRight:"10px"}}> Cancel </button>
+                        </Link>
+                        <button variant="contained" style={{ background: '#3B8D25', width: "75px", marginLeft: "10px"}} type="submit" value="Next"> Next </button>
                 </div>
             </div>
         </form>

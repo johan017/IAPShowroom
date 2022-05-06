@@ -77,7 +77,7 @@ const Account = () => {
                     <label>Last Name: </label> <label>{userInfo.last_name}</label> <br/>
                     <label>Email: </label> <label>{userInfo.email}</label> <br/>
                     {/* <label>Password: </label> <label>{userInfo.password}</label> <br/> */}
-                    <label>Gender: </label> <label>{userInfo.gender}</label> <br/>
+                    {/* <label>Gender: </label> <label>{userInfo.gender}</label> <br/> */}
                     <label>Role: </label> <label>{userInfo.user_role}</label> <br/>
 
                     {userInfo.user_role === "Student Researcher" && (
