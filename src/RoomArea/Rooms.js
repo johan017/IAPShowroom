@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import axios from "../context/axios";
 import StageLiveButton from "../StageArea/StageLiveButton";
 import { modalUnstyledClasses } from "@mui/material";
+import Grid from '@mui/material/Grid';
+
 
 const Rooms = ({user_Role}) => {
 
@@ -61,19 +63,45 @@ const Rooms = ({user_Role}) => {
     }
    
   }
+  const [popup, setPopup] = useState(false);
+
+
+  const changePopup = () =>{
+    console.log(popup);
+    if(popup === false){
+        setPopup(true);
+    } else {
+        setPopup(false);
+    }
+    
+}
 
   return ( 
     <div className="rooms" >
       <div className="rooms-title-block">
         <h2> ROOMS </h2>  
+        <div className="rooms-title-button-block">
         <StageLiveButton user_Role={user_Role} disable={true}/>
+
+        {/* <img
+          onClick={()=>{changePopup();}}
+          width= "40px"
+          height="40px"
+          src="info.PNG"
+
+        ></img> */}
+        </div>
       </div>
 
-
+  <div  className="pr-list">
      <div className="room-list">
+        <Grid container item spacing={6} justifyContent="center" alignContent="center">
         {roomStats && roomStats.map((roomS)=>(
-         <div  className="pr-list">
+            <Grid item xs="auto" key={roomS.project_id}>
+
           <div style={modStyle(roomS.student_researcher)}className="project-rooms">
+     
+
             <Link to ={`/project_room/${roomS.project_id}`} > 
               <p style={{marginLeft: "10px", marginTop: "10px"}}>{roomS.title}</p>
               <br/> 
@@ -88,9 +116,24 @@ const Rooms = ({user_Role}) => {
                 alt="display image"
               /><text>{roomS.general_users}</text>   
             </Link> 
-            </div>
-          </div> 
-        ))}
+            
+          </div>
+        </Grid>
+          // </div> 
+        ))}  </Grid>
+      </div>
+
+      <div className="popup-rooms">
+        {popup === true && (
+          <>
+          hello <br/>
+          bye
+          welcome
+          new
+          
+          </>
+        )}
+      </div>
       </div>
     </div>
   );
