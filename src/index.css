@@ -1529,7 +1529,7 @@ align-items: center;
 }
 
 .generalInfoSignUp button, .askChangePass button, .changePass button{
-  background: #f1356d;
+  background: #bc0707;
   color: #fff;
   border: 0;
   padding: 8px;
@@ -1541,7 +1541,7 @@ align-items: center;
   cursor: pointer;
 }
 .generalInfoSignUp-student button, .generalInfoSignUp-verify button, .generalInfoSignUp-acreated button{
-  background: #f1356d;
+  background: #bc0707;
   color: #fff;
   border: 0;
   padding: 8px;

@@ -70,7 +70,7 @@ const ProjectRoom = ({user_Role}) => {
   
 
     const getSpeakers = async() => {
-        // console.log("getSpeakers");
+        console.log("payload.proj_members");
           try{
           const result = await axios.get(`api/showroom/qna/info?meeting_id=${eid}`, 
           {

@@ -182,7 +182,7 @@ function UpdateEvent (props) {
             {event && (
                 <div className="addNewEvent">
                     
-                        <div key={event.projectid}>  
+                        <div key={event.meetid}>  
     
                                 <div>                        
                                     <h2>Update Event Information</h2>
@@ -222,7 +222,7 @@ function UpdateEvent (props) {
                 </div>
             )}
 
-            {/* if an event does not exist - creat event [post] */}
+            {/* if an event does not exist - creat event [post]
             {!event && (
                 <div className="addNewEvent">
                     {projects && projects.map((project)=>(
@@ -259,12 +259,12 @@ function UpdateEvent (props) {
                                     </Link>
                                     <button style={{ background: '#3B8D25' }}  onClick={() => {handlePostEvent(project.project_id, project.title, title);}}>Create Event</button> 
                                     <button onClick={handleDelete}>Delete Event</button>
-                                </div>
-                            )}
+                                </div> */}
+                            {/* )}
                         </div>
-                    ))}
-                </div>
-            )}
+                    ))} */}
+                {/* </div> */}
+            {/* )} */}
            
                 
 

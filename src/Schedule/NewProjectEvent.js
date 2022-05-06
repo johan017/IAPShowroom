@@ -42,7 +42,7 @@ const NewProjectEvent = () => {
             inputTitle = defaultTitle;
         }
 
-        const event = [{adminid,  starttime, "duration": parseInt(duration), "title": inputTitle, projectid, e_date}];
+        const event = [{adminid,  starttime, "duration": parseInt(duration), "title": inputTitle, "projectid": projectid, e_date}];
         //const event = {title, starttime, end};
         setIsLoading(true); //before submitting
         console.log("new project event", event )
@@ -54,13 +54,13 @@ const NewProjectEvent = () => {
                     headers: {"Content-Type": "application/json"},
                     withCredentials: true
                 }).then(() =>{
-                    history.push('/cal');
+                   
                 });
-                
+             history.push('/cal');     
         }catch(err){
             console.log(err);
         }
-
+      
     }
 
     return ( 
@@ -70,7 +70,7 @@ const NewProjectEvent = () => {
                     {projectid === project.project_id && (
                         <>
             <h2>Add a New Event</h2>
-            <form onSubmit = {()=>{handleSubmit(project.title, title);}}>
+            {/* <form > */}
                 <label>Event Title: </label>
                 <input 
                     type="text" 
@@ -94,10 +94,10 @@ const NewProjectEvent = () => {
                     onChange = {(e) => setDuration(e.target.value)}
                 ></input>
                
-                {!isLoading && <button>Add Event</button>} {/** adds the new event  */}
+                {!isLoading && <button onClick = {()=>{handleSubmit(project.title, title);}}>Add Event</button>} {/** adds the new event  */}
                 {isLoading && <button disabled>Adding Event...</button>} {/** add event button disabled while loading  */}
 
-            </form>
+            {/* </form> */}
             </>
             )}
             </div>
