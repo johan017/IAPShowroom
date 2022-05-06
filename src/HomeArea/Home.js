@@ -5,7 +5,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import { useState} from 'react';
 import axios from "../context/axios";
-const config = require('../config/config');
+import config from '../config/config';
 import StageLiveButton from "../StageArea/StageLiveButton";
 
 
