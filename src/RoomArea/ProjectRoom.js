@@ -28,6 +28,7 @@ const ProjectRoom = ({user_Role}) => {
     console.log("event_Meet_id", event.meetid)
 
     const [roomInfo, setRoomInfo] = useState('');
+
     // const {events, loading} = useFetchEvents();   
   
     // console.log("event id", event)
@@ -126,6 +127,17 @@ const ProjectRoom = ({user_Role}) => {
         }
         // setLoading(false);
     };
+
+
+    
+
+    // console.log("roomInfo - lista", roomInfo[0]);
+    // console.log("roomInfo- obj", roomInfo.project_members);
+    // console.log("roomInfo-obj 0", roomInfo.project_members[0]);
+    // console.log("roomInfo-title", roomInfo.project_members[0].iapproject_title);
+
+
+
     
     return (  
         <div className = "project-room">
@@ -135,12 +147,21 @@ const ProjectRoom = ({user_Role}) => {
             {event && (
                 <div key={event.meetid}>     
                 <div className="proj-room-2">            
-                    {/* <div className="proj-room-1"> */}
-                        <h1>{nArr[0]}</h1>  
-                    {/* </div>   */}
+                    {roomInfo && roomInfo.map((member)=> ( 
+                        <>
+                        {member.user_role === "Advisor" && (
+                    <h1>{member.iapproject_title}</h1>  
+                    )}
+                    </>
+                    ))}
+
+                        {/* <h1>{nArr[0]}</h1>   */}
+                    {/* </div>   */}                   
+                     <div className="proj-room-1">
+
                         {/* <div style={{marginLeft: "10px"}}> */}
                             <button onClick={()=>{changePopup(); getSpeakers();}}>Project Information</button>  
-                        {/* </div> */}
+                        </div>
                 
                         {popup == true && (
                             <div className="p-room-1">
@@ -169,7 +190,14 @@ const ProjectRoom = ({user_Role}) => {
                                     </div>
                                 </div>
                                 <h2>Abstract</h2>
-                                <p>{nArr[2]}</p>                                  
+                                {roomInfo && roomInfo.map((member)=> ( 
+                                    <>
+                                    {member.user_role === "Advisor" && (
+                                         <p>{member.iapproject_abstract}</p>  
+                                )}
+                                </>
+                                ))}
+                                {/* <p>{nArr[2]}</p>                                   */}
                             </div>
                         )}
 
