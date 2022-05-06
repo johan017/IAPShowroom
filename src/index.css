@@ -608,8 +608,9 @@ svg{
   margin-bottom: 25px;
   display: inline-block;
 }
+
 .rooms-title-block button{
-  background: #424240;
+  background: #787873;
   color: #fff;
   /* border: 0; */
   padding: 8px;
@@ -621,20 +622,42 @@ svg{
   display: inline-block;
   cursor: pointer;
 }
-/* .room-list{
-  width: 50%;
-  display: flex;
-  flex-direction: row;
-  flex: 2;
-} */
-.popup-rooms{
+
+.pr-list{
   display: flex;
   flex-direction: row;
 }
-/* .pr-list{
+.room-list{
+  /* width: 90%; */
   display: flex;
-  flex-direction: row;
-} */
+  flex-direction: column;
+  /* flex: 2; */
+}
+.popup-rooms{
+  /* width: 30%; */
+  /* width: 1000px; */
+  /* margin-left: 0.7px; */
+  display: flex;
+  flex-direction: column;
+}
+.popup-rooms h3{
+  margin-left: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.popup-rooms p{
+  margin-left: 10px;
+
+  margin-bottom: 20px;
+}
+
+.popup-rooms label{
+  margin-left: 5px;
+
+  /* margin-bottom: 20px; */
+}
+
+
 /* 
 .project-rooms{
   /* width: 35%; *

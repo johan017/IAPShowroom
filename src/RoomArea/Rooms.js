@@ -80,17 +80,17 @@ const Rooms = ({user_Role}) => {
     <div className="rooms" >
       <div className="rooms-title-block">
         <h2> ROOMS </h2>  
-        <div className="rooms-title-button-block">
+        {/* <div className="rooms-title-button-block"> */}
         <StageLiveButton user_Role={user_Role} disable={true}/>
-
-        {/* <img
-          onClick={()=>{changePopup();}}
+        <button style={{backgroundColor: "white", borderColor: "white", marginLeft:"20px"}}onClick={()=>{changePopup();}}>
+        <img
+          
           width= "40px"
           height="40px"
           src="info.PNG"
 
-        ></img> */}
-        </div>
+        ></img></button>
+        {/* </div> */}
       </div>
 
   <div  className="pr-list">
@@ -125,17 +125,33 @@ const Rooms = ({user_Role}) => {
 
       <div className="popup-rooms">
         {popup === true && (
-          <>
-          hello <br/>
-          bye
-          welcome
-          new
+          <div style={{ marginTop: "5px",marginRight: "30px", backgroundColor: "#a9a5a593", borderRadius: "8px"}}>
+          <h3>Legend: </h3>
+          <label style={{color: 'green'}}>Green Colored Room</label><p> - You have never entered this room before.</p>
+          <label style={{color: 'gray'}}>Gray Colored Room</label><p> - You have entered this room before.</p>
+          <label style={{color: 'red'}}>Red Colored Border Around Room</label><p> - There are no Student Researchers in the room to attend you at this time.</p>
+
+          <img  height="50px"
+          width="50px"
+                marginLeft= "10px"
+                src = "comp-rep.png"
+                alt="display image"     
+              />
+              {/* <i class="tio">user</i> */}
+              <p>Represents the amount of company representatives in the room. </p>
+              <img 
+              height="50px"
+              width="50px"
+               marginLeft= "50px"
+                src = "user-2.png"
+                alt="display image"
+              /><p>Represents the amount of participants in the room excluding: student researchers.</p>   
           
-          </>
+          </div>
         )}
       </div>
       </div>
-    </div>
+    // </div>
   );
 }
  
