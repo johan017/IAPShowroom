@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import useFetchAllEvents from "../hooks/use-fetch-all-events";
+import config from "../config/config";
 // import useFetch from "./useFetch";
 // import useFetchProjects from "../hooks/use-fetch-projects";
 
@@ -13,7 +14,7 @@ const EventList = () => {
     // const {id} = useParams();
     //   const {data: events, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
     const getDate = (props) =>{
-        const today = new Date(props);
+        const today = new Date(config.safariPolyfill(props));
         return today.toLocaleDateString('default', {month: 'long', day: 'numeric', year: 'numeric'});
       }
     return (

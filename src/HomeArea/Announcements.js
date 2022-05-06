@@ -116,7 +116,7 @@ const Announcements = ({user_Role, aID}) => {
     }
 
     const getTime = (props) =>{
-        const time = props;
+        const time = config.safariPolyfill(props);
         return(new Date(time).toLocaleTimeString('en-US', {hour: 'numeric', minute:'2-digit'}));
     }
   
