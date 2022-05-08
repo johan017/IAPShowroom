@@ -11,8 +11,9 @@ const VerifyInformation = ({ prevStep, values }) =>{
 
     const history = useHistory();
     const page = 3
-    const {first_name, last_name, email, password, gender, user_role, grad_date, projectids,
+    const {first_name, last_name, email, password, gender, user_role, grad_date, projectids, projectTitles,
         department, company_name, ispm } = values;
+    
 
     var signup = values;
     const [isLoading, setIsLoading] = useState(false); // when first loading the page the POST request is not being made; only after sumbitting form is when request is made
@@ -34,58 +35,29 @@ const VerifyInformation = ({ prevStep, values }) =>{
                 // delete signup.department;
                 signup = {email, password, first_name, last_name, gender, user_role};
             }
-            console.log(user_role);
-            console.log(signup);
             setIsLoading(true); //before submitting
             
             //  Registration
             try{
-                const response = await axios.post(SIGNUP_URL, 
+                await axios.post(SIGNUP_URL, 
                     JSON.stringify(signup),
                     {
                         headers: {"Content-Type": "application/json"},
                         withCredentials: true
+                    }).then(() =>{
+                        history.push('/accountCreated');
                     });
-                    // if(user_role === "Student Researcher"){
-                    //     response
-                    // }
                     
             }catch(err){
                 if(!err?.response) {
                     console.log('No Server Response');
                 } else if((err.response?.status === 400)){
                     alert('An error occured. Please check your information.');
-                    history.push("/signUp");
                 } else {
                     console.log('Registratio  Failed');
                 }
+                history.push("/signUp");
             }
-            //  Login
-            // try{
-            //     const login = {email, password};
-            //     const response = await axios.post(LOGIN_URL, 
-            //         JSON.stringify(login),
-            //         {
-            //             headers: {"Content-Type": "application/json"},
-            //             withCredentials: true
-            //         });
-            //         console.log(response.data.payload)
-            //         setAuth(response.data.payload);
-            //         // user_role = "user_role";
-            //         // setuser_role = response.data.payload.admin;
-                    
-            // }catch(err){
-            //     if(!err?.response) {
-            //         console.log('No Server Response');
-            //     } else if((err.response?.status === 400)){
-            //         console.log('Missing Username or Password');
-            //     } else if((err.response?.status === 400)){
-            //         console.log('Unauthorized');
-            //     } else {
-            //         console.log('Login Failed');
-            //     }
-            // }
-        history.push('/accountCreated');
     }
 
     const Previous = e => {
@@ -101,12 +73,12 @@ const VerifyInformation = ({ prevStep, values }) =>{
             src = "IAP_Showroom_Logo_HD_Big.png"
             alt="display image"
             />
-            <div className="generalInfoSignUp">
+            <div className="generalInfoSignUp-verify">
             
                 <div>
-                    {page !== 3 && <h2>Create Account</h2>}
-                    {page !== 3 && <progress max="5" value={page}/>}
-                    {page === 3 && <progress style={{background: 'green'}} max="5" value={page}/>}
+                    {page !== 4 && <h2>Create Account</h2>}
+                    {page !== 4 && <progress max="5" value={page}/>}
+                    {page === 4 && <progress style={{background: 'green'}} max="5" value={page}/>}
                 </div>
                 <div className="verifying">
                     <h1>Verification</h1>
@@ -114,13 +86,12 @@ const VerifyInformation = ({ prevStep, values }) =>{
                     <label>First Name: </label> <label>{first_name}</label>
                     <label>Last Name: </label> <label>{last_name}</label>
                     <label>Email: </label> <label>{email}</label>
-                    <label>Password: </label> <label>{password}</label>
                     <label>Gender: </label> <label>{gender}</label>
                     <label>Role: </label> <label>{user_role}</label>
 
                     {user_role === "Student Researcher" && (
                         <div>
-                        <label>Research Project: </label> <label>{projectids}</label>
+                        <label>Research Project: </label> <label>{projectTitles}</label>
                         <label>Department: </label> <label>{department}</label>
                         <label>Graduation Date: </label> <label>{grad_date}</label>
                         <label>Project Manager: </label> <label>{ispm}</label>
@@ -129,7 +100,7 @@ const VerifyInformation = ({ prevStep, values }) =>{
 
                     {user_role === "Advisor" && (  
                         <div>
-                        <label>Research Project: </label> <label>{projectids}</label>
+                        <label>Research Project: </label> <label>{projectTitles}</label>
                         </div>
                     )}
 
@@ -140,7 +111,9 @@ const VerifyInformation = ({ prevStep, values }) =>{
                     )}
 
                     <button style={{ background: 'red' }} onClick={Previous} > Back </button>
-                    <button style={{ background: '#3B8D25' }} onClick={handleSubmit} > Submit </button>
+                    {!isLoading && <button style={{ background: '#3B8D25' }} onClick={handleSubmit} > Submit </button>}
+                    {isLoading && <button disabled>Submitting...</button>} {/** add event button disabled while loading  */}
+
 
                 </div>
             </div>        

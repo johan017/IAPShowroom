@@ -10,7 +10,7 @@ const useFetchRoomInfo = () => {
     const {events} = useFetchEvents();
 
     {events && events.map((event) => (
-        ROOM_INFO_URL = `api/showroom/qna/info/${event.projectid}`
+        ROOM_INFO_URL = `api/showroom/qna/info?meeting_id=${event.projectid}`
     ))}
 
     const [roomInfo, setRoomInfo] = useState([]);

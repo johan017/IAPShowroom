@@ -1,57 +1,60 @@
 import {Link} from 'react-router-dom';
-import ProtectedRoute from './ProtectedRoute';
+// import ProtectedRoute from './ProtectedRoute';
 // import Home from './HomeArea/Home';
-import useGetRole from './hooks/use-get-role';
+// import useGetRole from './hooks/use-get-role';
+import useFetchUserInfo from './hooks/use-fetch-all-user-info';
+import axios from "./context/axios";
 
-const Navbar = ({user_Role}) => {
-    console.log(user_Role);
+const LOGOUT_URL = "api/auth/logout";
+
+const Navbar = () => {
+  
+    // const{userInfo} = useFetchUserInfo();
+
 
     // const {role, isLoading} = useGetRole();
 
-
+    const handleLogout = async() => {
+        try {
+            await axios.post(LOGOUT_URL, 
+                {data: "Request Logout"},
+                {   
+                headers: {"Content-Type": "application/json"},
+                withCredentials: true,
+                data: "Request Logout"
+                },)
+            localStorage.clear();
+        } catch (error) {
+            console.log(error);
+        }
+        window.location.href="/"
+        // window.location.reload();
+  } 
     return (  
         //Need to use the getUserInfo from showroom proxy to identify user_role
         //n
-        <nav className = "navbar">
-
-            <img
-                src = "IAP_Showroom_Logo_HD_Big.png"
-                alt="display image"
-            />
-            {/* <h1>IAP Showroom</h1> */}
-            
+        <div className = "navb">
+            <nav className = "navbar">
+            <a href='/home'>
+                <img
+                    src = "IAP_Showroom_Logo_HD_Big.png"
+                    alt="display image"
+                />
+            </a>
             <div className="links">
-
-                {user_Role === "admin" && (
-                      <div >
-                      <Link to="/home" >HOME</Link>
-                      <Link to="/stage" >STAGE</Link>
-                      <Link to="/rooms" >ROOMS</Link>
-                      <Link to="/stats" >STATS</Link>
-                      <Link to="/sponsors" >SPONSORS</Link>
-                      <Link to="/schedule" >SCHEDULE</Link>
-                      {/* <Link to="/announce" >Announce</Link> */}
-
-                      <Link to ="/logout"> LOGOUT</Link>
-                  </div>
-                )}
-
-                {user_Role !== "admin" && (
-                      <div >
-                      <Link to="/home" >HOME</Link>
-                      <Link to="/stage" >STAGE</Link>
-                      <Link to="/rooms" >ROOMS</Link>
-                      <Link to="/stats" >STATS</Link>
-                      <Link to="/sponsors" >SPONSORS</Link>
-                      {/* <Link to="/announce" >Announce</Link> */}
-
-                      {/* <Link to="/schedule" >SCHEDULE</Link> */}
-                      <Link to ="/logout"> LOGOUT</Link>
-                  </div>
-                )}
-                   
+                 <div >
+                    <a onClick={() => {window.location.href="/home"}}>HOME</a>
+                    <a onClick={() => {window.location.href="/stage"}}>STAGE</a>
+                    <a onClick={() => {window.location.href="/rooms"}}>ROOMS</a>
+                    <a onClick={() => {window.location.href="/stats"}}>STATS</a>
+                    <a onClick={() => {window.location.href="/sponsors"}}>SPONSORS</a>
+                    <a onClick={() => {window.location.href="/settings"}}>SETTINGS</a>
+                    <a onClick={() => handleLogout()}> LOGOUT</a>
+                  </div>               
             </div>
-        </nav>
+            </nav>
+             {/* <h3>{userInfo.first_name} {userInfo.last_name}</h3> */}
+        </div>
     );
 }
  

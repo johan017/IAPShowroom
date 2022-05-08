@@ -1,7 +1,8 @@
 import { useEffect, useState} from 'react';
-import axios from 'axios';
+import axios from '../context/axios';
 
-const SPONSORS_URL = "https://iap.ece.uprm.edu/api/sponsors/all"
+
+const SPONSORS_URL = "/api/showroom/sponsors/"
 
 const useFetchSponsors = () => {
 
@@ -12,11 +13,7 @@ const useFetchSponsors = () => {
     backend */
     const getSponsors = async() =>{
         try{
-        const result = await axios.get(SPONSORS_URL, 
-        {
-            headers: {"Content-Type": "application/json"},
-            withCredentials: true
-        }) 
+        const result = await axios.get(SPONSORS_URL) 
         setSponsors(result.data.payload);
         console.log(result.data.payload)
         } catch(error) {

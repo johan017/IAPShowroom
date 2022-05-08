@@ -1,10 +1,11 @@
-import {useLayoutEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import axios from "../context/axios";
 const ROLE_URL = "api/auth/user-info"
 
 const useGetRole = () => {
     const [isLoading, setLoading] = useState(true);
-    const [role, setRole] = useState([]);
+    const [role, setRole] = useState();
+    const [uID, setuID] = useState();
 
     const getRole = async() =>{
         try{
@@ -14,6 +15,7 @@ const useGetRole = () => {
                     withCredentials: true
                 });
                 setRole(result.data.payload.user_role);
+                setuID(result.data.payload.adminid);
                 setLoading(false);
                // setLoading(false);
         }catch(err){
@@ -21,13 +23,13 @@ const useGetRole = () => {
         }
     };
 
-    useLayoutEffect(()=>{
+    useEffect(()=>{
         getRole();
     }, []);
 
     return {
         role,
-        isLoading
+        uID
       };
 };
 
