@@ -170,7 +170,7 @@ export default function Home({user_Role, aID, checked}) {
       <div className="home-container-3">
         <div className="home-container-4">
         <StageLiveButton user_Role={user_Role} disable={true}/>
-        <button style={{backgroundColor: "white", borderColor: "white", cursor: "pointer", marginLeft: "10px"}}onClick={()=>{changePopup();}}>
+        <button style={{backgroundColor: "white", borderColor: "white",  marginLeft: "10px", cursor: "pointer"}}onClick={()=>{changePopup();}}>
         <img
           
           width= "40px"

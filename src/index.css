@@ -631,17 +631,17 @@ svg{
   display: inline-block;
 }
 
-.rooms-title-block button{
-  background: #787873;
+.rooms-title-block .stage-live button{
+  background: #424240;
   color: #fff;
   /* border: 0; */
   padding: 8px;
-  /* width: 100px; */
+  width: 100px;
+  margin-top: 20px;
+  /* margin-left: 90%; */
+  margin-bottom: 10px;
   /* height: 30px; */
   border-radius: 8px;
-  margin-top: 5px;
-  /* margin-left: 50%; */
-  display: inline-block;
   cursor: pointer;
 }
 
