@@ -45,18 +45,16 @@ const Stats = () => {
    if(updatedConfStats.length !== 0) displayStats = updatedConfStats;
    console.log(displayStats);
     return ( 
-        <div >
+        <div className="stats" >
             {/* {error && <div> {error} </div>} */}
             {isLoading && <div> Loading...</div>}
             <div className="statsdate" style={{ borderBottom: '1px solid #8e8a8a' }} >
                 <h2> Conference Stats </h2> {!filterTime ? <h3>{getDate()}</h3> : <h3>{filterTime}</h3> }
             </div>
-            <label> Date: </label>
+            <label> Presenting Stats from the following Date: </label>
                <input
                    type="date"
-                   // required
                    defaultValue={formatDate1(new Date())} 
-                   //  value = {startTime}
                    onChange = {(e) => {setFilterTime(e.target.value);getUpdatedConfStats(e.target.value)}}  
                ></input>  
             <div className="stat-prog">
@@ -65,132 +63,116 @@ const Stats = () => {
                     {cf.title} */}
              {/* {stats && stats.map((stat)=>(
                 <div key={stat.id}> */}
-                {/* <p>Total Participants</p> */}
                 <h3>Overall Participants</h3>
 
                     <p>Total Participants</p>
+                    {/* {displayStats.maxParticipants} */}
                     <div className="stat-prog-bar">
-                    {displayStats.maxParticipants}
+                    
                         <Progress totalp={`${displayStats.maxParticipants}`} totalItem={`${displayStats.maxParticipants}`} /> 
                     </div> <br/>
 
-                    {/* <p>Total Participants</p>
-                    <div className="stat-prog-bar">
-                        <Progress totalp={`${stat.activeParticipants}`} totalItem={`${stat.activeParticipants}`} /> 
-                    </div> <br/>
-                    {/* <p>Total Participants</p>
-                    <div className="stat-prog-bar">
-                        <ProgressBar now={stat.activeParticipants} label={`${stat.activeParticipants}`} /> 
-            </div> <br/> */}
-
                     <p>General Participants</p>
                     <div className="stat-prog-bar">
-                        {displayStats.generalParticipants}
-                        {/* <Progress totalp={`${displayStats.maxParticipants}`} totalItem={`${displayStats.generalParticipants}`} />  */}
+                        {/* {displayStats.generalParticipants} */}
+                        <Progress totalp={`${displayStats.maxParticipants}`} totalItem={`${displayStats.generalParticipants}`} /> 
                     </div> <br/>                                        
                     
                    <p>Research Student Participants</p>
                     <div className="stat-prog-bar">
-                    {displayStats.researchStudParticipants}
-                        {/* <Progress totalp={`${displayStats.maxParticipants}`} totalItem={`${displayStats.researchStudParticipants}`} />  */}
+                    {/* {displayStats.researchStudParticipants} */}
+                        <Progress totalp={`${displayStats.maxParticipants}`} totalItem={`${displayStats.researchStudParticipants}`} /> 
                     </div> <br/>
 
                     <p>Company Representatives Participants</p>
                     <div className="stat-prog-bar">
-                    {displayStats.companyRepParticipants}
-                        {/* <Progress totalp={`${displayStats.maxParticipants}`} totalItem={`${displayStats.companyRepParticipants}`} />  */}
+                    {/* {displayStats.companyRepParticipants} */}
+                        <Progress totalp={`${displayStats.maxParticipants}`} totalItem={`${displayStats.companyRepParticipants}`} /> 
                     </div> <br/>
 
                         <p>Advisor Participants</p>
                     <div className="stat-prog-bar">
-                    {displayStats.professorParticipants}
-                        {/* <Progress totalp={`${displayStats.maxParticipants}`} totalItem={`${displayStats.professorParticipants}`} />  */}
+                    {/* {displayStats.professorParticipants} */}
+                        <Progress totalp={`${displayStats.maxParticipants}`} totalItem={`${displayStats.professorParticipants}`} /> 
                     </div> <br/>
 
                     <div className="stats-people">
-
                         <div className="stats-people-women"><br/>
-                        <text style={{marginLeft: "20%"}}>{`${displayStats.totalWomen}`}</text>
-                        <text style={{marginLeft: "20.5%"}}>{`${displayStats.totalMen}`}</text> 
-                        <text style={{marginLeft: "20%"}}>{`${displayStats.totalNotDisclosed}`}</text>
-                       </div>
-
-                       <div className="stats-people-women" >
-
-                       <text>Women</text>
-                        <text>Men</text>
-                        <text>Other</text>
+                            <text style={{marginLeft: "20%"}}>{`${displayStats.totalWomen}`}</text>
+                            <text style={{marginLeft: "20.5%"}}>{`${displayStats.totalMen}`}</text> 
+                            <text style={{marginLeft: "20%"}}>{`${displayStats.totalNotDisclosed}`}</text>
                         </div>
 
+                        <div className="stats-people-women" >
+                            <text>Women</text>
+                            <text>Men</text>
+                            <text>Other</text>
+                        </div>
                     </div>
 
                     <h3>Project Research Students</h3>
 
                     <p>Research Student Participants</p>
                     <div className="stat-prog-bar">
-                    {displayStats.researchStudParticipants}
-                        {/* <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.researchStudParticipants}`} />  */}
+                    {/* {displayStats.researchStudParticipants} */}
+                        <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.researchStudParticipants}`} /> 
                     </div> <br/>
 
                     <p>Research Students from ICOM</p>
                     <div className="stat-prog-bar">
-                    {displayStats.resStudICOM}
-                        {/* <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudICOM}`} />  */}
+                    {/* {displayStats.resStudICOM} */}
+                        <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudICOM}`} /> 
                     </div> <br/>
 
                     <p>Research Students from INEL</p>
                     <div className="stat-prog-bar">
-                    {displayStats.resStudINEL}
-                        {/* <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudINEL}`} />  */}
+                    {/* {displayStats.resStudINEL} */}
+                        <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudINEL}`} /> 
                     </div> <br/>
 
                     <p>Research Students from INSO</p>
                     <div className="stat-prog-bar">
-                    {displayStats.resStudINSO}
-                        {/* <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudINSO}`} />  */}
+                    {/* {displayStats.resStudINSO} */}
+                        <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudINSO}`} /> 
                     </div> <br/>
 
                     <p>Research Students from CIIC</p>
                     <div className="stat-prog-bar">
-                    {displayStats.resStudCIIC}
-                        {/* <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudCIIC}`} />  */}
+                    {/* {displayStats.resStudCIIC} */}
+                        <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudCIIC}`} /> 
                     </div> <br/>
 
                     <p>Research Students from INME</p>
                     <div className="stat-prog-bar">
-                    {displayStats.resStudINME}
-                        {/* <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudINME}`} />  */}
+                    {/* {displayStats.resStudINME} */}
+                        <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudINME}`} /> 
                     </div> <br/>
 
                     <p>Research Students from Other Departments</p>
                     <div className="stat-prog-bar">
-                    {displayStats.resStudOther}
-                        {/* <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudOther}`} />  */}
+                    {/* {displayStats.resStudOther} */}
+                        <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudOther}`} /> 
                     </div> <br/>
 
                     <p>Students that will graduate soon</p>
                     <div className="stat-prog-bar">
-                    {displayStats.resStudGRAD}
-                        {/* <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudGRAD}`} />  */}
+                    {/* {displayStats.resStudGRAD} */}
+                        <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudGRAD}`} /> 
                     </div> <br/>
 
                     <div className="stats-people">
+                        <div className="stats-people-women"><br/>
+                            <text style={{marginLeft: "20%"}}>{`${displayStats.totalResStudWomen}`}</text>
+                            <text style={{marginLeft: "20.5%"}}>{`${displayStats.totalResStudMen}`}</text> 
+                            <text style={{marginLeft: "20%"}}>{`${displayStats.totalResStudNotDisclosed}`}</text>
+                        </div>
 
-                    <div className="stats-people-women"><br/>
-                    <text style={{marginLeft: "20%"}}>{`${displayStats.totalResStudWomen}`}</text>
-                    <text style={{marginLeft: "20.5%"}}>{`${displayStats.totalResStudMen}`}</text> 
-                    <text style={{marginLeft: "20%"}}>{`${displayStats.totalResStudNotDisclosed}`}</text>
-                    </div>
-
-                    <div className="stats-people-women" >
-
-                    <text>Women</text>
-                    <text>Men</text>
-                    <text>Other</text>
-                    </div>
-                    <br/>
-
-
+                        <div className="stats-people-women" >
+                            <text>Women</text>
+                            <text>Men</text>
+                            <text>Other</text>
+                        </div>
+                        <br/>
                     </div>
 
                 </div>
