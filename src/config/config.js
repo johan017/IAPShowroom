@@ -3,6 +3,12 @@ const WebSocketURL = 'wss://iapshowroom.ece.uprm.edu/ws/'
 
 const captchaKey = '6LeZSrUfAAAAACW7B4vSpseKslUZ-FzbLGKZpBla'
 
+
+// const baseURL = 'http://localhost:8080';
+// const WebSocketURL = 'ws://localhost:8081/ws/'
+
+// const captchaKey = '6Lfnv_geAAAAABsSPS0UKVKIFkeZWly0yiA_-Wxi'
+
 //Web Socket Server event variables
 const ws_announcement = "announcement";
 const ws_progressbar = "progressbar";
