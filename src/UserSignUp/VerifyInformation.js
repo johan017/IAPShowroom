@@ -49,14 +49,15 @@ const VerifyInformation = ({ prevStep, values }) =>{
                     });
                     
             }catch(err){
-                if(!err?.response) {
-                    console.log('No Server Response');
-                } else if((err.response?.status === 400)){
+                if((err.response?.status === 400)){
                     alert('An error occured. Please check your information.');
+                } else if(err.response?.status === 409){
+                    alert('This email is already registered');
+                    
                 } else {
-                    console.log('Registratio  Failed');
+                    console.log('Registration Failed');
                 }
-                history.push("/signUp");
+                window.location.reload();
             }
     }
 
