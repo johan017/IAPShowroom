@@ -1043,6 +1043,13 @@ align-items: center;
 }
 
 /*---------------------------------------------- STATS PAGE ----------------------------------------------*/
+.stats label{
+  /* margin-top: 20px; */
+  margin-left: 70%;
+}
+.stats input{
+  margin-top: 20px;
+}
 .stat-prog{
   width: 100%; 
   display: inline-block;
@@ -1118,7 +1125,7 @@ align-items: center;
  
 }
 .stats-people-women{
-  margin-left: 20%;
+  margin-left: 32%;
   /* flex:1; */
   display: inline-block;
   /* flex-direction: column; */
@@ -1128,7 +1135,7 @@ align-items: center;
   margin-top: 10%;
   /* margin-bottom: 20%; */
   font-size: 35px;
-  margin-left: 15%;
+  margin-left: 14%;
   justify-self: center;
 }
 .stats-people-men{
