@@ -11,11 +11,9 @@ const fetchAnnouncements = async () => {
         withCredentials: true
     }); 
     announcements = result.data.payload != undefined ? result.data.payload : [] ;
-       console.log("fetch announcements", announcements);
     } catch (error) {
         console.error(error.response.status);
     }
-
     return announcements;
 };
 

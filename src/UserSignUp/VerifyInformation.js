@@ -1,10 +1,8 @@
 import { useHistory } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useState} from "react";
 import axios from "../context/axios";
-import AuthContext from "../context/AuthProvider";
 
 const SIGNUP_URL = 'api/auth/register';
-const LOGIN_URL = 'api/auth/login';
 
 
 const VerifyInformation = ({ prevStep, values }) =>{
@@ -35,6 +33,7 @@ const VerifyInformation = ({ prevStep, values }) =>{
                 // delete signup.department;
                 signup = {email, password, first_name, last_name, gender, user_role};
             }
+            signup.email = signup.email.toLowerCase();
             setIsLoading(true); //before submitting
             
             //  Registration

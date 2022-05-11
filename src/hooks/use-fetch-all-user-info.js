@@ -17,7 +17,6 @@ const useFetchUserInfo = () => {
             withCredentials: true
         }) 
         setUserInfo(result.data.payload);
-        console.log(result.data.payload)
         } catch(error) {
             console.error(error.response.status);
             if(error.response.status = '401'){

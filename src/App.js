@@ -52,7 +52,7 @@ function App() {
             <AskChangePassword/> 
           </Route>
 
-          <Route exact path="/changePassword"> 
+          <Route exact path="/changePassword/:user_id/:euuid"> 
             <ChangePassword/> 
           </Route>
                  
