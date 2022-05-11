@@ -1,10 +1,8 @@
 import { useHistory } from "react-router-dom";
-import { useState, useContext } from "react";
+import { useState} from "react";
 import axios from "../context/axios";
-import AuthContext from "../context/AuthProvider";
 
 const SIGNUP_URL = 'api/auth/register';
-const LOGIN_URL = 'api/auth/login';
 
 
 const VerifyInformation = ({ prevStep, values }) =>{

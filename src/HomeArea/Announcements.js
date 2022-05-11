@@ -1,23 +1,13 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import useFetch from '../useFetch';
-// import ScrollToBottom from "react-scroll-to-bottom";
 import axios from "../context/axios";
-// import fetchAnnouncements from "../hooks/use-fetch-announcements";
 import config from "../config/config";
-
-
-//TODO: Find out why the fetch announcements API is not working
-
 
 const ws = new WebSocket(config.WebSocketURL);
 const Announcements = ({user_Role, aID}) => {
-    console.log("Announcement Parameters",user_Role, aID);;
     const Announcement_URL = "api/showroom/announcement"
 
     const fetchAnnouncements = async () => {
         try{
-            // console.log("before axios")
             const result = await axios.get(Announcement_URL, 
             {
                 headers: {"Content-Type": "application/json"},
@@ -35,33 +25,23 @@ const Announcements = ({user_Role, aID}) => {
 
        
     };
-    //Fetch announcements for the first time
+    // Fetch announcements for the first time
     const [announcements, setAnnouncements] = useState([]);
-    const {id} = useParams();
     const [currentMess, setCurrentMess] = useState('');
 
     useEffect(() => {
-        //Things from componentDidMount()
-        console.log("component did mount");
-        ws.onopen = () => {
-            console.log('Announcements WebSocket Client Connected');
-        };
+        // Things from componentDidMount()
         ws.onmessage = (message) => {
             console.log("WebSocket received message:", message.data)
             const dataFromServer = JSON.parse(message.data);
             if(dataFromServer.type === config.ws_announcement) fetchAnnouncements();
             if(dataFromServer.type === config.ws_die) window.location.href = "/"; // reloads page after server is attempting close
         };
-        ws.onclose = () => {
-            console.log('Announcements WebSocket Client Disconnected');
-            // ws.close();
-        }
 
         fetchAnnouncements();
 
         return () => {
             //Things from componentWillUnmount()
-            console.log("unmounted " + config.ws_announcement);
             ws.close();
         }
     }, []);
@@ -81,7 +61,6 @@ const Announcements = ({user_Role, aID}) => {
         }catch(err){
 
         }
-
     }
     
     const sendAnnouncement = async (event) =>{ 
@@ -95,7 +74,6 @@ const Announcements = ({user_Role, aID}) => {
                 "message": currentMess,
                 "date": currentDate,
             };
-            console.log("announcement", messageData);
         }
 
         setCurrentMess('');
@@ -123,14 +101,12 @@ const Announcements = ({user_Role, aID}) => {
 
     return ( 
         <div className="announcements" >
-            {/* <div>{useFetchServerSideEventsAnnouncements()}</div> */}
             {user_Role !== "admin" && ( 
             <div className="home-container">
                 <div className="ann-title">
                     <h2>Announcements</h2>
                 </div>
                 <div style={{marginBottom: "30px"}}  className="admin-ann">
-                    {/* <ScrollToBottom> */}
                     {announcements && announcements.map((announce) => (
                         <div className="announce-body" key={announce.announcementid}>
                             <p>{announce.a_content}</p>
@@ -143,8 +119,6 @@ const Announcements = ({user_Role, aID}) => {
                             <p>No Announcements At The Moment</p>
                         </div>
                     )}
-                {/* </ScrollToBottom> */}
-                    
                 </div>
             </div>
             )}
@@ -155,7 +129,6 @@ const Announcements = ({user_Role, aID}) => {
                 <h2>Announcements</h2>
                 </div>
                 <div className="admin-ann">
-                    {/* <ScrollToBottom> */}
                     {announcements && announcements.map((announce) => (
                         <div className="announce-body" key={announce.announcementid}>
                             <p>{announce.a_content}</p><br/> 
@@ -171,7 +144,6 @@ const Announcements = ({user_Role, aID}) => {
                             <p>No Announcements At The Moment</p>
                         </div>
                     )}
-                {/* </ScrollToBottom> */}  
                 </div>
         
                 <div className="announce-footer">                    
@@ -183,10 +155,8 @@ const Announcements = ({user_Role, aID}) => {
                     </input>
                     <button onClick={sendAnnouncement}>Send</button>
                 </div>
-              
             </div>
             )}
-
         </div>
     );
 }
