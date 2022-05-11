@@ -18,6 +18,13 @@ const ChangePassword = () => {
     const [matchPass,setMatchPass] = useState('');
     const [isMatched, setisMatched] = useState(false);
 
+    var  pathArray = window.location.pathname.split('/');
+
+    var userid_path = parseInt(pathArray[2]);
+
+    var euuid_path = parseInt(pathArray[3]);
+
+
 
     const handlePassChange = async (e) =>{ 
         if(password !== matchPass){
@@ -29,6 +36,8 @@ const ChangePassword = () => {
              const messageData = {
                    "email": email,
                    "new_password": password,
+                   "user_id": userid_path,
+                   "euuid": euuid_path,
              };
              
              console.log("email", messageData);
@@ -41,6 +50,7 @@ const ChangePassword = () => {
                  }).then((res) => {
                      console.log(res.data)
                  }).catch((error)=>{
+                     alert(error)
                      console.log(error)
              })
              }catch(err){

@@ -1192,6 +1192,42 @@ align-items: center;
   margin-bottom: 30px;
 }
 
+.schedule-new-conference input{
+  width: 20%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display:inline-block; 
+}
+.schedule-new-conference label{
+  width: 20%;
+  padding: 6px 10px;
+  /* margin: 10px 0; */
+  margin-left: 30%;
+  border:hidden;
+  box-sizing: border-box;
+  /* display: block; */
+  display:inline-block; 
+} 
+.schedule-new-conference h2{
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-left: 10%;
+}
+.schedule-new-conference button{
+  margin-left: 42%;
+  margin-top: 30px;
+  font-size: 15px;
+  background: #bc0707;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  width: 100px;
+  height: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+}
 
 
 .project-preview a {
@@ -1216,7 +1252,9 @@ align-items: center;
 } */
 
 
-
+.conference-list p{
+  margin-bottom: 10px;
+}
 
 
 
