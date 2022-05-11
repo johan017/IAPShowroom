@@ -4,21 +4,18 @@ import PasswordStrengthBar from 'react-password-strength-bar';
 import axios from "../context/axios";
 
 
-
-
-
 const ChangePassword = () => {
     
     const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    
-    
     const [isLoading, setIsLoading] = useState(false); 
     const [matchPass,setMatchPass] = useState('');
-    const [isMatched, setisMatched] = useState(false);
 
+
+    var  pathArray = window.location.pathname.split('/');
+    var userid_path = parseInt(pathArray[2]);
+    var euuid_path = pathArray[3];
 
     const handlePassChange = async (e) =>{ 
         if(password !== matchPass){
@@ -30,6 +27,8 @@ const ChangePassword = () => {
              const messageData = {
                    "email": email,
                    "new_password": password,
+                   "user_id": userid_path,
+                   "euuid": euuid_path,
              };
              
              console.log("email", messageData);
@@ -37,20 +36,22 @@ const ChangePassword = () => {
              try{
      
              await axios.post('api/auth/forgot-pass', messageData, {
-                 headers: {"Content-Type": "application/json"}
-                 // withCredentials: true
+                 headers: {"Content-Type": "application/json"},
+                 withCredentials: true
                  }).then((res) => {
-                     console.log(res.data)
+                     console.log(res.data);
+                     history.push('/');
                  }).catch((error)=>{
-                     console.log(error)
+                     if(error.response.status === 400) {
+                        alert("Invalid or expired password reset link.");
+                        history.push('/askChangePassword');
+                     }
              })
              }catch(err){
                 
              }
-             history.push('/');
         }
     }
-{/*new_password - post on click */} 
     
     return ( 
         <div  className="changePass">
