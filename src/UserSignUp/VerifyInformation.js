@@ -33,6 +33,7 @@ const VerifyInformation = ({ prevStep, values }) =>{
                 // delete signup.department;
                 signup = {email, password, first_name, last_name, gender, user_role};
             }
+            signup.email = signup.email.toLowerCase();
             setIsLoading(true); //before submitting
             
             //  Registration

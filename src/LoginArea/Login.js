@@ -29,7 +29,8 @@ const Login = () => {
             e.preventDefault();
             try{
                 setIsLoading(true); //before submitting
-                const login = {email, password};
+                let login = {email, password};
+                login.email = login.email.toLowerCase();
                 const response = await axios.post(LOGIN_URL, 
                     JSON.stringify(login),
                     {

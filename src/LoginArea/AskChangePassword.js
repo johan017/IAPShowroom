@@ -15,7 +15,7 @@ const AskChangePassword = () => {
         e.preventDefault();
         setIsLoading(true);
         const messageData = {
-              "email": email,
+              "email": email.toLowerCase(),
         };
         
         console.log("email", messageData);
@@ -23,8 +23,8 @@ const AskChangePassword = () => {
         try{
 
         await axios.post('api/auth/forgot-pass?sendemail=true', messageData, {
-            headers: {"Content-Type": "application/json"}
-            // withCredentials: true
+            headers: {"Content-Type": "application/json"},
+            withCredentials: true
             }).then((res) => {
                 console.log(res.data);
                 history.push('/checkEmail');
