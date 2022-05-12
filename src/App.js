@@ -97,7 +97,7 @@ function App() {
             {/*Schedule component - schedule of conferencia*/}
             <ProtectedRoute exact path="/schedule" component={Schedule} uRole={role} aID={uID}/>
 
-            <ProtectedRoute exact path="/membervalidation" component={MemberValidation} uRole={role} aID={uID}/>
+            {/* <ProtectedRoute exact path="/membervalidation" component={MemberValidation} uRole={role} aID={uID}/> */}
                             
             {/*NewEvent component - events created manually*/}
             <ProtectedRoute  exact path="/new_event"  component={NewEvent} uRole={role} aID={uID}/> 

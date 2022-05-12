@@ -112,7 +112,7 @@ const UserSignUpForm = ({ nextStep, handleChange, values }) => {
                             required  
                         />
 
-                        <label>Email: </label>
+                        <label>Email: (Students and Advisors please use @upr.edu emails) </label>
                         <input 
                             type="email"
                             id="email" 

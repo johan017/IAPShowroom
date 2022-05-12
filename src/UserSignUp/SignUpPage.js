@@ -94,18 +94,18 @@ export default class SignUpPage extends Component{
                     />
                 )
             }
-            else if(step === 2 && user_role === "Advisor") {
-                return(
-                    <Advisor
-                       nextStep={this.nextStep}
-                       prevStep={this.prevStep}
-                        handleChange={this.handleChange}
-                        handleProjectChange = {this.handleProjectChange}
-                        values={values}     
+            // else if(step === 2 && user_role === "Advisor") {
+            //     return(
+            //         <Advisor
+            //            nextStep={this.nextStep}
+            //            prevStep={this.prevStep}
+            //             handleChange={this.handleChange}
+            //             handleProjectChange = {this.handleProjectChange}
+            //             values={values}     
                                   
-                    />
-                )
-            }
+            //         />
+            //     )
+            // }
             else if(step === 2 && user_role === "Company Representative" ) {
                 return(
                     <CompanyRepresentative
