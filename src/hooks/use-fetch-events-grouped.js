@@ -22,9 +22,10 @@ const useFetchGroupedEvents = () => {
               return rv;
             }, {});
           };
-        var groupedByTitle = groupBy(result.data.payload, 'e_date');
-        setGroupedEvents(groupedByTitle);
+        var groupedByTitle = groupBy(result.data.payload, 'cid');
 
+        setGroupedEvents(groupedByTitle);
+console.log("groupedByTitle", groupedByTitle)
         } catch(error) {
             console.error(error.response.status);
         }

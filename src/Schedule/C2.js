@@ -1,26 +1,31 @@
 import * as React from 'react';
 import Calendar from './Calendar';
 import { useHistory} from "react-router-dom";
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import ProjectList from './ProjectList';
 import EventList from './EventList';
 import {Link} from "react-router-dom";
 import useFetchEvents from "../hooks/use-fetch-events";
 import ScheduledEventList from './ScheduledEventList';
+import axios from "../context/axios";
+import useFetchConferences from '../hooks/use-fetch-conferences';
 
 const C2 = () => {
 
   // const {data: events, error, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
   const history = useHistory();
+  const {conferences} = useFetchConferences();
+  var  pathArray = window.location.pathname.split('/');
+  var cid = parseInt(pathArray[2]);
+  
   // const {events, loading} = useFetchEvents();
-
     const handleNewEvent =(e)=>{
-      history.push('/new_event');
+      history.push(`/schedule/${cid}/new_event`);
     }
     const handleCancel =(e) =>{
         history.push('/schedule');
     }
-    const handleNext = (e) =>{
+    const handleDone = (e) =>{
         e.preventDefault();
         history.push('/schedule');
     }
@@ -44,13 +49,61 @@ const C2 = () => {
       document.getElementById(tabName).style.display = "block";
       evt.currentTarget.className += " active";
     }
+    // const [cDate, setCDate] = useState('');
+
+  //   const getConference = async() =>{
+  //     try{
+  //     const result = await axios.get(`api/showroom/conference?conference_id=${cid}`,  //change to correct endpoint
+  //     {
+  //         headers: {"Content-Type": "application/json"},
+  //         withCredentials: true
+  //     }) 
+  //     setCDate(result.data.payload[0].c_date);
+  //     console.log ("C-Date", result.data.payload[0].c_date)
+  //     } catch(error) {
+  //         console.error(error.response.status);
+  //         if(error.response.status = '401'){
+             
+  //         }
+  //     }
+  // };
+
+  // useEffect(()=>{
+  //    getConference();
+  // }, []);
+
+  // const formatDate2 = (date) =>{
+  //   const splitDate = date.split('T');
+  //   const sdate = splitDate[0].toString();
+  //   // const sdate = date;
+  //   console.log("date", sdate)
+  //   // const stime = "00:00:00";
+  //   // console.log("time", stime)
+
+  //   return `${sdate}`;
+  // }
+  // var nDate = formatDate2(cDate).toString();
+  // console.log("nDate c2", nDate)
 
 
   return (
     <div className="cal2">
+      <div className="conf-title">
+      {conferences && conferences.map((conf)=>(
+        <div key={conf.cid}>
+            {conf.cid === cid && (
+     
+      <>
+      <h1>{conf.c_text}</h1>
+      </> 
+      )}
+      </div>
+      ))}
+      </div>
       {/* {error && <div> {error} </div>}
       {isLoading && <div> Loading...</div>} */}
-       <div className="schedule-container">
+      <div className="row-conf">
+       <div className="schedule-container2">
             <div className='tab'>
                  <div className="sched-buttons">
                       <button class="tablinks" onClick={e => openTab(e, 'Projects')}> IAP Projects </button>
@@ -62,13 +115,13 @@ const C2 = () => {
            <div className="cal22">
              
                <div id="Projects" class="tabcontent">
-                    <ProjectList/>
+                    <ProjectList cid={cid}/>
                </div>
                <div id="AllEvents" class="tabcontent">
-                    <EventList/>
+                    <EventList cid={cid}/>
                </div>
                <div id="TodayEvents" class="tabcontent">
-                    <ScheduledEventList/>
+                    <ScheduledEventList cid={cid}/>
                </div>
             
              
@@ -80,18 +133,16 @@ const C2 = () => {
         <div className="schedule-buttons">
           <button onClick={handleNewEvent}>ADD NEW EVENT</button>
           <button onClick={handleCancel} style={{ background: 'gray', marginLeft: '280px' }}>Cancel</button>
-          <button onClick={handleNext} style={{ background: '#3B8D25', marginLeft: '30px' }}>Next</button>
+          <button onClick={handleDone} style={{ background: '#3B8D25', marginLeft: '30px' }}>Done</button>
         </div>
       
         <div className="scheduler">
-          <Calendar/>
+          <Calendar cid={cid}/>
+          {/* <Calendar newDate={formatDate2(cDate).toString()} /> */}
         </div>
       </div>
-        {/* <div className="scheduler">
-          <Calendar/>
-        </div>
-       */}
-      
+      </div>
+       
     </div>
   );
 };

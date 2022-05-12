@@ -22,12 +22,14 @@ const VerifyInformation = ({ prevStep, values }) =>{
             if(user_role === "Student Researcher"){
                 // delete signup.company; 
                 signup = {first_name, last_name, email, password, gender, user_role, grad_date, 
-                          projectids, department, ispm};
-            }else if(user_role === "Advisor"){
-                signup = {first_name, last_name, email, password, gender, user_role, projectids};
-            }else if(user_role === "Company Representative"){
+                          department};
+            }
+            // else if(user_role === "Advisor"){
+            //     signup = {first_name, last_name, email, password, gender, user_role, projectids};
+            // }else 
+            else if(user_role === "Company Representative"){
                 signup = {first_name, last_name, email, password, gender, user_role, company_name};
-            }else if(user_role === "Guest"){ //general guest
+            }else{ //general guest
                 // delete signup.company;  
                 // delete signup.grad_date; delete signup.projectids;
                 // delete signup.department;
@@ -52,8 +54,11 @@ const VerifyInformation = ({ prevStep, values }) =>{
                     alert('An error occured. Please check your information.');
                 } else if(err.response?.status === 409){
                     alert('This email is already registered');
-                    
-                } else {
+                
+                } else if(err.response?.status === 500){
+                    alert('No IAP projects found associated with given email, please contact administrator.');
+                }else {
+                    alert(err.response);
                     console.log('Registration Failed');
                 }
                 window.location.reload();
@@ -91,18 +96,18 @@ const VerifyInformation = ({ prevStep, values }) =>{
 
                     {user_role === "Student Researcher" && (
                         <div>
-                        <label>Research Project: </label> <label>{projectTitles}</label>
+                        {/* <label>Research Project: </label> <label>{projectTitles}</label> */}
                         <label>Department: </label> <label>{department}</label>
                         <label>Graduation Date: </label> <label>{grad_date}</label>
-                        <label>Project Manager: </label> <label>{ispm}</label>
+                        {/* <label>Project Manager: </label> <label>{ispm}</label> */}
                         </div>
                     )}
 
-                    {user_role === "Advisor" && (  
+                    {/* {user_role === "Advisor" && (  
                         <div>
                         <label>Research Project: </label> <label>{projectTitles}</label>
                         </div>
-                    )}
+                    )}  */}
 
                     {user_role === "Company Representative" && (  
                         <div> 

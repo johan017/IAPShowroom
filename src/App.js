@@ -29,7 +29,8 @@ import MemberValidation from './Settings/MemberValidation';
 import HtmlEndMeeting from './StageArea/HtmlEndMeeting';
 import useGetRole from "./hooks/use-get-role";
 import CheckEmail from './LoginArea/CheckEmail';
-
+import NewConference from './Schedule/NewConference';
+import UpdateConference from './Schedule/UpdateConference';
 
 
 function App() {
@@ -79,10 +80,10 @@ function App() {
             {/* <Stage path="/stage"></Stage> */}
 
             {/*Rooms component*/}
-            <ProtectedRoute path="/rooms" component={Rooms} uRole={role} aID={uID}/>
+            <ProtectedRoute exact path="/rooms" component={Rooms} uRole={role} aID={uID}/>
 
             {/*Project Room component*/}
-            <ProtectedRoute path="/project_room/:project_id" component={ProjectRoom} uRole={role} aID={uID}/>
+            <ProtectedRoute exact path="/rooms/:cid/project_room/:project_id" component={ProjectRoom} uRole={role} aID={uID}/>
 
             {/*Stats component*/}
             
@@ -98,23 +99,26 @@ function App() {
             {/*Schedule component - schedule of conferencia*/}
             <ProtectedRoute exact path="/schedule" component={Schedule} uRole={role} aID={uID}/>
 
-            <ProtectedRoute exact path="/membervalidation" component={MemberValidation} uRole={role} aID={uID}/>
+            <ProtectedRoute exact path="/schedule/new_conference" component={NewConference} uRole={role} aID={uID}/>
+
+            <ProtectedRoute exact path="/schedule/update_conference/:cid" component={UpdateConference} uRole={role} aID={uID}/>
+
+            {/* <ProtectedRoute exact path="/membervalidation" component={MemberValidation} uRole={role} aID={uID}/> */}
                             
             {/*NewEvent component - events created manually*/}
-            <ProtectedRoute  exact path="/new_event"  component={NewEvent} uRole={role} aID={uID}/> 
-            <ProtectedRoute  exact path="/new_event/:project_id"  component={NewProjectEvent} uRole={role} aID={uID}/> 
+            <ProtectedRoute  exact path="/schedule/:cid/new_event"  component={NewEvent} uRole={role} aID={uID}/> 
+            <ProtectedRoute  exact path="/schedule/:cid/new_event/:project_id"  component={NewProjectEvent} uRole={role} aID={uID}/> 
 
             {/*NewEvent component - events created manually*/}
-            <ProtectedRoute  exact path="/update_event/:meetid" component={UpdateEvent} uRole={role} aID={uID}/>
 
-            <ProtectedRoute  exact path="/update_batch_event/:meetid" component={UpdateBatchEvent} uRole={role} aID={uID}/>
-            {/* <ProtectedRoute  exact path="/update_event" component={UpdateEvent} uRole={role} aID={uID}/>  */}
-
-            <ProtectedRoute  exact path="/event_details/:project_id" component={EventDetails} uRole={role} aID={uID}/> 
+            <ProtectedRoute  exact path="/schedule/:cid/update_batch_event/:meetid" component={UpdateBatchEvent} uRole={role} aID={uID}/>
+            {/* <ProtectedRoute  exact path="/update_event" component={UpdateEvent} uRole={role} aID={uID}/>  */} 
 
             {/* Schedule Review  component - view schedule before submitting* */}
             {/* <ProtectedRoute  exact path="/schedule/review" component={ScheduleReview} uRole={role} aID={uID}/>  */}
 
+            <ProtectedRoute  exact path="/schedule/:cid/update_event/:meetid" component={UpdateEvent} uRole={role} aID={uID}/> 
+           
 
             <Route path="/validate">
               <Validate/> 
@@ -126,7 +130,7 @@ function App() {
             <ProtectedRoute exact path="/settings" component={Settings} uRole={role} aID={uID}/>
 
                           
-            <ProtectedRoute exact path="/cal" component={C2} uRole={role} aID={uID}/> 
+            <ProtectedRoute exact path="/schedule/:cid/eventsScheduled" component={C2} uRole={role} aID={uID}/> 
                
           </div> 
           <Route path="*"> 

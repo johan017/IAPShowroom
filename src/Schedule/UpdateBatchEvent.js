@@ -20,7 +20,8 @@ function UpdateBatchEvent (props) {
     const {projects} = useFetchProjects();
     var  pathArray = window.location.pathname.split('/');
 
-    var eid = parseInt(pathArray[2]);
+    var eid = parseInt(pathArray[4]);
+    var cid = parseInt(pathArray[2]);
     const history = useHistory();
 
 
@@ -98,6 +99,7 @@ function UpdateBatchEvent (props) {
                 "duration": parseInt(inputDuration),
                 "title": inputTitle,
                 "e_date": inputStartTime.slice(0,10), //new Date(startTime), //.toLocaleString('en-US'),
+                "cid": cid
         };
         console.log("event", messageData);
 
@@ -111,7 +113,7 @@ function UpdateBatchEvent (props) {
             }).catch((error)=>{
                 console.log(error)
         });
-        history.push('/cal');
+        history.push(`/schedule/${cid}/eventsScheduled`);
         }catch(err){
 
         }
@@ -128,7 +130,7 @@ function UpdateBatchEvent (props) {
             }).catch((error)=>{
                 console.log(error)
         });
-        history.push('/cal'); 
+        history.push(`/schedule/${cid}/eventsScheduled`); 
     }
 
    
@@ -167,7 +169,7 @@ function UpdateBatchEvent (props) {
                                         onChange = {(e) => setDuration(e.target.value)}
                                     ></input>
                                 
-                                    <Link to ={"/cal"}>
+                                    <Link to ={`/schedule/${cid}/eventsScheduled`}>
                                         <button style={{ background: 'gray' }}>Cancel</button>
                                     </Link>
                                     <button style={{ background: '#3B8D25' }}  onClick={() => { handleUpdateEvent(event.projectid, event.title, title, event.starttime, startTime, event.duration, duration);}}>Update Event</button> 
@@ -178,50 +180,6 @@ function UpdateBatchEvent (props) {
                                 
                 </div>
             )}
-
-            {/* if an event does not exist - creat event [post]
-            {!event && (
-                <div className="addNewEvent">
-                    {projects && projects.map((project)=>(
-                        <div key={project.project_id}>  
-                            {project.project_id === eid &&(
-                                <div>                        
-                                    <h2>New Event Information</h2>
-                                    <label>New Event Title: </label>
-                                    <input 
-                                        type="text" 
-                                        defaultValue={project.title}
-                                        onChange = {(e) => setTitle(e.target.value)}
-                                    />
-                                    <label>Start Time: </label>
-                                    <input
-                                        type="datetime-local"
-                                        // required
-                                        // defaultValue={new Date(defaultST).toISOString('en-US').slice(0,16)}
-                                        value = {startTime}
-                                        onChange = {(e) => setStartTime(e.target.value)}
-
-                                    ></input>
-                                    <label>Duration: </label>
-                                    <input 
-                                        type="number" 
-                                        // required 
-                                        // defaultValue={duration}
-                                        value = {duration}
-                                        onChange = {(e) => setDuration(e.target.value)}
-                                    ></input>
-                                
-                                    <Link to ={"/cal"}>
-                                            <button style={{ background: 'gray' }}>Cancel</button>
-                                    </Link>
-                                    <button style={{ background: '#3B8D25' }}  onClick={() => {handlePostEvent(project.project_id, project.title, title);}}>Create Event</button> 
-                                    <button onClick={handleDelete}>Delete Event</button>
-                                </div> */}
-                            {/* )}
-                        </div>
-                    ))} */}
-                {/* </div> */}
-            {/* )} */}
            
                 
 
