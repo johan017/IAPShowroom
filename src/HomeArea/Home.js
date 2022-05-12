@@ -2,10 +2,12 @@ import {Link, Redirect} from "react-router-dom";
 import Announcements from "./Announcements";
 import useFetchEvents from "../hooks/use-fetch-events";
 import React from "react";
-import { useState} from 'react';
+import { useState, useEffect} from 'react';
 import axios from "../context/axios";
 import config from '../config/config';
 import StageLiveButton from "../StageArea/StageLiveButton";
+import useFetchConferences from "../hooks/use-fetch-conferences";
+import useFetchGroupedEvents from "../hooks/use-fetch-events-grouped";
 
 
 export default function Home({user_Role, aID, checked}) {  
@@ -19,9 +21,32 @@ export default function Home({user_Role, aID, checked}) {
     const time = config.safariPolyfill(props);
     return(new Date(time).toLocaleTimeString([], {hour: 'numeric', minute:'2-digit'}));
   }
-
+  const {groupedEvents} = useFetchGroupedEvents();
+  console.log("groupedEvents", groupedEvents)
   const [popup, setPopup] = useState(false);
   const { events, redirect, loading} = useFetchEvents();
+  const {conferences} = useFetchConferences();
+  const [scheduleDate, setScheduleDate] = useState(""); // date chosen in dropdown 
+  const [eventsByConf, setEventsByConf] = useState([]); //events from cid
+  const [cid, setCid] = useState(); //conference to get events from 
+  const [isLoading, setLoading] = useState(false);
+
+  const CONF_EVENTS_URL = "api/showroom/schedule/events"
+
+  const getConferenceEvents = async(c) =>{
+    console.log("getconference function input: ",c)
+    try{
+    const result = await axios.get(CONF_EVENTS_URL+`?conference_id=${c}`,
+    {
+        headers: {"Content-Type": "application/json"},
+        withCredentials: true
+    }) 
+    setEventsByConf(result.data.payload);
+    } catch(error) {
+        console.error(error.response.status);
+    }
+    setLoading(false);
+}
 
   var modal;
   const [roomInfo, setRoomInfo] = useState('');
@@ -62,13 +87,14 @@ export default function Home({user_Role, aID, checked}) {
         e.map((event) => {
           return (
             <div className="project-prev" key ={event.meetid}>
+
                 <p>{getTime(event.starttime)}</p>
                 <div className="project-preview">
-                  <h2>{event.title}</h2>  <br/>
+                  <h3>{event.title}</h3> 
                   {event.projectid && ( 
                   <div>
                     <button onClick={() => {showSpeakers(event.projectid, event.title)}} >Speakers</button>  
-                    <Link to ={`/project_room/${event.projectid}`}>           
+                    <Link to ={`/rooms/${scheduleDate}/project_room/${event.projectid}`}>           
                       <button style={{marginLeft: "10px"}}>Room</button>
                     </Link>
                   
@@ -105,9 +131,61 @@ export default function Home({user_Role, aID, checked}) {
         })
       )
     } else {
-      <div>
-      <h3>No events currently available</h3>
+      return(
+      <div className="no-conf-event">
+        {events && events.map((event)=>(
+          <div key={event.meetid}>
+              <div className="project-prev" key ={event.meetid}>
+
+              <p>{getTime(event.starttime)}</p>
+              <div className="project-preview">
+                <h3>{event.title}</h3> 
+                {event.projectid && ( 
+                <div>
+                  <button onClick={() => {showSpeakers(event.projectid, event.title)}} >Speakers</button>  
+                  <Link to ={`/rooms/${scheduleDate}/project_room/${event.projectid}`}>           
+                    <button style={{marginLeft: "10px"}}>Room</button>
+                  </Link>
+                
+                <div id="myModal" className="modal">
+                
+                  <div id="myModal" className="modal-content">
+                    <span onClick={() => {closeModal()}}className="close">&times;</span>
+                    <h2>{title}</h2>
+                    <h4> Student Researchers </h4>
+                    {roomInfo && roomInfo.map((member)=> ( 
+                      <>
+                      {member.user_role === "Student Researcher" ? (
+                      <li key={member.userid}>{member.first_name} {member.last_name}</li>
+                      ):(<></>)}
+                      </>
+                    ))} 
+                    <br></br>
+                    <h4> Advisors </h4>
+                    {roomInfo && roomInfo.map((member)=> ( 
+                      <>
+                      {member.user_role === "Advisor" ? (
+                      <li key={member.userid}>{member.first_name} {member.last_name}</li>
+                      ):(<></>)}
+                      </>
+                    ))} 
+                  </div>
+                      
+                </div>
+                </div>
+                )}
+              </div>
+              </div>       
+          </div>
+        ))}
+        {!events && (
+          <>
+            <h3>No events currently available</h3>
+          </>
+        )}
+    
       </div>
+      )
     }
 
   }
@@ -129,7 +207,20 @@ export default function Home({user_Role, aID, checked}) {
     
   }
 
+  const getDate1 = (props) =>{
+        
+    const day = props;
+   
+    console.log("day entered", day);
+
+    console.log("day displayes", new Date(day).toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'}));
+
+    return new Date(day).toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'}); //new Date(day).toISOString('en-US', {month: 'long', day: 'numeric', year: 'numeric'});
+  }
+
+console.log("eventsByConf", eventsByConf)
   return ( 
+
     <div className="home">
       {loading && <div> Loading...</div>}
 
@@ -138,19 +229,24 @@ export default function Home({user_Role, aID, checked}) {
           <div className="home-date-sched" style={{ borderBottom: '1px solid #8e8a8a'}}>
           <label> Schedule </label> <p>{getDate()}</p>  
           </div>
-          {/* {checked && (<button onClick={handleStage} style={{backgroundColor: 'red'}}>STAGE LIVE</button>)}
-          {!checked && (<button onClick={handleStage}>STAGE LIVE</button>)}  */}
-          <div className="events-home">
-            {events.length>0 && (
-              displayEvents(events)
-            )}
+          <div className="home-container5"> 
 
-            {events.length <=0 && (
-                        <div className="project-prev">
-                        <h2>No Events in Schedule</h2>
-                        </div>
-            )} 
+          <label>Conference Date:</label>
+          <select
+            value={scheduleDate}
+            onChange={(e)=>{setScheduleDate(e.target.value);getConferenceEvents(e.target.value)}}
+          
+          
+          >
+            <option value="" disabled> Choose an option</option>
+            {conferences && conferences.map((conference) =>(
+              <option key={conference.cid} value={conference.cid} >{getDate1(conference.c_date)}</option>             
+            ))}
+          </select>
           </div>
+          {/* <h1>selected date: {scheduleDate}</h1> */}
+           
+
   
        </div>  
 

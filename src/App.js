@@ -79,10 +79,10 @@ function App() {
             {/* <Stage path="/stage"></Stage> */}
 
             {/*Rooms component*/}
-            <ProtectedRoute path="/rooms/:cid" component={Rooms} uRole={role} aID={uID}/>
+            <ProtectedRoute exact path="/rooms" component={Rooms} uRole={role} aID={uID}/>
 
             {/*Project Room component*/}
-            <ProtectedRoute path="/rooms/:cid/project_room/:project_id" component={ProjectRoom} uRole={role} aID={uID}/>
+            <ProtectedRoute exact path="/rooms/:cid/project_room/:project_id" component={ProjectRoom} uRole={role} aID={uID}/>
 
             {/*Stats component*/}
             
