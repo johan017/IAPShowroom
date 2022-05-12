@@ -152,7 +152,7 @@ const Rooms = ({user_Role}) => {
         )}
       </div>
       </div>
-    // </div>
+    </div>
   );
 }
  

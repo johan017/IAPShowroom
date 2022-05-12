@@ -29,6 +29,7 @@ const Stats = () => {
         const today = new Date();
         return today.toLocaleDateString('default', {month: 'long', day: 'numeric', year: 'numeric'});
     }
+    
 
     const formatDate1 = (date) =>{
         const splitDate2 = date.toString().split(' ');
@@ -66,7 +67,7 @@ const Stats = () => {
                 <h3>Overall Participants</h3>
 
                     <p>Total Participants</p>
-                    {/* {displayStats.maxParticipants} */}
+                    {displayStats.maxParticipants}
                     <div className="stat-prog-bar">
                     
                         <Progress totalp={`${displayStats.maxParticipants}`} totalItem={`${displayStats.maxParticipants}`} /> 
@@ -74,25 +75,25 @@ const Stats = () => {
 
                     <p>General Participants</p>
                     <div className="stat-prog-bar">
-                        {/* {displayStats.generalParticipants} */}
+                        {displayStats.generalParticipants}
                         <Progress totalp={`${displayStats.maxParticipants}`} totalItem={`${displayStats.generalParticipants}`} /> 
                     </div> <br/>                                        
                     
                    <p>Research Student Participants</p>
                     <div className="stat-prog-bar">
-                    {/* {displayStats.researchStudParticipants} */}
+                    {displayStats.researchStudParticipants}
                         <Progress totalp={`${displayStats.maxParticipants}`} totalItem={`${displayStats.researchStudParticipants}`} /> 
                     </div> <br/>
 
                     <p>Company Representatives Participants</p>
                     <div className="stat-prog-bar">
-                    {/* {displayStats.companyRepParticipants} */}
+                    {displayStats.companyRepParticipants}
                         <Progress totalp={`${displayStats.maxParticipants}`} totalItem={`${displayStats.companyRepParticipants}`} /> 
                     </div> <br/>
 
                         <p>Advisor Participants</p>
                     <div className="stat-prog-bar">
-                    {/* {displayStats.professorParticipants} */}
+                    {displayStats.professorParticipants}
                         <Progress totalp={`${displayStats.maxParticipants}`} totalItem={`${displayStats.professorParticipants}`} /> 
                     </div> <br/>
 
@@ -114,49 +115,49 @@ const Stats = () => {
 
                     <p>Research Student Participants</p>
                     <div className="stat-prog-bar">
-                    {/* {displayStats.researchStudParticipants} */}
+                    {displayStats.researchStudParticipants}
                         <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.researchStudParticipants}`} /> 
                     </div> <br/>
 
                     <p>Research Students from ICOM</p>
                     <div className="stat-prog-bar">
-                    {/* {displayStats.resStudICOM} */}
+                    {displayStats.resStudICOM}
                         <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudICOM}`} /> 
                     </div> <br/>
 
                     <p>Research Students from INEL</p>
                     <div className="stat-prog-bar">
-                    {/* {displayStats.resStudINEL} */}
+                    {displayStats.resStudINEL}
                         <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudINEL}`} /> 
                     </div> <br/>
 
                     <p>Research Students from INSO</p>
                     <div className="stat-prog-bar">
-                    {/* {displayStats.resStudINSO} */}
+                    {displayStats.resStudINSO}
                         <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudINSO}`} /> 
                     </div> <br/>
 
                     <p>Research Students from CIIC</p>
                     <div className="stat-prog-bar">
-                    {/* {displayStats.resStudCIIC} */}
+                    {displayStats.resStudCIIC}
                         <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudCIIC}`} /> 
                     </div> <br/>
 
                     <p>Research Students from INME</p>
                     <div className="stat-prog-bar">
-                    {/* {displayStats.resStudINME} */}
+                    {displayStats.resStudINME}
                         <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudINME}`} /> 
                     </div> <br/>
 
                     <p>Research Students from Other Departments</p>
                     <div className="stat-prog-bar">
-                    {/* {displayStats.resStudOther} */}
+                    {displayStats.resStudOther}
                         <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudOther}`} /> 
                     </div> <br/>
 
                     <p>Students that will graduate soon</p>
                     <div className="stat-prog-bar">
-                    {/* {displayStats.resStudGRAD} */}
+                    {displayStats.resStudGRAD}
                         <Progress totalp={`${displayStats.researchStudParticipants}`} totalItem={`${displayStats.resStudGRAD}`} /> 
                     </div> <br/>
 

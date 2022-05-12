@@ -1,5 +1,5 @@
 const baseURL = 'http://localhost:8080';
-const WebSocketURL = 'ws://localhost:8081'
+const WebSocketURL = 'ws://localhost:8081/ws/'
 
 const captchaKey = '6Lfnv_geAAAAABsSPS0UKVKIFkeZWly0yiA_-Wxi'
 
