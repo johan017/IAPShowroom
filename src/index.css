@@ -70,6 +70,18 @@ svg{
   display: flex;
   flex-direction: column;
 }
+.home-container5{
+  font-size: 20px;
+  margin-top: 10px;
+}
+.home-container5 label{
+  margin-right: 10px;
+}
+.home-container5 select{
+  font-size: 18px;
+  border: hidden;
+  width: 18%;
+}
 .home-container-3{
   margin-left: 2%;
   display: flex;
@@ -192,10 +204,18 @@ svg{
 }
 
 .project-preview {
+
   padding: 10px 20px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
   box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+}
+.project-prev p{
+  font-size: 20px;
+}
+.no-conf-event h3{
+  margin-top: 40px;
+  font-size: xx-large;
 }
 /*Project room & Speaker buttons */
 .project-preview button {
@@ -207,6 +227,7 @@ svg{
   border-radius: 8px;
   cursor: pointer;
   margin-left: 65%;
+  margin-top: 8px;
   /* margin-right: -390px;
   margin-left: 390px; */
   display:inline-block;
@@ -1272,6 +1293,10 @@ align-items: center;
   width: 50px;
   color: black;
 
+}
+.project-prev p{
+  margin-top: 20px;
+  margin-left: 90%;
 }
 /* .project-preview a:link{
   color: #c9330e;
