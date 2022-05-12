@@ -29,11 +29,15 @@ const EventList = () => {
                 <div className="c2" key ={event.meetid}>
                       
                         {event.title}
-                      
-                    <Link to ={`/update_event/${event.meetid}`}>
-                        <button>Update Event</button>
-                    </Link>     
-                 
+                    <div>
+                        <Link to ={`/update_batch_event/${event.meetid}`}>
+                            <button>Bulk Update Events</button>
+                        </Link>  
+
+                        <Link to ={`/update_event/${event.meetid}`}>
+                            <button style={{'margin-left': '10px'}}>Update Event</button>
+                        </Link>     
+                    </div>
 
                 </div>     
                 

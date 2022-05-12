@@ -14,6 +14,7 @@ import NewProjectEvent from './Schedule/NewProjectEvent';
 import EventDetails from './Schedule/EventDetails';
 // import ScheduleReview from './Schedule/ScheduleReview';
 import UpdateEvent from './Schedule/UpdateEvent';
+import UpdateBatchEvent from './Schedule/UpdateBatchEvent'
 import AccountCreated from './UserSignUp/AccountCreated';
 import SignUpPage from './UserSignUp/SignUpPage';
 import ProtectedRoute from './ProtectedRoute';
@@ -104,7 +105,9 @@ function App() {
             <ProtectedRoute  exact path="/new_event/:project_id"  component={NewProjectEvent} uRole={role} aID={uID}/> 
 
             {/*NewEvent component - events created manually*/}
-            <ProtectedRoute  exact path="/update_event/:meetid" component={UpdateEvent} uRole={role} aID={uID}/> 
+            <ProtectedRoute  exact path="/update_event/:meetid" component={UpdateEvent} uRole={role} aID={uID}/>
+
+            <ProtectedRoute  exact path="/update_batch_event/:meetid" component={UpdateBatchEvent} uRole={role} aID={uID}/>
             {/* <ProtectedRoute  exact path="/update_event" component={UpdateEvent} uRole={role} aID={uID}/>  */}
 
             <ProtectedRoute  exact path="/event_details/:project_id" component={EventDetails} uRole={role} aID={uID}/> 
