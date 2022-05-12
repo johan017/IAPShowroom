@@ -15,8 +15,10 @@ const C2 = () => {
   // const {data: events, error, isLoading} = useFetch('http://localhost:8000/events'); /* data is events because info is found in db within events */
   const history = useHistory();
   const {conferences} = useFetchConferences();
+  var  pathArray = window.location.pathname.split('/');
+  var cid = parseInt(pathArray[2]);
+  
   // const {events, loading} = useFetchEvents();
-
     const handleNewEvent =(e)=>{
       history.push(`/schedule/${cid}/new_event`);
     }
@@ -48,10 +50,6 @@ const C2 = () => {
       evt.currentTarget.className += " active";
     }
     // const [cDate, setCDate] = useState('');
-
-    var  pathArray = window.location.pathname.split('/');
-
-    var cid = parseInt(pathArray[2]);
 
   //   const getConference = async() =>{
   //     try{

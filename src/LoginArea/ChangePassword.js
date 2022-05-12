@@ -12,13 +12,6 @@ const ChangePassword = () => {
     const [isLoading, setIsLoading] = useState(false); 
     const [matchPass,setMatchPass] = useState('');
 
-    var  pathArray = window.location.pathname.split('/');
-
-    var userid_path = parseInt(pathArray[2]);
-
-    var euuid_path = parseInt(pathArray[3]);
-
-
 
     var  pathArray = window.location.pathname.split('/');
     var userid_path = parseInt(pathArray[2]);

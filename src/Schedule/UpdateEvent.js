@@ -119,7 +119,7 @@ function UpdateEvent (props) {
             }).catch((error)=>{
                 console.log(error)
         });
-        history.push('/cal');
+        history.push(`/schedule/${cid}/eventsScheduled`);
         }catch(err){
 
         }
@@ -160,7 +160,7 @@ function UpdateEvent (props) {
             }).catch((error)=>{
                 console.log(error)
         });
-        history.push('/cal');
+        history.push(`/schedule/${cid}/eventsScheduled`);
         }catch(err){
 
         }
@@ -177,7 +177,7 @@ function UpdateEvent (props) {
             }).catch((error)=>{
                 console.log(error)
         });
-        history.push('/cal'); 
+        history.push(`/schedule/${cid}/eventsScheduled`); 
     }
 
    
