@@ -5,7 +5,7 @@ import useFetchEvents from "../hooks/use-fetch-events";
 
 
 //List of events inside the conference day 
-const EventList = () => {
+const EventList = ({cid}) => {
     const {events, loading,} = useFetchEvents();
     
 
@@ -29,8 +29,9 @@ const EventList = () => {
                 <div className="c2" key ={event.meetid}>
                       
                         {event.title}
+                        <br/>
                       
-                    <Link to ={`/update_event/${event.meetid}`}>
+                    <Link to ={`/schedule/${cid}/update_event/${event.meetid}`}>
                         <button>Update Event</button>
                     </Link>     
                  
