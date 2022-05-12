@@ -19,8 +19,12 @@ function UpdateEvent (props) {
     
     const {projects} = useFetchProjects();
     var  pathArray = window.location.pathname.split('/');
+    var cid = parseInt(pathArray[2]);
+    console.log("cid", cid)
 
-    var eid = parseInt(pathArray[2]);
+    var eid = parseInt(pathArray[4]);
+    console.log("eid", eid)
+
     const history = useHistory();
 
     const [event, setEvent] = useState();
@@ -101,6 +105,7 @@ function UpdateEvent (props) {
             "title": inputTitle,
             "projectid": id, 
             "e_date": formatDate2(startTime), 
+            "cid": cid,
         }];
         console.log("event", messageData);
 
@@ -114,7 +119,7 @@ function UpdateEvent (props) {
             }).catch((error)=>{
                 console.log(error)
         });
-        history.push('/cal');
+        history.push(`/schedule/${cid}/eventsScheduled`);
         }catch(err){
 
         }
@@ -141,6 +146,7 @@ function UpdateEvent (props) {
                 "duration": parseInt(inputDuration),
                 "title": inputTitle,
                 "e_date": inputStartTime.slice(0,10), //new Date(startTime), //.toLocaleString('en-US'),
+                "cid": cid,
         };
         console.log("event", messageData);
 
@@ -154,7 +160,7 @@ function UpdateEvent (props) {
             }).catch((error)=>{
                 console.log(error)
         });
-        history.push('/cal');
+        history.push(`/schedule/${cid}/eventsScheduled`);
         }catch(err){
 
         }
@@ -171,7 +177,7 @@ function UpdateEvent (props) {
             }).catch((error)=>{
                 console.log(error)
         });
-        history.push('/cal'); 
+        history.push(`/schedule/${cid}/eventsScheduled`); 
     }
 
    
@@ -210,7 +216,7 @@ function UpdateEvent (props) {
                                         onChange = {(e) => setDuration(e.target.value)}
                                     ></input>
                                 
-                                    <Link to ={"/cal"}>
+                                    <Link to ={`/schedule/${cid}/eventsScheduled`}>
                                         <button style={{ background: 'gray' }}>Cancel</button>
                                     </Link>
                                     <button style={{ background: '#3B8D25' }}  onClick={() => { handleUpdateEvent(event.projectid, event.title, title, event.starttime, startTime, event.duration, duration);}}>Update Event</button> 

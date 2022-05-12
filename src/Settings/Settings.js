@@ -20,13 +20,9 @@ const Settings = ({user_Role, adminID}) => {
                                 </div>
                             )}
                             
-                            <h2>Account Management</h2>
+            <h2>Account Management</h2>
 
-                            <p><Link to ="/account" >ACCOUNT </Link> </p>
-                          
-                    
-
-        
+            <p><Link to ="/account" >ACCOUNT </Link> </p>
         </div>
     );
 }
