@@ -54,8 +54,11 @@ const VerifyInformation = ({ prevStep, values }) =>{
                     alert('An error occured. Please check your information.');
                 } else if(err.response?.status === 409){
                     alert('This email is already registered');
-                    
-                } else {
+                
+                } else if(err.response?.status === 500){
+                    alert('No IAP projects found associated with given email, please contact administrator.');
+                }else {
+                    alert(err.response);
                     console.log('Registration Failed');
                 }
                 window.location.reload();
