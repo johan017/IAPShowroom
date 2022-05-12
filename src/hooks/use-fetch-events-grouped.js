@@ -1,11 +1,11 @@
 import { useEffect, useState} from 'react';
 import axios from "../context/axios";
 
-var EVENTS_URL = "api/showroom/schedule/events"
+var EVENTS_URL = "api/showroom/schedule/events?all=true"
 
-const useFetchEvents = (flag) => {
+const useFetchGroupedEvents = () => {
 
-    const [events, setEvents] = useState([]);
+    const [groupedEvents, setGroupedEvents] = useState([]);
     const [redirect, setRedirect] = useState(false);
     const [isLoading, setLoading] = useState(false);
 
@@ -16,12 +16,17 @@ const useFetchEvents = (flag) => {
             headers: {"Content-Type": "application/json"},
             withCredentials: true
         }) 
-        setEvents(result.data.payload);
+        var groupBy = function(xs, key) {
+            return xs.reduce(function(rv, x) {
+              (rv[x[key]] = rv[x[key]] || []).push(x);
+              return rv;
+            }, {});
+          };
+        var groupedByTitle = groupBy(result.data.payload, 'e_date');
+        setGroupedEvents(groupedByTitle);
+
         } catch(error) {
             console.error(error.response.status);
-            if(error.response.status = '401'){
-               //setRedirect(true);
-            }
         }
         setLoading(false);
     };
@@ -31,10 +36,10 @@ const useFetchEvents = (flag) => {
     }, []);
 
     return {
-        events,
+        groupedEvents,
         redirect,
         isLoading
       };
 };
 
-export default useFetchEvents;
+export default useFetchGroupedEvents;

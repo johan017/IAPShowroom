@@ -3,8 +3,6 @@ import axios from "../context/axios";
 
 const CONF_STATS_URL = "api/showroom/stats"
 
-//TODO - Date that it accepts or tracks is the start time date 
-
 const useFetchConferenceStats = () => {
 
     const [conferenceStats, setConferenceStats] = useState([]);

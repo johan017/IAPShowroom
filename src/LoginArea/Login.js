@@ -1,5 +1,4 @@
-import { useContext, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import {Link} from 'react-router-dom';
 import axios from "../context/axios";
@@ -7,7 +6,6 @@ import config from "../config/config";
 const LOGIN_URL = 'api/auth/login';
 
 const Login = () => {
-    const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,7 +16,6 @@ const Login = () => {
 
     //verifies if captcha was successfull (checked)
     const handleCaptcha = () =>{
-        console.log("captcha has loaded");
         setIsVerified(true);
         setIsLoggedIn(true);
     }
@@ -32,7 +29,8 @@ const Login = () => {
             e.preventDefault();
             try{
                 setIsLoading(true); //before submitting
-                const login = {email, password};
+                let login = {email, password};
+                login.email = login.email.toLowerCase();
                 const response = await axios.post(LOGIN_URL, 
                     JSON.stringify(login),
                     {
@@ -49,24 +47,16 @@ const Login = () => {
             }catch(err){
                 if(!err?.response) {
                     alert("Server is not responding");
-                    console.log('No Server Response');
                 } else if((err.response?.status === 400)){
                     alert("Missing Username or Password")
-                    console.log('Missing Username or Password');
                 } else if((err.response?.status === 400)){
-                    alert("User is unauthorized to ");
-                    console.log('Unauthorized');
+                    alert("User is unauthorized");
                 } else {
                     alert("No user exists with those credentials");
-                    console.log('Login Failed');
                 }
                 window.location.href="/";
             }
-            // window.location.href="/home";
-            // history.push('/home');
-
         }
-
     }
 
     return ( 
@@ -111,7 +101,7 @@ const Login = () => {
 
             </form>
 
-            <Link to="/signUp" >Don't have an account? Create</Link>
+            <Link to="/signUp" >Don't have an account? Sign up with email</Link>
 
            
 

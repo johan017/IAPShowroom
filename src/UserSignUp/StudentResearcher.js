@@ -42,13 +42,13 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
 
     const validateForm = e =>{
 
-        if(values.projectids.length === 0)
-        {
-            document.getElementById("error").style.visibility = "visible";
-            e.preventDefault();
-        }
+        // if(values.projectids.length === 0)
+        // {
+        //     document.getElementById("error").style.visibility = "visible";
+        //     e.preventDefault();
+        // }
 
-        else if(major.checkValidity() && gradDate.checkValidity()){
+        if(major.checkValidity() && gradDate.checkValidity()){
             e.preventDefault();
             nextStep();
         }
@@ -74,8 +74,8 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
                     <h1>StudentResearcher Info</h1>
                 
                     <form onSubmit={validateForm}> 
-                        <label>Research Project: </label>
-                       <div style={{marginLeft: "20px", width: "450px"}}>
+                       {/*   <label>Research Project: </label>
+                      <div style={{marginLeft: "20px", width: "450px"}}>
                         <Select 
                             id="research" 
                             isMulti
@@ -85,7 +85,7 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
                             required
                         />      
                          </div>                 
-                        <div className="form-sr-rp" style={{visibility:'hidden' }} id="error"> Please select at least one option. </div>
+                        <div className="form-sr-rp" style={{visibility:'hidden' }} id="error"> Please select at least one option. </div> */}
 
                         {/* <div>
                         {projects && projects.map((project) => ( 
@@ -135,7 +135,7 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
                         >
 
                         </input>
-                        <label> Are you the project manager? </label>
+                        {/* <label> Are you the project manager? </label>
                         <select 
                             onChange = {handleChange('ispm')} 
                             defaultValue = "false"
@@ -144,7 +144,7 @@ const StudentResearcher = ({ nextStep, prevStep, handleChange, handleProjectChan
                             <option value={"false"}> No </option>
                             <option value={"true"}> Yes </option>
 
-                        </select>
+                        </select> */}
                         <button style={{ background: 'red' }} onClick={prevPage} > Back </button>
                         <button style={{ background: '#3B8D25' }} type="submit" value="Next" > Next </button>
 

@@ -4,8 +4,6 @@ import useFetchEvents from './use-fetch-events';
 
 const ROOM_INFO_URL = "";
 
-// const {events} = useFetchEvents();
-//STILL WORKING ON IT 
 const useFetchRoomInfo = () => {
     const {events} = useFetchEvents();
 

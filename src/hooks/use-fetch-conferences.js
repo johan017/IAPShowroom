@@ -1,40 +1,41 @@
 import { useEffect, useState} from 'react';
 import axios from "../context/axios";
 
-var EVENTS_URL = "api/showroom/schedule/events"
+var CONFERENCES_URL = "api/showroom/conference"
 
-const useFetchEvents = (flag) => {
+const useFetchConferences = (flag) => {
 
-    const [events, setEvents] = useState([]);
+    const [conferences, setConferences] = useState([]);
     const [redirect, setRedirect] = useState(false);
     const [isLoading, setLoading] = useState(false);
 
-    const getEvents = async() =>{
+    const getConferences = async() =>{
         try{
-        const result = await axios.get(EVENTS_URL, 
+        const result = await axios.get(CONFERENCES_URL, 
         {
             headers: {"Content-Type": "application/json"},
             withCredentials: true
         }) 
-        setEvents(result.data.payload);
+        setConferences(result.data.payload);
+        console.log("url_used", CONFERENCES_URL)
+
         } catch(error) {
             console.error(error.response.status);
             if(error.response.status = '401'){
-               //setRedirect(true);
             }
         }
         setLoading(false);
     };
 
     useEffect(()=>{
-        getEvents();
+        getConferences();
     }, []);
 
     return {
-        events,
+        conferences,
         redirect,
         isLoading
       };
 };
 
-export default useFetchEvents;
+export default useFetchConferences;
