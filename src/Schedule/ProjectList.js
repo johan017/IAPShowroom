@@ -5,7 +5,7 @@ import useFetchProjects from "../hooks/use-fetch-projects";
 
 
 //List of events inside the conference day 
-const ProjectList = () => {
+const ProjectList = ({cid}) => {
     const {projects, loading,} = useFetchProjects();
     const {events} = useFetchEvents();
 
@@ -26,9 +26,12 @@ const ProjectList = () => {
                     {!eventsList.has(project.project_id) && (
                         <div className="c2">
                             {project.title}
-                            <Link to ={`/new_event/${project.project_id}`}>
+                            <br/>
+                            {cid && (
+                            <Link to ={`/schedule/${cid}/new_event/${project.project_id}`}>
                                 <button>Create Event</button>
                             </Link> 
+                            )}
                         </div>
                     )}
                 </div>     
