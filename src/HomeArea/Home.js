@@ -246,7 +246,7 @@ console.log("eventsByConf", eventsByConf)
           </div>
           {/* <h1>selected date: {scheduleDate}</h1> */}
            
-
+                {displayEvents(eventsByConf)}
   
        </div>  
 
