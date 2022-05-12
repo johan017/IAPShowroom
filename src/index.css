@@ -825,9 +825,11 @@ align-items: center;
 
 /*--------Schedule Create view---------*/
 .cal2{
+  align-items: center;
   margin-top: 20px;
-  margin-left: 50px;
+  /* margin-left: 50px; */
   display: flex;
+  flex-direction: column;
 }
 .sched-buttons button{
   background: #535353;
@@ -839,35 +841,58 @@ align-items: center;
   margin-left: 25px;
   margin-top: 10px;
   margin-right: 25px;
+
   /* height: 40px; */
+
 }
 .cal22{
-  max-width: 600px; 
+  width: 700px; 
   height: 650px;
   margin-bottom: 30px;
   overflow-y: scroll;
   overflow: auto;
 }
-.schedule-container{
+.conf-title{
+  font-size: 25px;
+  margin-bottom: 30px;
+  align-items: center;
   display: flex;
   flex-direction: column;
 }
-.schedule-buttons button{
+.schedule-container{
+  margin-left: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.schedule-container2{
+  margin-right: 100px;
+  display: flex;
+  flex-direction: column;
+}
+.row-conf{
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+}
+.schedule-buttons button {
   background: #008DED;
   color: #fff;
   border: 0;
   padding: 8px 20px;
   border-radius: 8px;
   cursor: pointer;
-  margin-left: 60px;
+  /* margin-left: 60px; */
   margin-top: 10px;
+  align-content: center;
+  /* display: flex;
+  flex-direction: row; */
 }
 .scheduler{
   width: 600px; 
   display: flex;
 }
 .c2{
-  max-width: 400px; 
+  width: 600px; 
   padding: 6px 10px;
   margin: 20px 25px;
   border-bottom: 1px solid #fafafa;
@@ -890,31 +915,39 @@ align-items: center;
   margin-left: 250px;
   margin-top: 10px;
 }
+.c2 text{
+  font-weight: bold;
+}
+.c2 p {
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-style: italic;
+}
 /*--------Modify Event Information view---------*/
-.Event-information{
+.Event-information, .Conference-information{
   display: flex;
 }
 .Event-information-calendar{
   width:50%;
   display: inline-block;
 }
-.addNewEvent {
+.addNewEvent, .addNewConference{
   /* width: 50%; */
   margin-right: 5%;
   margin-left: 5%;
   display: inline-block;
   text-align: center;
 }
-.addNewEvent label{
+.addNewEvent label, .addNewConference label{
   text-align: left;
   display: block;
 }
-.addNewEvent h2{
+.addNewEvent h2, .Conference-information h2{
   font-size: 20px;
   margin-bottom: 30px;
   margin-top: 30px;
 }
-.addNewEvent input, .addNewEvent textarea, .addNewEvent select {
+.addNewEvent input, .addNewEvent textarea, .addNewEvent select, .addNewConference input {
   width: 100%;
   padding: 6px 10px;
   margin: 10px 0;
@@ -922,7 +955,7 @@ align-items: center;
   box-sizing: border-box;
   display: inline-block;
 }
-.addNewEvent button{
+.addNewEvent button, .addNewConference button{
   margin-bottom: 8px;
   background: #bc0707;
   color: #fff;
@@ -1251,6 +1284,33 @@ align-items: center;
   color: #10a015;
 } */
 
+.conference-list{
+  max-width: 800px; 
+  padding: 6px 10px;
+  /* margin: 20px 25px; */
+  margin-left: 3%;
+  margin-top: 3%;
+  border-bottom: 1px solid #fafafa;
+  box-shadow: 1px 3px 5px rgba(0,0,0,0.1);
+  box-sizing:content-box;  
+  text-decoration: none; 
+} 
+/* .conference-list a {
+  margin-left: 6px;
+  text-decoration: none;
+  padding: 6px;
+} */
+
+.conference-list button{
+  background: #008DED;
+  color: #fff;
+  border: 0;
+  padding: 8px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 55%;
+  margin-top: 10px;
+}
 
 .conference-list p{
   margin-bottom: 10px;
@@ -2065,6 +2125,7 @@ color: #EA4C89;
 }
 
 .tab {
+  align-items: center;
   overflow: hidden;
   border: 1px solid #ccc;
   /* background-color: #f1f1f1; */

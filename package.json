@@ -51,6 +51,7 @@
     "react-scripts": "5.0.0",
     "react-scroll-to-bottom": "^4.2.0",
     "react-select": "^5.2.2",
+    "selenium-chromedriver": "^0.0.2",
     "selenium-webdriver": "^4.1.1",
     "styled-components": "^5.3.5",
     "web-vitals": "^2.1.4"
