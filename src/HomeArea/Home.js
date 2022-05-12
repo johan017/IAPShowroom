@@ -143,9 +143,9 @@ export default function Home({user_Role, aID, checked}) {
                 {event.projectid && ( 
                 <div>
                   <button onClick={() => {showSpeakers(event.projectid, event.title)}} >Speakers</button>  
-                  <Link to ={`/rooms/${scheduleDate}/project_room/${event.projectid}`}>           
+                  <a href ={`/project_room/${event.projectid}`}>           
                     <button style={{marginLeft: "10px"}}>Room</button>
-                  </Link>
+                  </a>
                 
                 <div id="myModal" className="modal">
                 
