@@ -80,6 +80,7 @@ const Rooms = ({user_Role}) => {
     <div className="rooms" >
       <div className="rooms-title-block">
         <h2> ROOMS </h2>  
+        
         {/* <div className="rooms-title-button-block"> */}
         <StageLiveButton user_Role={user_Role} disable={true}/>
         <button style={{backgroundColor: "white", borderColor: "white", marginLeft:"20px", cursor: "pointer"}}onClick={()=>{changePopup();}}>
