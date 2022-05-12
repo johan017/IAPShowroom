@@ -103,7 +103,7 @@ const Rooms = ({user_Role}) => {
           <div style={modStyle(roomS.student_researcher)}className="project-rooms">
      
 
-            <Link to ={`/project_room/${roomS.project_id}`} > 
+            <a href ={`/project_room/${roomS.project_id}`} > 
               <p style={{marginLeft: "10px", marginTop: "10px"}}>{roomS.title}</p>
               <br/> 
               <img 
@@ -116,7 +116,7 @@ const Rooms = ({user_Role}) => {
                 src = "user-2.png"
                 alt="display image"
               /><text>{roomS.general_users}</text>   
-            </Link> 
+            </a> 
             
           </div>
         </Grid>
