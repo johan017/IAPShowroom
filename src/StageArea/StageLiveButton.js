@@ -11,7 +11,7 @@ const StageLiveButton = ({user_Role, disable}) => {
     const history = useHistory();
 
     const handleStage = () =>{
-        history.push('/stage');
+        window.location.href = "/stage";
     }
 
     useEffect(() => {
