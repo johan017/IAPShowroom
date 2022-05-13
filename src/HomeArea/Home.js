@@ -240,7 +240,7 @@ console.log("eventsByConf", eventsByConf)
           >
             <option value="" disabled> Choose an option</option>
             {conferences && conferences.map((conference) =>(
-              <option key={conference.cid} value={conference.cid} >{getDate1(conference.c_date)}</option>             
+              <option key={conference.cid} value={conference.cid} >{conference.c_date.slice(0,10)}</option>             
             ))}
           </select>
           </div>
