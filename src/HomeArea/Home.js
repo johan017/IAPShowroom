@@ -213,9 +213,9 @@ export default function Home({user_Role, aID, checked}) {
    
     console.log("day entered", day);
 
-    console.log("day displayes", new Date(day).toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'}));
+    console.log("day displayes", new Date(day).toLocaleDateString('default', {month: 'long', day: 'numeric', year: 'numeric'}));
 
-    return new Date(day).toLocaleDateString('en-US', {month: 'long', day: 'numeric', year: 'numeric'}); //new Date(day).toISOString('en-US', {month: 'long', day: 'numeric', year: 'numeric'});
+    return new Date(day).toLocaleDateString('default', {month: 'long', day: 'numeric', year: 'numeric'}); //new Date(day).toISOString('en-US', {month: 'long', day: 'numeric', year: 'numeric'});
   }
 
 console.log("eventsByConf", eventsByConf)
