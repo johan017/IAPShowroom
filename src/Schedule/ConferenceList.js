@@ -25,7 +25,7 @@ const ConferenceList = () => {
            {conferences && conferences.map((conference) =>(
                 <div  className="conference-list" key ={conference.cid}>
                       
-                    <p>{getDate(conference.c_date)}</p>
+                    <p>{conference.c_date.slice(0,10)}</p>
                         {conference.c_text}
                     <br/>
                     <Link to ={`/schedule/${conference.cid}/eventsScheduled`}>
